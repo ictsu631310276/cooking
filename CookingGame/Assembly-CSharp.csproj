@@ -57,8 +57,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Script\PlayerScript\PlayerMoveScript.cs" />
-    <Compile Include="Assets\Script\InteractionTableScript.cs" />
     <Compile Include="Assets\Script\PlayerScript\InteractionPlayerScript.cs" />
+    <Compile Include="Assets\Script\TableScript\InteractionTableScript.cs" />
+    <Compile Include="Assets\Script\TableScript\pickupPointScript.cs" />
+    <Compile Include="Assets\Script\TableScript\BinScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
