@@ -357,10 +357,12 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.VSCode.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
+"Assets/Script/ingredientScript.cs"
 "Assets/Script/PlayerScript/InteractionPlayerScript.cs"
 "Assets/Script/PlayerScript/PlayerMoveScript.cs"
 "Assets/Script/TableScript/BinScript.cs"
 "Assets/Script/TableScript/InteractionTableScript.cs"
+"Assets/Script/TableScript/KnifeTableScript.cs"
 "Assets/Script/TableScript/pickupPointScript.cs"
 -langversion:9.0
 

@@ -6,9 +6,14 @@ public class InteractionTableScript : MonoBehaviour
 {
     public int idTable;
     public GameObject glowObject;
-    public bool checkObjedBool = false;
-    public GameObject checkObject;
-    // Start is called before the first frame update
+
+    private int itemInHand = 0;//ของบนโต้ะ
+    private bool haveItem = false;
+    public GameObject handPoint;
+    private GameObject itemModel;
+    private GameObject[] allItemModel;
+    public ingredientScript ingredient;
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
@@ -25,30 +30,63 @@ public class InteractionTableScript : MonoBehaviour
             InteractionPlayerScript.tableInteraction.Remove(idTable);
         }
     }
-
+    private void ShowModel()
+    {
+        if (!haveItem && itemInHand != 0)//แสดง item
+        {
+            haveItem = true;
+            switch (itemInHand)
+            {
+                case 1:
+                    itemModel = Instantiate(allItemModel[itemInHand - 1], handPoint.transform, false);
+                    break;
+                case 2:
+                    itemModel = Instantiate(allItemModel[itemInHand - 1], handPoint.transform, false);
+                    break;
+                default:
+                    Debug.LogError("No have this ID.");
+                    break;
+            }
+            itemModel.transform.parent = handPoint.transform;
+        }
+        else if (itemInHand == 0 && haveItem)
+        {
+            haveItem = false;
+            Destroy(itemModel, 0);
+        }
+    }
     private void Start()
     {
+        allItemModel = new GameObject[ingredient.allIngredient.Length];
+        for (int i = 0; i < ingredient.allIngredient.Length; i++)
+        {
+            allItemModel[i] = ingredient.allIngredient[i];
+        }
         glowObject.SetActive(false);
-        checkObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
+        ShowModel();
         if (InteractionPlayerScript.tableInteraction.Count != 0)
         {
             if (InteractionPlayerScript.tableInteraction[InteractionPlayerScript.tableInteraction.Count - 1] == idTable)
             {
                 glowObject.SetActive(true);
-                if ((Input.GetKeyUp(KeyCode.Q) || Input.GetButtonUp("Jump")) && !checkObjedBool)
+                if ((Input.GetKeyUp(KeyCode.Q) || Input.GetButtonUp("Jump")) && !haveItem &&
+                    InteractionPlayerScript.haveItem)
                 {
-                    checkObject.SetActive(true);
-                    checkObjedBool = true;
+                    itemInHand = InteractionPlayerScript.itemInHand;
+
+                    InteractionPlayerScript.itemInHand = 0;
                 }
-                else if ((Input.GetKeyUp(KeyCode.Q) || Input.GetButtonUp("Jump")) && checkObjedBool)
+                else if ((Input.GetKeyUp(KeyCode.Q) || Input.GetButtonUp("Jump")) && haveItem &&
+                    !InteractionPlayerScript.haveItem)
                 {
-                    checkObject.SetActive(false);
-                    checkObjedBool = false;
+                    InteractionPlayerScript.itemInHand = itemInHand;
+
+                    itemInHand = 0;
                 }
             }
             else if (InteractionPlayerScript.tableInteraction[InteractionPlayerScript.tableInteraction.Count - 1] != idTable)

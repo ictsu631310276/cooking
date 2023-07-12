@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BinScript : MonoBehaviour
 {
-    public int idTable;
+    private int idTable = 1001;
     public GameObject glowObject;
     // Start is called before the first frame update
     private void OnCollisionEnter(Collision collision)

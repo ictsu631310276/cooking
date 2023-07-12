@@ -37,7 +37,8 @@ public class pickupPointScript : MonoBehaviour
                 InteractionPlayerScript.itemInHand == 0)
             {
                 glowObject.SetActive(true);
-                if (Input.GetKeyDown(KeyCode.Q) && !InteractionPlayerScript.haveItem)
+                if ((Input.GetKeyDown(KeyCode.Q) || Input.GetButtonUp("Jump")) && 
+                    !InteractionPlayerScript.haveItem)
                 {
                     InteractionPlayerScript.itemInHand = iditem;
                     glowObject.SetActive(false);

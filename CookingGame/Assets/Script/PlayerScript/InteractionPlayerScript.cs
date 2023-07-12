@@ -7,50 +7,47 @@ public class InteractionPlayerScript : MonoBehaviour
     public static List<int> tableInteraction = new List<int>();//สำหรับโต้ะ
     public static int itemInHand = 0;//ของในมือ
     public static bool haveItem = false;
-    private GameObject i;
+    private GameObject itemModel;
     public GameObject handPoint;
-    public GameObject[] allItemModel;
-    
-    private void OnCollisionEnter(Collision collision)
-    {
+    private GameObject[] allItemModel;
 
-    }
-    void Start()
+    public ingredientScript ingredientScript;
+    private void Start()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Z))
+        allItemModel = new GameObject[ingredientScript.allIngredient.Length];
+        for (int i = 0; i < ingredientScript.allIngredient.Length; i++)
         {
-            Debug.Log("handItem : " + haveItem);
-            Debug.Log("itemInHand : " + itemInHand);
+            allItemModel[i] = ingredientScript.allIngredient[i];
         }
-        //if (Input.GetKeyDown(KeyCode.Q))
-        //{
-
-        //}
+    }
+    private void ShowModel()
+    {
         if (!haveItem && itemInHand != 0)
         {
             haveItem = true;
             switch (itemInHand)
             {
-                case 21:
-                    i = Instantiate(allItemModel[0], handPoint.transform.position, Quaternion.identity);
-                    i.transform.parent = handPoint.transform;
+                case 1:
+                    itemModel = Instantiate(allItemModel[itemInHand - 1], handPoint.transform, false);
+                    break;
+                case 2:
+                    itemModel = Instantiate(allItemModel[itemInHand - 1], handPoint.transform, false);
                     break;
                 default:
                     Debug.LogError("No have this ID.");
                     break;
             }
+            itemModel.transform.parent = handPoint.transform;
         }
         else if (itemInHand == 0 && haveItem)
         {
             haveItem = false;
-            Destroy(i, 0);
+            Destroy(itemModel, 0);
         }
+    }
+    private void Update()
+    {
+        ShowModel();
         if (Input.GetKeyDown(KeyCode.E) && tableInteraction.Count >= 2)
         {
             tableInteraction.Add(tableInteraction[0]);
