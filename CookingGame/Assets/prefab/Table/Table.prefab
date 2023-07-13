@@ -226,7 +226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8503250e805690544bc2aacf4eb06a35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idTable: 110
+  idTable: 1101
   glowObject: {fileID: 2937681053410104298}
   handPoint: {fileID: 2937681054784897314}
   ingredient: {fileID: 2520598715831065208, guid: 7359029548bfd4a478b159304a5967ea, type: 3}

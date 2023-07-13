@@ -258,5 +258,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handPoint: {fileID: 667288807447187442}
-  itemModel:
-  - {fileID: 5334172991140216423, guid: 17b2434e35a947c45a58e53710c157a3, type: 3}
+  ingredientScript: {fileID: 2520598715831065208, guid: 7359029548bfd4a478b159304a5967ea, type: 3}

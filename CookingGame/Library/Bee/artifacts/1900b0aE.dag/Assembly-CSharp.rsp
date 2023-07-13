@@ -363,7 +363,9 @@
 "Assets/Script/TableScript/BinScript.cs"
 "Assets/Script/TableScript/InteractionTableScript.cs"
 "Assets/Script/TableScript/KnifeTableScript.cs"
+"Assets/Script/TableScript/OvenScript.cs"
 "Assets/Script/TableScript/pickupPointScript.cs"
+"Assets/Script/TableScript/TimeBarScript.cs"
 -langversion:9.0
 
 /deterministic

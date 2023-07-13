@@ -1,23 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 public class KnifeTableScript : MonoBehaviour
 {
     public int idTable;
     public GameObject glowObject;
+    public ingredientScript ingredientScript;
 
     private int itemInHand = 0;//ของบนโต้ะ
     private bool haveItem = false;
     public GameObject handPoint;
     private GameObject itemModel;
     private GameObject[] allItemModel;
-    public float timeChopped;
-    private float timeOld;
+    private float timeChopped;
+    private float timeUse;
     private bool holdButtom = false;
 
-    public ingredientScript ingredientScript;
+    public Slider timeBar;
+    public GameObject timeBarUI;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -66,7 +68,7 @@ public class KnifeTableScript : MonoBehaviour
         {
             case 1 :
                 itemInHand = 2;
-                timeChopped = timeOld;
+                timeChopped = timeUse;
                 break;
             default:
                 break;
@@ -75,10 +77,20 @@ public class KnifeTableScript : MonoBehaviour
         haveItem = false;//เพื่อให้ลบ item เดิมออก
         ShowModel();
     }
+    private void Showtime(float i)
+    {
+        timeBarUI.SetActive(true);
+        timeBar.value = i;
+        if (i >= timeUse)
+        {
+            timeBarUI.SetActive(false);
+        }
+    }
     private void Start()
     {
         glowObject.SetActive(false);
-        timeOld = timeChopped;
+        timeBarUI.SetActive(false);
+        timeUse = ingredientScript.timeUseManuel;
         allItemModel = new GameObject[ingredientScript.allIngredient.Length];
         for (int i = 0; i < ingredientScript.allIngredient.Length; i++)
         {
@@ -113,12 +125,14 @@ public class KnifeTableScript : MonoBehaviour
                 {
                     InteractionPlayerScript.itemInHand = itemInHand;
                     itemInHand = 0;
-                    timeChopped = timeOld;//เอา item ออก = สับใหม่
+                    timeBarUI.SetActive(false);
+                    timeChopped = 0;//เอา item ออก = สับใหม่
                 }
-                if (holdButtom)
+                if (holdButtom && haveItem)
                 {
-                    timeChopped = timeChopped - Time.deltaTime;
-                    if (timeChopped <= 0)
+                    timeChopped = timeChopped + Time.deltaTime;
+                    Showtime(timeChopped);
+                    if (timeChopped >= timeUse)
                     {
                         Chopped();
                     }

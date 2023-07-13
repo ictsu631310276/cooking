@@ -47,4 +47,6 @@ MonoBehaviour:
   allIngredient:
   - {fileID: 5334172991140216423, guid: 17b2434e35a947c45a58e53710c157a3, type: 3}
   - {fileID: 4304982860022364978, guid: a67de7ba88f326a4283749f25864b28a, type: 3}
-  numOfModel: 0
+  idItem: 
+  timeUseAuto: 2
+  timeUseManuel: 2
