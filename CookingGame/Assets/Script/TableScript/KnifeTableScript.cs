@@ -8,18 +8,15 @@ public class KnifeTableScript : MonoBehaviour
     public int idTable;
     public GameObject glowObject;
     public ingredientScript ingredientScript;
+    public ShowModelScript showModel;
+    public TimeBarScript timeBar;
 
-    private int itemInHand = 0;//ของบนโต้ะ
+    private int itemOnTable = 0;//ของบนโต้ะ
     private bool haveItem = false;
-    public GameObject handPoint;
-    private GameObject itemModel;
-    private GameObject[] allItemModel;
+
     private float timeChopped;
     private float timeUse;
     private bool holdButtom = false;
-
-    public Slider timeBar;
-    public GameObject timeBarUI;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -37,69 +34,53 @@ public class KnifeTableScript : MonoBehaviour
             InteractionPlayerScript.tableInteraction.Remove(idTable);
         }
     }
-    private void ShowModel()
+    private void CanChopped()
     {
-        if (!haveItem && itemInHand != 0)//แสดง item
+        switch (itemOnTable)
         {
-            haveItem = true;
-            switch (itemInHand)
-            {
-                case 1:
-                    itemModel = Instantiate(allItemModel[itemInHand - 1], handPoint.transform, false);
-                    break;
-                case 2:
-                    itemModel = Instantiate(allItemModel[itemInHand - 1], handPoint.transform, false);
-                    break;
-                default:
-                    Debug.LogError("No have this ID.");
-                    break;
-            }
-            itemModel.transform.parent = handPoint.transform;
-        }
-        else if (itemInHand == 0 && haveItem)
-        {
-            haveItem = false;
-            Destroy(itemModel, 0);
+            case 11:
+                Chopped();
+                break;
+            case 12:
+                Chopped();
+                break;
+            default:
+                Debug.Log("Something wrong");
+                break;
         }
     }
     private void Chopped()
     {
-        switch (itemInHand)
+        timeChopped = timeChopped + Time.deltaTime;
+        timeBar.walkingTime(timeChopped, timeUse);
+        if (timeChopped >= timeUse)
         {
-            case 1 :
-                itemInHand = 2;
-                timeChopped = timeUse;
-                break;
-            default:
-                break;
-        }
-        Destroy(itemModel, 0);
-        haveItem = false;//เพื่อให้ลบ item เดิมออก
-        ShowModel();
-    }
-    private void Showtime(float i)
-    {
-        timeBarUI.SetActive(true);
-        timeBar.value = i;
-        if (i >= timeUse)
-        {
-            timeBarUI.SetActive(false);
-        }
+            switch (itemOnTable)
+            {
+                case 11:
+                    itemOnTable = 12;
+                    break;
+                case 12:
+                    itemOnTable = 13;
+                    break;
+                default:
+                    Debug.Log("I can't");
+                    break;
+            }
+            timeChopped = timeUse;
+            showModel.WillDestroy();
+            timeBar.Showtime(false);
+            timeChopped = 0;//เอา item ออก = สับใหม่
+        }        
     }
     private void Start()
     {
         glowObject.SetActive(false);
-        timeBarUI.SetActive(false);
         timeUse = ingredientScript.timeUseManuel;
-        allItemModel = new GameObject[ingredientScript.allIngredient.Length];
-        for (int i = 0; i < ingredientScript.allIngredient.Length; i++)
-        {
-            allItemModel[i] = ingredientScript.allIngredient[i];
-        }
     }
     void Update()
     {
-        ShowModel();
+        showModel.ShowModel(itemOnTable);
         if (Input.GetKeyDown(KeyCode.R) || Input.GetButtonDown("Fire2"))
         {
             holdButtom = true;
@@ -116,32 +97,30 @@ public class KnifeTableScript : MonoBehaviour
                 if ((Input.GetKeyUp(KeyCode.Q) || Input.GetButtonUp("Jump")) && !haveItem &&
                     InteractionPlayerScript.haveItem)
                 {
-                    itemInHand = InteractionPlayerScript.itemInHand;
-
+                    itemOnTable = InteractionPlayerScript.itemInHand;
                     InteractionPlayerScript.itemInHand = 0;
+                    InteractionPlayerScript.haveItem = false;
+                    haveItem = true;
                 }
                 else if ((Input.GetKeyUp(KeyCode.Q) || Input.GetButtonUp("Jump")) && haveItem &&
                     !InteractionPlayerScript.haveItem)
                 {
-                    InteractionPlayerScript.itemInHand = itemInHand;
-                    itemInHand = 0;
-                    timeBarUI.SetActive(false);
-                    timeChopped = 0;//เอา item ออก = สับใหม่
-                }
-                if (holdButtom && haveItem)
-                {
-                    timeChopped = timeChopped + Time.deltaTime;
-                    Showtime(timeChopped);
-                    if (timeChopped >= timeUse)
-                    {
-                        Chopped();
-                    }
+                    InteractionPlayerScript.itemInHand = itemOnTable;
+                    itemOnTable = 0;
+                    haveItem = false;
+                    InteractionPlayerScript.haveItem = true;
+
+                    timeBar.Showtime(false);
                 }
             }
             else if (InteractionPlayerScript.tableInteraction[InteractionPlayerScript.tableInteraction.Count - 1] != idTable)
             {
                 glowObject.SetActive(false);
             }
+        }
+        if (holdButtom && haveItem)
+        {
+            CanChopped();
         }
     }
 }

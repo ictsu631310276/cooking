@@ -41,6 +41,7 @@ public class BinScript : MonoBehaviour
                 if ((Input.GetKeyUp(KeyCode.Q) || Input.GetButtonUp("Jump")))
                 {
                     InteractionPlayerScript.itemInHand = 0;
+                    InteractionPlayerScript.haveItem = false;
                     glowObject.SetActive(false);
                 }
             }

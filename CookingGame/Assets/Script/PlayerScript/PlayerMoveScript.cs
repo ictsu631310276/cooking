@@ -3,29 +3,45 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMoveScript : MonoBehaviour
+
 {
-    private CharacterController controller;
-    private Vector3 playerVelocity;
-    public float playerSpeed = 2.0f;
-    private float gravityValue = -9.81f;
+    [SerializeField] private Rigidbody _rb;
+    [SerializeField] private float _speed = 5;
+    [SerializeField] private float _turnSpeed = 360;
+    private Vector3 _input;
 
-    private void Start()
+    private void Update()
     {
-        controller = gameObject.AddComponent<CharacterController>();
+        GatherInput();
+        Look();
     }
 
-    void Update()
+    private void FixedUpdate()
     {
-
-        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        controller.Move(move * Time.deltaTime * playerSpeed);
-
-        if (move != Vector3.zero)
-        {
-            gameObject.transform.forward = move;
-        }
-
-        playerVelocity.y += gravityValue * Time.deltaTime;//ตกพื้น
-        controller.Move(playerVelocity * Time.deltaTime);//เครื่องที่
+        Move();
     }
+
+    private void GatherInput()
+    {
+        _input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+    }
+
+    private void Look()
+    {
+        if (_input == Vector3.zero) return;
+
+        var rot = Quaternion.LookRotation(_input.ToIso(), Vector3.up);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, _turnSpeed * Time.deltaTime);
+    }
+
+    private void Move()
+    {
+        _rb.MovePosition(transform.position + transform.forward * _input.normalized.magnitude * _speed * Time.deltaTime);
+    }
+}
+
+public static class Helpers
+{
+    private static Matrix4x4 _isoMatrix = Matrix4x4.Rotate(Quaternion.Euler(0, 45, 0));
+    public static Vector3 ToIso(this Vector3 input) => _isoMatrix.MultiplyPoint3x4(input);
 }

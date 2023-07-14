@@ -127,6 +127,7 @@ GameObject:
   - component: {fileID: 2937681055205230710}
   - component: {fileID: 2937681055205230709}
   - component: {fileID: 2937681055205230697}
+  - component: {fileID: 2668470648655280703}
   m_Layer: 0
   m_Name: Table
   m_TagString: Table
@@ -228,5 +229,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idTable: 1101
   glowObject: {fileID: 2937681053410104298}
+  showModel: {fileID: 2668470648655280703}
+--- !u!114 &2668470648655280703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2937681055205230708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ceeef4eb2308f840bcaea976b73520d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   handPoint: {fileID: 2937681054784897314}
   ingredient: {fileID: 2520598715831065208, guid: 7359029548bfd4a478b159304a5967ea, type: 3}

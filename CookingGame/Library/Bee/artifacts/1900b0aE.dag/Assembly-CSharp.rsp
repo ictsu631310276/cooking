@@ -329,6 +329,8 @@
 -r:"D:/unity/Unity Hub/Editor/2021.3.10f1/Editor/Data/NetStandard/ref/2.1.0/netstandard.dll"
 -r:"D:/unity/Unity Hub/Editor/2021.3.10f1/Editor/Data/PlaybackEngines/AndroidPlayer/Unity.Android.Gradle.dll"
 -r:"D:/unity/Unity Hub/Editor/2021.3.10f1/Editor/Data/PlaybackEngines/AndroidPlayer/Unity.Android.Types.dll"
+-r:"Library/Bee/artifacts/1900b0aE.dag/Cinemachine.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aE.dag/com.unity.cinemachine.editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.EditorCoroutines.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Performance.Profile-Analyzer.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.PlasticSCM.Editor.ref.dll"
@@ -357,15 +359,18 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.VSCode.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
+"Assets/Script/CameraScript.cs"
 "Assets/Script/ingredientScript.cs"
 "Assets/Script/PlayerScript/InteractionPlayerScript.cs"
 "Assets/Script/PlayerScript/PlayerMoveScript.cs"
+"Assets/Script/ShowModelScript.cs"
 "Assets/Script/TableScript/BinScript.cs"
 "Assets/Script/TableScript/InteractionTableScript.cs"
 "Assets/Script/TableScript/KnifeTableScript.cs"
 "Assets/Script/TableScript/OvenScript.cs"
 "Assets/Script/TableScript/pickupPointScript.cs"
-"Assets/Script/TableScript/TimeBarScript.cs"
+"Assets/Script/TableScript/SinkScript.cs"
+"Assets/Script/TimeBarScript.cs"
 -langversion:9.0
 
 /deterministic

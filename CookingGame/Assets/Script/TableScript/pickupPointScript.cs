@@ -34,13 +34,13 @@ public class pickupPointScript : MonoBehaviour
         if (InteractionPlayerScript.tableInteraction.Count != 0)
         {
             if (InteractionPlayerScript.tableInteraction[InteractionPlayerScript.tableInteraction.Count - 1] == idTable &&
-                InteractionPlayerScript.itemInHand == 0)
+                !InteractionPlayerScript.haveItem)
             {
                 glowObject.SetActive(true);
-                if ((Input.GetKeyDown(KeyCode.Q) || Input.GetButtonUp("Jump")) && 
-                    !InteractionPlayerScript.haveItem)
+                if ((Input.GetKeyDown(KeyCode.Q) || Input.GetButtonUp("Jump")))
                 {
                     InteractionPlayerScript.itemInHand = iditem;
+                    InteractionPlayerScript.haveItem = true;
                     glowObject.SetActive(false);
                 }
             }

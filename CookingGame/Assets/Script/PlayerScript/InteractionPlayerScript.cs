@@ -4,54 +4,21 @@ using UnityEngine;
 
 public class InteractionPlayerScript : MonoBehaviour
 {
-    public static List<int> tableInteraction = new List<int>();//สำหรับโต้ะ
+    public static List<int> tableInteraction = new List<int>();//สำหรับโต้ะและเครื่องต่างๆ
+
     public static int itemInHand = 0;//ของในมือ
     public static bool haveItem = false;
-    private GameObject itemModel;
-    public GameObject handPoint;
-    private GameObject[] allItemModel;
+    public ShowModelScript showModel;
 
-    public ingredientScript ingredientScript;
-    private void Start()
-    {
-        allItemModel = new GameObject[ingredientScript.allIngredient.Length];
-        for (int i = 0; i < ingredientScript.allIngredient.Length; i++)
-        {
-            allItemModel[i] = ingredientScript.allIngredient[i];
-        }
-    }
-    private void ShowModel()
-    {
-        if (!haveItem && itemInHand != 0)
-        {
-            haveItem = true;
-            switch (itemInHand)
-            {
-                case 1:
-                    itemModel = Instantiate(allItemModel[itemInHand - 1], handPoint.transform, false);
-                    break;
-                case 2:
-                    itemModel = Instantiate(allItemModel[itemInHand - 1], handPoint.transform, false);
-                    break;
-                default:
-                    Debug.LogError("No have this ID.");
-                    break;
-            }
-            itemModel.transform.parent = handPoint.transform;
-        }
-        else if (itemInHand == 0 && haveItem)
-        {
-            haveItem = false;
-            Destroy(itemModel, 0);
-        }
-    }
     private void Update()
     {
-        ShowModel();
+        //Debug.Log(itemInHand);
+        //Debug.Log(haveItem);
+        showModel.ShowModel(itemInHand);
         if (Input.GetKeyDown(KeyCode.E) && tableInteraction.Count >= 2)
         {
             tableInteraction.Add(tableInteraction[0]);
             tableInteraction.RemoveAt(0); 
-        }
+        }//สลับโต็ะที่เล็ง
     }
 }

@@ -129,6 +129,7 @@ GameObject:
   - component: {fileID: 399400795}
   - component: {fileID: 7155686931167800576}
   - component: {fileID: 399400796}
+  - component: {fileID: 6396882850056125088}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -244,7 +245,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32476d7945fb1ff4a82a0338e8fdd5d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 3
+  _rb: {fileID: 399400795}
+  _speed: 5
+  _turnSpeed: 360
 --- !u!114 &399400796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,5 +260,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b125eaa85f27ffb42866d3774443949e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showModel: {fileID: 6396882850056125088}
+--- !u!114 &6396882850056125088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7155686931167800699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ceeef4eb2308f840bcaea976b73520d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   handPoint: {fileID: 667288807447187442}
-  ingredientScript: {fileID: 2520598715831065208, guid: 7359029548bfd4a478b159304a5967ea, type: 3}
+  ingredient: {fileID: 2520598715831065208, guid: 7359029548bfd4a478b159304a5967ea, type: 3}

@@ -7,12 +7,8 @@ public class InteractionTableScript : MonoBehaviour
     public int idTable;
     public GameObject glowObject;
 
-    private int itemInHand = 0;//ของบนโต้ะ
-    private bool haveItem = false;
-    public GameObject handPoint;
-    private GameObject itemModel;
-    private GameObject[] allItemModel;
-    public ingredientScript ingredient;
+    private int itemOnTable;//ของบนโต้ะ   
+    public ShowModelScript showModel;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -30,63 +26,35 @@ public class InteractionTableScript : MonoBehaviour
             InteractionPlayerScript.tableInteraction.Remove(idTable);
         }
     }
-    private void ShowModel()
-    {
-        if (!haveItem && itemInHand != 0)//แสดง item
-        {
-            haveItem = true;
-            switch (itemInHand)
-            {
-                case 1:
-                    itemModel = Instantiate(allItemModel[itemInHand - 1], handPoint.transform, false);
-                    break;
-                case 2:
-                    itemModel = Instantiate(allItemModel[itemInHand - 1], handPoint.transform, false);
-                    break;
-                default:
-                    Debug.LogError("No have this ID.");
-                    break;
-            }
-            itemModel.transform.parent = handPoint.transform;
-        }
-        else if (itemInHand == 0 && haveItem)
-        {
-            haveItem = false;
-            Destroy(itemModel, 0);
-        }
-    }
     private void Start()
     {
-        allItemModel = new GameObject[ingredient.allIngredient.Length];
-        for (int i = 0; i < ingredient.allIngredient.Length; i++)
-        {
-            allItemModel[i] = ingredient.allIngredient[i];
-        }
+        itemOnTable = 0;
         glowObject.SetActive(false);
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        ShowModel();
+        showModel.ShowModel(itemOnTable);
         if (InteractionPlayerScript.tableInteraction.Count != 0)
         {
             if (InteractionPlayerScript.tableInteraction[InteractionPlayerScript.tableInteraction.Count - 1] == idTable)
             {
                 glowObject.SetActive(true);
-                if ((Input.GetKeyUp(KeyCode.Q) || Input.GetButtonUp("Jump")) && !haveItem &&
+                if ((Input.GetKeyUp(KeyCode.Q) || Input.GetButtonUp("Jump"))&&
                     InteractionPlayerScript.haveItem)
                 {
-                    itemInHand = InteractionPlayerScript.itemInHand;
-
+                    itemOnTable = InteractionPlayerScript.itemInHand;
                     InteractionPlayerScript.itemInHand = 0;
+                    InteractionPlayerScript.haveItem = false;
                 }
-                else if ((Input.GetKeyUp(KeyCode.Q) || Input.GetButtonUp("Jump")) && haveItem &&
+                else if ((Input.GetKeyUp(KeyCode.Q) || Input.GetButtonUp("Jump")) &&
                     !InteractionPlayerScript.haveItem)
                 {
-                    InteractionPlayerScript.itemInHand = itemInHand;
-
-                    itemInHand = 0;
+                    Debug.Log("Hi");
+                    InteractionPlayerScript.itemInHand = itemOnTable;
+                    itemOnTable = 0;
+                    InteractionPlayerScript.haveItem = true;
                 }
             }
             else if (InteractionPlayerScript.tableInteraction[InteractionPlayerScript.tableInteraction.Count - 1] != idTable)
