@@ -227,9 +227,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8503250e805690544bc2aacf4eb06a35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idTable: 1101
+  idTable: 1102
   glowObject: {fileID: 2937681053410104298}
   showModel: {fileID: 2668470648655280703}
+  ingredient: {fileID: 2520598715831065208, guid: 7359029548bfd4a478b159304a5967ea, type: 3}
 --- !u!114 &2668470648655280703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,5 +243,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ceeef4eb2308f840bcaea976b73520d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handPoint: {fileID: 2937681054784897314}
+  handPoint: {fileID: 2937681054784897315}
   ingredient: {fileID: 2520598715831065208, guid: 7359029548bfd4a478b159304a5967ea, type: 3}

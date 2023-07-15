@@ -42,7 +42,7 @@ public class OvenScript : MonoBehaviour
                 ChangeItem();
                 break;
             default:
-                Debug.Log("Something wrong");
+                Debug.Log("Can't Baking");
                 break;
         }
     }
@@ -64,7 +64,6 @@ public class OvenScript : MonoBehaviour
                         Debug.Log("I can't");
                         break;
                 }
-                showModel.WillDestroy();
             }
         }
     }
@@ -75,7 +74,7 @@ public class OvenScript : MonoBehaviour
     }
     void Update()
     {
-        showModel.ShowModel(itemInOven);
+        showModel.ShowModel(itemInOven,false);
         if (InteractionPlayerScript.tableInteraction.Count != 0)
         {
             if (InteractionPlayerScript.tableInteraction[InteractionPlayerScript.tableInteraction.Count - 1] == idTable)

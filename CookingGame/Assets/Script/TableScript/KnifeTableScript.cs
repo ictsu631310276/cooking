@@ -41,11 +41,8 @@ public class KnifeTableScript : MonoBehaviour
             case 11:
                 Chopped();
                 break;
-            case 12:
-                Chopped();
-                break;
             default:
-                Debug.Log("Something wrong");
+                Debug.Log("Can't Chopped");
                 break;
         }
     }
@@ -60,15 +57,11 @@ public class KnifeTableScript : MonoBehaviour
                 case 11:
                     itemOnTable = 12;
                     break;
-                case 12:
-                    itemOnTable = 13;
-                    break;
                 default:
-                    Debug.Log("I can't");
+                    Debug.Log("Not Have");
                     break;
             }
             timeChopped = timeUse;
-            showModel.WillDestroy();
             timeBar.Showtime(false);
             timeChopped = 0;//เอา item ออก = สับใหม่
         }        
@@ -80,7 +73,7 @@ public class KnifeTableScript : MonoBehaviour
     }
     void Update()
     {
-        showModel.ShowModel(itemOnTable);
+        showModel.ShowModel(itemOnTable,false);
         if (Input.GetKeyDown(KeyCode.R) || Input.GetButtonDown("Fire2"))
         {
             holdButtom = true;
@@ -91,7 +84,8 @@ public class KnifeTableScript : MonoBehaviour
         }
         if (InteractionPlayerScript.tableInteraction.Count != 0)
         {
-            if (InteractionPlayerScript.tableInteraction[InteractionPlayerScript.tableInteraction.Count - 1] == idTable)
+            if (InteractionPlayerScript.tableInteraction[InteractionPlayerScript.tableInteraction.Count - 1] == idTable &&
+                !InteractionPlayerScript.havePlate)
             {
                 glowObject.SetActive(true);
                 if ((Input.GetKeyUp(KeyCode.Q) || Input.GetButtonUp("Jump")) && !haveItem &&
@@ -113,7 +107,7 @@ public class KnifeTableScript : MonoBehaviour
                     timeBar.Showtime(false);
                 }
             }
-            else if (InteractionPlayerScript.tableInteraction[InteractionPlayerScript.tableInteraction.Count - 1] != idTable)
+            else
             {
                 glowObject.SetActive(false);
             }

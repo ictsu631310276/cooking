@@ -278,7 +278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ceeef4eb2308f840bcaea976b73520d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handPoint: {fileID: 680741474797227514}
+  handPoint: {fileID: 680741474797227515}
   ingredient: {fileID: 2520598715831065208, guid: 7359029548bfd4a478b159304a5967ea, type: 3}
 --- !u!1 &680741475872099006
 GameObject:

@@ -11,13 +11,10 @@ public class SinkScript : MonoBehaviour
 
     private int itemInHand = 0;//ของบนโต้ะ
     public GameObject handPoint;
-    private GameObject itemModel;
+    //private GameObject itemModel;
     private float timeWash;
     private float timeUse;
     private bool holdButtom = false;
-
-    public Slider timeBar;
-    public GameObject timeBarUI;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -47,22 +44,10 @@ public class SinkScript : MonoBehaviour
             default:
                 break;
         }
-        Destroy(itemModel, 0);
-    }
-    private void Showtime(float i)
-    {
-        timeBarUI.SetActive(true);
-        timeBar.value = i;
-        if (i >= timeUse)
-        {
-            timeBarUI.SetActive(false);
-        }
     }
     private void Start()
     {
         glowObject.SetActive(false);
-        timeBarUI.SetActive(false);
-        timeUse = ingredientScript.timeUseManuel;
     }
     void Update()
     {
@@ -89,13 +74,11 @@ public class SinkScript : MonoBehaviour
                 {
                     InteractionPlayerScript.itemInHand = itemInHand;
                     itemInHand = 0;
-                    timeBarUI.SetActive(false);
                     timeWash = 0;//เอา item ออก = สับใหม่
                 }
                 if (holdButtom)
                 {
                     timeWash = timeWash + Time.deltaTime;
-                    Showtime(timeWash);
                     if (timeWash >= timeUse)
                     {
                         Washing();

@@ -56,18 +56,20 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Script\ShowModel\TimeBarScript.cs" />
     <Compile Include="Assets\Script\TableScript\BinScript.cs" />
     <Compile Include="Assets\Script\PlayerScript\PlayerMoveScript.cs" />
     <Compile Include="Assets\Script\TableScript\SinkScript.cs" />
     <Compile Include="Assets\Script\TableScript\KnifeTableScript.cs" />
     <Compile Include="Assets\Script\PlayerScript\InteractionPlayerScript.cs" />
-    <Compile Include="Assets\Script\TableScript\InteractionTableScript.cs" />
+    <Compile Include="Assets\Script\ShowModel\ShowModelScript.cs" />
+    <Compile Include="Assets\Script\TableScript\TableScript.cs" />
+    <Compile Include="Assets\Script\TableScript\pickupPlateScript.cs" />
     <Compile Include="Assets\Script\TableScript\OvenScript.cs" />
     <Compile Include="Assets\Script\TableScript\pickupPointScript.cs" />
-    <Compile Include="Assets\Script\ingredientScript.cs" />
-    <Compile Include="Assets\Script\ShowModelScript.cs" />
-    <Compile Include="Assets\Script\TimeBarScript.cs" />
+    <Compile Include="Assets\Script\ShowModel\ShowPlatelScript.cs" />
     <Compile Include="Assets\Script\CameraScript.cs" />
+    <Compile Include="Assets\Script\ingredientScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -757,11 +759,17 @@
     <Reference Include="Unity.EditorCoroutines.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Cinemachine">
+      <HintPath>Library\ScriptAssemblies\Cinemachine.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Services.Core.Analytics">
       <HintPath>Library\ScriptAssemblies\Unity.Services.Core.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Postprocessing.Runtime">
       <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.cinemachine.editor">
+      <HintPath>Library\ScriptAssemblies\com.unity.cinemachine.editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Shared.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
@@ -777,12 +785,6 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.State">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
-    </Reference>
-    <Reference Include="com.unity.cinemachine.editor">
-      <HintPath>Library\ScriptAssemblies\com.unity.cinemachine.editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Cinemachine">
-      <HintPath>Library\ScriptAssemblies\Cinemachine.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
