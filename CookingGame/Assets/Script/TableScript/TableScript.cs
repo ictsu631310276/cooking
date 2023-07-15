@@ -71,7 +71,32 @@ public class TableScript : MonoBehaviour
                 if (ingredient.allIngredient[findNumArray(itemOnTable)].canOnPlate
                    && ingredient.allIngredient[findNumArray(InteractionPlayerScript.itemInHand)].canOnPlate)//มีจานมาเกี่ยว
                 {
-                    if (InteractionPlayerScript.haveItem && itemOnTable == 0)
+                    if ((InteractionPlayerScript.haveItem && InteractionPlayerScript.havePlate)
+                        && (!havePlate && itemOnTable == 0))
+                    {
+                        glowObject.SetActive(true);
+                        if (Input.GetKeyUp(KeyCode.Q) || Input.GetButtonUp("Jump"))
+                        {
+                            havePlate = true;
+                            InteractionPlayerScript.havePlate = false;
+
+                            itemOnTable = InteractionPlayerScript.itemInHand;
+                            InteractionPlayerScript.itemInHand = 0;
+                            InteractionPlayerScript.haveItem = false;
+                        }
+                    }
+                    else if (InteractionPlayerScript.havePlate
+                        && !havePlate && !InteractionPlayerScript.haveItem)
+                    {
+                        glowObject.SetActive(true);
+                        if (Input.GetKeyUp(KeyCode.Q) || Input.GetButtonUp("Jump"))
+                        {
+                            havePlate = true;
+                            InteractionPlayerScript.havePlate = false;
+                        }
+                    }
+                    else if (InteractionPlayerScript.haveItem
+                        && itemOnTable == 0 && !InteractionPlayerScript.havePlate)
                     {
                         glowObject.SetActive(true);
                         if (Input.GetKeyUp(KeyCode.Q) || Input.GetButtonUp("Jump"))
@@ -81,97 +106,33 @@ public class TableScript : MonoBehaviour
                             InteractionPlayerScript.haveItem = false;
                         }
                     }
-                    else if(InteractionPlayerScript.havePlate && !havePlate)
+                    else if (!InteractionPlayerScript.haveItem && !InteractionPlayerScript.havePlate)
                     {
                         glowObject.SetActive(true);
                         if (Input.GetKeyUp(KeyCode.Q) || Input.GetButtonUp("Jump"))
                         {
-                            havePlate = true;
-                            InteractionPlayerScript.havePlate = false;
+                            if (havePlate && itemOnTable != 0)
+                            {
+                                havePlate = false;
+                                InteractionPlayerScript.havePlate = true;
+
+                                InteractionPlayerScript.itemInHand = itemOnTable;
+                                itemOnTable = 0;
+                                InteractionPlayerScript.haveItem = true;
+                            }
+                            else if (havePlate)
+                            {
+                                havePlate = false;
+                                InteractionPlayerScript.havePlate = true;
+                            }
+                            else if (itemOnTable != 0)
+                            {
+                                InteractionPlayerScript.itemInHand = itemOnTable;
+                                itemOnTable = 0;
+                                InteractionPlayerScript.haveItem = true;
+                            }
                         }
                     }
-                    else if ((InteractionPlayerScript.haveItem && itemOnTable == 0)
-                        && (InteractionPlayerScript.havePlate && !havePlate))
-                    {
-                        glowObject.SetActive(true);
-                        if (Input.GetKeyUp(KeyCode.Q) || Input.GetButtonUp("Jump"))
-                        {
-                            itemOnTable = InteractionPlayerScript.itemInHand;
-                            InteractionPlayerScript.itemInHand = 0;
-                            InteractionPlayerScript.haveItem = false;
-
-                            havePlate = true;
-                            InteractionPlayerScript.havePlate = false;
-                        }
-                    }
-                    //else
-                    //{
-                    //    Debug.Log("else");
-                    //    glowObject.SetActive(true);
-                    //    if (Input.GetKeyUp(KeyCode.Q) || Input.GetButtonUp("Jump"))
-                    //    {
-                    //        if (itemOnTable == 0 && !havePlate)
-                    //        {
-                    //            Debug.Log("itemOnTable");
-                    //        }
-                    //        else if (itemOnTable == 0 && havePlate)
-                    //        {
-                    //            Debug.Log("havePlate");
-                    //        }
-                    //        else if (itemOnTable != 0 && havePlate)
-                    //        {
-                    //            InteractionPlayerScript.itemInHand = itemOnTable;
-                    //            itemOnTable = 0;
-                    //            InteractionPlayerScript.haveItem = true;
-
-                    //            InteractionPlayerScript.havePlate = true;
-                    //            havePlate = false;
-                    //        }
-                    //        else
-                    //        {
-                    //            Debug.Log("else else");
-                    //        }
-                    //    }
-                    //}
-
-                    //if ((InteractionPlayerScript.haveItem && itemOnTable == 0)
-                    //   && (InteractionPlayerScript.havePlate && !havePlate))//มี item และจานอยู่ในมือผู้เล่น
-                    //{
-                    //    glowObject.SetActive(true);
-                    //    if (Input.GetKeyUp(KeyCode.Q) || Input.GetButtonUp("Jump"))
-                    //    {
-                    //        if (InteractionPlayerScript.havePlate)
-                    //        {
-                    //            havePlate = true;
-                    //            InteractionPlayerScript.havePlate = false;
-                    //        }
-                    //        if (InteractionPlayerScript.haveItem)
-                    //        {
-                    //            itemOnTable = InteractionPlayerScript.itemInHand;
-                    //            InteractionPlayerScript.itemInHand = 0;
-                    //            InteractionPlayerScript.haveItem = false;
-                    //        }
-                    //    }
-                    //}
-                    //else if ((!InteractionPlayerScript.haveItem)
-                    //   || (!InteractionPlayerScript.havePlate && havePlate))//ไม่มี item และจานอยู่ในมือผู้เล่น
-                    //{
-                    //    glowObject.SetActive(true);
-                    //    if (Input.GetKeyUp(KeyCode.Q) || Input.GetButtonUp("Jump"))
-                    //    {
-                    //        if (havePlate)
-                    //        {
-                    //            havePlate = false;
-                    //            InteractionPlayerScript.havePlate = true;
-                    //        }
-                    //        if (itemOnTable != 0)
-                    //        {
-                    //            InteractionPlayerScript.itemInHand = itemOnTable;
-                    //            itemOnTable = 0;
-                    //            InteractionPlayerScript.haveItem = true;
-                    //        }
-                    //    }
-                    //}
                 }
                 else
                 {
