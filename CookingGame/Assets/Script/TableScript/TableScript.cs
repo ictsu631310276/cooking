@@ -6,8 +6,9 @@ public class TableScript : MonoBehaviour
 {
     public int idTable;
     public GameObject glowObject;
-
+    [SerializeField]
     private int itemOnTable;//ของบนโต้ะ   
+    [SerializeField]
     private bool havePlate;
 
     public ShowModelScript showModel;
@@ -56,7 +57,6 @@ public class TableScript : MonoBehaviour
     }
     private void Start()
     {
-        itemOnTable = 0;
         glowObject.SetActive(false);
     }
 
