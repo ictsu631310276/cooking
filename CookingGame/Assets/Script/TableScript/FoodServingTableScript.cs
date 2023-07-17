@@ -8,7 +8,7 @@ public class FoodServingTableScript : MonoBehaviour
     public GameObject glowObject;
 
     private int itemOnTable;//ของบนโต้ะ
-    private bool havePlate;
+    private bool[] havePlate = new bool[] { false, false };
     public ShowModelScript showModel;
     public ingredientScript ingredient;
     public ChairCustomerScript chair;
@@ -37,22 +37,32 @@ public class FoodServingTableScript : MonoBehaviour
 
     private void Update()
     {
-        showModel.ShowModel(itemOnTable, havePlate);
+        showModel.ShowModel(itemOnTable, havePlate[0], havePlate[1]);
         if (InteractionPlayerScript.tableInteraction.Count != 0)//มีโต้ะที่มอง
         {
             if (InteractionPlayerScript.tableInteraction[InteractionPlayerScript.tableInteraction.Count - 1] == idTable)//โต้ะตรง
             {
-                if (InteractionPlayerScript.havePlate)
+                glowObject.SetActive(true);
+                if ((Input.GetKeyUp(KeyCode.Q) || Input.GetButtonUp("Jump"))
+                   && InteractionPlayerScript.itemInHand != 0//ผู้เล่นมีอาหาร
+                   && InteractionPlayerScript.havePlate[0]//ผู้เล่นมีจาน
+                   && !havePlate[0])//โต้ะไม่มีจาน 
                 {
-                    glowObject.SetActive(true);
-                    if (Input.GetKeyUp(KeyCode.Q) || Input.GetButtonUp("Jump"))
-                    {
-                        itemOnTable = InteractionPlayerScript.itemInHand;
-                        InteractionPlayerScript.itemInHand = 0;
+                    itemOnTable = InteractionPlayerScript.itemInHand;
+                    InteractionPlayerScript.itemInHand = 0;
 
-                        InteractionPlayerScript.haveItem = false;
-                        InteractionPlayerScript.havePlate = false;
-                    }
+                    InteractionPlayerScript.haveItem = false;
+                    InteractionPlayerScript.havePlate[0] = false;
+                }
+                else if ((Input.GetKeyUp(KeyCode.Q) || Input.GetButtonUp("Jump"))
+                    && InteractionPlayerScript.itemInHand == 0//ผู้เล่นไม่มีอาหาร
+                    && !InteractionPlayerScript.havePlate[0]//ผู้เล่นไมีจาน
+                    && havePlate[0])//โต้ะมีจาน
+                {
+                    InteractionPlayerScript.havePlate[0] = true;
+                    InteractionPlayerScript.havePlate[1] = true;
+                    havePlate[0] = false;
+                    havePlate[1] = false;
                 }
             }
             else
@@ -62,13 +72,14 @@ public class FoodServingTableScript : MonoBehaviour
         }
         if (itemOnTable != 0 && !chair.willDestroy)
         {
-            havePlate = true;
+            havePlate[0] = true;
             chair.itemGet = itemOnTable;
         }//วางอาหาร
         if (chair.willDestroy)
         {
+            havePlate[0] = true;
+            havePlate[1] = true;
             itemOnTable = 0;
-            havePlate = false;
             chair.willDestroy = false;
         }
     }

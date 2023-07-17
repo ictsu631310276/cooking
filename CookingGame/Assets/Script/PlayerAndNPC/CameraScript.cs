@@ -6,18 +6,29 @@ public class CameraScript : MonoBehaviour
 {
     public Transform player;
     public Vector3 offSet;
-    public float smoothTime;
-    private Vector3 i = Vector3.zero;
+    public GameObject cam1;
+    public GameObject cam2;
+
+    public bool zoomOut = true;
+
     private void Start()
     {
+        cam1.SetActive(true);
+        cam2.SetActive(false);
     }
-
-    // Update is called once per frame
     private void Update()
     {
         Vector3 camara = player.position + offSet;
         transform.position = camara;
-        //transform.position = Vector3.SmoothDamp(transform.position, camara,ref i, smoothTime);
-        //transform.position = Vector3.Lerp(transform.position, camara, smoothTime);
+        if (zoomOut)
+        {
+            cam1.SetActive(true);
+            cam2.SetActive(false);
+        }
+        else
+        {
+            cam1.SetActive(false);
+            cam2.SetActive(true);
+        }
     }
 }

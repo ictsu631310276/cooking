@@ -27,8 +27,6 @@ public class pickupPointScript : MonoBehaviour
     {
         glowObject.SetActive(false);
     }
-
-    // Update is called once per frame
     private void Update()
     {
         if (InteractionPlayerScript.tableInteraction.Count != 0)
@@ -39,9 +37,7 @@ public class pickupPointScript : MonoBehaviour
                 glowObject.SetActive(true);
                 if ((Input.GetKeyDown(KeyCode.Q) || Input.GetButtonUp("Jump")))
                 {
-                    InteractionPlayerScript.itemInHand = iditem;
-                    InteractionPlayerScript.haveItem = true;
-                    glowObject.SetActive(false);
+                    GetItem();
                 }
             }
             else if (InteractionPlayerScript.tableInteraction[InteractionPlayerScript.tableInteraction.Count - 1] != idTable)
@@ -49,5 +45,11 @@ public class pickupPointScript : MonoBehaviour
                 glowObject.SetActive(false);
             }
         }
+    }
+    private void GetItem()
+    {
+        InteractionPlayerScript.itemInHand = iditem;
+        InteractionPlayerScript.haveItem = true;
+        glowObject.SetActive(false);
     }
 }

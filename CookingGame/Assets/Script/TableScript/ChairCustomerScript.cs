@@ -8,7 +8,7 @@ public class ChairCustomerScript : MonoBehaviour
     public bool haveSit;
 
     public NPCDataScript NPC;
-    public int foodWant;    
+    private int foodWant;
 
     public int itemGet = 0;
     public ShowMoodScript showMood;

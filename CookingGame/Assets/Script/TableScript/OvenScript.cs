@@ -74,7 +74,7 @@ public class OvenScript : MonoBehaviour
     }
     void Update()
     {
-        showModel.ShowModel(itemInOven,false);
+        showModel.ShowModel(itemInOven,false,false);
         if (InteractionPlayerScript.tableInteraction.Count != 0)
         {
             if (InteractionPlayerScript.tableInteraction[InteractionPlayerScript.tableInteraction.Count - 1] == idTable)

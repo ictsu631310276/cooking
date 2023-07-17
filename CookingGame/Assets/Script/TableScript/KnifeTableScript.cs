@@ -73,7 +73,7 @@ public class KnifeTableScript : MonoBehaviour
     }
     void Update()
     {
-        showModel.ShowModel(itemOnTable,false);
+        showModel.ShowModel(itemOnTable,false, false);
         if (Input.GetKeyDown(KeyCode.R) || Input.GetButtonDown("Fire2"))
         {
             holdButtom = true;
@@ -85,7 +85,7 @@ public class KnifeTableScript : MonoBehaviour
         if (InteractionPlayerScript.tableInteraction.Count != 0)
         {
             if (InteractionPlayerScript.tableInteraction[InteractionPlayerScript.tableInteraction.Count - 1] == idTable &&
-                !InteractionPlayerScript.havePlate)
+                !InteractionPlayerScript.havePlate[0])
             {
                 glowObject.SetActive(true);
                 if ((Input.GetKeyUp(KeyCode.Q) || Input.GetButtonUp("Jump")) && !haveItem &&

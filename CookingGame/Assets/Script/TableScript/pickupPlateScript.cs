@@ -7,7 +7,6 @@ public class pickupPlateScript : MonoBehaviour
     public int idTable;
     public GameObject glowObject;
     public int numOfPlate = 1;
-    public int maxOfPlate = 4;
     public ShowPlatelScript showModel;
     private void OnCollisionEnter(Collision collision)
     {
@@ -41,16 +40,17 @@ public class pickupPlateScript : MonoBehaviour
             {
                 glowObject.SetActive(true);
                 if ((Input.GetKeyDown(KeyCode.Q) || Input.GetButtonUp("Jump")) && numOfPlate > 0 &&
-                    InteractionPlayerScript.havePlate == false)
+                    InteractionPlayerScript.havePlate[0] == false)
                 {
-                    InteractionPlayerScript.havePlate = true;
+                    InteractionPlayerScript.havePlate[0] = true;
                     numOfPlate--;
                     glowObject.SetActive(false);
                 }
-                else if ((Input.GetKeyDown(KeyCode.Q) || Input.GetButtonUp("Jump")) && numOfPlate < maxOfPlate &&
-                    InteractionPlayerScript.havePlate == true && InteractionPlayerScript.haveItem == false)
+                else if ((Input.GetKeyDown(KeyCode.Q) || Input.GetButtonUp("Jump")) &&
+                    InteractionPlayerScript.havePlate[0] && InteractionPlayerScript.haveItem == false &&
+                    !InteractionPlayerScript.havePlate[1])
                 {
-                    InteractionPlayerScript.havePlate = false;
+                    InteractionPlayerScript.havePlate[0] = false;
                     numOfPlate++;
                     glowObject.SetActive(false);
                 }

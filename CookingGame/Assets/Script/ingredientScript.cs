@@ -5,6 +5,7 @@ using UnityEngine;
 public class ingredientScript : MonoBehaviour
 {
     public GameObject plate;
+    public GameObject dirtyPlate;
     public IDAndIngredient[] allIngredient;
     public float timeUseAuto;
     public float timeUseManuel;

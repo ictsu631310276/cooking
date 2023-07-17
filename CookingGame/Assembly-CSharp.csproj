@@ -66,14 +66,14 @@
     <Compile Include="Assets\Script\TableScript\TableScript.cs" />
     <Compile Include="Assets\Script\TableScript\pickupPlateScript.cs" />
     <Compile Include="Assets\Script\TableScript\OvenScript.cs" />
+    <Compile Include="Assets\Script\ShowModel\ShowMoodScript.cs" />
     <Compile Include="Assets\Script\TableScript\FoodServingTableScript.cs" />
     <Compile Include="Assets\Script\TableScript\pickupPointScript.cs" />
+    <Compile Include="Assets\Script\TableScript\ChairCustomerScript.cs" />
     <Compile Include="Assets\Script\ShowModel\ShowPlatelScript.cs" />
     <Compile Include="Assets\Script\PlayerAndNPC\CameraScript.cs" />
-    <Compile Include="Assets\Script\ingredientScript.cs" />
-    <Compile Include="Assets\Script\TableScript\ChairCustomerScript.cs" />
     <Compile Include="Assets\Script\PlayerAndNPC\NPCDataScript.cs" />
-    <Compile Include="Assets\Script\ShowModel\ShowMoodScript.cs" />
+    <Compile Include="Assets\Script\ingredientScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

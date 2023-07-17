@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plate: {fileID: 7667963284082040330, guid: 3f993f69944c9ba4985af12dd21fc6e1, type: 3}
+  dirtyPlate: {fileID: 7667963284082040330, guid: e2108cc62aab439459c536ee93dd8c4a, type: 3}
   allIngredient:
   - ingredient: {fileID: 0}
     id: 0

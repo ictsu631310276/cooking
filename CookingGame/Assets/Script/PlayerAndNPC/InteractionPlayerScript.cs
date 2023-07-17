@@ -8,13 +8,12 @@ public class InteractionPlayerScript : MonoBehaviour
 
     public static int itemInHand = 0;//ของในมือ
     public static bool haveItem = false;
-    public static bool havePlate = false;
+    public static bool[] havePlate = new bool[] { false, false };
     public ShowModelScript showModel;
 
     private void Update()
     {
-        //Debug.Log("haveItem : " + haveItem + " ,havePlate : " + havePlate);
-        showModel.ShowModel(itemInHand, havePlate);
+        showModel.ShowModel(itemInHand, havePlate[0], havePlate[1]);
         if (Input.GetKeyDown(KeyCode.E) && tableInteraction.Count >= 2)
         {
             tableInteraction.Add(tableInteraction[0]);

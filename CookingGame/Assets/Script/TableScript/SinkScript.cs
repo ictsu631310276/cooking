@@ -9,9 +9,7 @@ public class SinkScript : MonoBehaviour
     public GameObject glowObject;
     public ingredientScript ingredientScript;//ใช้ดึงเวลาออกมา
 
-    private int itemInHand = 0;//ของบนโต้ะ
     public GameObject handPoint;
-    //private GameObject itemModel;
     private float timeWash;
     private float timeUse;
     private bool holdButtom = false;
@@ -35,15 +33,7 @@ public class SinkScript : MonoBehaviour
     
     private void Washing()
     {
-        switch (itemInHand)
-        {
-            case 1 :
-                itemInHand = 2;
-                timeWash = timeUse;
-                break;
-            default:
-                break;
-        }
+
     }
     private void Start()
     {
@@ -64,18 +54,6 @@ public class SinkScript : MonoBehaviour
             if (InteractionPlayerScript.tableInteraction[InteractionPlayerScript.tableInteraction.Count - 1] == idTable)
             {
                 glowObject.SetActive(true);
-                if ((Input.GetKeyUp(KeyCode.Q) || Input.GetButtonUp("Jump")) )
-                {
-                    itemInHand = InteractionPlayerScript.itemInHand;
-
-                    InteractionPlayerScript.itemInHand = 0;
-                }
-                else if ((Input.GetKeyUp(KeyCode.Q) || Input.GetButtonUp("Jump")) )
-                {
-                    InteractionPlayerScript.itemInHand = itemInHand;
-                    itemInHand = 0;
-                    timeWash = 0;//เอา item ออก = สับใหม่
-                }
                 if (holdButtom)
                 {
                     timeWash = timeWash + Time.deltaTime;
