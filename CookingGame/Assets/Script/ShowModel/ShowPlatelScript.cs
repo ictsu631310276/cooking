@@ -12,25 +12,28 @@ public class ShowPlatelScript : MonoBehaviour
 
     public void ShowModel(int numOfPlate)
     {
-        if (!haveItem)
+        if (numOfPlate < 5)
         {
-            for (int i = 0; i < numOfPlate; i++)
+            if (!haveItem)
             {
-                plateModel[i] = Instantiate(platePrefab, handPoint[i].transform, false);
-                plateModel[i].transform.parent = handPoint[i].transform;
+                for (int i = 0; i < numOfPlate; i++)
+                {
+                    plateModel[i] = Instantiate(platePrefab, handPoint[i].transform, false);
+                    plateModel[i].transform.parent = handPoint[i].transform;
+                }
+                haveItem = true;
+                num = numOfPlate;
             }
-            haveItem = true;
-            num = numOfPlate;
-        }
-        else if (haveItem && num != numOfPlate)
-        {
-            for (int i = 0; i < 4; i++)
+            else if (haveItem && num != numOfPlate)
             {
-                Destroy(plateModel[i], 0);
-                plateModel[i] = null;
+                for (int i = 0; i < 4; i++)
+                {
+                    Destroy(plateModel[i], 0);
+                    plateModel[i] = null;
+                }
+                haveItem = false;
+                num = numOfPlate;
             }
-            haveItem = false;
-            num = numOfPlate;
         }
     }
 }

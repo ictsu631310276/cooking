@@ -14,7 +14,7 @@ public class KnifeTableScript : MonoBehaviour
     private int itemOnTable = 0;//ของบนโต้ะ
     private bool haveItem = false;
 
-    private float timeChopped;
+    private float timeChopped = 0;
     private float timeUse;
     private bool holdButtom = false;
 

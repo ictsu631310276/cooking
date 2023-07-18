@@ -13,6 +13,10 @@ public class InteractionPlayerScript : MonoBehaviour
 
     private void Update()
     {
+        //if (Input.GetKeyDown(KeyCode.Z))
+        //{
+        //    Debug.Log("havePlate : " + havePlate[0] + "," + havePlate[1]);
+        //}
         showModel.ShowModel(itemInHand, havePlate[0], havePlate[1]);
         if (Input.GetKeyDown(KeyCode.E) && tableInteraction.Count >= 2)
         {

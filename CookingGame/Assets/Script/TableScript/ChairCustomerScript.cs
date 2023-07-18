@@ -12,8 +12,8 @@ public class ChairCustomerScript : MonoBehaviour
 
     public int itemGet = 0;
     public ShowMoodScript showMood;
-    public bool willDestroy = false;
-
+    public bool finishedEating = false;
+    private float timeEat = 0;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Customer")
@@ -32,25 +32,26 @@ public class ChairCustomerScript : MonoBehaviour
             foodWant = 0;
         }
     }
-    private IEnumerator SetDestroyitem(float i)
-    {
-        yield return new WaitForSeconds(i);
-        itemGet = 0;
-        willDestroy = true;
-    }
     private void Update()
     {
         if (itemGet != 0)
         {
+            finishedEating = false;
             if (itemGet == foodWant)
             {
-                showMood.ShowMood(true);
+                showMood.ShowMood(1);
             }
             else if (itemGet != foodWant)
             {
-                showMood.ShowMood(false);
+                showMood.ShowMood(-1);
             }
-            StartCoroutine(SetDestroyitem(showMood.timeShowMood));
+            timeEat = timeEat + Time.deltaTime;
+            if (timeEat >= showMood.timeEat)
+            {
+                timeEat = 0;
+                finishedEating = true;
+                itemGet = 0;
+            }
         }
     }
 }

@@ -41,38 +41,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1738712432940819473}
     m_Modifications:
-    - target: {fileID: 937902601787363575, guid: 4e09b802a3a744845ad5319b1047596f, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.8535535
-      objectReference: {fileID: 0}
-    - target: {fileID: 937902601787363575, guid: 4e09b802a3a744845ad5319b1047596f, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.35355338
-      objectReference: {fileID: 0}
-    - target: {fileID: 937902601787363575, guid: 4e09b802a3a744845ad5319b1047596f, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.35355338
-      objectReference: {fileID: 0}
-    - target: {fileID: 937902601787363575, guid: 4e09b802a3a744845ad5319b1047596f, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.1464466
-      objectReference: {fileID: 0}
-    - target: {fileID: 937902601787363575, guid: 4e09b802a3a744845ad5319b1047596f, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 937902601787363575, guid: 4e09b802a3a744845ad5319b1047596f, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 1.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 937902601787363575, guid: 4e09b802a3a744845ad5319b1047596f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 45
-      objectReference: {fileID: 0}
-    - target: {fileID: 937902601787363575, guid: 4e09b802a3a744845ad5319b1047596f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 45
-      objectReference: {fileID: 0}
     - target: {fileID: 7618729949232824257, guid: 4e09b802a3a744845ad5319b1047596f, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -117,45 +85,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7618729949232824262, guid: 4e09b802a3a744845ad5319b1047596f, type: 3}
-      propertyPath: timeShowMood
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7618729949232824263, guid: 4e09b802a3a744845ad5319b1047596f, type: 3}
       propertyPath: m_Name
       value: MoodUI
-      objectReference: {fileID: 0}
-    - target: {fileID: 9182119066146824178, guid: 4e09b802a3a744845ad5319b1047596f, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.8535535
-      objectReference: {fileID: 0}
-    - target: {fileID: 9182119066146824178, guid: 4e09b802a3a744845ad5319b1047596f, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.35355338
-      objectReference: {fileID: 0}
-    - target: {fileID: 9182119066146824178, guid: 4e09b802a3a744845ad5319b1047596f, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.35355338
-      objectReference: {fileID: 0}
-    - target: {fileID: 9182119066146824178, guid: 4e09b802a3a744845ad5319b1047596f, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.1464466
-      objectReference: {fileID: 0}
-    - target: {fileID: 9182119066146824178, guid: 4e09b802a3a744845ad5319b1047596f, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9182119066146824178, guid: 4e09b802a3a744845ad5319b1047596f, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 1.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 9182119066146824178, guid: 4e09b802a3a744845ad5319b1047596f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 45
-      objectReference: {fileID: 0}
-    - target: {fileID: 9182119066146824178, guid: 4e09b802a3a744845ad5319b1047596f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 45
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e09b802a3a744845ad5319b1047596f, type: 3}
@@ -295,10 +227,6 @@ PrefabInstance:
     - target: {fileID: 2937681055205230708, guid: c9fed65acd6c5a1459483e563e919f8f, type: 3}
       propertyPath: m_Name
       value: CustomerChair
-      objectReference: {fileID: 0}
-    - target: {fileID: 3033298536416171841, guid: c9fed65acd6c5a1459483e563e919f8f, type: 3}
-      propertyPath: idChair
-      value: 1801
       objectReference: {fileID: 0}
     - target: {fileID: 3033298536416171841, guid: c9fed65acd6c5a1459483e563e919f8f, type: 3}
       propertyPath: showMood

@@ -10,40 +10,30 @@ public class ShowModelScript : MonoBehaviour
     public ingredientScript ingredient;
     private bool haveItem = false;
     private bool createPlate = false;
-    private bool dirtyPlate = false;
+    private bool[] havePlate = new bool[2] { false, false };
     private int num;
 
-    public void ShowModel(int idItemInHand , bool havePlate ,bool dirtyDishes)
+    public void ShowModel(int idItemInHand , bool _havePlate ,bool dirtyDishes)
     {
-        if (!createPlate && havePlate)
+        if (!createPlate && _havePlate)
         {
             if (!dirtyDishes)
             {
                 plateModel = Instantiate(ingredient.plate, handPoint.transform, false);
-                plateModel.transform.parent = handPoint.transform;
-                createPlate = true;
             }
             else if (dirtyDishes)
             {
                 plateModel = Instantiate(ingredient.dirtyPlate, handPoint.transform, false);
-                plateModel.transform.parent = handPoint.transform;
-                createPlate = true;
             }
+            plateModel.transform.parent = handPoint.transform;
+            createPlate = true;
+            havePlate[0] = _havePlate;
+            havePlate[1] = dirtyDishes;
         }
-        else if(createPlate && ((!havePlate || dirtyDishes) || (!havePlate && dirtyDishes)))
+        else if(createPlate && (havePlate[0] != _havePlate || havePlate[1] != dirtyDishes))
         {
-            if (!dirtyPlate)
-            {
-                Destroy(plateModel, 0);
-                createPlate = false;
-                dirtyPlate = true;
-            }
-            if (!havePlate && !dirtyDishes)
-            {
-                Destroy(plateModel, 0);
-                createPlate = false;
-                dirtyPlate = false;
-            }
+            Destroy(plateModel, 0);
+            createPlate = false;
         }//จาน
         if (idItemInHand != 0 && !haveItem)
         {

@@ -89,13 +89,23 @@ public class TableScript : MonoBehaviour
                         && !havePlate[0] && !InteractionPlayerScript.haveItem)//ผู้เล่นมีแต่จาน ไม่มีอาหาร โต้ะ อาจมีอาหาร หรือไม่
                     {
                         glowObject.SetActive(true);
-                        if (!InteractionPlayerScript.havePlate[1])//จานสะอาด //อาหารขึ้นมือ
+                        if (!InteractionPlayerScript.havePlate[1])//จานสะอาด 
                         {
                             if (Input.GetKeyUp(KeyCode.Q) || Input.GetButtonUp("Jump"))
                             {
-                                InteractionPlayerScript.itemInHand = itemOnTable;
-                                itemOnTable = 0;
-                                InteractionPlayerScript.haveItem = true;
+                                if (itemOnTable == 0)//วางจาน
+                                {
+                                    havePlate[0] = InteractionPlayerScript.havePlate[0];
+                                    havePlate[1] = InteractionPlayerScript.havePlate[1];
+                                    InteractionPlayerScript.havePlate[0] = false;
+                                    InteractionPlayerScript.havePlate[1] = false;
+                                }
+                                else if (itemOnTable != 0)//อาหารขึ้นมือ
+                                {
+                                    InteractionPlayerScript.itemInHand = itemOnTable;
+                                    itemOnTable = 0;
+                                    InteractionPlayerScript.haveItem = true;
+                                }
                             }
                         }
                         else if (InteractionPlayerScript.havePlate[1])//จานสกปรก //จะไม่มีอาหารอยู่แล้ว
