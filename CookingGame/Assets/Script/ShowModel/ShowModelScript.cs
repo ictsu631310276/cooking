@@ -74,4 +74,22 @@ public class ShowModelScript : MonoBehaviour
         }
         return j;
     }
+
+    public void ShowItemWant (int item)
+    {
+        if (item != 0 && !haveItem)
+        {
+            itemModel = Instantiate(ingredient.allIngredient[findNumArray(item)].ingredient, handPoint.transform, false);
+            itemModel.transform.position = itemModel.transform.position + new Vector3(-0.25f, 0f, -0.3f) ;
+            itemModel.transform.parent = handPoint.transform;
+            haveItem = true;
+            num = item;
+        }
+        else if (item == 0 || num != item)
+        {
+            Destroy(itemModel, 0);
+            haveItem = false;
+            num = item;
+        }//มือว่าง
+    }
 }

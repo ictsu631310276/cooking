@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Table
   - Customer
+  - OutDoor
   layers:
   - Default
   - TransparentFX

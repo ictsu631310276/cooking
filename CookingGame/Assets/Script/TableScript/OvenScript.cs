@@ -90,7 +90,8 @@ public class OvenScript : MonoBehaviour
 
                 }
                 else if ((Input.GetKeyUp(KeyCode.Q) || Input.GetButtonUp("Jump")) && haveItem &&
-                    !InteractionPlayerScript.haveItem)
+                    !InteractionPlayerScript.haveItem &&
+                    !InteractionPlayerScript.havePlate[1])
                 {
                     InteractionPlayerScript.itemInHand = itemInOven;
                     itemInOven = 0;

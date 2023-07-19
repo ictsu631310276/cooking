@@ -84,8 +84,7 @@ public class KnifeTableScript : MonoBehaviour
         }
         if (InteractionPlayerScript.tableInteraction.Count != 0)
         {
-            if (InteractionPlayerScript.tableInteraction[InteractionPlayerScript.tableInteraction.Count - 1] == idTable &&
-                !InteractionPlayerScript.havePlate[0])
+            if (InteractionPlayerScript.tableInteraction[InteractionPlayerScript.tableInteraction.Count - 1] == idTable)
             {
                 glowObject.SetActive(true);
                 if ((Input.GetKeyUp(KeyCode.Q) || Input.GetButtonUp("Jump")) && !haveItem &&
@@ -97,7 +96,8 @@ public class KnifeTableScript : MonoBehaviour
                     haveItem = true;
                 }
                 else if ((Input.GetKeyUp(KeyCode.Q) || Input.GetButtonUp("Jump")) && haveItem &&
-                    !InteractionPlayerScript.haveItem)
+                    !InteractionPlayerScript.haveItem &&
+                    !InteractionPlayerScript.havePlate[1])
                 {
                     InteractionPlayerScript.itemInHand = itemOnTable;
                     itemOnTable = 0;

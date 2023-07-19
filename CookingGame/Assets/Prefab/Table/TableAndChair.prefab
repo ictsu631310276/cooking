@@ -166,6 +166,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CustomerTable
       objectReference: {fileID: 0}
+    - target: {fileID: 7363807473897358254, guid: 90b65369d44435b4ea7c1ba3f8a68617, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90b65369d44435b4ea7c1ba3f8a68617, type: 3}
 --- !u!4 &5150312661055565303 stripped
@@ -229,9 +233,17 @@ PrefabInstance:
       value: CustomerChair
       objectReference: {fileID: 0}
     - target: {fileID: 3033298536416171841, guid: c9fed65acd6c5a1459483e563e919f8f, type: 3}
+      propertyPath: timeEat
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3033298536416171841, guid: c9fed65acd6c5a1459483e563e919f8f, type: 3}
       propertyPath: showMood
       value: 
       objectReference: {fileID: 7536870917494737349}
+    - target: {fileID: 3033298536416171841, guid: c9fed65acd6c5a1459483e563e919f8f, type: 3}
+      propertyPath: timeShowMood
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9fed65acd6c5a1459483e563e919f8f, type: 3}
 --- !u!114 &5018518221395042660 stripped
