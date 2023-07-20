@@ -47,9 +47,6 @@ MonoBehaviour:
   plate: {fileID: 7667963284082040330, guid: 3f993f69944c9ba4985af12dd21fc6e1, type: 3}
   dirtyPlate: {fileID: 7667963284082040330, guid: e2108cc62aab439459c536ee93dd8c4a, type: 3}
   allIngredient:
-  - ingredient: {fileID: 0}
-    id: 0
-    canOnPlate: 1
   - ingredient: {fileID: 5334172991140216423, guid: 17b2434e35a947c45a58e53710c157a3, type: 3}
     id: 11
     canOnPlate: 0
@@ -61,3 +58,4 @@ MonoBehaviour:
     canOnPlate: 1
   timeUseAuto: 2
   timeUseManuel: 2
+  allChair: []

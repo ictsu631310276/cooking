@@ -58,13 +58,13 @@
   <ItemGroup>
     <Compile Include="Assets\Script\ShowModel\TimeBarScript.cs" />
     <Compile Include="Assets\Script\TableScript\BinScript.cs" />
-    <Compile Include="Assets\Script\PlayerAndNPC\PlayerMoveScript.cs" />
+    <Compile Include="Assets\Script\PlayerAndNPC\Player\PlayerMoveScript.cs" />
     <Compile Include="Assets\Script\TableScript\SinkScript.cs" />
-    <Compile Include="Assets\Script\PlayerAndNPC\InventoryScript.cs" />
+    <Compile Include="Assets\Script\PlayerAndNPC\Player\InventoryScript.cs" />
     <Compile Include="Assets\Script\TableScript\KnifeTableScript.cs" />
-    <Compile Include="Assets\Script\PlayerAndNPC\InteractionPlayerScript.cs" />
+    <Compile Include="Assets\Script\PlayerAndNPC\Player\InteractionPlayerScript.cs" />
     <Compile Include="Assets\Script\ShowModel\ShowModelScript.cs" />
-    <Compile Include="Assets\Script\PlayerAndNPC\NPCMoveScript.cs" />
+    <Compile Include="Assets\Script\PlayerAndNPC\NPC\NPCMoveScript.cs" />
     <Compile Include="Assets\Script\TableScript\TableScript.cs" />
     <Compile Include="Assets\Script\TableScript\pickupPlateScript.cs" />
     <Compile Include="Assets\Script\TableScript\OvenScript.cs" />
@@ -73,9 +73,35 @@
     <Compile Include="Assets\Script\TableScript\pickupPointScript.cs" />
     <Compile Include="Assets\Script\TableScript\ChairCustomerScript.cs" />
     <Compile Include="Assets\Script\ShowModel\ShowPlatelScript.cs" />
-    <Compile Include="Assets\Script\PlayerAndNPC\CameraScript.cs" />
-    <Compile Include="Assets\Script\PlayerAndNPC\NPCDataScript.cs" />
+    <Compile Include="Assets\Script\PlayerAndNPC\Player\CameraScript.cs" />
+    <Compile Include="Assets\Script\PlayerAndNPC\NPC\NPCDataScript.cs" />
     <Compile Include="Assets\Script\ingredientScript.cs" />
+    <Compile Include="Assets\Script\VisualNovel\VisualNovelScript.cs" />
+    <Compile Include="Assets\Script\VisualNovel\VisualNovelData.cs" />
+    <Compile Include="Assets\Script\PlayerAndNPC\NPC\SpawnNPCScript.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
+    <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

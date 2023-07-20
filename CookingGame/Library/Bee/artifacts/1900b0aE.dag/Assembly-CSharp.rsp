@@ -360,12 +360,13 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 "Assets/Script/ingredientScript.cs"
-"Assets/Script/PlayerAndNPC/CameraScript.cs"
-"Assets/Script/PlayerAndNPC/InteractionPlayerScript.cs"
-"Assets/Script/PlayerAndNPC/InventoryScript.cs"
-"Assets/Script/PlayerAndNPC/NPCDataScript.cs"
-"Assets/Script/PlayerAndNPC/NPCMoveScript.cs"
-"Assets/Script/PlayerAndNPC/PlayerMoveScript.cs"
+"Assets/Script/PlayerAndNPC/NPC/NPCDataScript.cs"
+"Assets/Script/PlayerAndNPC/NPC/NPCMoveScript.cs"
+"Assets/Script/PlayerAndNPC/NPC/SpawnNPCScript.cs"
+"Assets/Script/PlayerAndNPC/Player/CameraScript.cs"
+"Assets/Script/PlayerAndNPC/Player/InteractionPlayerScript.cs"
+"Assets/Script/PlayerAndNPC/Player/InventoryScript.cs"
+"Assets/Script/PlayerAndNPC/Player/PlayerMoveScript.cs"
 "Assets/Script/ShowModel/ShowModelScript.cs"
 "Assets/Script/ShowModel/ShowMoodScript.cs"
 "Assets/Script/ShowModel/ShowPlatelScript.cs"
@@ -379,6 +380,8 @@
 "Assets/Script/TableScript/pickupPointScript.cs"
 "Assets/Script/TableScript/SinkScript.cs"
 "Assets/Script/TableScript/TableScript.cs"
+"Assets/Script/VisualNovel/VisualNovelData.cs"
+"Assets/Script/VisualNovel/VisualNovelScript.cs"
 -langversion:9.0
 
 /deterministic
