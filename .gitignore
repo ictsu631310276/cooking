@@ -1,7 +1,8 @@
 /Libraty
 Libraty
 /[Ll]ibrary/
-~/project/.gitignore
-~/project/Library
-~/project/Temp
-/My unity project/Library/
+
+~/CookingGame/.gitignore
+~/CookingGame/Library
+~/CookingGame/Temp
+/CookingGame/Library/
