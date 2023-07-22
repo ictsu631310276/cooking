@@ -56,6 +56,11 @@ MonoBehaviour:
   - ingredient: {fileID: 4304982860022364978, guid: 904757724c3391241b1a7d8130a00b53, type: 3}
     id: 13
     canOnPlate: 1
+  - ingredient: {fileID: 9023253227750047154, guid: 0017ca721c923874b81df952c2a81d84, type: 3}
+    id: 14
+    canOnPlate: 1
+  food:
+  - mixfood: 0c0000000c000000
+    food: 14
   timeUseAuto: 2
   timeUseManuel: 2
-  allChair: []

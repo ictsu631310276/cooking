@@ -10,8 +10,8 @@ public class ChairCustomerScript : MonoBehaviour
 
     public NPCDataScript NPC;
     public int itemWant;
-
     public int itemGet = 0;
+
     public ShowMoodScript showMood;
     public bool finishedEating = false;
     public float timeEat;
@@ -72,9 +72,9 @@ public class ChairCustomerScript : MonoBehaviour
             eat = eat + Time.deltaTime;
             if (eat >= timeEat)
             {
+                eat = 0;
                 itemWant = 0;
                 itemGet = 0;
-                timeEat = 0;
                 lookItem = false;
                 NPC.itemNPCWant = 0;
                 NPC.finishedEating = true;
@@ -84,8 +84,8 @@ public class ChairCustomerScript : MonoBehaviour
             mood = mood + Time.deltaTime;
             if (mood >= timeShowMood)
             {
+                mood = 0;
                 showMood.CloseMood();
-
             }
         }
     }

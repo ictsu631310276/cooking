@@ -23,5 +23,13 @@ public class InteractionPlayerScript : MonoBehaviour
             tableInteraction.Add(tableInteraction[0]);
             tableInteraction.RemoveAt(0); 
         }//สลับโต็ะที่เล็ง
+        if (itemInHand != 0)
+        {
+            haveItem = true;
+        }
+        else if (itemInHand == 0)
+        {
+            haveItem = false;
+        }
     }
 }

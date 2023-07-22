@@ -68,48 +68,27 @@ public class TableScript : MonoBehaviour
         {
             if (InteractionPlayerScript.tableInteraction[InteractionPlayerScript.tableInteraction.Count - 1] == idTable)//โต้ะตรง
             {
-                if (ingredient.allIngredient[findNumArray(itemOnTable)].canOnPlate
-                   && ingredient.allIngredient[findNumArray(InteractionPlayerScript.itemInHand)].canOnPlate)//มีจานมาเกี่ยว
+                if (!InteractionPlayerScript.haveItem)//ผู้นเล่นไม่มีอาหาร //หยิบ
                 {
-                    if ((InteractionPlayerScript.haveItem && InteractionPlayerScript.havePlate[0])
-                        && (!havePlate[0] && itemOnTable == 0))//ผู้เล่น มีจาน และ อาหาร โต้ะ ไมีมีทั้งคู่
+                    if (!InteractionPlayerScript.havePlate[0])
                     {
                         glowObject.SetActive(true);
                         if (Input.GetKeyUp(KeyCode.Q) || Input.GetButtonUp("Jump"))
                         {
-                            havePlate[0] = true;
-                            InteractionPlayerScript.havePlate[0] = false;
+                            InteractionPlayerScript.havePlate[0] = havePlate[0];
+                            InteractionPlayerScript.havePlate[1] = havePlate[1];
+                            havePlate[0] = false;
+                            havePlate[1] = false;
 
-                            itemOnTable = InteractionPlayerScript.itemInHand;
-                            InteractionPlayerScript.itemInHand = 0;
-                            InteractionPlayerScript.haveItem = false;
+                            InteractionPlayerScript.itemInHand = itemOnTable;
+                            itemOnTable = 0;
                         }
-                    }
-                    else if (InteractionPlayerScript.havePlate[0]
-                        && !havePlate[0] && !InteractionPlayerScript.haveItem)//ผู้เล่นมีแต่จาน ไม่มีอาหาร โต้ะ อาจมีอาหาร หรือไม่
+                    }//ผู้นเล่นไม่มีจาน โต้ะมีจาน จะมีอาหารหรือไม่ก็ได้ //เก็บหมด
+                    else if (InteractionPlayerScript.havePlate[0] && !havePlate[0])//ผู้เล่นมีจาน โต้ะไม่มีจาน
                     {
-                        glowObject.SetActive(true);
-                        if (!InteractionPlayerScript.havePlate[1])//จานสะอาด 
+                        if (ingredient.allIngredient[findNumArray(itemOnTable)].canOnPlate || itemOnTable == 0)//มีอาหาร(ที่ใส่จานได้)
                         {
-                            if (Input.GetKeyUp(KeyCode.Q) || Input.GetButtonUp("Jump"))
-                            {
-                                if (itemOnTable == 0)//วางจาน
-                                {
-                                    havePlate[0] = InteractionPlayerScript.havePlate[0];
-                                    havePlate[1] = InteractionPlayerScript.havePlate[1];
-                                    InteractionPlayerScript.havePlate[0] = false;
-                                    InteractionPlayerScript.havePlate[1] = false;
-                                }
-                                else if (itemOnTable != 0)//อาหารขึ้นมือ
-                                {
-                                    InteractionPlayerScript.itemInHand = itemOnTable;
-                                    itemOnTable = 0;
-                                    InteractionPlayerScript.haveItem = true;
-                                }
-                            }
-                        }
-                        else if (InteractionPlayerScript.havePlate[1])//จานสกปรก //จะไม่มีอาหารอยู่แล้ว
-                        {
+                            glowObject.SetActive(true);
                             if (Input.GetKeyUp(KeyCode.Q) || Input.GetButtonUp("Jump"))
                             {
                                 havePlate[0] = InteractionPlayerScript.havePlate[0];
@@ -118,72 +97,149 @@ public class TableScript : MonoBehaviour
                                 InteractionPlayerScript.havePlate[1] = false;
                             }
                         }
-                    }
-                    else if (InteractionPlayerScript.haveItem
-                        && itemOnTable == 0 && !InteractionPlayerScript.havePlate[0])//ผู้เล่นมีอาหาร ไม่มีจาน โต้ะไม่มีอาหาร
+                    }//ผู้เล่นมีจาน แต่โต้ะไม่ สะอาดหรือไม่ก็ได้ //วาง
+                }//ผู้เล่นไม่มีอาหาร
+                else if (InteractionPlayerScript.haveItem)//ผู้เล่นมีอาหาร //วาง
+                {
+                    if (ingredient.allIngredient[findNumArray(InteractionPlayerScript.itemInHand)].canOnPlate)//อาหารในมือวางบนจานได้
                     {
-                        if (!havePlate[1])//จานบนโต้ะสะอาด
+                        bool canMix = false;
+                        int i = 0;
+                        for (i = 0; i < ingredient.food.Length; i++)
                         {
-                            glowObject.SetActive(true);
-                            if (Input.GetKeyUp(KeyCode.Q) || Input.GetButtonUp("Jump"))
+                            if (InteractionPlayerScript.itemInHand == ingredient.food[i].mixfood[0]
+                                || InteractionPlayerScript.itemInHand == ingredient.food[i].mixfood[1])
                             {
-                                itemOnTable = InteractionPlayerScript.itemInHand;
-                                InteractionPlayerScript.itemInHand = 0;
-                                InteractionPlayerScript.haveItem = false;
+                                canMix = true;
+                                break;
                             }
+                            else
+                            {
+                                canMix = false;
+                                break;
+                            }
+                        }//ดูว่าผสมกันได้ไหม
+                        if (!canMix)//ผสมไม่ได้
+                        {
+                            if (!InteractionPlayerScript.havePlate[0]
+                                && itemOnTable == 0 && !havePlate[1])
+                            {
+                                glowObject.SetActive(true);
+                                if (Input.GetKeyUp(KeyCode.Q) || Input.GetButtonUp("Jump"))
+                                {
+                                    itemOnTable = InteractionPlayerScript.itemInHand;
+                                    InteractionPlayerScript.itemInHand = 0;
+                                }
+                            }//ผู้เล่นไม่มีจาน โต้ะจะมีจานหรือไม่ก็ได้ แต่ต้องสะอาด//วาง
+                            else if (InteractionPlayerScript.havePlate[0])//ผู้เล่นมีจาน //วาง
+                            {
+                                if (!havePlate[0] && itemOnTable == 0 && !InteractionPlayerScript.havePlate[1])//จานสะอาด
+                                {
+                                    glowObject.SetActive(true);
+                                    if (Input.GetKeyUp(KeyCode.Q) || Input.GetButtonUp("Jump"))
+                                    {
+                                        havePlate[0] = InteractionPlayerScript.havePlate[0];
+                                        havePlate[1] = InteractionPlayerScript.havePlate[1];
+                                        InteractionPlayerScript.havePlate[0] = false;
+                                        InteractionPlayerScript.havePlate[1] = false;
+
+                                        itemOnTable = InteractionPlayerScript.itemInHand;
+                                        InteractionPlayerScript.itemInHand = 0;
+                                    }
+                                }
+                            }//โต้ะไม่มีอาหาร ไม่มีจาน //ผู้เล่นจะมีจานหรือไม่ก็ได้
+                        }
+                        else if(canMix)//ผสมกันได้
+                        {
+                            if (!InteractionPlayerScript.havePlate[0])//ผู้เล่นไม่มีจาน
+                            {
+                                if (!havePlate[1] && itemOnTable == 0)//มีจานหรือไม่ก็ได้ แต่โต้ะต้องวาง
+                                {
+                                    glowObject.SetActive(true);
+                                    if (Input.GetKeyUp(KeyCode.Q) || Input.GetButtonUp("Jump"))
+                                    {
+                                        itemOnTable = InteractionPlayerScript.itemInHand;
+                                        InteractionPlayerScript.itemInHand = 0;
+                                    }
+                                }//โต้ะจะมีจานหรือไม่ก็ได้ แต่ต้องสะอาด และว่าง //วางอาหาร
+                                else if (itemOnTable != 0)//มีของบนโต้ะ
+                                {
+                                    if (itemOnTable == ingredient.food[i].mixfood[0]
+                                        || itemOnTable == ingredient.food[i].mixfood[1])
+                                    {
+                                        glowObject.SetActive(true);
+                                        if (Input.GetKeyUp(KeyCode.Q) || Input.GetButtonUp("Jump"))
+                                        {
+                                            itemOnTable = ingredient.food[i].food;
+                                            InteractionPlayerScript.itemInHand = 0;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        Debug.LogError("Can't Mix");
+                                    }
+                                }//ผสม
+                            }//ไม่มีจาน
+                            else if(InteractionPlayerScript.havePlate[0])
+                            {
+                                if (itemOnTable != 0 && !havePlate[0])
+                                {
+                                    if (itemOnTable == ingredient.food[i].mixfood[0]
+                                        || itemOnTable == ingredient.food[i].mixfood[1])
+                                    {
+                                        glowObject.SetActive(true);
+                                        if (Input.GetKeyUp(KeyCode.Q) || Input.GetButtonUp("Jump"))
+                                        {
+                                            itemOnTable = ingredient.food[i].food;
+                                            InteractionPlayerScript.itemInHand = 0;
+
+                                            havePlate[0] = true;
+                                            InteractionPlayerScript.havePlate[0] = false;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        Debug.LogError("Can't Mix");
+                                    }
+                                }//โต้ะไม่มีจาน
+                                else if (itemOnTable != 0 && havePlate[0])
+                                {
+                                    if (itemOnTable == ingredient.food[i].mixfood[0]
+                                        || itemOnTable == ingredient.food[i].mixfood[1])
+                                    {
+                                        glowObject.SetActive(true);
+                                        if (Input.GetKeyUp(KeyCode.Q) || Input.GetButtonUp("Jump"))
+                                        {
+                                            itemOnTable = ingredient.food[i].food;
+                                            InteractionPlayerScript.itemInHand = 0;
+                                        }
+                                    }
+                                }//โต้ะมีจาน
+                                else if (itemOnTable == 0)
+                                {
+                                    glowObject.SetActive(true);
+                                    if (Input.GetKeyUp(KeyCode.Q) || Input.GetButtonUp("Jump"))
+                                    {
+                                        itemOnTable = InteractionPlayerScript.itemInHand;
+                                        InteractionPlayerScript.itemInHand = 0;
+
+                                        havePlate[0] = true;
+                                        InteractionPlayerScript.havePlate[0] = false;
+                                    }
+                                }
+                            }//มีจาน
                         }
                     }
-                    else if (!InteractionPlayerScript.haveItem && !InteractionPlayerScript.havePlate[0])//ผู้เล่นไม่มีอาหาร และจาน(มือเปล่า)
+                    else if (!havePlate[0] && itemOnTable == 0)
                     {
                         glowObject.SetActive(true);
                         if (Input.GetKeyUp(KeyCode.Q) || Input.GetButtonUp("Jump"))
                         {
-                            if (havePlate[0] && itemOnTable != 0)//บนโต้ะมีจาน มีอาหาร
-                            {
-                                havePlate[0] = false;
-                                InteractionPlayerScript.havePlate[0] = true;
-
-                                InteractionPlayerScript.itemInHand = itemOnTable;
-                                itemOnTable = 0;
-                                InteractionPlayerScript.haveItem = true;
-                            }
-                            else if (havePlate[0])//บนโต้ะมีจาน
-                            {
-                                InteractionPlayerScript.havePlate[0] = havePlate[0];
-                                InteractionPlayerScript.havePlate[1] = havePlate[1];
-                                havePlate[0] = false;
-                                havePlate[1] = false;
-                            }
-                            else if (itemOnTable != 0)//บนโต้ะมีอาหาร
-                            {
-                                InteractionPlayerScript.itemInHand = itemOnTable;
-                                itemOnTable = 0;
-                                InteractionPlayerScript.haveItem = true;
-                            }
-                        }
-                    }
-                }
-                else//ไม่มีจานมาเกี่ยว
-                {
-                    if (!havePlate[0] && !InteractionPlayerScript.havePlate[0])
-                    {
-                        glowObject.SetActive(true);
-                        if ((Input.GetKeyUp(KeyCode.Q) || Input.GetButtonUp("Jump")) &&
-                            itemOnTable == 0)
-                        {
                             itemOnTable = InteractionPlayerScript.itemInHand;
                             InteractionPlayerScript.itemInHand = 0;
-                            InteractionPlayerScript.haveItem = false;
                         }
-                        else if ((Input.GetKeyUp(KeyCode.Q) || Input.GetButtonUp("Jump")) &&
-                            !InteractionPlayerScript.haveItem)
-                        {
-                            InteractionPlayerScript.itemInHand = itemOnTable;
-                            itemOnTable = 0;
-                            InteractionPlayerScript.haveItem = true;
-                        }
-                    }
-                }//item ที่อยู่้ในมือ และ บนโต้ะ ใส่จานไม่ได้มาลูปนี้
+                    }//อาหารวางบนจานไม่ได้ //ไม่มีจาน //วาง
+                }
             }
             else
             {

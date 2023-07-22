@@ -1,2 +1,7 @@
 /Libraty
 Libraty
+/[Ll]ibrary/
+~/project/.gitignore
+~/project/Library
+~/project/Temp
+/My unity project/Library/

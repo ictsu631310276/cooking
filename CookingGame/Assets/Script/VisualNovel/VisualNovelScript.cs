@@ -10,11 +10,15 @@ public class VisualNovelScript : MonoBehaviour
     public Dialoge[] dataText;
     public GameObject buttomNext;
     public int nowDialogue = 0;
-    public bool pressButtom = false;
-    public bool taking = false;
-    public TextMeshProUGUI textShowSpeed;
 
+    public bool taking = false;
+    public bool pressButtom = false;
+    public TextMeshProUGUI textShowSpeed;
     public GameObject historyUI;
+    public GameObject buttomChoice;
+
+    public ChoiceTextScript choiceData;
+
     public void NextDialogue()
     {
         if (nowDialogue == dataText.Length - 1)
@@ -58,10 +62,6 @@ public class VisualNovelScript : MonoBehaviour
         //buttomNext.SetActive(false);
         historyUI.SetActive(false);
     }
-    private void Update()
-    {
-
-    }
     [System.Serializable]
     public class Dialoge
     {
@@ -70,6 +70,6 @@ public class VisualNovelScript : MonoBehaviour
         public int imageCharacter;//ถ้าไม่ได้เปลี่ยน ไม่ต้องเปลี่ยน
         public string name;//ถ้าไม่ได้เปลี่ยน ไม่ต้องเปลี่ยน
         public string text;
+        public bool haveChoice;
     }
-
 }

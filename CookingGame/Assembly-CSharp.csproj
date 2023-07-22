@@ -62,6 +62,8 @@
     <Compile Include="Assets\Script\TableScript\SinkScript.cs" />
     <Compile Include="Assets\Script\PlayerAndNPC\Player\InventoryScript.cs" />
     <Compile Include="Assets\Script\VisualNovel\VisualNovelScript.cs" />
+    <Compile Include="Assets\Script\VisualNovel\HistoryScript.cs" />
+    <Compile Include="Assets\Script\VisualNovel\dialogueBoxScript.cs" />
     <Compile Include="Assets\Script\TableScript\KnifeTableScript.cs" />
     <Compile Include="Assets\Script\PlayerAndNPC\Player\InteractionPlayerScript.cs" />
     <Compile Include="Assets\Script\ShowModel\ShowModelScript.cs" />
@@ -78,8 +80,9 @@
     <Compile Include="Assets\Script\PlayerAndNPC\NPC\NPCDataScript.cs" />
     <Compile Include="Assets\Script\ingredientScript.cs" />
     <Compile Include="Assets\Script\PlayerAndNPC\NPC\SpawnNPCScript.cs" />
-    <Compile Include="Assets\Script\VisualNovel\dialogueBoxScript.cs" />
-    <Compile Include="Assets\Script\VisualNovel\HistoryScript.cs" />
+    <Compile Include="Assets\Script\MenuManager.cs" />
+    <Compile Include="Assets\Script\VisualNovel\ButtomScript.cs" />
+    <Compile Include="Assets\Script\VisualNovel\ChoiceTextScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
