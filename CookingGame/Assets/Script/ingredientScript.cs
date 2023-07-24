@@ -7,7 +7,7 @@ public class ingredientScript : MonoBehaviour
     public GameObject plate;
     public GameObject dirtyPlate;
     public IDAndIngredient[] allIngredient;
-    public MixFood[] food;
+    public MixFood[] mixFood;
     public float timeUseAuto;
     public float timeUseManuel;
     [System.Serializable]

@@ -62,7 +62,7 @@ public class dialogueBoxScript : MonoBehaviour
     }
     private void Update()
     {        
-        if (data.pressButtom && fading && !data.taking && position == data.dataText[data.nowDialogue].positionSit)
+        if (data.pressButtom && fading && !data.taking && position == data.dataText[VisualNovelScript.nowDialogue].positionSit)
         {
             data.pressButtom = false;
             StartCoroutine(RunText(talkTextSpeed));
@@ -104,11 +104,10 @@ public class dialogueBoxScript : MonoBehaviour
         nameCharacter.color = new Color(0, 0, 0, fadeValue);
         dialogue.color = new Color(0, 0, 0, fadeValue);
 
-        if (position == data.dataText[data.nowDialogue].positionSit)
+        if (position == data.dataText[VisualNovelScript.nowDialogue].positionSit)
         {
-            willFade = data.dataText[data.nowDialogue].openImage;
-            UpdateText(data.nowDialogue);//อับเดดข้อมูล
+            willFade = data.dataText[VisualNovelScript.nowDialogue].openImage;
+            UpdateText(VisualNovelScript.nowDialogue);//อับเดดข้อมูล
         }
-        Debug.Log(willFade);
     }
 }

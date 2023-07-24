@@ -105,10 +105,10 @@ public class TableScript : MonoBehaviour
                     {
                         bool canMix = false;
                         int i = 0;
-                        for (i = 0; i < ingredient.food.Length; i++)
+                        for (i = 0; i < ingredient.mixFood.Length; i++)
                         {
-                            if (InteractionPlayerScript.itemInHand == ingredient.food[i].mixfood[0]
-                                || InteractionPlayerScript.itemInHand == ingredient.food[i].mixfood[1])
+                            if (InteractionPlayerScript.itemInHand == ingredient.mixFood[i].mixfood[0]
+                                || InteractionPlayerScript.itemInHand == ingredient.mixFood[i].mixfood[1])
                             {
                                 canMix = true;
                                 break;
@@ -164,13 +164,13 @@ public class TableScript : MonoBehaviour
                                 }//โต้ะจะมีจานหรือไม่ก็ได้ แต่ต้องสะอาด และว่าง //วางอาหาร
                                 else if (itemOnTable != 0)//มีของบนโต้ะ
                                 {
-                                    if (itemOnTable == ingredient.food[i].mixfood[0]
-                                        || itemOnTable == ingredient.food[i].mixfood[1])
+                                    if (itemOnTable == ingredient.mixFood[i].mixfood[0]
+                                        || itemOnTable == ingredient.mixFood[i].mixfood[1])
                                     {
                                         glowObject.SetActive(true);
                                         if (Input.GetKeyUp(KeyCode.Q) || Input.GetButtonUp("Jump"))
                                         {
-                                            itemOnTable = ingredient.food[i].food;
+                                            itemOnTable = ingredient.mixFood[i].food;
                                             InteractionPlayerScript.itemInHand = 0;
                                         }
                                     }
@@ -184,13 +184,13 @@ public class TableScript : MonoBehaviour
                             {
                                 if (itemOnTable != 0 && !havePlate[0])
                                 {
-                                    if (itemOnTable == ingredient.food[i].mixfood[0]
-                                        || itemOnTable == ingredient.food[i].mixfood[1])
+                                    if (itemOnTable == ingredient.mixFood[i].mixfood[0]
+                                        || itemOnTable == ingredient.mixFood[i].mixfood[1])
                                     {
                                         glowObject.SetActive(true);
                                         if (Input.GetKeyUp(KeyCode.Q) || Input.GetButtonUp("Jump"))
                                         {
-                                            itemOnTable = ingredient.food[i].food;
+                                            itemOnTable = ingredient.mixFood[i].food;
                                             InteractionPlayerScript.itemInHand = 0;
 
                                             havePlate[0] = true;
@@ -204,13 +204,13 @@ public class TableScript : MonoBehaviour
                                 }//โต้ะไม่มีจาน
                                 else if (itemOnTable != 0 && havePlate[0])
                                 {
-                                    if (itemOnTable == ingredient.food[i].mixfood[0]
-                                        || itemOnTable == ingredient.food[i].mixfood[1])
+                                    if (itemOnTable == ingredient.mixFood[i].mixfood[0]
+                                        || itemOnTable == ingredient.mixFood[i].mixfood[1])
                                     {
                                         glowObject.SetActive(true);
                                         if (Input.GetKeyUp(KeyCode.Q) || Input.GetButtonUp("Jump"))
                                         {
-                                            itemOnTable = ingredient.food[i].food;
+                                            itemOnTable = ingredient.mixFood[i].food;
                                             InteractionPlayerScript.itemInHand = 0;
                                         }
                                     }

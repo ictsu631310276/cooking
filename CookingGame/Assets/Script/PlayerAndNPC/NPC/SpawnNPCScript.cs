@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class SpawnNPCScript : MonoBehaviour
 {
+    public static bool open = false;
     public ingredientScript ingredient;//ดูเมนูอาหาร
     public List<int> allIDFoodWant;
-    //public NPCDataScript dataNPC;//ต้นแบบตอนสร้าง และเก็บข้อมูล(ไม่ได้ใช้สร้าง)
     public NPCMoveScript npcMove;
     public GameObject moveChild;
     public GameObject mpcPrefab;
@@ -66,7 +66,10 @@ public class SpawnNPCScript : MonoBehaviour
     }
     private void Update()
     {
-        timeCount = timeCount + Time.deltaTime;
+        if (open)
+        {
+            timeCount = timeCount + Time.deltaTime;
+        }
         if (timeCount >= timeInOneRound && haveChairCanSit())
         {
             timeCount = 0;
