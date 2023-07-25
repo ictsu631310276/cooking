@@ -442,17 +442,59 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 75077e43dfb1a4b4a90343fb333cd3b9, type: 3}
   - {fileID: 21300000, guid: 9d65e6f447cca4e4ba2d297a94f6c08b, type: 3}
   - {fileID: 21300000, guid: bf99ac8be32f0aa4f90da70c187e96fa, type: 3}
+  imageBG:
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 1c6742f1704a9d540ac1d4e22efd10b0, type: 3}
+  - {fileID: 21300000, guid: 3a9687bafeb78c040b576a76baa6db3b, type: 3}
+  - {fileID: 21300000, guid: 7ba03e11b816299438b9b316936f4951, type: 3}
   dataText:
   - positionSit: 1
     openImage: 1
     imageCharacter: 1
     name: mok
-    text: hi
+    text: hi+++
     ChoiceText:
     - Yes
     - No
     relationship: 0000000032000000
-    idNPCGet: 1
+    idNPCGetRelationship: 0
+    BGNow: 1
+  - positionSit: 1
+    openImage: 1
+    imageCharacter: 2
+    name: mok
+    text: you sey yes
+    ChoiceText: []
+    relationship: 
+    idNPCGetRelationship: 0
+    BGNow: 1
+  - positionSit: 1
+    openImage: 1
+    imageCharacter: 3
+    name: mok
+    text: you sey no
+    ChoiceText: []
+    relationship: 
+    idNPCGetRelationship: 0
+    BGNow: 2
+  - positionSit: 1
+    openImage: 1
+    imageCharacter: 4
+    name: mok
+    text: OK
+    ChoiceText: []
+    relationship: 
+    idNPCGetRelationship: 0
+    BGNow: 2
+  - positionSit: 1
+    openImage: 1
+    imageCharacter: 4
+    name: mok
+    text: bye
+    ChoiceText: []
+    relationship: 
+    idNPCGetRelationship: 0
+    BGNow: 3
   buttomNext: {fileID: 1861650087}
   taking: 0
   pressButtom: 0
@@ -461,6 +503,7 @@ MonoBehaviour:
   buttomChoice: {fileID: 408733212}
   choiceData: {fileID: 408733214}
   buttomScript: {fileID: 408733215}
+  BackGround: {fileID: 1084893847}
   buttomGOJ: {fileID: 408733212}
 --- !u!4 &285772962 stripped
 Transform:
@@ -687,7 +730,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &408733213
 Transform:
   m_ObjectHideFlags: 0

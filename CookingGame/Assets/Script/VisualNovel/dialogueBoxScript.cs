@@ -23,6 +23,7 @@ public class dialogueBoxScript : MonoBehaviour
     IEnumerator RunText(float speed)
     {
         numOfCharacters = dialogue.textInfo.characterCount;
+        Debug.Log(dialogue.textInfo.characterCount);
         for (numOfWords = 0; numOfWords < numOfCharacters; numOfWords++)
         {
             dialogue.maxVisibleCharacters = numOfWords + 1;
@@ -33,25 +34,25 @@ public class dialogueBoxScript : MonoBehaviour
     }
     private void UpdateText(int now)
     {
+        //numOfCharacters = dialogue.textInfo.characterCount;
+        if (data.dataText[now].imageCharacter == 0)
+        {
+            imageCharacter.sprite = data.imageCharacter[data.dataText[now - 1].imageCharacter];
+        }
+        else
+        {
+            imageCharacter.sprite = data.imageCharacter[data.dataText[now].imageCharacter];
+        }
+        if (data.dataText[now].name == "")
+        {
+            nameCharacter.text = data.dataText[now - 1].name;
+        }
+        else
+        {
+            nameCharacter.text = data.dataText[now].name;
+        }
+        dialogue.text = data.dataText[now].text;
         numOfCharacters = dialogue.textInfo.characterCount;
-        int i = (now > 0) ? now : now * -1;//เงื่อนไข ? จริง : เท็จ
-        if (data.dataText[i].imageCharacter == 0)
-        {
-            imageCharacter.sprite = data.imageCharacter[data.dataText[i - 1].imageCharacter];
-        }
-        else
-        {
-            imageCharacter.sprite = data.imageCharacter[data.dataText[i].imageCharacter];
-        }
-        if (data.dataText[i].name == "")
-        {
-            nameCharacter.text = data.dataText[i - 1].name;
-        }
-        else
-        {
-            nameCharacter.text = data.dataText[i].name;
-        }
-        dialogue.text = data.dataText[i].text;
     }
     private void Start()
     {
@@ -109,5 +110,6 @@ public class dialogueBoxScript : MonoBehaviour
             willFade = data.dataText[VisualNovelScript.nowDialogue].openImage;
             UpdateText(VisualNovelScript.nowDialogue);//อับเดดข้อมูล
         }
+
     }
 }

@@ -7,6 +7,7 @@ using TMPro;
 public class VisualNovelScript : MonoBehaviour
 {
     public Sprite[] imageCharacter;
+    public Sprite[] imageBG;
     public Dialoge[] dataText;
     public GameObject buttomNext;
     public static int nowDialogue = 0;
@@ -20,10 +21,11 @@ public class VisualNovelScript : MonoBehaviour
     public ChoiceTextScript choiceData;
     public ButtomScript buttomScript;
 
+    public SpriteRenderer BackGround;
     public GameObject buttomGOJ;
     public void NextDialogue()
     {
-        if (nowDialogue == dataText.Length)
+        if (nowDialogue == dataText.Length-1)
         {
             Debug.Log("End");
         }
@@ -31,8 +33,17 @@ public class VisualNovelScript : MonoBehaviour
         {
             if (dataText[nowDialogue].ChoiceText.Length == 0)//ไม่มีตัวเลือก
             {
-                Debug.Log("next");
-                nowDialogue++;
+                if (ButtomScript.behindChoice)
+                {
+                    Debug.Log("+2");
+                    ButtomScript.behindChoice = false;
+                    nowDialogue += 2;
+                }
+                else
+                {
+                    Debug.Log("+1");
+                    nowDialogue++;
+                }
             }
             else if (dataText[nowDialogue].ChoiceText.Length != 0)
             {
@@ -77,16 +88,21 @@ public class VisualNovelScript : MonoBehaviour
         buttomGOJ.SetActive(false);
         historyUI.SetActive(false);
     }
+    private void Update()
+    {
+        BackGround.sprite = imageBG[dataText[nowDialogue].BGNow];
+    }
     [System.Serializable]
     public class Dialoge
     {
-        public int positionSit;//1-3 4
-        public bool openImage;
-        public int imageCharacter;//ถ้าไม่ได้เปลี่ยน ไม่ต้องเปลี่ยน
+        public int positionSit = 0;//1-3 4
+        public bool openImage = false;
+        public int imageCharacter = 0;//ถ้าไม่ได้เปลี่ยน ไม่ต้องเปลี่ยน
         public string name;//ถ้าไม่ได้เปลี่ยน ไม่ต้องเปลี่ยน
         public string text;
         public string[] ChoiceText;
         public int[] relationship;
-        public int idNPCGet;
+        public int idNPCGetRelationship;
+        public int BGNow;
     }
 }
