@@ -9,7 +9,7 @@ public class CameraScript : MonoBehaviour
     public GameObject cam1;
     public GameObject cam2;
 
-    public bool zoomOut = true;
+    public static bool zoomOut = true;
 
     private void Start()
     {

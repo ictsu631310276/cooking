@@ -37,7 +37,7 @@ public class ShowModelScript : MonoBehaviour
         }//จาน
         if (idItemInHand != 0 && !haveItem)
         {
-            itemModel = Instantiate(ingredient.allIngredient[findNumArray(idItemInHand)].ingredient, handPoint.transform, false);
+            itemModel = Instantiate(ingredient.modelItem[findNumArray(idItemInHand)], handPoint.transform, false);
             itemModel.transform.parent = handPoint.transform;
             haveItem = true;
             num = idItemInHand;
@@ -79,7 +79,7 @@ public class ShowModelScript : MonoBehaviour
     {
         if (item != 0 && !haveItem)
         {
-            itemModel = Instantiate(ingredient.allIngredient[findNumArray(item)].ingredient, handPoint.transform, false);
+            itemModel = Instantiate(ingredient.modelItem[findNumArray(item)], handPoint.transform, false);
             itemModel.transform.position = itemModel.transform.position + new Vector3(-0.25f, 0f, -0.3f) ;
             itemModel.transform.parent = handPoint.transform;
             haveItem = true;
