@@ -51,30 +51,43 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 9f0838f5e31fc2949a66c2deb3f30c95, type: 3}
   - {fileID: 21300000, guid: 75077e43dfb1a4b4a90343fb333cd3b9, type: 3}
   - {fileID: 21300000, guid: 14b8653651a7ae74f987038894c28f25, type: 3}
+  - {fileID: 21300000, guid: 9d65e6f447cca4e4ba2d297a94f6c08b, type: 3}
   modelItem:
   - {fileID: 5334172991140216423, guid: 17b2434e35a947c45a58e53710c157a3, type: 3}
   - {fileID: 4304982860022364978, guid: a67de7ba88f326a4283749f25864b28a, type: 3}
   - {fileID: 4304982860022364978, guid: 904757724c3391241b1a7d8130a00b53, type: 3}
   - {fileID: 9023253227750047154, guid: 0017ca721c923874b81df952c2a81d84, type: 3}
+  - {fileID: 9023253227750047154, guid: 25198c0c930923f41a6aeccbaab64151, type: 3}
   allIngredient:
   - name: fish
     id: 11
+    like: 0
     amount: 999
     canOnPlate: 0
   - name: Sliced Fish
-    id: 12
+    id: 21
+    like: 0
     amount: 999
     canOnPlate: 1
   - name: baked fish
-    id: 13
+    id: 31
+    like: 0
     amount: 999
     canOnPlate: 1
   - name: something
-    id: 14
+    id: 41
+    like: 0
     amount: 1
+    canOnPlate: 1
+  - name: mok
+    id: 51
+    like: 0
+    amount: 10
     canOnPlate: 1
   mixFood:
   - mixfood: 0c0000000c000000
     food: 14
+  - mixfood: 0d0000000d000000
+    food: 15
   timeUseAuto: 2
   timeUseManuel: 2

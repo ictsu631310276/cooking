@@ -17,6 +17,7 @@ public class ingredientScript : MonoBehaviour
     public class IDAndIngredient {
         public string name;
         public int id;
+        public bool like = false;
         public int amount;
         public bool canOnPlate;
     }//ข้อมูลทั้งหมด
