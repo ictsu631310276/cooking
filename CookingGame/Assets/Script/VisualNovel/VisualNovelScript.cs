@@ -14,7 +14,8 @@ public class VisualNovelScript : MonoBehaviour
 
     public bool taking = false;
     public bool pressButtom = false;
-    public TextMeshProUGUI textShowSpeed;
+    public Image speedButtom;
+    public Sprite[] ShowSpeed;
     public GameObject historyUI;
 
     public GameObject buttomChoice; 
@@ -35,17 +36,15 @@ public class VisualNovelScript : MonoBehaviour
             {
                 if (ButtomScript.behindChoice)
                 {
-                    Debug.Log("+2");
                     ButtomScript.behindChoice = false;
                     nowDialogue += 2;
                 }
                 else
                 {
-                    Debug.Log("+1");
                     nowDialogue++;
                 }
             }
-            else if (dataText[nowDialogue].ChoiceText.Length != 0)
+            else
             {
                 buttomGOJ.SetActive(true);
                 buttomScript.B1Text.text = dataText[nowDialogue].ChoiceText[0];
@@ -65,12 +64,12 @@ public class VisualNovelScript : MonoBehaviour
         if (dialogueBoxScript.talkTextSpeed == 0.05f)
         {
             dialogueBoxScript.talkTextSpeed = 0.01f;
-            textShowSpeed.text = "X" + 5;
+            speedButtom.sprite = ShowSpeed[0];
         }
         else
         {
             dialogueBoxScript.talkTextSpeed = 0.05f;
-            textShowSpeed.text = "X" + 1;
+            speedButtom.sprite = ShowSpeed[1];
         }
         
     }

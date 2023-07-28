@@ -56,6 +56,7 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Script\Dungeon\ButtomDScript.cs" />
     <Compile Include="Assets\Script\ShowModel\TimeBarScript.cs" />
     <Compile Include="Assets\Script\VisualNovel\ChoiceTextScript.cs" />
     <Compile Include="Assets\Script\TableScript\BinScript.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="Assets\Script\UI\TimeUI.cs" />
     <Compile Include="Assets\Script\UI\IncentoryScript.cs" />
     <Compile Include="Assets\Script\TableScript\SinkScript.cs" />
+    <Compile Include="Assets\Script\Dungeon\ButtomCHScript.cs" />
     <Compile Include="Assets\Script\PlayerAndNPC\Player\InventoryScript.cs" />
     <Compile Include="Assets\Script\VisualNovel\ButtomScript.cs" />
     <Compile Include="Assets\Script\VisualNovel\VisualNovelScript.cs" />
@@ -83,11 +85,13 @@
     <Compile Include="Assets\Script\TableScript\ChairCustomerScript.cs" />
     <Compile Include="Assets\Script\ShowModel\ShowPlatelScript.cs" />
     <Compile Include="Assets\Script\PlayerAndNPC\Player\CameraScript.cs" />
+    <Compile Include="Assets\Script\Dungeon\DungeonScript.cs" />
     <Compile Include="Assets\Script\PlayerAndNPC\NPC\NPCDataScript.cs" />
     <Compile Include="Assets\Script\TableScript\FridgeScript.cs" />
     <Compile Include="Assets\Script\Data\ingredientScript.cs" />
     <Compile Include="Assets\Script\UI\GetItemScript.cs" />
     <Compile Include="Assets\Script\PlayerAndNPC\NPC\SpawnNPCScript.cs" />
+    <Compile Include="Assets\Script\Data\CharacterDataScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

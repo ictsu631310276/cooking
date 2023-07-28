@@ -22,8 +22,7 @@ public class dialogueBoxScript : MonoBehaviour
 
     IEnumerator RunText(float speed)
     {
-        numOfCharacters = dialogue.textInfo.characterCount;
-        Debug.Log(dialogue.textInfo.characterCount);
+        numOfCharacters = dialogue.textInfo.characterCount; 
         for (numOfWords = 0; numOfWords < numOfCharacters; numOfWords++)
         {
             dialogue.maxVisibleCharacters = numOfWords + 1;
@@ -102,8 +101,8 @@ public class dialogueBoxScript : MonoBehaviour
         }
         imageCharacter.color = new Color(255, 255, 255, fadeValue);//จาง
         boxText.color = new Color(255, 255, 255, fadeValue);
-        nameCharacter.color = new Color(0, 0, 0, fadeValue);
-        dialogue.color = new Color(0, 0, 0, fadeValue);
+        nameCharacter.color = new Color(255, 255, 255, fadeValue);
+        dialogue.color = new Color(255, 255, 255, fadeValue);
 
         if (position == data.dataText[VisualNovelScript.nowDialogue].positionSit)
         {

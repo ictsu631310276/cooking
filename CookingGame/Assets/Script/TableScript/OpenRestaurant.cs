@@ -7,7 +7,8 @@ public class OpenRestaurant : MonoBehaviour
 {
     public int idTable;
     public GameObject glowObject;
-    public Image showOpen;
+    public GameObject openUI;
+    public GameObject closeUI;
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
@@ -27,6 +28,7 @@ public class OpenRestaurant : MonoBehaviour
     private void Start()
     {
         glowObject.SetActive(false);
+
     }
     private void Update()
     {
@@ -58,11 +60,13 @@ public class OpenRestaurant : MonoBehaviour
         }
         if (SpawnNPCScript.open)
         {
-            showOpen.color = new Color(0, 255, 0, 255);
+            openUI.SetActive(true);
+            closeUI.SetActive(false);
         }
         else if (!SpawnNPCScript.open)
         {
-            showOpen.color = new Color(255, 0, 0, 255);
+            openUI.SetActive(false);
+            closeUI.SetActive(true);
         }
     }
 }

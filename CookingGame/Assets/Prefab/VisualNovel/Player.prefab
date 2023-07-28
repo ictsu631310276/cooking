@@ -25,9 +25,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6413244666843113493}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.1953, y: -2.52, z: 0}
-  m_LocalScale: {x: 0.17214, y: 0.1, z: 0.1}
-  m_ConstrainProportionsScale: 1
+  m_LocalPosition: {x: 0.15, y: 0, z: 0}
+  m_LocalScale: {x: 0.7, y: 0.40000004, z: 0.40000004}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6413244667144196719}
   m_RootOrder: 1
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: -1436796843
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3fabc3ed02715c74dbff557e0a398dc4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d0a0eff171b33cd4ea7c6f7869d1d18c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -109,8 +109,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6413244666880505420}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.41, y: -8.91, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_LocalPosition: {x: 0, y: -8.44, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6413244667144196719}
@@ -157,7 +157,7 @@ SpriteRenderer:
   m_SortingLayerID: 1871048679
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 14b8653651a7ae74f987038894c28f25, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8645067a56c61a24aa44af17b79e78db, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -203,8 +203,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.48, y: -1.8}
-  m_SizeDelta: {x: 4.2047, y: 1}
+  m_AnchoredPosition: {x: -1, y: 0.8}
+  m_SizeDelta: {x: 4, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &6413244666950219985
 MeshRenderer:
@@ -268,7 +268,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: VoidCat
+  m_text: Name
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7db9514d99571a242bc776f8dee3474e, type: 2}
   m_sharedMaterial: {fileID: 5632221483580365750, guid: 7db9514d99571a242bc776f8dee3474e, type: 2}
@@ -277,8 +277,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -298,8 +298,8 @@ MonoBehaviour:
   m_fontSize: 5
   m_fontSizeBase: 5
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 5
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 1
@@ -331,7 +331,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0.24614322, z: -2.1705372, w: 0.22376692}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -430,8 +430,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.1, y: -2.84}
-  m_SizeDelta: {x: 5.55, y: 1.32}
+  m_AnchoredPosition: {x: -0.5, y: -0.41}
+  m_SizeDelta: {x: 5, y: 1.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &6413244667643716777
 MeshRenderer:
@@ -495,7 +495,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0E2A\u0E27\u0E31\u0E2A\u0E14\u0E35\u0E2A\u0E27\u0E31\u0E2A\u0E14\u0E35\u0E2A\u0E27\u0E31\u0E2A\u0E14\u0E35\u0E2A\u0E27\u0E31\u0E2A\u0E14\u0E35\u0E2A\u0E27\u0E31\u0E2A\u0E14\u0E35\u0E2A\u0E27\u0E31\u0E2A\u0E14\u0E35\u0E2A\u0E27\u0E31\u0E2A\u0E14\u0E35\u0E2A\u0E27\u0E31\u0E2A\u0E14\u0E35\u0E2A\u0E27\u0E31\u0E2A\u0E14\u0E35\u0E2A\u0E27\u0E31\u0E2A\u0E14\u0E35\u0E2A\u0E27\u0E31\u0E2A\u0E14\u0E35\u0E2A\u0E27\u0E31\u0E2A\u0E14\u0E35\u0E2A\u0E27\u0E31\u0E2A\u0E14\u0E35\u0E2A\u0E27\u0E31\u0E2A\u0E14\u0E35\u0E2A\u0E27\u0E31\u0E2A\u0E14\u0E35\u0E2A\u0E27\u0E31\u0E2A\u0E14\u0E35"
+  m_text: "\u0E2A\u0E27\u0E31\u0E2A\u0E14\u0E35\u0E2A\u0E27\u0E31\u0E2A\u0E14\u0E35\u0E2A\u0E27\u0E31\u0E2A\u0E14\u0E35\u0E2A\u0E27\u0E31\u0E2A\u0E14\u0E35\u0E2A\u0E27\u0E31\u0E2A\u0E14\u0E35\u0E2A\u0E27\u0E31\u0E2A\u0E14\u0E35\u0E2A\u0E27\u0E31\u0E2A\u0E14\u0E35\u0E2A\u0E27\u0E31\u0E2A\u0E14\u0E35\u0E2A\u0E27\u0E31\u0E2A\u0E14\u0E35\u0E2A\u0E27\u0E31\u0E2A\u0E14\u0E35\u0E2A\u0E27\u0E31\u0E2A\u0E14\u0E35\u0E2A\u0E27\u0E31\u0E2A\u0E14\u0E35\u0E2A\u0E27\u0E31\u0E2A\u0E14\u0E35\u0E2A\u0E27\u0E31\u0E2A\u0E14\u0E35\u0E2A\u0E27\u0E31\u0E2A\u0E14\u0E35\u0E2A\u0E27\u0E31\u0E2A\u0E14\u0E35\u0E2A\u0E27\u0E31\u0E2A\u0E14\u0E35\u0E2A\u0E27\u0E31\u0E2A\u0E14\u0E35\u0E2A\u0E27\u0E31\u0E2A\u0E14\u0E35\u0E2A\u0E27\u0E31\u0E2A\u0E14\u0E35\u0E2A\u0E27\u0E31\u0E2A\u0E14\u0E35\u0E2A\u0E27\u0E31\u0E2A\u0E14\u0E35\u0E2A\u0E27\u0E31\u0E2A\u0E14\u0E35\u0E2A\u0E27\u0E31\u0E2A\u0E14\u0E35\u0E2A\u0E27\u0E31\u0E2A\u0E14\u0E35"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7db9514d99571a242bc776f8dee3474e, type: 2}
   m_sharedMaterial: {fileID: 5632221483580365750, guid: 7db9514d99571a242bc776f8dee3474e, type: 2}
@@ -504,8 +504,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -525,8 +525,8 @@ MonoBehaviour:
   m_fontSize: 3
   m_fontSizeBase: 3
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 3
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
@@ -558,7 +558,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -0.15663648, y: 0, z: -1.5663671, w: 0.4699099}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0

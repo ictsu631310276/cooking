@@ -381,7 +381,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idTable: 1901
   glowObject: {fileID: 317403474278001358}
-  showOpen: {fileID: 0}
+  openUI: {fileID: 0}
+  closeUI: {fileID: 0}
 --- !u!1 &317403474717699518
 GameObject:
   m_ObjectHideFlags: 0
