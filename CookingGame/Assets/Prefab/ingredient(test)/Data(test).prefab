@@ -59,28 +59,28 @@ MonoBehaviour:
   - {fileID: 9023253227750047154, guid: 0017ca721c923874b81df952c2a81d84, type: 3}
   - {fileID: 9023253227750047154, guid: 25198c0c930923f41a6aeccbaab64151, type: 3}
   allIngredient:
-  - name: fish
-    id: 11
+  - name: meat
+    id: 100
     like: 0
     amount: 999
     canOnPlate: 0
-  - name: Sliced Fish
-    id: 21
+  - name: Fish
+    id: 200
     like: 0
     amount: 999
     canOnPlate: 1
-  - name: baked fish
-    id: 31
+  - name: chicken
+    id: 300
     like: 0
     amount: 999
     canOnPlate: 1
-  - name: something
-    id: 41
+  - name: vegetable
+    id: 400
     like: 0
     amount: 1
     canOnPlate: 1
-  - name: mok
-    id: 51
+  - name: herbs
+    id: 500
     like: 0
     amount: 10
     canOnPlate: 1

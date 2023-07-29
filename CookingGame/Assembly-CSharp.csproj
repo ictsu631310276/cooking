@@ -65,17 +65,20 @@
     <Compile Include="Assets\Script\UI\IncentoryScript.cs" />
     <Compile Include="Assets\Script\TableScript\SinkScript.cs" />
     <Compile Include="Assets\Script\Dungeon\ButtomCHScript.cs" />
+    <Compile Include="Assets\Script\Data\CharacterDataScript.cs" />
     <Compile Include="Assets\Script\PlayerAndNPC\Player\InventoryScript.cs" />
     <Compile Include="Assets\Script\VisualNovel\ButtomScript.cs" />
     <Compile Include="Assets\Script\VisualNovel\VisualNovelScript.cs" />
     <Compile Include="Assets\Script\VisualNovel\HistoryScript.cs" />
     <Compile Include="Assets\Script\VisualNovel\dialogueBoxScript.cs" />
     <Compile Include="Assets\Script\TableScript\KnifeTableScript.cs" />
+    <Compile Include="Assets\Script\UI\ShowOrderScript.cs" />
     <Compile Include="Assets\Script\TableScript\OpenRestaurant.cs" />
     <Compile Include="Assets\Script\PlayerAndNPC\Player\InteractionPlayerScript.cs" />
     <Compile Include="Assets\Script\UI\MenuManager.cs" />
     <Compile Include="Assets\Script\ShowModel\ShowModelScript.cs" />
     <Compile Include="Assets\Script\PlayerAndNPC\NPC\NPCMoveScript.cs" />
+    <Compile Include="Assets\Script\UI\OrderUIScript.cs" />
     <Compile Include="Assets\Script\TableScript\TableScript.cs" />
     <Compile Include="Assets\Script\TableScript\pickupPlateScript.cs" />
     <Compile Include="Assets\Script\TableScript\OvenScript.cs" />
@@ -91,7 +94,6 @@
     <Compile Include="Assets\Script\Data\ingredientScript.cs" />
     <Compile Include="Assets\Script\UI\GetItemScript.cs" />
     <Compile Include="Assets\Script\PlayerAndNPC\NPC\SpawnNPCScript.cs" />
-    <Compile Include="Assets\Script\Data\CharacterDataScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

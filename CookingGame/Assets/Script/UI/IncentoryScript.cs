@@ -60,7 +60,7 @@ public class IncentoryScript : MonoBehaviour
     public void OpenIncentory(int type)
     {
         DestroyItemInList();
-        int j = type > 0 ? type * 10 : 0;
+        int j = type > 0 ? type * 100 : 0;
         for (int i = 0; i < ingredient.allIngredient.Length; i++)
         {
             if (j == 0)
@@ -76,7 +76,7 @@ public class IncentoryScript : MonoBehaviour
             }
             else if (j > 0)
             {
-                if (ingredient.allIngredient[i].id >= j && ingredient.allIngredient[i].id < j + 10)
+                if (ingredient.allIngredient[i].id >= j && ingredient.allIngredient[i].id < j + 100)
                 {
                     GetItemScript showItem1 = Instantiate(showItem, content.transform, false);
                     showItem1.id = ingredient.allIngredient[i].id;

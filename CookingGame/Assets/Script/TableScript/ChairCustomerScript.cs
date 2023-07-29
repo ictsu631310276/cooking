@@ -11,6 +11,7 @@ public class ChairCustomerScript : MonoBehaviour
     public NPCDataScript NPC;
     public int itemWant;
     public int itemGet = 0;
+    public OrderUIScript order;
 
     public ShowMoodScript showMood;
     public bool finishedEating = false;
@@ -47,6 +48,13 @@ public class ChairCustomerScript : MonoBehaviour
         if (haveSit && itemGet == 0)
         {
             showMood.ShowItemWant(itemWant);
+            if (NPC != null)
+            {
+                if (order.orderIDItem.Count <= NPC.iDNPC)
+                {
+                    order.orderIDItem.Add(itemWant);
+                }
+            }
         }
         else if (!haveSit)
         {
@@ -55,6 +63,8 @@ public class ChairCustomerScript : MonoBehaviour
         if (itemGet != 0)
         {
             showMood.ShowItemWant(0);
+            order.CreateOrderUI();
+            order.orderIDItem[NPC.iDNPC] = 0;
             finishedEating = false;
             if (!lookItem)
             {
@@ -90,3 +100,4 @@ public class ChairCustomerScript : MonoBehaviour
         }
     }
 }
+

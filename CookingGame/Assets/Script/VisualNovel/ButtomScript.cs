@@ -12,15 +12,15 @@ public class ButtomScript : MonoBehaviour
     public static bool behindChoice = false;
     public void B1Clike()
     {
-        VisualNovelScript.nowDialogue++;
         buttom.pressButtom = true;
         behindChoice = true;
+        VisualNovelScript.nowDialogue++;//ไปข้ามตอนจบข้อความ
         buttom.buttomGOJ.SetActive(false);
     }
     public void B2Clike()
     {
-        VisualNovelScript.nowDialogue += 2;
         buttom.pressButtom = true;
+        VisualNovelScript.nowDialogue = VisualNovelScript.nowDialogue + buttom.dataText[VisualNovelScript.nowDialogue].skipDialoge;//ข้ามเลย
         buttom.buttomGOJ.SetActive(false);
     }
     private void Start()

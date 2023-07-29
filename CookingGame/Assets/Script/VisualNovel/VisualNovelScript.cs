@@ -34,23 +34,18 @@ public class VisualNovelScript : MonoBehaviour
         {
             if (dataText[nowDialogue].ChoiceText.Length == 0)//ไม่มีตัวเลือก
             {
-                if (ButtomScript.behindChoice)
-                {
-                    ButtomScript.behindChoice = false;
-                    nowDialogue += 2;
-                }
-                else
-                {
-                    nowDialogue++;
-                }
+                nowDialogue = nowDialogue + dataText[nowDialogue].skipDialoge;
             }
             else
             {
                 buttomGOJ.SetActive(true);
                 buttomScript.B1Text.text = dataText[nowDialogue].ChoiceText[0];
                 buttomScript.B2Text.text = dataText[nowDialogue].ChoiceText[1];
-                buttomScript.love[0] = dataText[nowDialogue].relationship[0];
-                buttomScript.love[1] = dataText[nowDialogue].relationship[1];
+                if (dataText[nowDialogue].relationship.Length != 0)
+                {
+                    buttomScript.love[0] = dataText[nowDialogue].relationship[0];
+                    buttomScript.love[1] = dataText[nowDialogue].relationship[1];
+                }
             }
             pressButtom = true;
         }
@@ -100,6 +95,7 @@ public class VisualNovelScript : MonoBehaviour
         public string name;//ถ้าไม่ได้เปลี่ยน ไม่ต้องเปลี่ยน
         public string text;
         public string[] ChoiceText;
+        public int skipDialoge = 1;
         public int[] relationship;
         public int idNPCGetRelationship;
         public int BGNow;

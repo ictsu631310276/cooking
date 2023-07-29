@@ -15,7 +15,7 @@ public class SpawnNPCScript : MonoBehaviour
     public Transform[] spawnPoint;
     public float timeInOneRound;
     private float timeCount = 0;
-    private int iDNPC = 1;//เพิ่มตลอดทั้งวัน
+    private int iDNPC = 0;//เพิ่มตลอดทั้งวัน
     private void SpawnNPC()
     {
         int i = Random.Range(0, 2);//สุ่มจุดเกิด 2 จุด
