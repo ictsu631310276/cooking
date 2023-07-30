@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class CharacterDataScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class ChooseCharacterScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public List<DataCh> dataCH;
     public GameObject chooseCHUI;

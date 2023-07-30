@@ -2004,7 +2004,7 @@ GameObject:
   - component: {fileID: 575548241}
   - component: {fileID: 575548240}
   m_Layer: 5
-  m_Name: ChooseCharacter
+  m_Name: ChooseCharacterBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
