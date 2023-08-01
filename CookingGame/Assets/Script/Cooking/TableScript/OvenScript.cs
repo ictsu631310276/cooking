@@ -9,6 +9,7 @@ public class OvenScript : MonoBehaviour
     public ingredientScript ingredientScript;
     public ShowModelScript showModel;
     public TimeBarScript timeBar;
+    public procesIngredientScript processing;
 
     private int itemInOven = 0;//ของบนโต้ะ
     private bool haveItem = false;
@@ -35,18 +36,18 @@ public class OvenScript : MonoBehaviour
     }
     private void CanBaking()
     {
-        switch (itemInOven)
+        int i;
+        for (i = 0; i < processing.proces.Length; i++)
         {
-            case 12:
+            if (itemInOven == processing.proces[i].substrate)
+            {
                 finished = false;
-                ChangeItem();
                 break;
-            default:
-                Debug.Log("Can't Baking");
-                break;
+            }
         }
+        ChangeItem(i);
     }
-    private void ChangeItem()
+    private void ChangeItem(int i)
     {
         if (haveItem && !finished)
         {
@@ -55,15 +56,7 @@ public class OvenScript : MonoBehaviour
             if (timeOven >= timeUse)
             {
                 finished = true;
-                switch (itemInOven)
-                {
-                    case 12:
-                        itemInOven = 13;
-                        break;
-                    default:
-                        Debug.Log("I can't");
-                        break;
-                }
+                itemInOven = processing.proces[i].result;
             }
         }
     }

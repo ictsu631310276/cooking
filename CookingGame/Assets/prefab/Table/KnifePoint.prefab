@@ -245,6 +245,7 @@ GameObject:
   - component: {fileID: 6630268218315094553}
   - component: {fileID: 6630268218315094549}
   - component: {fileID: 6887686731577389416}
+  - component: {fileID: 6057422846976387121}
   m_Layer: 0
   m_Name: KnifePoint
   m_TagString: Table
@@ -350,6 +351,7 @@ MonoBehaviour:
   ingredientScript: {fileID: 2520598715831065208, guid: 7359029548bfd4a478b159304a5967ea, type: 3}
   showModel: {fileID: 6887686731577389416}
   timeBar: {fileID: 3030829323763269440}
+  proces: {fileID: 6057422846976387121}
 --- !u!114 &6887686731577389416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -364,6 +366,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handPoint: {fileID: 6630268217937602600}
   ingredient: {fileID: 2520598715831065208, guid: 7359029548bfd4a478b159304a5967ea, type: 3}
+--- !u!114 &6057422846976387121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6630268218315094555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2b9e1aebe5d59445b5e9556c183d315, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  proces:
+  - substrate: 100
+    result: 200
 --- !u!1 &6630268218411544415
 GameObject:
   m_ObjectHideFlags: 0

@@ -71,11 +71,11 @@ public class ChairCustomerScript : MonoBehaviour
                 mood = 0;
                 if (itemGet == itemWant)
                 {
-                    showMood.ShowMood(1);
+                    showMood.ShowMood(2);
                 }
                 else if (itemGet != itemWant)
                 {
-                    showMood.ShowMood(-1);
+                    showMood.ShowMood(1);
                 }
                 lookItem = true;
             }

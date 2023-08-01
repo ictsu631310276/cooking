@@ -35,16 +35,16 @@ public class IncentoryScript : MonoBehaviour
     public void LikeButtom()
     {
         DestroyItemInList();
-        for (int i = 0; i < ingredient.allIngredient.Length; i++)
+        for (int i = 0; i < ingredient.itemData.Length; i++)
         {
-            if (ingredient.allIngredient[i].like)
+            if (ingredient.itemData[i].like)
             {
                 GetItemScript showItem1 = Instantiate(showItem, content.transform, false);
-                showItem1.id = ingredient.allIngredient[i].id;
-                showItem1.amount = ingredient.allIngredient[i].amount;
-                showItem1.nameItem = ingredient.allIngredient[i].name;
-                showItem1.imageItem.sprite = ingredient.itemSprite[i];
-                showItem1.like = ingredient.allIngredient[i].like;
+                showItem1.id = ingredient.itemData[i].id;
+                showItem1.amount = ingredient.itemData[i].amount;
+                showItem1.nameItem = ingredient.itemData[i].name;
+                showItem1.imageItem.sprite = ingredient.itemData[i].imageItem;
+                showItem1.like = ingredient.itemData[i].like;
                 AllItem.Add(showItem1);
             }
         }
@@ -61,29 +61,29 @@ public class IncentoryScript : MonoBehaviour
     {
         DestroyItemInList();
         int j = type > 0 ? type * 100 : 0;
-        for (int i = 0; i < ingredient.allIngredient.Length; i++)
+        for (int i = 0; i < ingredient.itemData.Length; i++)
         {
             if (j == 0)
             {
                 GetItemScript showItem1 = Instantiate(showItem, content.transform, false);
-                showItem1.id = ingredient.allIngredient[i].id;
-                showItem1.amount = ingredient.allIngredient[i].amount;
-                showItem1.nameItem = ingredient.allIngredient[i].name;
-                showItem1.imageItem.sprite = ingredient.itemSprite[i];
-                showItem1.like = ingredient.allIngredient[i].like;
+                showItem1.id = ingredient.itemData[i].id;
+                showItem1.amount = ingredient.itemData[i].amount;
+                showItem1.nameItem = ingredient.itemData[i].name;
+                showItem1.imageItem.sprite = ingredient.itemData[i].imageItem;
+                showItem1.like = ingredient.itemData[i].like;
                 AllItem.Add(showItem1);
                 //showItem1.transform.parent = content.transform;
             }
             else if (j > 0)
             {
-                if (ingredient.allIngredient[i].id >= j && ingredient.allIngredient[i].id < j + 100)
+                if (ingredient.itemData[i].id >= j && ingredient.itemData[i].id < j + 100)
                 {
                     GetItemScript showItem1 = Instantiate(showItem, content.transform, false);
-                    showItem1.id = ingredient.allIngredient[i].id;
-                    showItem1.amount = ingredient.allIngredient[i].amount;
-                    showItem1.nameItem = ingredient.allIngredient[i].name;
-                    showItem1.imageItem.sprite = ingredient.itemSprite[i];
-                    showItem1.like = ingredient.allIngredient[i].like;
+                    showItem1.id = ingredient.itemData[i].id;
+                    showItem1.amount = ingredient.itemData[i].amount;
+                    showItem1.nameItem = ingredient.itemData[i].name;
+                    showItem1.imageItem.sprite = ingredient.itemData[i].imageItem;
+                    showItem1.like = ingredient.itemData[i].like;
                     AllItem.Add(showItem1);
                     //showItem1.transform.parent = content.transform;
                 }

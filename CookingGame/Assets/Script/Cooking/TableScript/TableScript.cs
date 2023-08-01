@@ -30,31 +30,6 @@ public class TableScript : MonoBehaviour
             InteractionPlayerScript.tableInteraction.Remove(idTable);
         }
     }
-    private int findNumArray(int idItem)
-    {
-        int j = 0;
-        bool x = true;
-        if (idItem != 0)
-        {
-            do
-            {
-                if (j >= ingredient.allIngredient.Length)
-                {
-                    x = false;
-                    Debug.LogError("Have Problem in findNumArray");
-                }
-                else if (ingredient.allIngredient[j].id == idItem)
-                {
-                    x = false;
-                }
-                else
-                {
-                    j++;
-                }
-            } while (x);
-        }
-        return j;
-    }
     private void Start()
     {
         glowObject.SetActive(false);
@@ -86,7 +61,7 @@ public class TableScript : MonoBehaviour
                     }//ผู้นเล่นไม่มีจาน โต้ะมีจาน จะมีอาหารหรือไม่ก็ได้ //เก็บหมด
                     else if (InteractionPlayerScript.havePlate[0] && !havePlate[0])//ผู้เล่นมีจาน โต้ะไม่มีจาน
                     {
-                        if (ingredient.allIngredient[findNumArray(itemOnTable)].canOnPlate || itemOnTable == 0)//มีอาหาร(ที่ใส่จานได้)
+                        if (ingredient.itemData[ingredient.FindNumOfArray(itemOnTable)].canOnPlate || itemOnTable == 0)//มีอาหาร(ที่ใส่จานได้)
                         {
                             glowObject.SetActive(true);
                             if (Input.GetKeyUp(KeyCode.Q) || Input.GetButtonUp("Jump"))
@@ -101,7 +76,7 @@ public class TableScript : MonoBehaviour
                 }//ผู้เล่นไม่มีอาหาร
                 else if (InteractionPlayerScript.haveItem)//ผู้เล่นมีอาหาร //วาง
                 {
-                    if (ingredient.allIngredient[findNumArray(InteractionPlayerScript.itemInHand)].canOnPlate)//อาหารในมือวางบนจานได้
+                    if (ingredient.itemData[ingredient.FindNumOfArray(InteractionPlayerScript.itemInHand)].canOnPlate)//อาหารในมือวางบนจานได้
                     {
                         bool canMix = false;
                         int i = 0;

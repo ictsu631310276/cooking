@@ -7,20 +7,26 @@ public class ingredientScript : MonoBehaviour
 {
     public GameObject plate;
     public GameObject dirtyPlate;
-    public Sprite[] itemSprite;
-    public GameObject[] modelItem;
-    public IDAndIngredient[] allIngredient;
+
+    public ItemData[] itemData;
+
     public MixFood[] mixFood;
     public float timeUseAuto;
     public float timeUseManuel;
-    [System.Serializable]
-    public class IDAndIngredient {
-        public string name;
-        public int id;
-        public bool like = false;
-        public int amount;
-        public bool canOnPlate;
-    }//ข้อมูลทั้งหมด
+
+    public int FindNumOfArray(int id)
+    {
+        int j = 0;
+        for (j = 0; j < itemData.Length; j++)
+        {
+            if (itemData[j].id == id)
+            {
+                break;
+            }
+        }
+        return j;
+    }
+
     [System.Serializable]
     public class MixFood
     {

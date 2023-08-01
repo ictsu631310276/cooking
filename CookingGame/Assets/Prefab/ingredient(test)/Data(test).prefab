@@ -46,6 +46,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plate: {fileID: 7667963284082040330, guid: 3f993f69944c9ba4985af12dd21fc6e1, type: 3}
   dirtyPlate: {fileID: 7667963284082040330, guid: e2108cc62aab439459c536ee93dd8c4a, type: 3}
+  itemData:
+  - {fileID: 11400000, guid: 4cd2cc13d89d71c4d8eedd90d3b3b54d, type: 2}
+  - {fileID: 11400000, guid: 89d34611f97fb6640ac0006a5cb4723d, type: 2}
+  - {fileID: 11400000, guid: b2ad121281721c7489df4774caa3e056, type: 2}
+  - {fileID: 11400000, guid: 58e134d1e148f454d84ab935cea509fa, type: 2}
+  - {fileID: 11400000, guid: d80cd32c0f8dfbe4a818f28eb1923994, type: 2}
   itemSprite:
   - {fileID: 21300000, guid: b228736e303332a41b5cc769257cea1b, type: 3}
   - {fileID: 21300000, guid: 9d7c6d7f8c8a9f84dba6c2ef0812cd70, type: 3}
@@ -58,32 +64,6 @@ MonoBehaviour:
   - {fileID: 4304982860022364978, guid: 904757724c3391241b1a7d8130a00b53, type: 3}
   - {fileID: 9023253227750047154, guid: 0017ca721c923874b81df952c2a81d84, type: 3}
   - {fileID: 9023253227750047154, guid: 25198c0c930923f41a6aeccbaab64151, type: 3}
-  allIngredient:
-  - name: meat
-    id: 100
-    like: 0
-    amount: 999
-    canOnPlate: 0
-  - name: Fish
-    id: 200
-    like: 0
-    amount: 999
-    canOnPlate: 1
-  - name: chicken
-    id: 300
-    like: 0
-    amount: 999
-    canOnPlate: 1
-  - name: vegetable
-    id: 400
-    like: 0
-    amount: 1
-    canOnPlate: 1
-  - name: herbs
-    id: 500
-    like: 0
-    amount: 10
-    canOnPlate: 1
   mixFood:
   - mixfood: 0c0000000c000000
     food: 14

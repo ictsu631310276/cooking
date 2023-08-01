@@ -56,11 +56,11 @@ public class SpawnNPCScript : MonoBehaviour
     }
     private void Start()
     {
-        for (int i = 0; i < ingredient.allIngredient.Length; i++)
+        for (int i = 0; i < ingredient.itemData.Length; i++)
         {
-            if (ingredient.allIngredient[i].canOnPlate)
+            if (ingredient.itemData[i].canOnPlate)
             {
-                allIDFoodWant.Add(ingredient.allIngredient[i].id);
+                allIDFoodWant.Add(ingredient.itemData[i].id);
             }
         }
     }

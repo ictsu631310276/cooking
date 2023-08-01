@@ -1,60 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShowMoodScript : MonoBehaviour
 {
-    public ShowModelScript showModel;
-    public GameObject showItemWantPoint;
-    public GameObject veryHappyUI;
-    public GameObject happyUI;
-    public GameObject angryUI;
-    public GameObject veryAngryUI;
-    private void Start()
-    {
-        showItemWantPoint.SetActive(false);
-        CloseMood();
-    }
+    public ingredientScript ingredient;
+    public Sprite[] allMood;
+    public GameObject showImageObj;
+    public Image showImage;
     public void CloseMood()
     {
-        veryHappyUI.SetActive(false);
-        happyUI.SetActive(false);
-        angryUI.SetActive(false);
-        veryAngryUI.SetActive(false);
+        showImageObj.SetActive(false);
     }
-    public void ShowMood(int mood)//-2,-1,0,1,2
+    public void ShowMood(int mood)//,0,1,2,3
     {
-        if (mood != 0)
-        {
-            switch (mood)
-            {
-                case 2:
-                    veryHappyUI.SetActive(true);
-                    break;
-                case 1:
-                    happyUI.SetActive(true);
-                    break;
-                case -1:
-                    angryUI.SetActive(true);
-                    break;
-                case -2:
-                    veryAngryUI.SetActive(true);
-                    break;
-                default:
-                    break;
-            }
-        }
+        showImage.sprite = allMood[mood];
+    }
+    private void Start()
+    {
+        CloseMood();
     }
     public void ShowItemWant(int item)
     {
         if (item != 0)
         {
-            showItemWantPoint.SetActive(true);
-            showModel.ShowItemWant(item);
+            showImageObj.SetActive(true);
+            showImage.sprite = ingredient.itemData[ingredient.FindNumOfArray(item)].imageItem;
         }
         else
         {
-            showItemWantPoint.SetActive(false);
+            showImageObj.SetActive(false);
         }
     }
 }

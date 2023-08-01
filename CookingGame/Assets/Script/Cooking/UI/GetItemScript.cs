@@ -15,34 +15,17 @@ public class GetItemScript : MonoBehaviour
     public GameObject likeImageItem;
     public Image imageItem;
     public bool reCreate = false;
-    private int FindNumOdArray(int id)
-    {
-        int i;
-        for (i = 0; i < ingredient.allIngredient.Length; i++)
-        {
-            if (ingredient.allIngredient[i].id == id)
-            {
-                break;
-            }
-            else if (ingredient.allIngredient.Length == i)
-            {
-                Debug.LogError("Can't find Array of ID");
-            }
-        }
-        return i;
-    }
     public void Like()
     {
         if (like)
         {
             like = false;
-            ingredient.allIngredient[FindNumOdArray(id)].like = like;
         }
         else if (!like)
         {
             like = true;
-            ingredient.allIngredient[FindNumOdArray(id)].like = like;
         }
+        ingredient.itemData[ingredient.FindNumOfArray(id)].like = like;
     }
     public void GetItem()
     {

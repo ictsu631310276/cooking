@@ -66,6 +66,7 @@
     <Compile Include="Assets\Script\Cooking\UI\IncentoryScript.cs" />
     <Compile Include="Assets\Script\Cooking\TableScript\SinkScript.cs" />
     <Compile Include="Assets\Script\Dungeon\ButtomCHScript.cs" />
+    <Compile Include="Assets\Script\Data\scriptCreate\ItemData.cs" />
     <Compile Include="Assets\Script\Dungeon\ChooseCharacterScript.cs" />
     <Compile Include="Assets\Script\Cooking\PlayerAndNPC\Player\InventoryScript.cs" />
     <Compile Include="Assets\Script\VisualNovel\ButtomScript.cs" />
@@ -85,10 +86,11 @@
     <Compile Include="Assets\Script\Cooking\TableScript\OvenScript.cs" />
     <Compile Include="Assets\Script\Cooking\ShowModel\ShowMoodScript.cs" />
     <Compile Include="Assets\Script\Cooking\TableScript\FoodServingTableScript.cs" />
-    <Compile Include="Assets\Script\Cooking\TableScript\pickupPointScript.cs" />
+    <Compile Include="Assets\Script\Cooking\TableScript\not use\pickupPointScript.cs" />
     <Compile Include="Assets\Script\Cooking\TableScript\ChairCustomerScript.cs" />
     <Compile Include="Assets\Script\Cooking\ShowModel\ShowPlatelScript.cs" />
     <Compile Include="Assets\Script\Cooking\PlayerAndNPC\Player\CameraScript.cs" />
+    <Compile Include="Assets\Script\Cooking\TableScript\procesIngredientScript.cs" />
     <Compile Include="Assets\Script\Dungeon\DungeonScript.cs" />
     <Compile Include="Assets\Script\Cooking\PlayerAndNPC\NPC\NPCDataScript.cs" />
     <Compile Include="Assets\Script\Cooking\TableScript\FridgeScript.cs" />

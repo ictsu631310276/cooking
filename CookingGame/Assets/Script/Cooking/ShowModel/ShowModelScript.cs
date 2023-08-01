@@ -37,7 +37,7 @@ public class ShowModelScript : MonoBehaviour
         }//จาน
         if (idItemInHand != 0 && !haveItem)
         {
-            itemModel = Instantiate(ingredient.modelItem[findNumArray(idItemInHand)], handPoint.transform, false);
+            itemModel = Instantiate(ingredient.itemData[ingredient.FindNumOfArray(idItemInHand)].model, handPoint.transform, false);
             itemModel.transform.parent = handPoint.transform;
             haveItem = true;
             num = idItemInHand;
@@ -49,37 +49,11 @@ public class ShowModelScript : MonoBehaviour
             num = idItemInHand;
         }//มือว่าง
     }
-    private int findNumArray(int idItem)
-    {
-        int j = 0;
-        bool x = true;
-        if (idItem != 0)
-        {
-            do
-            {
-                if (j >= ingredient.allIngredient.Length)
-                {
-                    x = false;
-                    Debug.LogError("Have Problem in findNumArray");
-                }
-                else if (ingredient.allIngredient[j].id == idItem)
-                {
-                    x = false;
-                }
-                else
-                {
-                    j++;
-                }
-            } while (x);
-        }
-        return j;
-    }
-
     public void ShowItemWant (int item)
     {
         if (item != 0 && !haveItem)
         {
-            itemModel = Instantiate(ingredient.modelItem[findNumArray(item)], handPoint.transform, false);
+            itemModel = Instantiate(ingredient.itemData[ingredient.FindNumOfArray(item)].model, handPoint.transform, false);
             itemModel.transform.position = itemModel.transform.position + new Vector3(-0.25f, 0f, -0.3f) ;
             itemModel.transform.parent = handPoint.transform;
             haveItem = true;

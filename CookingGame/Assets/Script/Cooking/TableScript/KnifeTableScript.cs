@@ -10,6 +10,7 @@ public class KnifeTableScript : MonoBehaviour
     public ingredientScript ingredientScript;
     public ShowModelScript showModel;
     public TimeBarScript timeBar;
+    public procesIngredientScript proces;
 
     private int itemOnTable = 0;//ของบนโต้ะ
     private bool haveItem = false;
@@ -36,31 +37,28 @@ public class KnifeTableScript : MonoBehaviour
     }
     private void CanChopped()
     {
-        switch (itemOnTable)
+        int i;
+        bool canChop = false;
+        for (i = 0; i < proces.proces.Length; i++)
         {
-            case 11:
-                Chopped();
+            if (itemOnTable == proces.proces[i].substrate)
+            {
+                canChop = true;
                 break;
-            default:
-                Debug.Log("Can't Chopped");
-                break;
+            }
+        }
+        if (canChop)
+        {
+            Chopped(i);
         }
     }
-    private void Chopped()
+    private void Chopped(int i)
     {
         timeChopped = timeChopped + Time.deltaTime;
         timeBar.walkingTime(timeChopped, timeUse);
         if (timeChopped >= timeUse)
         {
-            switch (itemOnTable)
-            {
-                case 11:
-                    itemOnTable = 12;
-                    break;
-                default:
-                    Debug.Log("Not Have");
-                    break;
-            }
+            itemOnTable = proces.proces[i].result;
             timeChopped = timeUse;
             timeBar.Showtime(false);
             timeChopped = 0;//เอา item ออก = สับใหม่

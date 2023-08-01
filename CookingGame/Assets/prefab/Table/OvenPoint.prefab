@@ -161,6 +161,7 @@ GameObject:
   - component: {fileID: 680741475270184145}
   - component: {fileID: 680741475270184149}
   - component: {fileID: 2038305537543739370}
+  - component: {fileID: 6354760794215040364}
   m_Layer: 0
   m_Name: OvenPoint
   m_TagString: Table
@@ -266,6 +267,7 @@ MonoBehaviour:
   ingredientScript: {fileID: 2520598715831065208, guid: 7359029548bfd4a478b159304a5967ea, type: 3}
   showModel: {fileID: 2038305537543739370}
   timeBar: {fileID: 4669624712642796707}
+  processing: {fileID: 6354760794215040364}
 --- !u!114 &2038305537543739370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,6 +282,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handPoint: {fileID: 680741474797227515}
   ingredient: {fileID: 2520598715831065208, guid: 7359029548bfd4a478b159304a5967ea, type: 3}
+--- !u!114 &6354760794215040364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680741475270184147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2b9e1aebe5d59445b5e9556c183d315, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  proces:
+  - substrate: 200
+    result: 300
 --- !u!1 &680741475872099006
 GameObject:
   m_ObjectHideFlags: 0
