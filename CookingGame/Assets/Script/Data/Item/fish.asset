@@ -15,7 +15,7 @@ MonoBehaviour:
   nameItem: fish
   id: 200
   amount: 999
-  canOnPlate: 1
+  canOnPlate: 0
   imageItem: {fileID: 21300000, guid: 9d7c6d7f8c8a9f84dba6c2ef0812cd70, type: 3}
   model: {fileID: 4304982860022364978, guid: a67de7ba88f326a4283749f25864b28a, type: 3}
   like: 0

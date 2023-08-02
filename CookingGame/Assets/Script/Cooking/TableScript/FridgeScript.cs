@@ -7,6 +7,7 @@ public class FridgeScript : MonoBehaviour
     public int idTable;
     public GameObject glowObject;
     public GameObject fridgeUI;
+    public GameObject recipeButton;
     public static bool openUI = false;
     private int open;
 
@@ -28,7 +29,10 @@ public class FridgeScript : MonoBehaviour
             CameraScript.zoomOut = true;
         }
     }
-
+    private void Start()
+    {
+        recipeButton.transform.position = new Vector3(1820,980,0);
+    }
     private void Update()
     {
         if (openUI)
@@ -47,7 +51,8 @@ public class FridgeScript : MonoBehaviour
                 open = 0;
             }
         }
-        fridgeUI.transform.Translate(800 * Time.deltaTime * open, 0, 0);
+        fridgeUI.transform.Translate(790 * Time.deltaTime * open, 0, 0);
+        recipeButton.transform.Translate(0, -1 * 790 * Time.deltaTime * open, 0);
         if (InteractionPlayerScript.tableInteraction.Count != 0)
         {
             if (InteractionPlayerScript.tableInteraction[InteractionPlayerScript.tableInteraction.Count - 1] == idTable &&

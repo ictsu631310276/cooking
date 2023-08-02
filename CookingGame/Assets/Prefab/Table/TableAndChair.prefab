@@ -118,6 +118,10 @@ PrefabInstance:
       propertyPath: chair
       value: 
       objectReference: {fileID: 5018518221395042660}
+    - target: {fileID: 978509725317632458, guid: 90b65369d44435b4ea7c1ba3f8a68617, type: 3}
+      propertyPath: idTable
+      value: 1703
+      objectReference: {fileID: 0}
     - target: {fileID: 2937681055205230696, guid: 90b65369d44435b4ea7c1ba3f8a68617, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -231,6 +235,10 @@ PrefabInstance:
     - target: {fileID: 2937681055205230708, guid: c9fed65acd6c5a1459483e563e919f8f, type: 3}
       propertyPath: m_Name
       value: CustomerChair
+      objectReference: {fileID: 0}
+    - target: {fileID: 3033298536416171841, guid: c9fed65acd6c5a1459483e563e919f8f, type: 3}
+      propertyPath: idChair
+      value: 1803
       objectReference: {fileID: 0}
     - target: {fileID: 3033298536416171841, guid: c9fed65acd6c5a1459483e563e919f8f, type: 3}
       propertyPath: timeEat

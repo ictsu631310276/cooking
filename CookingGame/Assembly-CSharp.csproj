@@ -94,7 +94,7 @@
     <Compile Include="Assets\Script\Dungeon\DungeonScript.cs" />
     <Compile Include="Assets\Script\Cooking\PlayerAndNPC\NPC\NPCDataScript.cs" />
     <Compile Include="Assets\Script\Cooking\TableScript\FridgeScript.cs" />
-    <Compile Include="Assets\Script\Data\ingredientScript.cs" />
+    <Compile Include="Assets\Script\Data\scriptCreate\ingredientScript.cs" />
     <Compile Include="Assets\Script\Cooking\UI\GetItemScript.cs" />
     <Compile Include="Assets\Script\Cooking\PlayerAndNPC\NPC\SpawnNPCScript.cs" />
   </ItemGroup>
