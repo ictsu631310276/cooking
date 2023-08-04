@@ -12,12 +12,10 @@ public class ButtomDScript : MonoBehaviour , IPointerEnterHandler , IPointerExit
     {
         explainUI.SetActive(true);
     }
-
     public void OnPointerExit(PointerEventData eventData)
     {
         explainUI.SetActive(false);
     }
-
     public void WillGoDann()
     {
         if (DungeonScript.numOfDunWillGo == 0)
@@ -32,9 +30,8 @@ public class ButtomDScript : MonoBehaviour , IPointerEnterHandler , IPointerExit
     // Start is called before the first frame update
     private void Start()
     {
-        //GetComponent<Button>().Mouse
         explainUI.SetActive(false);
-        //GetComponent<Image>().alphaHitTestMinimumThreshold = 0.1f;
+        GetComponent<Image>().alphaHitTestMinimumThreshold = 0.1f;
     }
 
     // Update is called once per frame

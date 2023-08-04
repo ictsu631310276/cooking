@@ -52,6 +52,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b2ad121281721c7489df4774caa3e056, type: 2}
   - {fileID: 11400000, guid: 58e134d1e148f454d84ab935cea509fa, type: 2}
   - {fileID: 11400000, guid: d80cd32c0f8dfbe4a818f28eb1923994, type: 2}
+  - {fileID: 11400000, guid: ec27f108424f40e418590ef433ed2bd7, type: 2}
+  - {fileID: 11400000, guid: 629de6f51846a7842937180e654909d4, type: 2}
+  - {fileID: 11400000, guid: dcd664354735f2b459ac2dedbe12ff22, type: 2}
   mixFood:
   - mixfood: 2c0100002c010000
     food: 500
