@@ -65,18 +65,20 @@ public class IncentoryScript : MonoBehaviour
         {
             if (j == 0)
             {
-                GetItemScript showItem1 = Instantiate(showItem, content.transform, false);
-                showItem1.id = ingredient.itemData[i].id;
-                showItem1.amount = ingredient.itemData[i].amount;
-                showItem1.nameItem = ingredient.itemData[i].name;
-                showItem1.imageItem.sprite = ingredient.itemData[i].imageItem;
-                showItem1.like = ingredient.itemData[i].like;
-                AllItem.Add(showItem1);
-                //showItem1.transform.parent = content.transform;
+                if (ingredient.itemData[i].id <= 600)
+                {
+                    GetItemScript showItem1 = Instantiate(showItem, content.transform, false);
+                    showItem1.id = ingredient.itemData[i].id;
+                    showItem1.amount = ingredient.itemData[i].amount;
+                    showItem1.nameItem = ingredient.itemData[i].name;
+                    showItem1.imageItem.sprite = ingredient.itemData[i].imageItem;
+                    showItem1.like = ingredient.itemData[i].like;
+                    AllItem.Add(showItem1);
+                }
             }
             else if (j > 0)
             {
-                if (ingredient.itemData[i].id >= j && ingredient.itemData[i].id < j + 100)
+                if (ingredient.itemData[i].id >= j && ingredient.itemData[i].id < j + 100 && ingredient.itemData[i].id <= 600)
                 {
                     GetItemScript showItem1 = Instantiate(showItem, content.transform, false);
                     showItem1.id = ingredient.itemData[i].id;
@@ -92,7 +94,7 @@ public class IncentoryScript : MonoBehaviour
     }
     private void Start()
     {
-        OpenIncentory(0);
+        OpenIncentory(0);//All
     }
     private void Update()
     {
