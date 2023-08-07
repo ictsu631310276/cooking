@@ -29,19 +29,23 @@ public class GetItemScript : MonoBehaviour
     }
     public void GetItem()
     {
-        if (amount > 0)
+        if ((!InteractionPlayerScript.havePlate[0]) ||
+            (InteractionPlayerScript.havePlate[0] && ingredient.itemData[ingredient.FindNumOfArray(id)].canOnPlate))
         {
-            if (amount != 999)
+            if (amount > 0)
             {
-                amount--;
+                if (amount != 999)
+                {
+                    amount--;
+                }
+                InteractionPlayerScript.itemInHand = id;
+                FridgeScript.openUI = false;
+                CameraScript.zoomOut = true;
             }
-            InteractionPlayerScript.itemInHand = id;
-            FridgeScript.openUI = false;
-            CameraScript.zoomOut = true;
-        }
-        else if (amount <= 0)
-        {
-            Debug.Log("out of item");
+            else if (amount <= 0)
+            {
+                Debug.Log("out of item");
+            }
         }
     }
     private void Update()

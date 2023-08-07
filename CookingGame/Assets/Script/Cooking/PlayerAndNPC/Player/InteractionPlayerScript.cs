@@ -10,7 +10,6 @@ public class InteractionPlayerScript : MonoBehaviour
     public static bool haveItem = false;
     public static bool[] havePlate = new bool[] { false, false };
     public ShowModelScript showModel;
-
     private void Update()
     {
         showModel.ShowModel(itemInHand, havePlate[0], havePlate[1]);

@@ -28,9 +28,5 @@ public class ShowMoodScript : MonoBehaviour
             showImageObj.SetActive(true);
             showImage.sprite = ingredient.itemData[ingredient.FindNumOfArray(item)].imageItem;
         }
-        else
-        {
-            showImageObj.SetActive(false);
-        }
     }
 }

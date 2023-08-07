@@ -8,6 +8,7 @@ public class ButtomDScript : MonoBehaviour , IPointerEnterHandler , IPointerExit
 {
     public int idDun;
     public GameObject explainUI;
+    public Sprite[] spriteDungeon;
     public void OnPointerEnter(PointerEventData eventData)
     {
         explainUI.SetActive(true);
@@ -27,7 +28,7 @@ public class ButtomDScript : MonoBehaviour , IPointerEnterHandler , IPointerExit
             DungeonScript.numOfDunWillGo = 0;
         }
     }
-    // Start is called before the first frame update
+    
     private void Start()
     {
         explainUI.SetActive(false);
@@ -37,6 +38,13 @@ public class ButtomDScript : MonoBehaviour , IPointerEnterHandler , IPointerExit
     // Update is called once per frame
     private void Update()
     {
-        
+        if (DungeonScript.numOfDunWillGo == idDun)
+        {
+            GetComponent<Image>().sprite = spriteDungeon[1];
+        }
+        else if (DungeonScript.numOfDunWillGo != idDun)
+        {
+            GetComponent<Image>().sprite = spriteDungeon[0];
+        }
     }
 }

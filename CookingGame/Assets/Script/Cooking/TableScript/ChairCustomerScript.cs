@@ -68,14 +68,15 @@ public class ChairCustomerScript : MonoBehaviour
             finishedEating = false;
             if (!lookItem)
             {
-                mood = 0;
                 if (itemGet == itemWant)
                 {
                     showMood.ShowMood(2);
+                    UIManagerScript.money += 10;
                 }
                 else if (itemGet != itemWant)
                 {
                     showMood.ShowMood(1);
+                    UIManagerScript.money -= 10;
                 }
                 lookItem = true;
             }
@@ -89,12 +90,11 @@ public class ChairCustomerScript : MonoBehaviour
                 NPC.itemNPCWant = 0;
                 NPC.finishedEating = true;
                 finishedEating = true;
-                showMood.CloseMood();
+                mood = 0;
             }
             mood = mood + Time.deltaTime;
             if (mood >= timeShowMood)
             {
-                mood = 0;
                 showMood.CloseMood();
             }
         }

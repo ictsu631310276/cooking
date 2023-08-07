@@ -47,15 +47,6 @@ MonoBehaviour:
   plate: {fileID: 7667963284082040330, guid: 3f993f69944c9ba4985af12dd21fc6e1, type: 3}
   dirtyPlate: {fileID: 7667963284082040330, guid: e2108cc62aab439459c536ee93dd8c4a, type: 3}
   itemData:
-  - {fileID: 11400000, guid: 227b85220913ffa4dbbb7e772fcbb73d, type: 2}
-  - {fileID: 11400000, guid: ec27f108424f40e418590ef433ed2bd7, type: 2}
-  - {fileID: 11400000, guid: d28c056bc1dd794438a7c7bb9de066d9, type: 2}
-  - {fileID: 11400000, guid: dcd664354735f2b459ac2dedbe12ff22, type: 2}
-  - {fileID: 11400000, guid: 629de6f51846a7842937180e654909d4, type: 2}
-  - {fileID: 11400000, guid: fb802bc5ce5700c4fa206db1ca5c38ef, type: 2}
-  - {fileID: 11400000, guid: 0e65f4ad2b87dc049aaef8f2dc72e4fc, type: 2}
-  - {fileID: 11400000, guid: 6ec480fc15f7a6a4fbcdca1c96e3c0e8, type: 2}
-  - {fileID: 11400000, guid: 6d0fd2f261d3b154e983adca10154aaf, type: 2}
   - {fileID: 11400000, guid: b2ad121281721c7489df4774caa3e056, type: 2}
   - {fileID: 11400000, guid: 89d34611f97fb6640ac0006a5cb4723d, type: 2}
   - {fileID: 11400000, guid: d80cd32c0f8dfbe4a818f28eb1923994, type: 2}
