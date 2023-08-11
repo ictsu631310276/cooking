@@ -767,6 +767,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2937681055205230697, guid: f3cf08cd205dbb446a1071d18e01c954, type: 3}
+      propertyPath: havePlate.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2937681055205230697, guid: f3cf08cd205dbb446a1071d18e01c954, type: 3}
+      propertyPath: havePlate.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2937681055205230708, guid: f3cf08cd205dbb446a1071d18e01c954, type: 3}
       propertyPath: m_Name
       value: Table (1)
@@ -6550,6 +6558,14 @@ PrefabInstance:
     - target: {fileID: 2937681055205230697, guid: f3cf08cd205dbb446a1071d18e01c954, type: 3}
       propertyPath: idTable
       value: 1101
+      objectReference: {fileID: 0}
+    - target: {fileID: 2937681055205230697, guid: f3cf08cd205dbb446a1071d18e01c954, type: 3}
+      propertyPath: havePlate.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2937681055205230697, guid: f3cf08cd205dbb446a1071d18e01c954, type: 3}
+      propertyPath: havePlate.Array.data[1]
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2937681055205230708, guid: f3cf08cd205dbb446a1071d18e01c954, type: 3}
       propertyPath: m_Name

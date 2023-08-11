@@ -60,14 +60,14 @@
     <Compile Include="Assets\Script\Cooking\ShowModel\TimeBarScript.cs" />
     <Compile Include="Assets\Script\VisualNovel\ChoiceTextScript.cs" />
     <Compile Include="Assets\Script\Cooking\TableScript\BinScript.cs" />
-    <Compile Include="Assets\Script\Data\scriptCreate\NPCDATA.cs" />
+    <Compile Include="Assets\Script\Cooking\Data\scriptCreate\NPCDATA.cs" />
     <Compile Include="Assets\Script\Cooking\PlayerAndNPC\Player\PlayerMoveScript.cs" />
     <Compile Include="Assets\Script\Cooking\UI\TimeUI.cs" />
     <Compile Include="Assets\Script\Cooking\UI\IncentoryScript.cs" />
     <Compile Include="Assets\Script\Cooking\UI\UIManagerScript.cs" />
     <Compile Include="Assets\Script\Cooking\TableScript\SinkScript.cs" />
     <Compile Include="Assets\Script\Dungeon\Character\ButtomCHScript.cs" />
-    <Compile Include="Assets\Script\Data\scriptCreate\ItemData.cs" />
+    <Compile Include="Assets\Script\Cooking\Data\scriptCreate\ItemData.cs" />
     <Compile Include="Assets\Script\Dungeon\Character\ChooseCharacterScript.cs" />
     <Compile Include="Assets\Script\VisualNovel\ButtomScript.cs" />
     <Compile Include="Assets\Script\VisualNovel\VisualNovelScript.cs" />
@@ -95,9 +95,14 @@
     <Compile Include="Assets\Script\Dungeon\Dungeon\DungeonScript.cs" />
     <Compile Include="Assets\Script\Cooking\PlayerAndNPC\NPC\NPCDataScript.cs" />
     <Compile Include="Assets\Script\Cooking\TableScript\FridgeScript.cs" />
-    <Compile Include="Assets\Script\Data\scriptCreate\ingredientScript.cs" />
+    <Compile Include="Assets\Script\Cooking\Data\scriptCreate\ingredientScript.cs" />
     <Compile Include="Assets\Script\Cooking\UI\GetItemScript.cs" />
     <Compile Include="Assets\Script\Cooking\PlayerAndNPC\NPC\SpawnNPCScript.cs" />
+    <Compile Include="Assets\Script\Hospital\NPC\NewSpawnNPCScript.cs" />
+    <Compile Include="Assets\Script\Hospital\Data\NewIngredientScript.cs" />
+    <Compile Include="Assets\Script\Hospital\NPC\NewNPCDataScript.cs" />
+    <Compile Include="Assets\Script\Hospital\BedScript.cs" />
+    <Compile Include="Assets\Script\Hospital\NewInteractionPlayerScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

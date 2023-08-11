@@ -26,6 +26,8 @@ public class UIManagerScript : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene(0);
+        InteractionPlayerScript.tableInteraction.Clear();
+        SpawnNPCScript.open = false;
         Time.timeScale = 1;
     }
     public void Exit()
