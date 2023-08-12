@@ -5,6 +5,8 @@ using UnityEngine;
 public class BedScript : MonoBehaviour
 {
     public int id;
+    public ShowInjury injury;
+    [SerializeField] private PatientDataScript NPCData;
     public GameObject glowObj;
     private bool haveSit = false;
     public GameObject handPoint;
@@ -14,7 +16,7 @@ public class BedScript : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             glowObj.SetActive(true);
-            NewInteractionPlayerScript.bed.Add(this);
+            ToolPlayerScript.bed.Add(this);
         }
     }
     private void OnCollisionExit(Collision collision)
@@ -22,20 +24,33 @@ public class BedScript : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             glowObj.SetActive(false);
-            NewInteractionPlayerScript.bed.Remove(this);
+            ToolPlayerScript.bed.Remove(this);
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Patient")
+        {
+            NPCData = other.gameObject.GetComponent<PatientDataScript>();
+            injury.ShowItemWant(NPCData.itemNPCWant);
         }
     }
     private void Update()
     {
-        if (NewInteractionPlayerScript.tableInteraction.Count > 0)
+        if (ToolPlayerScript.tableInteraction.Count > 0)
         {
-            if (NewInteractionPlayerScript.haveItem && id == NewInteractionPlayerScript.tableInteraction[0])
+            if (ToolPlayerScript.haveItem && id == ToolPlayerScript.tableInteraction[0])
             {
                 glowObj.SetActive(true);
                 if (Input.GetKeyUp(KeyCode.Q) && !haveSit)
                 {
                     haveSit = true;
                     transform.position = handPoint.transform.position;
+                }
+                if (Input.GetKeyDown(KeyCode.Space) && haveSit
+                    && NPCData.itemNPCWant == ToolPlayerScript.itemInHand)
+                {
+
                 }
             }
             else
