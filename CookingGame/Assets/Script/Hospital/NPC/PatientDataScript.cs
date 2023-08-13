@@ -8,13 +8,12 @@ public class PatientDataScript : MonoBehaviour
     public int itemNPCWant;
     [SerializeField] private GameObject glowObj;
     public GameObject handPoint;
-    public bool finishedEating = false;
     private bool onHand = false;
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            ToolPlayerScript.tableInteraction.Add(id);
+            ToolPlayerScript.PatientID.Add(id);
         }
     }
     private void OnCollisionExit(Collision collision)
@@ -22,7 +21,7 @@ public class PatientDataScript : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             glowObj.SetActive(false);
-            ToolPlayerScript.tableInteraction.Remove(id);
+            ToolPlayerScript.PatientID.Remove(id);
         }
     }
     private void Start()
@@ -31,9 +30,9 @@ public class PatientDataScript : MonoBehaviour
     }
     private void Update()
     {
-        if (ToolPlayerScript.tableInteraction.Count > 0)
+        if (ToolPlayerScript.PatientID.Count > 0)
         {
-            if (!ToolPlayerScript.haveItem && id == ToolPlayerScript.tableInteraction[0])
+            if (!ToolPlayerScript.haveItem && id == ToolPlayerScript.PatientID[0])
             {
                 glowObj.SetActive(true);
                 if (Input.GetKeyUp(KeyCode.Q) && !onHand)
@@ -47,24 +46,26 @@ public class PatientDataScript : MonoBehaviour
                 glowObj.SetActive(false);
             }
         }
-        if (finishedEating)
+        if (itemNPCWant == 0)
         {
-            itemNPCWant = 0;
-            Destroy(this, 0);
+            Destroy(this.gameObject, 0);
         }
         if (onHand)
         {
             transform.position = handPoint.transform.position;
         }
-        if (Input.GetKeyDown(KeyCode.Q) && onHand && ToolPlayerScript.bed.Count == 0)
+        if (Input.GetKeyDown(KeyCode.Q))
         {
-            onHand = false;
-            ToolPlayerScript.haveItem = false;
-        }
-        else if (Input.GetKeyDown(KeyCode.Q) && onHand && ToolPlayerScript.bed.Count > 0)
-        {
-            handPoint = ToolPlayerScript.bed[0].handPoint;
-            ToolPlayerScript.haveItem = false;
+            if (onHand && ToolPlayerScript.bed.Count == 0)
+            {
+                onHand = false;
+                ToolPlayerScript.haveItem = false;
+            }//วางพื้น
+            else if (onHand && ToolPlayerScript.bed.Count > 0 && !ToolPlayerScript.bed[0].haveSit)
+            {
+                handPoint = ToolPlayerScript.bed[0].handPoint;
+                ToolPlayerScript.haveItem = false;
+            }//วางบนเตียง
         }
     }
 }

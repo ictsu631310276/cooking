@@ -26,8 +26,11 @@ public class UIManagerScript : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene(0);
-        InteractionPlayerScript.tableInteraction.Clear();
-        SpawnNPCScript.open = false;
+        //InteractionPlayerScript.tableInteraction.Clear();
+        ToolPlayerScript.PatientID.Clear();
+        ToolPlayerScript.bed.Clear();
+        //SpawnNPCScript.open = false;
+
         Time.timeScale = 1;
     }
     public void Exit()

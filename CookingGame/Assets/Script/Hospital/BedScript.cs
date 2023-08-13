@@ -8,7 +8,7 @@ public class BedScript : MonoBehaviour
     public ShowInjury injury;
     [SerializeField] private PatientDataScript NPCData;
     public GameObject glowObj;
-    private bool haveSit = false;
+    public bool haveSit = false;
     public GameObject handPoint;
 
     private void OnCollisionEnter(Collision collision)
@@ -33,29 +33,28 @@ public class BedScript : MonoBehaviour
         {
             NPCData = other.gameObject.GetComponent<PatientDataScript>();
             injury.ShowItemWant(NPCData.itemNPCWant);
+            haveSit = true;
         }
+    }
+    private void Goodbye()
+    {
+        NPCData.itemNPCWant = 0;
+        NPCData = null;
+        haveSit = false;
+        injury.CloseImage();
     }
     private void Update()
     {
-        if (ToolPlayerScript.tableInteraction.Count > 0)
+        if (ToolPlayerScript.bed.Count > 0)
         {
-            if (ToolPlayerScript.haveItem && id == ToolPlayerScript.tableInteraction[0])
+            if (ToolPlayerScript.haveItem && id == ToolPlayerScript.bed[0].id)
             {
                 glowObj.SetActive(true);
-                if (Input.GetKeyUp(KeyCode.Q) && !haveSit)
-                {
-                    haveSit = true;
-                    transform.position = handPoint.transform.position;
-                }
                 if (Input.GetKeyDown(KeyCode.Space) && haveSit
                     && NPCData.itemNPCWant == ToolPlayerScript.itemInHand)
                 {
-
+                    Goodbye();
                 }
-            }
-            else
-            {
-                glowObj.SetActive(false);
             }
         }
     }

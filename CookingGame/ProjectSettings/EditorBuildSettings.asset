@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/CookScene/TestCookScenes.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    path: Assets/Scenes/FieldHospital.unity
+    guid: e6bbcd2b600f2904aa03c37cc4e8a597
   m_configObjects: {}
