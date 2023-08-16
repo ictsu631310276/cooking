@@ -10,6 +10,9 @@ public class BedScript : MonoBehaviour
     public GameObject glowObj;
     public bool haveSit = false;
     public GameObject handPoint;
+    [SerializeField] private GameObject minigameObj;
+    [SerializeField] private NotRhythm minigame;
+    public static bool onMinigame = false;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -36,12 +39,29 @@ public class BedScript : MonoBehaviour
             haveSit = true;
         }
     }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Patient")
+        {
+            NPCData = null;
+            injury.CloseImage();
+            haveSit = false;
+        }
+    }
     private void Goodbye()
     {
         NPCData.itemNPCWant = 0;
         NPCData = null;
         haveSit = false;
         injury.CloseImage();
+
+        minigameObj.SetActive(false);
+        CameraScript.zoomOut = true;
+        onMinigame = false;
+    }
+    private void Start()
+    {
+        minigameObj.SetActive(false);
     }
     private void Update()
     {
@@ -53,9 +73,32 @@ public class BedScript : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Space) && haveSit
                     && NPCData.itemNPCWant == ToolPlayerScript.itemInHand)
                 {
-                    Goodbye();
+                    minigameObj.SetActive(true);
+                    CameraScript.zoomOut = false;
+                    onMinigame = true;
+                }
+                if (Input.GetKeyDown(KeyCode.Escape))
+                {
+                    minigameObj.SetActive(false);
+                    CameraScript.zoomOut = true;
+                    onMinigame = false;
                 }
             }
+        }
+        if (minigame.playerGet != 0)
+        {
+            switch (minigame.playerGet)
+            {
+                case 20:
+                    Debug.Log("Nice");
+                    Goodbye();
+                    break;
+                default:
+                    Debug.Log("Ok");
+                    Goodbye();
+                    break;
+            }
+            minigame.playerGet = 0;
         }
     }
 }

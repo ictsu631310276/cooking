@@ -50,7 +50,5 @@ public class ToolPlayerScript : MonoBehaviour
             OffVisibility();
             tool[2].SetActive(true);
         }
-        Debug.Log("itemInHand : " + itemInHand);
-        Debug.Log("haveItem : " + haveItem);
     }
 }

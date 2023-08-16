@@ -14,7 +14,6 @@ public class DungeonScript : MonoBehaviour
     public GameObject loading;
 
     private float i = 2f;
-    private float j = 255;
     public List<int> amountGet;
     public void GoingToDungeon()
     {

@@ -44,7 +44,7 @@ public class UIManagerScript : MonoBehaviour
     private void Update()
     {
         moneyText.text = "money : " + money;
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !BedScript.onMinigame)
         {
             Pause();
         }

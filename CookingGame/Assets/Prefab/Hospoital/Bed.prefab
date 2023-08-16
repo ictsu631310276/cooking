@@ -433,7 +433,10 @@ MonoBehaviour:
   injury: {fileID: 5385673218979695917}
   NPCData: {fileID: 0}
   glowObj: {fileID: 2469376582967577678}
+  haveSit: 0
   handPoint: {fileID: 7208405319434318371}
+  minigameObj: {fileID: 0}
+  minigame: {fileID: 0}
 --- !u!65 &4022851412384954042
 BoxCollider:
   m_ObjectHideFlags: 0

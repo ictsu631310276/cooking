@@ -66,6 +66,11 @@ public class PatientDataScript : MonoBehaviour
                 handPoint = ToolPlayerScript.bed[0].handPoint;
                 ToolPlayerScript.haveItem = false;
             }//วางบนเตียง
+            else if (onHand && !ToolPlayerScript.haveItem && ToolPlayerScript.bed.Count > 0 && ToolPlayerScript.bed[0].haveSit)
+            {
+                handPoint = NewSpawnNPCScript.handPlayerShare;
+                ToolPlayerScript.haveItem = true;
+            }//ยกออกจากเตียง
         }
     }
 }

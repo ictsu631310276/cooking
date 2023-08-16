@@ -9,6 +9,7 @@ public class NewSpawnNPCScript : MonoBehaviour
     public PatientDataScript npcData;
     public Transform spawnPoint;
     public GameObject handPlayer;
+    public static GameObject handPlayerShare;
     [SerializeField] private float timeInOneRound;
     private float timeCount = 0;
     private int iDNPC = 1;//เพิ่มตลอดทั้งวัน
@@ -26,16 +27,17 @@ public class NewSpawnNPCScript : MonoBehaviour
         int j = allIDFoodWant[i];
         return j;
     }
-    //private void Start()
-    //{
-    //    for (int i = 0; i < ingredient.itemData.Length; i++)
-    //    {
-    //        if (ingredient.itemData[i].canOnPlate)
-    //        {
-    //            allIDFoodWant.Add(ingredient.itemData[i].id);
-    //        }
-    //    }
-    //}
+    private void Start()
+    {
+        //for (int i = 0; i < ingredient.itemData.Length; i++)
+        //{
+        //    if (ingredient.itemData[i].canOnPlate)
+        //    {
+        //        allIDFoodWant.Add(ingredient.itemData[i].id);
+        //    }
+        //}
+        handPlayerShare = handPlayer;
+    }
     private void Update()
     {
         timeCount = timeCount + Time.deltaTime;

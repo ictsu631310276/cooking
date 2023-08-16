@@ -102,6 +102,7 @@
     <Compile Include="Assets\Script\Cooking\PlayerAndNPC\NPC\NPCDataScript.cs" />
     <Compile Include="Assets\Script\Cooking\TableScript\FridgeScript.cs" />
     <Compile Include="Assets\Script\Cooking\Data\scriptCreate\ingredientScript.cs" />
+    <Compile Include="Assets\Script\Hospital\NotRhythm.cs" />
     <Compile Include="Assets\Script\Cooking\UI\GetItemScript.cs" />
     <Compile Include="Assets\Script\Cooking\PlayerAndNPC\NPC\SpawnNPCScript.cs" />
   </ItemGroup>
