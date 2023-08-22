@@ -4,26 +4,41 @@ using UnityEngine;
 
 public class BinScript : MonoBehaviour
 {
-    private int idTable = 1001;
+    public int idTable;
     public GameObject glowObject;
-    // Start is called before the first frame update
-    private void OnCollisionEnter(Collision collision)
+    public int spareOrgan = 0;
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.gameObject.tag == "Player" && InteractionPlayerScript.itemInHand != 0)
+    //    {
+    //        glowObject.SetActive(true);
+    //        InteractionPlayerScript.tableInteraction.Add(idTable);
+    //    }
+    //}
+    //private void OnCollisionExit(Collision collision)
+    //{
+    //    if (collision.gameObject.tag == "Player")
+    //    {
+    //        glowObject.SetActive(false);
+    //        InteractionPlayerScript.tableInteraction.Remove(idTable);
+    //    }
+    //}
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.tag == "Player" && InteractionPlayerScript.itemInHand != 0)
+        if (other.gameObject.tag == "Player")
         {
             glowObject.SetActive(true);
-            InteractionPlayerScript.tableInteraction.Add(idTable);
+            ToolPlayerScript.idTable.Add(idTable);
         }
     }
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider other)
     {
-        if (collision.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
             glowObject.SetActive(false);
-            InteractionPlayerScript.tableInteraction.Remove(idTable);
+            ToolPlayerScript.idTable.Remove(idTable);
         }
     }
-
     private void Start()
     {
         glowObject.SetActive(false);
@@ -45,9 +60,23 @@ public class BinScript : MonoBehaviour
                     glowObject.SetActive(false);
                 }
             }
-            else if (InteractionPlayerScript.tableInteraction[InteractionPlayerScript.tableInteraction.Count - 1] != idTable)
+            else
             {
                 glowObject.SetActive(false);
+            }
+        }
+        if (ToolPlayerScript.idTable.Count > 0)
+        {
+            if (ToolPlayerScript.haveItem && ToolPlayerScript.idTable[0] == idTable)
+            {
+                glowObject.SetActive(true);
+                if (Input.GetKeyDown(KeyCode.Q))
+                {
+                    ToolPlayerScript.haveItem = false;
+                    ToolPlayerScript.PatientID[0].itemNPCWant = 0;
+                    ToolPlayerScript.PatientID.RemoveAt(0);
+                    spareOrgan++;
+                }
             }
         }
     }

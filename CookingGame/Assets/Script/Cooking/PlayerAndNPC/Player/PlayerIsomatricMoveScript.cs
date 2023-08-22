@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMoveScript : MonoBehaviour
+public class PlayerIsomatricMoveScript : MonoBehaviour
 
 {
     [SerializeField] private Rigidbody _rb;

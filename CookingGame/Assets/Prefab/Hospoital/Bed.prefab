@@ -448,7 +448,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 1, z: 0.5}
+  m_Size: {x: 0.25, y: 1, z: 0.25}
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &3596519581999036695
 GameObject:
@@ -688,6 +688,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2937681055205230696}
     m_Modifications:
+    - target: {fileID: 7530149798732537787, guid: 9b34c33925ca096478a357e5cf1aa397, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7618729949232824257, guid: 9b34c33925ca096478a357e5cf1aa397, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -702,7 +706,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7618729949232824257, guid: 9b34c33925ca096478a357e5cf1aa397, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7618729949232824257, guid: 9b34c33925ca096478a357e5cf1aa397, type: 3}
       propertyPath: m_LocalRotation.w

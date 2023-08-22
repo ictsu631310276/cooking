@@ -11,30 +11,30 @@ public class NotRhythm : MonoBehaviour
     private bool increase = true;
     private int[] bar = new int[100];
     public int playerGet = 0;
-    private int difficulty = 1;
-    
+    public int difficulty = 3;
+    private int heart = 0;
     private void RandomStart(int difficulty)
     {
         for (int i = 0; i < bar.Length; i++)
         {
             bar[i] = 0;
-            showPlayerBar[i].color = new Color(130, 130, 130, 255);
+            showPlayerBar[i].color = new Color(0, 0, 0, 255);
         }
         int r;
         int s;
         switch (difficulty)
         {
-            case 1:
+            case 3:
                 s = 40;
                 break;
             case 2:
                 s = 30;
                 break;
-            case 3:
+            case 1:
                 s = 15;
                 break;
             default :
-                s = 7;
+                s = 10;
                 break;
         }
         r = Random.Range(0, 100 - s);
@@ -51,7 +51,23 @@ public class NotRhythm : MonoBehaviour
     }
     private void Start()
     {
-        RandomStart(difficulty);
+        if (difficulty <= 100 && difficulty >= 60)
+        {
+            heart = 3;
+        }
+        else if (difficulty <= 59 && difficulty >= 30)
+        {
+            heart = 2;
+        }
+        else if (difficulty <= 29 && difficulty >= 0)
+        {
+            heart = 1;
+        }
+        else
+        {
+            heart = 0;
+        }
+        RandomStart(heart);
     }
 
     // Update is called once per frame
@@ -88,8 +104,8 @@ public class NotRhythm : MonoBehaviour
             else
             {
                 Debug.Log("Bad");
-                difficulty++;
-                RandomStart(difficulty);
+                heart--;
+                RandomStart(heart);
             }
             
         }

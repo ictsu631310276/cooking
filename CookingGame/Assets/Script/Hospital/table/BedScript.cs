@@ -14,25 +14,14 @@ public class BedScript : MonoBehaviour
     [SerializeField] private NotRhythm minigame;
     public static bool onMinigame = false;
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
             glowObj.SetActive(true);
             ToolPlayerScript.bed.Add(this);
         }
-    }
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            glowObj.SetActive(false);
-            ToolPlayerScript.bed.Remove(this);
-        }
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Patient")
+        else if (other.tag == "Patient")
         {
             NPCData = other.gameObject.GetComponent<PatientDataScript>();
             injury.ShowItemWant(NPCData.itemNPCWant);
@@ -41,7 +30,12 @@ public class BedScript : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Patient")
+        if (other.gameObject.tag == "Player")
+        {
+            glowObj.SetActive(false);
+            ToolPlayerScript.bed.Remove(this);
+        }
+        else if (other.tag == "Patient")
         {
             NPCData = null;
             injury.CloseImage();
@@ -74,13 +68,14 @@ public class BedScript : MonoBehaviour
                     && NPCData.itemNPCWant == ToolPlayerScript.itemInHand)
                 {
                     minigameObj.SetActive(true);
-                    CameraScript.zoomOut = false;
+                    minigame.difficulty = NPCData.heat;
+                    //CameraScript.zoomOut = false;
                     onMinigame = true;
                 }
                 if (Input.GetKeyDown(KeyCode.Escape))
                 {
                     minigameObj.SetActive(false);
-                    CameraScript.zoomOut = true;
+                    //CameraScript.zoomOut = true;
                     onMinigame = false;
                 }
             }

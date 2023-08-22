@@ -8,7 +8,7 @@ using TMPro;
 public class UIManagerScript : MonoBehaviour
 {
     public static int money;
-    public TextMeshProUGUI moneyText;
+    private TextMeshProUGUI moneyText;
     public GameObject pauseUI;
     public void Pause()
     {
@@ -43,7 +43,7 @@ public class UIManagerScript : MonoBehaviour
     }
     private void Update()
     {
-        moneyText.text = "money : " + money;
+        //moneyText.text = "money : " + money;
         if (Input.GetKeyDown(KeyCode.Escape) && !BedScript.onMinigame)
         {
             Pause();

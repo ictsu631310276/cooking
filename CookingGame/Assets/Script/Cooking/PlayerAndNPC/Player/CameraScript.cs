@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class CameraScript : MonoBehaviour
 {
-    public Transform player;
-    public Vector3 offSet;
-    public GameObject cam1;
-    public GameObject cam2;
+    [SerializeField] private bool followPlayer = true;
+    [SerializeField] private Transform player;
+    [SerializeField] private Vector3 offSet;
+    [SerializeField] private GameObject cam1;
+    [SerializeField] private GameObject cam2;
 
     public static bool zoomOut = true;
 
@@ -18,7 +19,15 @@ public class CameraScript : MonoBehaviour
     }
     private void Update()
     {
-        Vector3 camara = player.position + offSet;
+        Vector3 camara;
+        if (followPlayer)
+        {
+            camara = player.position + offSet;
+        }
+        else
+        {
+            camara = offSet;
+        }
         transform.position = camara;
         if (zoomOut)
         {
