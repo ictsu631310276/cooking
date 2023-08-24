@@ -143,13 +143,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00fad1fc37dace440becab12fc8bf99b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 100
-  itemNPCWant: 2
+  id: 6
   heat: 100
+  sicknessID: 0
+  sicknessLevel: 1
   glowObj: {fileID: 3032974559426373828}
   handPoint: {fileID: 0}
-  cooldownMax: 10
-  cooldown: 10
+  cooldownMax: 5
+  cooldown: 5
 --- !u!54 &8413418773362838883
 Rigidbody:
   m_ObjectHideFlags: 0

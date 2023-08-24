@@ -5,13 +5,17 @@ using UnityEngine;
 public class PatientDataScript : MonoBehaviour
 {
     public int id;
-    public int itemNPCWant;
     public int heat = 100;
+    public int sicknessID = 0;
+    public int sicknessLevel = 1;
+
     [SerializeField] private GameObject glowObj;
     public GameObject handPoint;
     private bool onHand = false;
+
     [SerializeField] private float cooldownMax = 5;
     [SerializeField] private float cooldown = 5;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
@@ -62,15 +66,17 @@ public class PatientDataScript : MonoBehaviour
                     {
                         handPoint = ToolPlayerScript.bed[0].handPoint;
                         ToolPlayerScript.haveItem = false;
+                        ToolPlayerScript.bed[0].haveSit = true;
                     }
                 }//วางบนเตียง
-                else if (onHand && !ToolPlayerScript.haveItem && ToolPlayerScript.bed.Count > 0 && ToolPlayerScript.bed[0].haveSit)
+                else if (onHand && ToolPlayerScript.bed.Count > 0 && ToolPlayerScript.bed[0].haveSit && !ToolPlayerScript.haveItem)
                 {
                     glowObj.SetActive(true);
                     if (Input.GetKeyDown(KeyCode.Q))
                     {
                         handPoint = NewSpawnNPCScript.handPlayerShare;
                         ToolPlayerScript.haveItem = true;
+                        ToolPlayerScript.bed[0].haveSit = false;
                     }
                 }//ยกออกจากเตียง
             }
@@ -79,7 +85,7 @@ public class PatientDataScript : MonoBehaviour
                 glowObj.SetActive(false);
             }
         }
-        if (itemNPCWant == 0)
+        if (sicknessLevel == -1)
         {
             Destroy(this.gameObject, 0);
         }

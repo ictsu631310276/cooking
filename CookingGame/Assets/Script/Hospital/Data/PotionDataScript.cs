@@ -6,10 +6,10 @@ using UnityEngine.UI;
 public class PotionDataScript : MonoBehaviour
 {
     public ItemData[] itemData;
-
-    public MixFood[] mixFood;
-    public float timeUseAuto;
-    public float timeUseManuel;
+    public CreateSicknessScript[] sicknessData;
+    //public MixFood[] mixFood;
+    //public float timeUseAuto;
+    //public float timeUseManuel;
 
     public int FindNumOfArray(int id)
     {
@@ -24,10 +24,10 @@ public class PotionDataScript : MonoBehaviour
         return j;
     }
 
-    [System.Serializable]
-    public class MixFood
-    {
-        public int[] mixfood;
-        public int food;
-    }
+    //[System.Serializable]
+    //public class MixFood
+    //{
+    //    public int[] mixfood;
+    //    public int food;
+    //}
 }

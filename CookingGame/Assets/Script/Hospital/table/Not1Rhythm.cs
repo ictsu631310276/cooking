@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NotRhythm : MonoBehaviour
+public class Not1Rhythm : MonoBehaviour
 {
     [SerializeField] private RawImage[] showPlayerBar;
     [SerializeField] private Scrollbar playerBar;
     private int player = 0;
     private bool increase = true;
     private int[] bar = new int[100];
-    public int playerGet = 0;
+    public int scorePlayerGet = 0;
     public int difficulty = 3;
     private int heart = 0;
     private void RandomStart(int difficulty)
@@ -95,11 +95,11 @@ public class NotRhythm : MonoBehaviour
         {
             if (bar[player/2] == 15)
             {
-                playerGet = bar[player / 2];
+                scorePlayerGet = bar[player / 2];
             }
             else if(bar[player / 2] == 20)
             {
-                playerGet = bar[player / 2];
+                scorePlayerGet = bar[player / 2];
             }
             else
             {

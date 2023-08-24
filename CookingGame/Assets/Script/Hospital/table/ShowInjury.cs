@@ -21,7 +21,8 @@ public class ShowInjury : MonoBehaviour
         if (item != 0)
         {
             showImageObj.SetActive(true);
-            showImage.sprite = potionData.itemData[potionData.FindNumOfArray(item)].imageItem;
+            //showImage.sprite = potionData.itemData[potionData.FindNumOfArray(item)].imageItem;
+            showImage.sprite = potionData.sicknessData[potionData.FindNumOfArray(item)].imageSickness;
         }
     }
 }

@@ -51,10 +51,5 @@ public class ToolPlayerScript : MonoBehaviour
             OffVisibility();
             tool[2].SetActive(true);
         }
-        for (int i = 0; i < PatientID.Count; i++)
-        {
-            Debug.Log("patient : " + PatientID[i]);
-        }
-        Debug.Log("haveItem : " + haveItem);
     }
 }

@@ -73,7 +73,7 @@ public class BinScript : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Q))
                 {
                     ToolPlayerScript.haveItem = false;
-                    ToolPlayerScript.PatientID[0].itemNPCWant = 0;
+                    ToolPlayerScript.PatientID[0].sicknessID = -1;
                     ToolPlayerScript.PatientID.RemoveAt(0);
                     spareOrgan++;
                 }

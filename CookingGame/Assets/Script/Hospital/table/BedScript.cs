@@ -11,7 +11,7 @@ public class BedScript : MonoBehaviour
     public bool haveSit = false;
     public GameObject handPoint;
     [SerializeField] private GameObject minigameObj;
-    [SerializeField] private NotRhythm minigame;
+    [SerializeField] private Not2Rhythm minigame;
     public static bool onMinigame = false;
 
     private void OnTriggerEnter(Collider other)
@@ -24,16 +24,21 @@ public class BedScript : MonoBehaviour
         else if (other.tag == "Patient")
         {
             NPCData = other.gameObject.GetComponent<PatientDataScript>();
-            injury.ShowItemWant(NPCData.itemNPCWant);
+            injury.ShowItemWant(NPCData.sicknessID);
             haveSit = true;
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && !onMinigame)
         {
             glowObj.SetActive(false);
             ToolPlayerScript.bed.Remove(this);
+        }
+        else if (other.gameObject.tag == "Player" && onMinigame)
+        {
+            injury.ShowItemWant(NPCData.sicknessID);
+            CloseMinigame();
         }
         else if (other.tag == "Patient")
         {
@@ -42,15 +47,24 @@ public class BedScript : MonoBehaviour
             haveSit = false;
         }
     }
+
     private void Goodbye()
     {
-        NPCData.itemNPCWant = 0;
+        NPCData.sicknessID = -1;
         NPCData = null;
         haveSit = false;
         injury.CloseImage();
-
+        CloseMinigame();
+    }
+    private void PlayMinigame()
+    {
+        minigameObj.SetActive(true);
+        minigame.difficulty = NPCData.sicknessLevel;
+    }
+    private void CloseMinigame()
+    {
         minigameObj.SetActive(false);
-        CameraScript.zoomOut = true;
+        ////CameraScript.zoomOut = true;
         onMinigame = false;
     }
     private void Start()
@@ -61,39 +75,41 @@ public class BedScript : MonoBehaviour
     {
         if (ToolPlayerScript.bed.Count > 0)
         {
-            if (ToolPlayerScript.haveItem && id == ToolPlayerScript.bed[0].id)
+            if (ToolPlayerScript.haveItem && id == ToolPlayerScript.bed[0].id
+                && ToolPlayerScript.itemInHand > 0)
             {
                 glowObj.SetActive(true);
-                if (Input.GetKeyDown(KeyCode.Space) && haveSit
-                    && NPCData.itemNPCWant == ToolPlayerScript.itemInHand)
+                if (Input.GetKeyDown(KeyCode.Space) && haveSit)
                 {
-                    minigameObj.SetActive(true);
-                    minigame.difficulty = NPCData.heat;
-                    //CameraScript.zoomOut = false;
+                    PlayMinigame();
+                    ////CameraScript.zoomOut = false;
                     onMinigame = true;
+                    //for Not1Rhythm //not use
+                    injury.CloseImage();
                 }
                 if (Input.GetKeyDown(KeyCode.Escape))
                 {
-                    minigameObj.SetActive(false);
-                    //CameraScript.zoomOut = true;
-                    onMinigame = false;
+                    injury.ShowItemWant(NPCData.sicknessID);
+                    CloseMinigame();
                 }
             }
         }
-        if (minigame.playerGet != 0)
         {
-            switch (minigame.playerGet)
-            {
-                case 20:
-                    Debug.Log("Nice");
-                    Goodbye();
-                    break;
-                default:
-                    Debug.Log("Ok");
-                    Goodbye();
-                    break;
-            }
-            minigame.playerGet = 0;
-        }
+            //if (minigame.playerGet != 0)
+            //{
+            //    switch (minigame.playerGet)
+            //    {
+            //        case 20:
+            //            Debug.Log("Nice");
+            //            Goodbye();
+            //            break;
+            //        default:
+            //            Debug.Log("Ok");
+            //            Goodbye();
+            //            break;
+            //    }
+            //    minigame.playerGet = 0;
+            //}
+        }//for Not1Rhythm
     }
 }

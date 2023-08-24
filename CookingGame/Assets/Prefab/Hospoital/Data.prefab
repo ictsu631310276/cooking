@@ -48,9 +48,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4c7a274a40e1c7044808785d9453eb47, type: 2}
   - {fileID: 11400000, guid: a936bac7658091f49b70a395cf0f8b0b, type: 2}
   - {fileID: 11400000, guid: bc114319606e8a6499c2301b066dfd1b, type: 2}
-  - {fileID: 11400000, guid: 7cb8ddceada6cb848ae001740705197a, type: 2}
-  - {fileID: 11400000, guid: 85dd95bc9aae17847bbb8af7b1377d9e, type: 2}
-  - {fileID: 11400000, guid: eba2c622a01cd67449d9b581af37147d, type: 2}
-  mixFood: []
-  timeUseAuto: 2
-  timeUseManuel: 2
+  sicknessData:
+  - {fileID: 11400000, guid: f702f840a3d5e204c83624c0873f052f, type: 2}
+  - {fileID: 11400000, guid: ee53aba7ad9524f4d8f68348502de184, type: 2}
+  - {fileID: 11400000, guid: 856b6dc62665514488ce5cc5e6ff27f7, type: 2}

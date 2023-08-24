@@ -5,7 +5,7 @@ using UnityEngine;
 public class NewSpawnNPCScript : MonoBehaviour
 {
     public int numOfNPCInDay;
-    public List<int> allIDFoodWant;
+    public PotionDataScript potionData;
     public PatientDataScript npcData;
     public Transform spawnPoint;
     public GameObject handPlayer;
@@ -18,14 +18,11 @@ public class NewSpawnNPCScript : MonoBehaviour
         PatientDataScript npcSpawn = Instantiate(npcData, spawnPoint, false);
         npcSpawn.id = iDNPC;
         npcSpawn.handPoint = handPlayer;
+        int i = Random.Range(0, potionData.sicknessData.Length);
+        npcSpawn.sicknessID = potionData.sicknessData[i].id;
+        int j = Random.Range(potionData.sicknessData[i].startSicknessLevel ,3);
+        npcSpawn.sicknessLevel = j;
         iDNPC++;
-        npcSpawn.itemNPCWant = FindFoodWant();
-    }
-    private int FindFoodWant()
-    {
-        int i = Random.Range(0,allIDFoodWant.Count);
-        int j = allIDFoodWant[i];
-        return j;
     }
     private void Start()
     {

@@ -27,11 +27,12 @@ public class UIManagerScript : MonoBehaviour
     {
         ToolPlayerScript.PatientID.Clear();
         ToolPlayerScript.bed.Clear();
+        ToolPlayerScript.itemInHand = 0;
+        ToolPlayerScript.haveItem = false;
+        Time.timeScale = 1;
         SceneManager.LoadScene(0);
         //InteractionPlayerScript.tableInteraction.Clear();
         //SpawnNPCScript.open = false;
-
-        Time.timeScale = 1;
     }
     public void Exit()
     {
