@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2
   startSicknessLevel: 2
+  patternPress: 010000000100000001000000000000000200000002000000020000000100000003000000030000000300000002000000
   declineLife: 10
   imageSickness: {fileID: 21300000, guid: 168f1ba4f7a0bcc4b8bedff6ce6a260e, type: 3}
   effect: {fileID: 0}

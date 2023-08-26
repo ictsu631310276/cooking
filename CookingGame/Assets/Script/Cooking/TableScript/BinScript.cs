@@ -28,7 +28,7 @@ public class BinScript : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             glowObject.SetActive(true);
-            ToolPlayerScript.idTable.Add(idTable);
+            ToolPlayerScript.idBin.Add(idTable);
         }
     }
     private void OnTriggerExit(Collider other)
@@ -36,7 +36,7 @@ public class BinScript : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             glowObject.SetActive(false);
-            ToolPlayerScript.idTable.Remove(idTable);
+            ToolPlayerScript.idBin.Remove(idTable);
         }
     }
     private void Start()
@@ -65,9 +65,9 @@ public class BinScript : MonoBehaviour
                 glowObject.SetActive(false);
             }
         }
-        if (ToolPlayerScript.idTable.Count > 0)
+        if (ToolPlayerScript.idBin.Count > 0)
         {
-            if (ToolPlayerScript.haveItem && ToolPlayerScript.idTable[0] == idTable)
+            if (ToolPlayerScript.haveItem && ToolPlayerScript.idBin[0] == idTable)
             {
                 glowObject.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.Q))

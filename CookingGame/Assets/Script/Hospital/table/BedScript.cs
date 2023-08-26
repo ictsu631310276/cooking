@@ -7,6 +7,7 @@ public class BedScript : MonoBehaviour
     public int id;
     public ShowInjury injury;
     [SerializeField] private PatientDataScript NPCData;
+    [SerializeField] private PotionDataScript potionData;
     public GameObject glowObj;
     public bool haveSit = false;
     public GameObject handPoint;
@@ -39,6 +40,8 @@ public class BedScript : MonoBehaviour
         {
             injury.ShowItemWant(NPCData.sicknessID);
             CloseMinigame();
+            glowObj.SetActive(false);
+            ToolPlayerScript.bed.Remove(this);
         }
         else if (other.tag == "Patient")
         {
@@ -51,15 +54,20 @@ public class BedScript : MonoBehaviour
     private void Goodbye()
     {
         NPCData.sicknessID = -1;
-        NPCData = null;
+        minigame.difficulty = -1;
         haveSit = false;
         injury.CloseImage();
+        NPCData = null;
         CloseMinigame();
     }
     private void PlayMinigame()
     {
         minigameObj.SetActive(true);
         minigame.difficulty = NPCData.sicknessLevel;
+        for (int i = 0; i < potionData.sicknessData[potionData.FindNumOfSick(NPCData.sicknessID)].patternPress.Length; i++)
+        {
+            minigame.intAllArrow.Add(potionData.sicknessData[potionData.FindNumOfSick(NPCData.sicknessID)].patternPress[i]);
+        }    
     }
     private void CloseMinigame()
     {
@@ -82,9 +90,7 @@ public class BedScript : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Space) && haveSit)
                 {
                     PlayMinigame();
-                    ////CameraScript.zoomOut = false;
                     onMinigame = true;
-                    //for Not1Rhythm //not use
                     injury.CloseImage();
                 }
                 if (Input.GetKeyDown(KeyCode.Escape))
@@ -93,6 +99,15 @@ public class BedScript : MonoBehaviour
                     CloseMinigame();
                 }
             }
+        }
+        else if (ToolPlayerScript.bed.Count == 0)
+        {
+            if (NPCData != null)
+            {
+                injury.ShowItemWant(NPCData.sicknessID);
+            }
+            CloseMinigame();
+            glowObj.SetActive(false);
         }
         {
             //if (minigame.playerGet != 0)
@@ -111,5 +126,9 @@ public class BedScript : MonoBehaviour
             //    minigame.playerGet = 0;
             //}
         }//for Not1Rhythm
+        if (minigame.difficulty == 0 && NPCData != null)
+        {
+            Goodbye();
+        }
     }
 }

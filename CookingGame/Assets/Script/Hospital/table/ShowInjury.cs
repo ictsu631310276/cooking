@@ -22,7 +22,7 @@ public class ShowInjury : MonoBehaviour
         {
             showImageObj.SetActive(true);
             //showImage.sprite = potionData.itemData[potionData.FindNumOfArray(item)].imageItem;
-            showImage.sprite = potionData.sicknessData[potionData.FindNumOfArray(item)].imageSickness;
+            showImage.sprite = potionData.sicknessData[potionData.FindNumOfItem(item)].imageSickness;
         }
     }
 }

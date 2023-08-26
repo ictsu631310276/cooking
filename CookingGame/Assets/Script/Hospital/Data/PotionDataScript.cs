@@ -11,7 +11,7 @@ public class PotionDataScript : MonoBehaviour
     //public float timeUseAuto;
     //public float timeUseManuel;
 
-    public int FindNumOfArray(int id)
+    public int FindNumOfItem(int id)
     {
         int j = 0;
         for (j = 0; j < itemData.Length; j++)
@@ -23,7 +23,18 @@ public class PotionDataScript : MonoBehaviour
         }
         return j;
     }
-
+    public int FindNumOfSick(int id)
+    {
+        int j = 0;
+        for (j = 0; j < sicknessData.Length; j++)
+        {
+            if (sicknessData[j].id == id)
+            {
+                break;
+            }
+        }
+        return j;
+    }
     //[System.Serializable]
     //public class MixFood
     //{

@@ -433,6 +433,7 @@ MonoBehaviour:
   id: 1006
   injury: {fileID: 5385673218979695917}
   NPCData: {fileID: 0}
+  potionData: {fileID: -5154283208279506760, guid: abaa1cd61ff7b1345aa1d2474df29891, type: 3}
   glowObj: {fileID: 2469376582967577678}
   haveSit: 0
   handPoint: {fileID: 7208405319434318371}
@@ -1036,7 +1037,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9218442375158388532, guid: b80ff6eb902217449906709bb8fa15c9, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b80ff6eb902217449906709bb8fa15c9, type: 3}
@@ -1046,7 +1047,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 4395303184531427828}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6140679498348383297}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3df1d7b621045214d94f60a7aa73ce87, type: 3}
   m_Name: 

@@ -145,8 +145,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 6
   heat: 100
-  sicknessID: 0
-  sicknessLevel: 1
+  sicknessID: 2
+  sicknessLevel: 2
   glowObj: {fileID: 3032974559426373828}
   handPoint: {fileID: 0}
   cooldownMax: 5

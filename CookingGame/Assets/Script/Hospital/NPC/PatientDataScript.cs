@@ -6,6 +6,7 @@ public class PatientDataScript : MonoBehaviour
 {
     public int id;
     public int heat = 100;
+    public static int deHeat = 0;
     public int sicknessID = 0;
     public int sicknessLevel = 1;
 
@@ -85,9 +86,9 @@ public class PatientDataScript : MonoBehaviour
                 glowObj.SetActive(false);
             }
         }
-        if (sicknessLevel == -1)
+        if (sicknessID == -1)
         {
-            Destroy(this.gameObject, 0);
+            Destroy(gameObject, 0);
         }
         if (onHand)
         {
@@ -102,6 +103,23 @@ public class PatientDataScript : MonoBehaviour
                 cooldown = cooldownMax;
                 heat -= 5;
             }
+        }
+        if (deHeat != 0)
+        {
+            heat = heat + deHeat;
+            deHeat = 0;
+            if (heat > 100 || heat < 0)
+            {
+                if (heat > 100)
+                {
+                    heat = 100;
+                }
+                else
+                {
+                    heat = 0;
+                }
+            }
+            Debug.Log("Heat : " + heat);
         }
     }
 }

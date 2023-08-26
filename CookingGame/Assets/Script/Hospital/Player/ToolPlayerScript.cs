@@ -6,7 +6,7 @@ public class ToolPlayerScript : MonoBehaviour
 {
     public static List<PatientDataScript> PatientID = new List<PatientDataScript>();
     public static List<BedScript> bed = new List<BedScript>();
-    public static List<int> idTable = new List<int>();
+    public static List<int> idBin = new List<int>();
     public static int itemInHand = 0;//ของในมือ
     public static bool haveItem = false;
     [SerializeField] private GameObject[] tool;
@@ -51,5 +51,13 @@ public class ToolPlayerScript : MonoBehaviour
             OffVisibility();
             tool[2].SetActive(true);
         }
+        ////Debug.Log("bed.Count : " + bed.Count);
+        //if (Input.GetKeyDown(KeyCode.P))
+        //{
+        //    for (int i = 0; i < bed.Count; i++)
+        //    {
+        //        Debug.Log("bed ID : " + bed[i].id);
+        //    }
+        //}
     }
 }

@@ -152,8 +152,11 @@ MonoBehaviour:
   - {fileID: 5364109013214641479, guid: a060efe056c73144c9f58e6bb01c4263, type: 3}
   - {fileID: 803691971525410170, guid: 215c2906b8545e942ba0d74d3c0be1fc, type: 3}
   displayPsition: {fileID: 7622152762981006644}
+  intAllArrow: 
+  intArrow: 
+  arrowShowObj: []
   scorePlayerGet: 0
-  difficulty: 0
+  difficulty: -1
 --- !u!1 &7622152762981006644
 GameObject:
   m_ObjectHideFlags: 0

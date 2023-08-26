@@ -26,13 +26,6 @@ public class NewSpawnNPCScript : MonoBehaviour
     }
     private void Start()
     {
-        //for (int i = 0; i < ingredient.itemData.Length; i++)
-        //{
-        //    if (ingredient.itemData[i].canOnPlate)
-        //    {
-        //        allIDFoodWant.Add(ingredient.itemData[i].id);
-        //    }
-        //}
         handPlayerShare = handPlayer;
     }
     private void Update()
