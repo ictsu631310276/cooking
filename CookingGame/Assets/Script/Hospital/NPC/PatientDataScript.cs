@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PatientDataScript : MonoBehaviour
 {
     public int id;
     public int heat = 100;
-    public static int deHeat = 0;
+    public int deHeat = 0;
     public int sicknessID = 0;
     public int sicknessLevel = 1;
 
@@ -14,6 +15,7 @@ public class PatientDataScript : MonoBehaviour
     public GameObject handPoint;
     private bool onHand = false;
 
+    [SerializeField] private TextMeshProUGUI textHP;
     [SerializeField] private float cooldownMax = 5;
     [SerializeField] private float cooldown = 5;
 
@@ -38,6 +40,7 @@ public class PatientDataScript : MonoBehaviour
     }
     private void Update()
     {
+        textHP.text = "HP : " + heat;
         if (ToolPlayerScript.PatientID.Count > 0)
         {
             if (id == ToolPlayerScript.PatientID[0].id)
@@ -119,7 +122,11 @@ public class PatientDataScript : MonoBehaviour
                     heat = 0;
                 }
             }
-            Debug.Log("Heat : " + heat);
+            //Debug.Log("Heat : " + heat);
+        }
+        if (heat <= 0)
+        {
+            Destroy(gameObject, 0);
         }
     }
 }

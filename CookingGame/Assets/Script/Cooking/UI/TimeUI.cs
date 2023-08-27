@@ -10,13 +10,13 @@ public class TimeUI : MonoBehaviour
     private float time;
     public static bool closeDay = false;
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         time += Time.deltaTime;
         Fill.fillAmount = time / timeMax;

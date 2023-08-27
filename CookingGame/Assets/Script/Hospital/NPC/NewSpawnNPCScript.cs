@@ -5,6 +5,7 @@ using UnityEngine;
 public class NewSpawnNPCScript : MonoBehaviour
 {
     public int numOfNPCInDay;
+    [SerializeField] private TimeUI timeUIScript;
     public PotionDataScript potionData;
     public PatientDataScript npcData;
     public Transform spawnPoint;

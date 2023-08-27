@@ -11,6 +11,7 @@ public class Not2Rhythm : MonoBehaviour
     public List<GameObject> arrowShowObj;
     public int difficulty = -1;//3-0
     public bool haveRhythm = false;
+    public int deHeat = 0;
     public void ShowRhythmArrow(List<int> x)
     {
         GameObject _Arrow;
@@ -24,11 +25,11 @@ public class Not2Rhythm : MonoBehaviour
     {
         if (intArrow[0] == i)
         {
-            PatientDataScript.deHeat = 5;
+            deHeat = 5;
         }
         else
         {
-            PatientDataScript.deHeat = -20;
+            deHeat = -20;
         }
         intArrow.RemoveAt(0);
         Destroy(arrowShowObj[0], 0);
@@ -36,7 +37,7 @@ public class Not2Rhythm : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log(haveRhythm);
+        //Debug.Log(haveRhythm);
         if (!haveRhythm)
         {
             switch (difficulty)
@@ -84,10 +85,11 @@ public class Not2Rhythm : MonoBehaviour
                 checkArrow(3);
             }
         }
-        else if (intArrow.Count == 0)
+        else if (intArrow.Count == 0 && haveRhythm)
         {
             haveRhythm = false;
             difficulty--;
         }
+        Debug.Log("difficulty : " + difficulty);
     }
 }

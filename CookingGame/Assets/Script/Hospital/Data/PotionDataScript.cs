@@ -35,6 +35,7 @@ public class PotionDataScript : MonoBehaviour
         }
         return j;
     }
+
     //[System.Serializable]
     //public class MixFood
     //{

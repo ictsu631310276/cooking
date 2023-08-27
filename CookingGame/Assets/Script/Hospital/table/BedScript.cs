@@ -24,9 +24,7 @@ public class BedScript : MonoBehaviour
         }
         else if (other.tag == "Patient")
         {
-            NPCData = other.gameObject.GetComponent<PatientDataScript>();
-            injury.ShowItemWant(NPCData.sicknessID);
-            haveSit = true;
+            AddDataPiatent(other);
         }
     }
     private void OnTriggerExit(Collider other)
@@ -45,9 +43,7 @@ public class BedScript : MonoBehaviour
         }
         else if (other.tag == "Patient")
         {
-            NPCData = null;
-            injury.CloseImage();
-            haveSit = false;
+            RemovePiatent();
         }
     }
 
@@ -60,10 +56,23 @@ public class BedScript : MonoBehaviour
         NPCData = null;
         CloseMinigame();
     }
+    private void AddDataPiatent(Collider other)
+    {
+        NPCData = other.gameObject.GetComponent<PatientDataScript>();
+        injury.ShowItemWant(NPCData.sicknessID);
+        haveSit = true;
+        minigame.difficulty = NPCData.sicknessLevel;
+    }
+    private void RemovePiatent()
+    {
+        minigame.difficulty = -1;
+        NPCData = null;
+        injury.CloseImage();
+        haveSit = false;
+    }
     private void PlayMinigame()
     {
         minigameObj.SetActive(true);
-        minigame.difficulty = NPCData.sicknessLevel;
         for (int i = 0; i < potionData.sicknessData[potionData.FindNumOfSick(NPCData.sicknessID)].patternPress.Length; i++)
         {
             minigame.intAllArrow.Add(potionData.sicknessData[potionData.FindNumOfSick(NPCData.sicknessID)].patternPress[i]);
@@ -87,17 +96,17 @@ public class BedScript : MonoBehaviour
                 && ToolPlayerScript.itemInHand > 0)
             {
                 glowObj.SetActive(true);
-                if (Input.GetKeyDown(KeyCode.Space) && haveSit)
+                if (/*Input.GetKeyDown(KeyCode.Space) &&*/ haveSit)
                 {
                     PlayMinigame();
                     onMinigame = true;
                     injury.CloseImage();
                 }
-                if (Input.GetKeyDown(KeyCode.Escape))
-                {
-                    injury.ShowItemWant(NPCData.sicknessID);
-                    CloseMinigame();
-                }
+                //if (Input.GetKeyDown(KeyCode.Escape))
+                //{
+                //    injury.ShowItemWant(NPCData.sicknessID);
+                //    CloseMinigame();
+                //}
             }
         }
         else if (ToolPlayerScript.bed.Count == 0)
@@ -129,6 +138,15 @@ public class BedScript : MonoBehaviour
         if (minigame.difficulty == 0 && NPCData != null)
         {
             Goodbye();
+        }
+        if (minigame.deHeat != 0)
+        {
+            NPCData.deHeat = minigame.deHeat;
+            minigame.deHeat = 0;
+        }
+        if (NPCData != null && minigame.difficulty != NPCData.sicknessLevel)
+        {
+            NPCData.sicknessLevel = minigame.difficulty;
         }
     }
 }
