@@ -45,41 +45,41 @@ public class PatientDataScript : MonoBehaviour
         {
             if (id == ToolPlayerScript.PatientID[0].id)
             {
-                if (!ToolPlayerScript.haveItem && !onHand)
+                if (!ToolPlayerScript.havePatient && !onHand && !ToolPlayerScript.haveTool)
                 {
                     glowObj.SetActive(true);
                     if (Input.GetKeyDown(KeyCode.Q))
                     {
                         onHand = true;
-                        ToolPlayerScript.haveItem = true;
+                        ToolPlayerScript.havePatient = true;
                     }
                 }//หยิบ
-                else if (onHand && ToolPlayerScript.bed.Count == 0 && ToolPlayerScript.haveItem)
+                else if (onHand && ToolPlayerScript.bed.Count == 0 && ToolPlayerScript.havePatient)
                 {
                     glowObj.SetActive(true);
                     if (Input.GetKeyDown(KeyCode.Q))
                     {
                         onHand = false;
-                        ToolPlayerScript.haveItem = false;
+                        ToolPlayerScript.havePatient = false;
                     }
                 }//วางพื้น
-                else if (onHand && ToolPlayerScript.bed.Count > 0 && !ToolPlayerScript.bed[0].haveSit && ToolPlayerScript.haveItem)
+                else if (onHand && ToolPlayerScript.bed.Count > 0 && !ToolPlayerScript.bed[0].haveSit && ToolPlayerScript.havePatient)
                 {
                     glowObj.SetActive(true);
                     if (Input.GetKeyDown(KeyCode.Q))
                     {
                         handPoint = ToolPlayerScript.bed[0].handPoint;
-                        ToolPlayerScript.haveItem = false;
+                        ToolPlayerScript.havePatient = false;
                         ToolPlayerScript.bed[0].haveSit = true;
                     }
                 }//วางบนเตียง
-                else if (onHand && ToolPlayerScript.bed.Count > 0 && ToolPlayerScript.bed[0].haveSit && !ToolPlayerScript.haveItem)
+                else if (onHand && ToolPlayerScript.bed.Count > 0 && ToolPlayerScript.bed[0].haveSit && !ToolPlayerScript.havePatient)
                 {
                     glowObj.SetActive(true);
                     if (Input.GetKeyDown(KeyCode.Q))
                     {
                         handPoint = NewSpawnNPCScript.handPlayerShare;
-                        ToolPlayerScript.haveItem = true;
+                        ToolPlayerScript.havePatient = true;
                         ToolPlayerScript.bed[0].haveSit = false;
                     }
                 }//ยกออกจากเตียง

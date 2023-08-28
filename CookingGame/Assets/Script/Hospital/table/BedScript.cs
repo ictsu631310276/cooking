@@ -92,7 +92,7 @@ public class BedScript : MonoBehaviour
     {
         if (ToolPlayerScript.bed.Count > 0)
         {
-            if (ToolPlayerScript.haveItem && id == ToolPlayerScript.bed[0].id
+            if (ToolPlayerScript.haveTool && id == ToolPlayerScript.bed[0].id
                 && ToolPlayerScript.itemInHand > 0)
             {
                 glowObj.SetActive(true);

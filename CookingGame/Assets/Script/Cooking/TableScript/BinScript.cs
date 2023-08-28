@@ -67,12 +67,12 @@ public class BinScript : MonoBehaviour
         }
         if (ToolPlayerScript.idBin.Count > 0)
         {
-            if (ToolPlayerScript.haveItem && ToolPlayerScript.idBin[0] == idTable)
+            if (ToolPlayerScript.havePatient && ToolPlayerScript.idBin[0] == idTable)
             {
                 glowObject.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.Q))
                 {
-                    ToolPlayerScript.haveItem = false;
+                    ToolPlayerScript.havePatient = false;
                     ToolPlayerScript.PatientID[0].sicknessID = -1;
                     ToolPlayerScript.PatientID.RemoveAt(0);
                     spareOrgan++;

@@ -36,22 +36,22 @@ public class OpenRestaurant : MonoBehaviour
         {
             if (InteractionPlayerScript.tableInteraction[InteractionPlayerScript.tableInteraction.Count - 1] == idTable)
             {
-                if (!TimeUI.closeDay)
-                {
-                    glowObject.SetActive(true);
-                    if (Input.GetKeyUp(KeyCode.Q) || Input.GetButtonUp("Jump"))
-                    {
-                        if (!SpawnNPCScript.open)
-                        {
-                            SpawnNPCScript.open = true;
+                //if (!TimeUI.closeDay)
+                //{
+                //    glowObject.SetActive(true);
+                //    if (Input.GetKeyUp(KeyCode.Q) || Input.GetButtonUp("Jump"))
+                //    {
+                //        if (!SpawnNPCScript.open)
+                //        {
+                //            SpawnNPCScript.open = true;
 
-                        }
-                        else if (SpawnNPCScript.open)
-                        {
-                            SpawnNPCScript.open = false;
-                        }
-                    }
-                }
+                //        }
+                //        else if (SpawnNPCScript.open)
+                //        {
+                //            SpawnNPCScript.open = false;
+                //        }
+                //    }
+                //}
             }
             else if (InteractionPlayerScript.tableInteraction[InteractionPlayerScript.tableInteraction.Count - 1] != idTable)
             {

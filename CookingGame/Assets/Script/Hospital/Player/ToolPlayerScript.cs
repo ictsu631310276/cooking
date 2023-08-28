@@ -7,15 +7,15 @@ public class ToolPlayerScript : MonoBehaviour
     public static List<PatientDataScript> PatientID = new List<PatientDataScript>();
     public static List<BedScript> bed = new List<BedScript>();
     public static List<int> idBin = new List<int>();
-    public static int itemInHand = 0;//ของในมือ
-    public static bool haveItem = false;
-    [SerializeField] private GameObject[] tool;
-    private void OffVisibility()
+    public static int itemInHand;//ของในมือ
+    public static bool havePatient;
+    public static bool haveTool;
+    [SerializeField] private GameObject tool;
+    private void Start()
     {
-        for (int i = 0; i < tool.Length; i++)
-        {
-            tool[i].SetActive(false);
-        }
+        itemInHand = 0;
+        havePatient = false;
+        haveTool = false;
     }
     private void Update()
     {
@@ -24,32 +24,17 @@ public class ToolPlayerScript : MonoBehaviour
             PatientID.Add(PatientID[0]);
             PatientID.RemoveAt(0);
         }//สลับโต็ะที่เล็ง
-        if (Input.GetKeyDown(KeyCode.Alpha1) && haveItem)
+        if (Input.GetKeyDown(KeyCode.Alpha1) && haveTool)
         {
-            haveItem = false;
+            haveTool = false;
             itemInHand = 0;
-            OffVisibility();
+            tool.SetActive(false);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha2) && !haveItem)
+        else if (Input.GetKeyDown(KeyCode.Alpha2) && !havePatient)
         {
-            haveItem = true;
+            haveTool = true;
             itemInHand = 1;
-            OffVisibility();
-            tool[0].SetActive(true);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha3) && !haveItem)
-        {
-            haveItem = true;
-            itemInHand = 2;
-            OffVisibility();
-            tool[1].SetActive(true);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha4) && !haveItem)
-        {
-            haveItem = true;
-            itemInHand = 3;
-            OffVisibility();
-            tool[2].SetActive(true);
+            tool.SetActive(true);
         }
         ////Debug.Log("bed.Count : " + bed.Count);
         //if (Input.GetKeyDown(KeyCode.P))
@@ -59,5 +44,6 @@ public class ToolPlayerScript : MonoBehaviour
         //        Debug.Log("bed ID : " + bed[i].id);
         //    }
         //}
+        //Debug.Log(PatientID.Count);
     }
 }
