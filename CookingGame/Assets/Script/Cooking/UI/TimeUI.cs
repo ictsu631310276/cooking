@@ -9,12 +9,14 @@ public class TimeUI : MonoBehaviour
     [SerializeField] private float startHotTime;
     [SerializeField] private float hotTimeStay;
     public bool haveHotTime = false;
+    public bool endDay = false;
     public Image Fill;
     private float time;
     private float hotTime;
     //public static bool closeDay = false;//use in restaurant
     private void Start()
     {
+        endDay = false;
         time = 0;
         hotTime = 0;
     }
@@ -25,6 +27,7 @@ public class TimeUI : MonoBehaviour
         if (time >= timeMax)
         {
             Debug.Log("End Day");
+            endDay = true;
             //closeDay = true;
             //SpawnNPCScript.open = false;
         }

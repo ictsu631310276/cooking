@@ -35,6 +35,18 @@ public class Not2Rhythm : MonoBehaviour
         Destroy(arrowShowObj[0], 0);
         arrowShowObj.RemoveAt(0);
     }
+    public void ClearRhythm()
+    {
+        intAllArrow.Clear();
+        intArrow.Clear();
+        for (int i = 0; i < arrowShowObj.Count; i++)
+        {
+            Destroy(arrowShowObj[i], 0);
+        }
+        arrowShowObj.Clear();
+        difficulty = -1;
+        //haveRhythm = false;
+    }
     private void Update()
     {
         //Debug.Log(haveRhythm);
@@ -90,6 +102,6 @@ public class Not2Rhythm : MonoBehaviour
             haveRhythm = false;
             difficulty--;
         }
-        Debug.Log("difficulty : " + difficulty);
+        //Debug.Log("difficulty : " + difficulty);
     }
 }

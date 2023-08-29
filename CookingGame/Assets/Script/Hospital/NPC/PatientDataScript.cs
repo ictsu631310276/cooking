@@ -34,6 +34,18 @@ public class PatientDataScript : MonoBehaviour
             ToolPlayerScript.PatientID.Remove(this);
         }
     }
+    private void WillDestroy()
+    {
+        for (int i = 0; i < ToolPlayerScript.PatientID.Count; i++)
+        {
+            if (ToolPlayerScript.PatientID[i].id == id)
+            {
+                ToolPlayerScript.PatientID.RemoveAt(i);
+                break;
+            }
+        }
+        Destroy(gameObject, 0);
+    }
     private void Start()
     {
         glowObj.SetActive(false);
@@ -91,7 +103,7 @@ public class PatientDataScript : MonoBehaviour
         }
         if (sicknessID == -1)
         {
-            Destroy(gameObject, 0);
+            WillDestroy();
         }
         if (onHand)
         {
@@ -126,7 +138,7 @@ public class PatientDataScript : MonoBehaviour
         }
         if (heat <= 0)
         {
-            Destroy(gameObject, 0);
+            WillDestroy();
         }
     }
 }

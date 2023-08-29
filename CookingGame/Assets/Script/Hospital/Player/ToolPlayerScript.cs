@@ -36,6 +36,8 @@ public class ToolPlayerScript : MonoBehaviour
             itemInHand = 1;
             tool.SetActive(true);
         }
+        Debug.Log("haveTool : " + haveTool);
+        Debug.Log("havePatient : " + havePatient);
         ////Debug.Log("bed.Count : " + bed.Count);
         //if (Input.GetKeyDown(KeyCode.P))
         //{
@@ -44,6 +46,6 @@ public class ToolPlayerScript : MonoBehaviour
         //        Debug.Log("bed ID : " + bed[i].id);
         //    }
         //}
-        //Debug.Log(PatientID.Count);
+        Debug.Log(PatientID.Count);
     }
 }

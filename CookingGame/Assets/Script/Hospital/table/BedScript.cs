@@ -36,7 +36,10 @@ public class BedScript : MonoBehaviour
         }
         else if (other.gameObject.tag == "Player" && onMinigame)
         {
-            injury.ShowItemWant(NPCData.sicknessID);
+            if (NPCData != null)
+            {
+                injury.ShowItemWant(NPCData.sicknessID);
+            }
             CloseMinigame();
             glowObj.SetActive(false);
             ToolPlayerScript.bed.Remove(this);
@@ -73,10 +76,13 @@ public class BedScript : MonoBehaviour
     private void PlayMinigame()
     {
         minigameObj.SetActive(true);
-        for (int i = 0; i < potionData.sicknessData[potionData.FindNumOfSick(NPCData.sicknessID)].patternPress.Length; i++)
+        if (NPCData != null)
         {
-            minigame.intAllArrow.Add(potionData.sicknessData[potionData.FindNumOfSick(NPCData.sicknessID)].patternPress[i]);
-        }    
+            for (int i = 0; i < potionData.sicknessData[potionData.FindNumOfSick(NPCData.sicknessID)].patternPress.Length; i++)
+            {
+                minigame.intAllArrow.Add(potionData.sicknessData[potionData.FindNumOfSick(NPCData.sicknessID)].patternPress[i]);
+            }
+        }
     }
     private void CloseMinigame()
     {
@@ -139,9 +145,20 @@ public class BedScript : MonoBehaviour
         {
             Goodbye();
         }
-        if (minigame.deHeat != 0)
+        if (minigame.deHeat != 0 && NPCData != null)
         {
-            NPCData.deHeat = minigame.deHeat;
+            if (NPCData.heat <= minigame.deHeat * -1)
+            {
+                NPCData.deHeat = minigame.deHeat;
+                minigame.ClearRhythm();
+                CloseMinigame();
+                NPCData = null;
+                haveSit = false;
+            }
+            else
+            {
+                NPCData.deHeat = minigame.deHeat;
+            }
             minigame.deHeat = 0;
         }
         if (NPCData != null && minigame.difficulty != NPCData.sicknessLevel)
