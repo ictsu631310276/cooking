@@ -8,8 +8,13 @@ using TMPro;
 public class UIManagerScript : MonoBehaviour
 {
     public static int money;
-    private TextMeshProUGUI moneyText;
+    //[SerializeField] private TextMeshProUGUI moneyText;
     public GameObject pauseUI;
+
+    public static int treated = 0;
+    public static int dead = 0;
+    [SerializeField] private TextMeshProUGUI treatedText;
+    [SerializeField] private TextMeshProUGUI deadText;
     public void Pause()
     {
         if (Time.timeScale != 0)
@@ -45,7 +50,9 @@ public class UIManagerScript : MonoBehaviour
     private void Update()
     {
         //moneyText.text = "money : " + money;
-        if (Input.GetKeyDown(KeyCode.Escape) && !BedScript.onMinigame)
+        treatedText.text = "people who have been treated : " + treated + "/40";
+        deadText.text = "dead : " + dead + "/40";
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             Pause();
         }

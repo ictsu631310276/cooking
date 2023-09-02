@@ -9,13 +9,13 @@ public class ToolPlayerScript : MonoBehaviour
     public static List<int> idBin = new List<int>();
     public static int itemInHand;//ของในมือ
     public static bool havePatient;
-    public static bool haveTool;
+    //public static bool haveTool;
     [SerializeField] private GameObject tool;
     private void Start()
     {
         itemInHand = 0;
         havePatient = false;
-        haveTool = false;
+        //haveTool = false;
     }
     private void Update()
     {
@@ -24,19 +24,19 @@ public class ToolPlayerScript : MonoBehaviour
             PatientID.Add(PatientID[0]);
             PatientID.RemoveAt(0);
         }//สลับโต็ะที่เล็ง
-        if (Input.GetKeyDown(KeyCode.Alpha1) && haveTool)
-        {
-            haveTool = false;
-            itemInHand = 0;
-            tool.SetActive(false);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha2) && !havePatient)
-        {
-            haveTool = true;
-            itemInHand = 1;
-            tool.SetActive(true);
-        }
-        Debug.Log("haveTool : " + haveTool);
+        //if (Input.GetKeyDown(KeyCode.Alpha1) && haveTool)
+        //{
+        //    haveTool = false;
+        //    itemInHand = 0;
+        //    tool.SetActive(false);
+        //}
+        //else if (Input.GetKeyDown(KeyCode.Alpha2) && !havePatient)
+        //{
+        //    haveTool = true;
+        //    itemInHand = 1;
+        //    tool.SetActive(true);
+        //}
+        //Debug.Log("haveTool : " + haveTool);
         Debug.Log("havePatient : " + havePatient);
         ////Debug.Log("bed.Count : " + bed.Count);
         //if (Input.GetKeyDown(KeyCode.P))

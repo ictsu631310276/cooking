@@ -13,7 +13,7 @@ public class BedScript : MonoBehaviour
     public GameObject handPoint;
     [SerializeField] private GameObject minigameObj;
     [SerializeField] private Not2Rhythm minigame;
-    public static bool onMinigame = false;
+    private bool onMinigame = false;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -98,8 +98,8 @@ public class BedScript : MonoBehaviour
     {
         if (ToolPlayerScript.bed.Count > 0)
         {
-            if (ToolPlayerScript.haveTool && id == ToolPlayerScript.bed[0].id
-                && ToolPlayerScript.itemInHand > 0)
+            if (id == ToolPlayerScript.bed[0].id
+                )//&& ToolPlayerScript.itemInHand > 0 && ToolPlayerScript.haveTool)
             {
                 glowObj.SetActive(true);
                 if (/*Input.GetKeyDown(KeyCode.Space) &&*/ haveSit)
@@ -144,6 +144,7 @@ public class BedScript : MonoBehaviour
         if (minigame.difficulty == 0 && NPCData != null)
         {
             Goodbye();
+            UIManagerScript.treated++;
         }
         if (minigame.deHeat != 0 && NPCData != null)
         {
@@ -154,6 +155,7 @@ public class BedScript : MonoBehaviour
                 CloseMinigame();
                 NPCData = null;
                 haveSit = false;
+                UIManagerScript.dead++;
             }
             else
             {

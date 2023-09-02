@@ -57,7 +57,7 @@ public class PatientDataScript : MonoBehaviour
         {
             if (id == ToolPlayerScript.PatientID[0].id)
             {
-                if (!ToolPlayerScript.havePatient && !onHand && !ToolPlayerScript.haveTool)
+                if (!ToolPlayerScript.havePatient && !onHand /*&& !ToolPlayerScript.haveToola*/)
                 {
                     glowObj.SetActive(true);
                     if (Input.GetKeyDown(KeyCode.Q))

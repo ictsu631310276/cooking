@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Not2Rhythm : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class Not2Rhythm : MonoBehaviour
     public int difficulty = -1;//3-0
     public bool haveRhythm = false;
     public int deHeat = 0;
+    private int buttonPressed = 0;
     public void ShowRhythmArrow(List<int> x)
     {
         GameObject _Arrow;
@@ -25,15 +27,26 @@ public class Not2Rhythm : MonoBehaviour
     {
         if (intArrow[0] == i)
         {
+            arrowShowObj[buttonPressed].GetComponent<RawImage>().color = new Color32(255, 255, 0, 255);
             deHeat = 5;
+            buttonPressed++;
         }
         else
         {
+            arrowShowObj[buttonPressed].GetComponent<RawImage>().color = new Color32(255, 0, 0, 255);
             deHeat = -20;
+            buttonPressed++;
         }
-        intArrow.RemoveAt(0);
-        Destroy(arrowShowObj[0], 0);
-        arrowShowObj.RemoveAt(0);
+        if (buttonPressed >= 4)
+        {
+            for (int j = 0; j < arrowShowObj.Count; j++)
+            {
+                Destroy(arrowShowObj[j], 0);
+            }
+            arrowShowObj.Clear();
+            buttonPressed = 0;
+        }
+        intArrow.RemoveAt(0);        
     }
     public void ClearRhythm()
     {
