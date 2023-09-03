@@ -11,8 +11,8 @@ public class UIManagerScript : MonoBehaviour
     //[SerializeField] private TextMeshProUGUI moneyText;
     public GameObject pauseUI;
 
-    public static int treated = 0;
-    public static int dead = 0;
+    public static int treated;
+    public static int dead;
     [SerializeField] private TextMeshProUGUI treatedText;
     [SerializeField] private TextMeshProUGUI deadText;
     public void Pause()
@@ -34,6 +34,7 @@ public class UIManagerScript : MonoBehaviour
         ToolPlayerScript.bed.Clear();
         ToolPlayerScript.itemInHand = 0;
         ToolPlayerScript.havePatient = false;
+        ToolPlayerScript.idBin.Clear();
         Time.timeScale = 1;
         SceneManager.LoadScene(0);
         //InteractionPlayerScript.tableInteraction.Clear();
@@ -45,13 +46,15 @@ public class UIManagerScript : MonoBehaviour
     }
     private void Start()
     {
+        treated = 0;
+        dead = 0;
         pauseUI.SetActive(false);
     }
     private void Update()
     {
         //moneyText.text = "money : " + money;
-        treatedText.text = "people who have been treated : " + treated + "/40";
-        deadText.text = "dead : " + dead + "/40";
+        treatedText.text = "people who have been treated : " + treated + "/" + (NewSpawnNPCScript.iDNPC - 1);
+        deadText.text = "dead : " + dead + "/" + (NewSpawnNPCScript.iDNPC - 1);
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Pause();

@@ -13,7 +13,8 @@ public class NewSpawnNPCScript : MonoBehaviour
     public static GameObject handPlayerShare;
     [SerializeField] private float timeInOneRound;
     private float timeCount = 0;
-    private int iDNPC = 1;//เพิ่มตลอดทั้งวัน
+    public static int iDNPC = 1;//เพิ่มตลอดทั้งวัน
+    public static int numOfNPC = 0;
     private void SpawnNPC()
     {
         int a = Random.Range(0, spawnPoint.Length);
@@ -26,15 +27,18 @@ public class NewSpawnNPCScript : MonoBehaviour
         npcSpawn.sicknessLevel = j;
         iDNPC++;
         npcSpawn.transform.parent = null;
+        numOfNPC++;
     }
     private void Start()
     {
+        numOfNPC = 0;
         handPlayerShare = handPlayer;
     }
     private void Update()
     {
+        //Debug.Log("numOfNPC : " + numOfNPC);
         timeCount = timeCount + Time.deltaTime;
-        if (timeUIScript.haveHotTime && !timeUIScript.endDay)
+        if (timeUIScript.haveHotTime && !timeUIScript.endDay && numOfNPC <= 7)
         {
             if (timeCount >= 1)
             {
@@ -43,7 +47,7 @@ public class NewSpawnNPCScript : MonoBehaviour
                 numOfNPCInDay--;
             }
         }
-        else if (timeCount >= timeInOneRound && numOfNPCInDay > 0 && !timeUIScript.haveHotTime && !timeUIScript.endDay)
+        else if (timeCount >= timeInOneRound && numOfNPCInDay > 0 && !timeUIScript.haveHotTime && !timeUIScript.endDay && numOfNPC <= 7)
         {
             timeCount = 0;
             SpawnNPC();

@@ -9,12 +9,11 @@ public class BedScript : MonoBehaviour
     [SerializeField] private PatientDataScript NPCData;
     [SerializeField] private PotionDataScript potionData;
     public GameObject glowObj;
-    public bool haveSit = false;
+    public bool haveSit;
     public GameObject handPoint;
     [SerializeField] private GameObject minigameObj;
     [SerializeField] private Not2Rhythm minigame;
-    private bool onMinigame = false;
-
+    private bool onMinigame;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
@@ -49,7 +48,14 @@ public class BedScript : MonoBehaviour
             RemovePiatent();
         }
     }
-
+    private void DebutAllEnum()
+    {
+        Debug.Log("id Bed : " + id);
+        Debug.Log("NPCData : " + NPCData);
+        Debug.Log("haveSit : " + haveSit);
+        Debug.Log("onMinigame : " + onMinigame);
+        Debug.Log("~~~~~~~~~~~~~~~~~~~~");
+    }
     private void Goodbye()
     {
         NPCData.sicknessID = -1;
@@ -75,6 +81,7 @@ public class BedScript : MonoBehaviour
     }
     private void PlayMinigame()
     {
+        onMinigame = true;
         minigameObj.SetActive(true);
         if (NPCData != null)
         {
@@ -92,27 +99,26 @@ public class BedScript : MonoBehaviour
     }
     private void Start()
     {
+        haveSit = false;
+        onMinigame = false;
         minigameObj.SetActive(false);
     }
     private void Update()
     {
+        //if (Input.GetKeyDown(KeyCode.F))
+        //{
+        //    DebutAllEnum();
+        //}
         if (ToolPlayerScript.bed.Count > 0)
         {
-            if (id == ToolPlayerScript.bed[0].id
-                )//&& ToolPlayerScript.itemInHand > 0 && ToolPlayerScript.haveTool)
+            if (id == ToolPlayerScript.bed[0].id)
             {
                 glowObj.SetActive(true);
-                if (/*Input.GetKeyDown(KeyCode.Space) &&*/ haveSit)
+                if (haveSit)
                 {
                     PlayMinigame();
-                    onMinigame = true;
                     injury.CloseImage();
                 }
-                //if (Input.GetKeyDown(KeyCode.Escape))
-                //{
-                //    injury.ShowItemWant(NPCData.sicknessID);
-                //    CloseMinigame();
-                //}
             }
         }
         else if (ToolPlayerScript.bed.Count == 0)
@@ -145,17 +151,19 @@ public class BedScript : MonoBehaviour
         {
             Goodbye();
             UIManagerScript.treated++;
+            NewSpawnNPCScript.numOfNPC--;
         }
         if (minigame.deHeat != 0 && NPCData != null)
         {
             if (NPCData.heat <= minigame.deHeat * -1)
             {
                 NPCData.deHeat = minigame.deHeat;
+                NPCData = null;
                 minigame.ClearRhythm();
                 CloseMinigame();
-                NPCData = null;
                 haveSit = false;
                 UIManagerScript.dead++;
+                NewSpawnNPCScript.numOfNPC--;
             }
             else
             {

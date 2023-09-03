@@ -130,14 +130,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3951173666872338065, guid: 0c0e66cdeb8b8254ba37b46b8c6d65b7, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5347172320285451792, guid: 0c0e66cdeb8b8254ba37b46b8c6d65b7, type: 3}
-      propertyPath: id
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5347172320285451792, guid: 0c0e66cdeb8b8254ba37b46b8c6d65b7, type: 3}
       propertyPath: handPoint
       value: 
@@ -192,7 +184,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8565228832996343428, guid: 0c0e66cdeb8b8254ba37b46b8c6d65b7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c0e66cdeb8b8254ba37b46b8c6d65b7, type: 3}
@@ -2412,6 +2404,10 @@ PrefabInstance:
     - target: {fileID: 2347389650213998555, guid: aa3fac3a49fa731439a5096af97b6c4d, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3211463324262176824, guid: aa3fac3a49fa731439a5096af97b6c4d, type: 3}
+      propertyPath: m_Center.z
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5264205218900150042, guid: aa3fac3a49fa731439a5096af97b6c4d, type: 3}
       propertyPath: playerSpeed

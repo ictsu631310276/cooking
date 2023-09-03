@@ -64,7 +64,7 @@ public class BinScript : MonoBehaviour
             {
                 glowObject.SetActive(false);
             }
-        }
+        }//game1
         if (ToolPlayerScript.idBin.Count > 0)
         {
             if (ToolPlayerScript.havePatient && ToolPlayerScript.idBin[0] == idTable)
@@ -76,6 +76,7 @@ public class BinScript : MonoBehaviour
                     ToolPlayerScript.PatientID[0].sicknessID = -1;
                     ToolPlayerScript.PatientID.RemoveAt(0);
                     spareOrgan++;
+                    UIManagerScript.dead++;
                 }
             }
         }

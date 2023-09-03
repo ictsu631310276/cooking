@@ -6,18 +6,18 @@ using TMPro;
 public class PatientDataScript : MonoBehaviour
 {
     public int id;
-    public int heat = 100;
-    public int deHeat = 0;
-    public int sicknessID = 0;
-    public int sicknessLevel = 1;
+    public int heat;
+    public int deHeat;
+    public int sicknessID;
+    public int sicknessLevel;
 
     [SerializeField] private GameObject glowObj;
     public GameObject handPoint;
-    private bool onHand = false;
+    private bool onHand;
 
     [SerializeField] private TextMeshProUGUI textHP;
-    [SerializeField] private float cooldownMax = 5;
-    [SerializeField] private float cooldown = 5;
+    [SerializeField] private float cooldown;
+    private float cooldownMax;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -48,6 +48,13 @@ public class PatientDataScript : MonoBehaviour
     }
     private void Start()
     {
+        heat = 100;
+        deHeat = 0;
+        sicknessID = 0;
+        sicknessLevel = 1;
+
+        onHand = false;
+        cooldownMax = cooldown;
         glowObj.SetActive(false);
     }
     private void Update()
@@ -109,10 +116,16 @@ public class PatientDataScript : MonoBehaviour
         {
             transform.position = handPoint.transform.position;
             glowObj.SetActive(false);
+            cooldown = cooldown - Time.deltaTime;
+            if (cooldown <= 0)
+            {
+                cooldown = cooldownMax;
+                heat -= 5;
+            }
         }
         else if (!onHand)
         {
-            cooldown = cooldown - Time.deltaTime;
+            cooldown = cooldown - Time.deltaTime * 2;
             if (cooldown <= 0)
             {
                 cooldown = cooldownMax;

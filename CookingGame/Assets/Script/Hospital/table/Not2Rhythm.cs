@@ -10,10 +10,21 @@ public class Not2Rhythm : MonoBehaviour
     public List<int> intAllArrow;
     public List<int> intArrow;
     public List<GameObject> arrowShowObj;
-    public int difficulty = -1;//3-0
-    public bool haveRhythm = false;
-    public int deHeat = 0;
-    private int buttonPressed = 0;
+    public int difficulty;//3-0
+    public bool haveRhythm;
+    public int deHeat;
+    private int buttonPressed;
+    private void DebutAllEnum()
+    {
+        Debug.Log("intAllArrow.Count : " + intAllArrow.Count);
+        Debug.Log("intArrow.Count : " + intArrow.Count);
+        Debug.Log("arrowShowObj.Count : " + arrowShowObj.Count);
+        Debug.Log("difficulty : " + difficulty);
+        Debug.Log("haveRhythm : " + haveRhythm);
+        Debug.Log("deHeat : " + deHeat);
+        Debug.Log("buttonPressed : " + buttonPressed);
+        Debug.Log("~~~~~~~~~~~~~~");
+    }
     public void ShowRhythmArrow(List<int> x)
     {
         GameObject _Arrow;
@@ -58,11 +69,22 @@ public class Not2Rhythm : MonoBehaviour
         }
         arrowShowObj.Clear();
         difficulty = -1;
-        //haveRhythm = false;
+        buttonPressed = 0;
+        haveRhythm = false;
+    }
+    private void Start()
+    {
+            difficulty = -1;//3-0
+        haveRhythm = false;
+        deHeat = 0;
+        buttonPressed = 0;
     }
     private void Update()
     {
-        //Debug.Log(haveRhythm);
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            DebutAllEnum();
+        }
         if (!haveRhythm)
         {
             switch (difficulty)
