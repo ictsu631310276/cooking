@@ -10,6 +10,7 @@ public class NewSpawnNPCScript : MonoBehaviour
     public PatientDataScript npcData;
     public Transform[] spawnPoint;
     public GameObject handPlayer;
+    public GameObject handPlayer2;
     public static GameObject handPlayerShare;
     [SerializeField] private float timeInOneRound;
     private float timeCount = 0;
@@ -21,6 +22,7 @@ public class NewSpawnNPCScript : MonoBehaviour
         PatientDataScript npcSpawn = Instantiate(npcData, spawnPoint[a], false);
         npcSpawn.id = iDNPC;
         npcSpawn.handPoint = handPlayer;
+        npcSpawn.handPoint2 = handPlayer2;
         int i = Random.Range(0, potionData.sicknessData.Length);
         npcSpawn.sicknessID = potionData.sicknessData[i].id;
         int j = Random.Range(potionData.sicknessData[i].startSicknessLevel ,3);

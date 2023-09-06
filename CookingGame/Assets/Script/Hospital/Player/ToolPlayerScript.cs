@@ -13,6 +13,9 @@ public class ToolPlayerScript : MonoBehaviour
     [SerializeField] private GameObject tool;
     private void Start()
     {
+        PatientID.Clear();
+        bed.Clear();
+        idBin.Clear();
         itemInHand = 0;
         havePatient = false;
         //haveTool = false;

@@ -13,6 +13,7 @@ public class PatientDataScript : MonoBehaviour
 
     [SerializeField] private GameObject glowObj;
     public GameObject handPoint;
+    public GameObject handPoint2;
     private bool onHand;
 
     [SerializeField] private TextMeshProUGUI textHP;
@@ -79,6 +80,7 @@ public class PatientDataScript : MonoBehaviour
                     if (Input.GetKeyDown(KeyCode.Q))
                     {
                         onHand = false;
+                        transform.position = handPoint2.transform.position;
                         ToolPlayerScript.havePatient = false;
                     }
                 }//วางพื้น

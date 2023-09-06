@@ -30,11 +30,6 @@ public class UIManagerScript : MonoBehaviour
     }
     public void Restart()
     {
-        ToolPlayerScript.PatientID.Clear();
-        ToolPlayerScript.bed.Clear();
-        ToolPlayerScript.itemInHand = 0;
-        ToolPlayerScript.havePatient = false;
-        ToolPlayerScript.idBin.Clear();
         Time.timeScale = 1;
         SceneManager.LoadScene(0);
         //InteractionPlayerScript.tableInteraction.Clear();
