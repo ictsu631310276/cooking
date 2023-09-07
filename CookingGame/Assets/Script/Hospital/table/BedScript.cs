@@ -21,9 +21,12 @@ public class BedScript : MonoBehaviour
             glowObj.SetActive(true);
             ToolPlayerScript.bed.Add(this);
         }
-        else if (other.tag == "Patient")
+        if (other.tag == "Patient")
         {
-            AddDataPiatent(other);
+            NPCData = other.gameObject.GetComponent<PatientDataScript>();
+            //injury.ShowItemWant(NPCData.sicknessID);
+            haveSit = true;
+            minigame.difficulty = NPCData.sicknessLevel;
         }
     }
     private void OnTriggerExit(Collider other)
@@ -43,7 +46,7 @@ public class BedScript : MonoBehaviour
             glowObj.SetActive(false);
             ToolPlayerScript.bed.Remove(this);
         }
-        else if (other.tag == "Patient")
+        if (other.tag == "Patient")
         {
             RemovePiatent();
         }
@@ -64,13 +67,6 @@ public class BedScript : MonoBehaviour
         injury.CloseImage();
         NPCData = null;
         CloseMinigame();
-    }
-    private void AddDataPiatent(Collider other)
-    {
-        NPCData = other.gameObject.GetComponent<PatientDataScript>();
-        injury.ShowItemWant(NPCData.sicknessID);
-        haveSit = true;
-        minigame.difficulty = NPCData.sicknessLevel;
     }
     private void RemovePiatent()
     {

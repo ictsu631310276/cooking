@@ -51,8 +51,6 @@ public class PatientDataScript : MonoBehaviour
     {
         heat = 100;
         deHeat = 0;
-        sicknessID = 0;
-        sicknessLevel = 1;
 
         onHand = false;
         cooldownMax = cooldown;
