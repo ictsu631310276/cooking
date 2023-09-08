@@ -10,6 +10,7 @@ public class PatientDataScript : MonoBehaviour
     public int deHeat;
     public int sicknessID;
     public int sicknessLevel;
+    public int declineH;
 
     [SerializeField] private GameObject glowObj;
     public GameObject handPoint;
@@ -120,7 +121,7 @@ public class PatientDataScript : MonoBehaviour
             if (cooldown <= 0)
             {
                 cooldown = cooldownMax;
-                heat -= 5;
+                heat -= declineH;
             }
         }
         else if (!onHand)
@@ -129,7 +130,7 @@ public class PatientDataScript : MonoBehaviour
             if (cooldown <= 0)
             {
                 cooldown = cooldownMax;
-                heat -= 5;
+                heat -= declineH;
             }
         }
         if (deHeat != 0)
@@ -152,6 +153,7 @@ public class PatientDataScript : MonoBehaviour
         if (heat <= 0)
         {
             WillDestroy();
+            UIManagerScript.dead++;
         }
     }
 }

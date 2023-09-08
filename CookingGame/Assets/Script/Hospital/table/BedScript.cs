@@ -101,13 +101,13 @@ public class BedScript : MonoBehaviour
     }
     private void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.F))
-        //{
-        //    DebutAllEnum();
-        //}
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            DebutAllEnum();
+        }
         if (ToolPlayerScript.bed.Count > 0)
         {
-            if (id == ToolPlayerScript.bed[0].id)
+            if (id == ToolPlayerScript.bed[0].id && NPCData != null)
             {
                 glowObj.SetActive(true);
                 if (haveSit)
@@ -158,7 +158,6 @@ public class BedScript : MonoBehaviour
                 minigame.ClearRhythm();
                 CloseMinigame();
                 haveSit = false;
-                UIManagerScript.dead++;
                 NewSpawnNPCScript.numOfNPC--;
             }
             else

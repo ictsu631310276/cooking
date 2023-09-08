@@ -25,10 +25,10 @@ public class Not2Rhythm : MonoBehaviour
         Debug.Log("buttonPressed : " + buttonPressed);
         Debug.Log("~~~~~~~~~~~~~~");
     }
-    public void ShowRhythmArrow(List<int> x)
+    public void ShowRhythmArrow()
     {
         GameObject _Arrow;
-        for (int i = 0; i < x.Count; i++)
+        for (int i = 0; i < intArrow.Count; i++)
         {
             _Arrow = Instantiate(arrow[intArrow[i]], displayPsition.transform, false);
             arrowShowObj.Add(_Arrow);
@@ -74,7 +74,6 @@ public class Not2Rhythm : MonoBehaviour
     }
     private void Start()
     {
-            difficulty = -1;//3-0
         haveRhythm = false;
         deHeat = 0;
         buttonPressed = 0;
@@ -110,8 +109,9 @@ public class Not2Rhythm : MonoBehaviour
                 default:
                     break;
             }
-            ShowRhythmArrow(intArrow);
+            ShowRhythmArrow();
             haveRhythm = true;
+            Debug.Log("difficulty : " + difficulty);
         }
         if (intArrow.Count > 0)
         {
@@ -132,7 +132,7 @@ public class Not2Rhythm : MonoBehaviour
                 checkArrow(3);
             }
         }
-        else if (intArrow.Count == 0 && haveRhythm)
+        else if (intArrow.Count == 0 && haveRhythm && difficulty >= 0)
         {
             haveRhythm = false;
             difficulty--;

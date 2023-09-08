@@ -14,7 +14,7 @@ public class NewSpawnNPCScript : MonoBehaviour
     public static GameObject handPlayerShare;
     [SerializeField] private float timeInOneRound;
     private float timeCount = 0;
-    public static int iDNPC = 1;//เพิ่มตลอดทั้งวัน
+    public static int iDNPC;//เพิ่มตลอดทั้งวัน
     public static int numOfNPC = 0;
     private void SpawnNPC()
     {
@@ -27,12 +27,14 @@ public class NewSpawnNPCScript : MonoBehaviour
         npcSpawn.sicknessID = potionData.sicknessData[i].id;
         int j = Random.Range(potionData.sicknessData[i].startSicknessLevel ,3);
         npcSpawn.sicknessLevel = j;
+        npcSpawn.declineH = potionData.sicknessData[i].declineLife;
         iDNPC++;
         npcSpawn.transform.parent = null;
         numOfNPC++;
     }
     private void Start()
     {
+        iDNPC = 0;
         numOfNPC = 0;
         handPlayerShare = handPlayer;
     }

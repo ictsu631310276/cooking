@@ -48,8 +48,8 @@ public class UIManagerScript : MonoBehaviour
     private void Update()
     {
         //moneyText.text = "money : " + money;
-        treatedText.text = "people who have been treated : " + treated + "/" + (NewSpawnNPCScript.iDNPC - 1);
-        deadText.text = "dead : " + dead + "/" + (NewSpawnNPCScript.iDNPC - 1);
+        treatedText.text = "people who have been treated : " + treated + "/" + (NewSpawnNPCScript.iDNPC);
+        deadText.text = "dead : " + dead + "/" + (NewSpawnNPCScript.iDNPC);
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Pause();
