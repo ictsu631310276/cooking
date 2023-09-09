@@ -8,7 +8,7 @@ public class CreateSicknessScript : ScriptableObject
     public int id;
     public int startSicknessLevel;
     public int[] patternPress;
-    public int declineLife;
+    public int[] declineLife;
     public Sprite imageSickness;
     public GameObject effect;
 }

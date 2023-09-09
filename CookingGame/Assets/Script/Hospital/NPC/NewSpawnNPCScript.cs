@@ -4,22 +4,27 @@ using UnityEngine;
 
 public class NewSpawnNPCScript : MonoBehaviour
 {
-    public int numOfNPCInDay;
     [SerializeField] private TimeUI timeUIScript;
     public PotionDataScript potionData;
     public PatientDataScript npcData;
     public Transform[] spawnPoint;
+    private int numSpawn;
     public GameObject handPlayer;
     public GameObject handPlayer2;
     public static GameObject handPlayerShare;
     [SerializeField] private float timeInOneRound;
-    private float timeCount = 0;
+    private float timeCount;
     public static int iDNPC;//เพิ่มตลอดทั้งวัน
-    public static int numOfNPC = 0;
+    public static int numOfNPC;
+    [SerializeField] private int maxNumOfNPCInS;
     private void SpawnNPC()
     {
-        int a = Random.Range(0, spawnPoint.Length);
-        PatientDataScript npcSpawn = Instantiate(npcData, spawnPoint[a], false);
+        int a = numSpawn;
+        do
+        {
+            numSpawn = Random.Range(0, spawnPoint.Length);
+        } while (numSpawn == a);
+        PatientDataScript npcSpawn = Instantiate(npcData, spawnPoint[numSpawn], false);
         npcSpawn.id = iDNPC;
         npcSpawn.handPoint = handPlayer;
         npcSpawn.handPoint2 = handPlayer2;
@@ -34,6 +39,8 @@ public class NewSpawnNPCScript : MonoBehaviour
     }
     private void Start()
     {
+        numSpawn = 0;
+        timeCount = 0;
         iDNPC = 0;
         numOfNPC = 0;
         handPlayerShare = handPlayer;
@@ -42,20 +49,18 @@ public class NewSpawnNPCScript : MonoBehaviour
     {
         //Debug.Log("numOfNPC : " + numOfNPC);
         timeCount = timeCount + Time.deltaTime;
-        if (timeUIScript.haveHotTime && !timeUIScript.endDay && numOfNPC <= 7)
+        if (timeUIScript.haveHotTime && !timeUIScript.endDay && numOfNPC <= maxNumOfNPCInS)
         {
             if (timeCount >= 1)
             {
                 timeCount = 0;
                 SpawnNPC();
-                numOfNPCInDay--;
             }
         }
-        else if (timeCount >= timeInOneRound && numOfNPCInDay > 0 && !timeUIScript.haveHotTime && !timeUIScript.endDay && numOfNPC <= 7)
+        else if (timeCount >= timeInOneRound && !timeUIScript.haveHotTime && !timeUIScript.endDay && numOfNPC <= maxNumOfNPCInS)
         {
             timeCount = 0;
             SpawnNPC();
-            numOfNPCInDay--;
         }
 
     }
