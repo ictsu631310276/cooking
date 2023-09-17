@@ -7,6 +7,7 @@ public class PlayerMoveScript : MonoBehaviour
     [SerializeField] private float playerSpeed = 4.0f;
     private Vector3 startPosition;
     private Rigidbody rb;
+    [SerializeField] private Animator playerAnimator;
 
     private void Start()
     {
@@ -17,6 +18,14 @@ public class PlayerMoveScript : MonoBehaviour
     {
         float xMove = Input.GetAxisRaw("Horizontal");
         float zMove = Input.GetAxisRaw("Vertical");
+        if (xMove != 0 || zMove != 0)
+        {
+            playerAnimator.SetBool("walking", true);
+        }
+        else
+        {
+            playerAnimator.SetBool("walking", false);
+        }
         rb.velocity = new Vector3(xMove, startPosition.y, zMove) * playerSpeed;//เครื่องที่
         switch (xMove , zMove)
         {
