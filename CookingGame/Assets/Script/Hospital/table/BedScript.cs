@@ -10,6 +10,7 @@ public class BedScript : MonoBehaviour
     [SerializeField] private PotionDataScript potionData;
     public GameObject glowObj;
     public bool haveSit;
+    private bool haveMinigame;
     public GameObject handPoint;
     [SerializeField] private GameObject minigameObj;
     [SerializeField] private Not2Rhythm minigame;
@@ -74,13 +75,16 @@ public class BedScript : MonoBehaviour
         NPCData = null;
         injury.CloseImage();
         haveSit = false;
+        haveMinigame = false;
+        minigame.ClearRhythm();
     }
     private void PlayMinigame()
     {
         onMinigame = true;
         minigameObj.SetActive(true);
-        if (NPCData != null)
+        if (NPCData != null && !haveMinigame)
         {
+            haveMinigame = true;
             for (int i = 0; i < potionData.sicknessData[potionData.FindNumOfSick(NPCData.sicknessID)].patternPress.Length; i++)
             {
                 minigame.intAllArrow.Add(potionData.sicknessData[potionData.FindNumOfSick(NPCData.sicknessID)].patternPress[i]);
@@ -95,16 +99,17 @@ public class BedScript : MonoBehaviour
     }
     private void Start()
     {
+        haveMinigame = false;
         haveSit = false;
         onMinigame = false;
         minigameObj.SetActive(false);
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            DebutAllEnum();
-        }
+        //if (Input.GetKeyDown(KeyCode.F))
+        //{
+        //    DebutAllEnum();
+        //}
         if (ToolPlayerScript.bed.Count > 0)
         {
             if (id == ToolPlayerScript.bed[0].id && NPCData != null)

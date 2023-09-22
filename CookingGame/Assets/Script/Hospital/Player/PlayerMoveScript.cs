@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerMoveScript : MonoBehaviour
 {
+    [SerializeField] private PotionDataScript dataPotion;//เอาเวลาที่ใช้ในการกดปุ่ม
+    private float timeDelayInput;
     [SerializeField] private float playerSpeed = 4.0f;
     private Vector3 startPosition;
     private Rigidbody rb;
@@ -13,11 +15,13 @@ public class PlayerMoveScript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         startPosition = transform.position;
+        timeDelayInput = 0;
     }
     private void Update()
     {
         float xMove = Input.GetAxisRaw("Horizontal");
         float zMove = Input.GetAxisRaw("Vertical");
+        
         if (xMove != 0 || zMove != 0)
         {
             playerAnimator.SetBool("walking", true);
@@ -25,6 +29,42 @@ public class PlayerMoveScript : MonoBehaviour
         else
         {
             playerAnimator.SetBool("walking", false);
+        }//อนิเมชั่นเดิน
+        timeDelayInput += Time.deltaTime;
+        if (ToolPlayerScript.bed.Count > 0 && timeDelayInput >= dataPotion.timeDelayInput)
+        {
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                playerAnimator.SetInteger("arrow", 0);
+                transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+                timeDelayInput = 0;
+            }
+            else if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                playerAnimator.SetInteger("arrow", 1);
+                transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+                timeDelayInput = 0;
+            }
+            else if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                playerAnimator.SetInteger("arrow", 2);
+                transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+                timeDelayInput = 0;
+            }
+            else if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                playerAnimator.SetInteger("arrow", 3);
+                transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+                timeDelayInput = 0;
+            }
+            else
+            {
+                playerAnimator.SetInteger("arrow", 4);//null
+            }
+        }
+        else
+        {
+            playerAnimator.SetInteger("arrow", 4);//null
         }
         rb.velocity = new Vector3(xMove, startPosition.y, zMove) * playerSpeed;//เครื่องที่
         switch (xMove , zMove)

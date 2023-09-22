@@ -6,7 +6,7 @@ public class NewSpawnNPCScript : MonoBehaviour
 {
     [SerializeField] private TimeUI timeUIScript;
     public PotionDataScript potionData;
-    public PatientDataScript npcData;
+    public PatientDataScript[] npcData;
     public Transform[] spawnPoint;
     private int numSpawn;
     public GameObject handPlayer;
@@ -24,15 +24,20 @@ public class NewSpawnNPCScript : MonoBehaviour
         {
             numSpawn = Random.Range(0, spawnPoint.Length);
         } while (numSpawn == a);
-        PatientDataScript npcSpawn = Instantiate(npcData, spawnPoint[numSpawn], false);
+        int typeBun = Random.Range(0, npcData.Length);
+        int typeSickness = Random.Range(0, potionData.sicknessData.Length);
+
+        PatientDataScript npcSpawn = Instantiate(npcData[typeBun], spawnPoint[numSpawn], false);
         npcSpawn.id = iDNPC;
         npcSpawn.handPoint = handPlayer;
         npcSpawn.handPoint2 = handPlayer2;
-        int i = Random.Range(0, potionData.sicknessData.Length);
-        npcSpawn.sicknessID = potionData.sicknessData[i].id;
-        int j = Random.Range(potionData.sicknessData[i].startSicknessLevel ,3);
-        npcSpawn.sicknessLevel = j;
-        npcSpawn.declineH = potionData.sicknessData[i].declineLife;
+
+        npcSpawn.sicknessID = potionData.sicknessData[typeSickness].id;
+
+        int levelSickness = Random.Range(potionData.sicknessData[typeSickness].startSicknessLevel, 3);
+        npcSpawn.sicknessLevel = levelSickness;
+
+        npcSpawn.declineH = potionData.sicknessData[typeSickness].declineLife;
         iDNPC++;
         npcSpawn.transform.parent = null;
         numOfNPC++;

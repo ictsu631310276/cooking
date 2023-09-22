@@ -7,22 +7,30 @@ public class Not2Rhythm : MonoBehaviour
 {
     [SerializeField] private GameObject[] arrow = new GameObject[4]; //^ v < >
     [SerializeField] private GameObject displayPsition;
+    [SerializeField] private PotionDataScript dataPotion;//เอาเวลาที่ใช้ในการกดปุ่ม
+    private float timeDelayInput;
     public List<int> intAllArrow;
     public List<int> intArrow;
     public List<GameObject> arrowShowObj;
+    public List<DelayScript> listDelay;
     public int difficulty;//3-0
     public bool haveRhythm;
     public int deHeat;
     private int buttonPressed;
     private void DebutAllEnum()
     {
-        Debug.Log("intAllArrow.Count : " + intAllArrow.Count);
-        Debug.Log("intArrow.Count : " + intArrow.Count);
-        Debug.Log("arrowShowObj.Count : " + arrowShowObj.Count);
-        Debug.Log("difficulty : " + difficulty);
-        Debug.Log("haveRhythm : " + haveRhythm);
-        Debug.Log("deHeat : " + deHeat);
-        Debug.Log("buttonPressed : " + buttonPressed);
+        Debug.Log("listDeay : " + listDelay.Count );
+        for (int i = 0; i < listDelay.Count; i++)
+        {
+            Debug.Log(listDelay[i].image == null);
+        }
+        //Debug.Log("intAllArrow.Count : " + intAllArrow.Count);
+        //Debug.Log("intArrow.Count : " + intArrow.Count);
+        //Debug.Log("arrowShowObj.Count : " + arrowShowObj.Count);
+        //Debug.Log("difficulty : " + difficulty);
+        //Debug.Log("haveRhythm : " + haveRhythm);
+        //Debug.Log("deHeat : " + deHeat);
+        //Debug.Log("buttonPressed : " + buttonPressed);
         Debug.Log("~~~~~~~~~~~~~~");
     }
     public void ShowRhythmArrow()
@@ -32,32 +40,42 @@ public class Not2Rhythm : MonoBehaviour
         {
             _Arrow = Instantiate(arrow[intArrow[i]], displayPsition.transform, false);
             arrowShowObj.Add(_Arrow);
+            listDelay.Add(_Arrow.GetComponent<DelayScript>());
         }
     }
     private void checkArrow(int i)
     {
+        timeDelayInput = 0;
         if (intArrow[0] == i)
         {
-            arrowShowObj[buttonPressed].GetComponent<RawImage>().color = new Color32(255, 255, 0, 255);
+            
+            //arrowShowObj[buttonPressed].GetComponent<RawImage>().color = new Color32(255, 255, 0, 255);
+            listDelay[buttonPressed].image.color = new Color32(255, 255, 0, 255);
+
             deHeat = 5;
             buttonPressed++;
         }
         else
         {
-            arrowShowObj[buttonPressed].GetComponent<RawImage>().color = new Color32(255, 0, 0, 255);
+            //arrowShowObj[buttonPressed].GetComponent<RawImage>().color = new Color32(255, 0, 0, 255);
+            listDelay[buttonPressed].image.color = new Color32(255, 0, 0, 255);
+
             deHeat = -20;
             buttonPressed++;
         }
+        intArrow.RemoveAt(0);
         if (buttonPressed >= 4)
         {
             for (int j = 0; j < arrowShowObj.Count; j++)
             {
                 Destroy(arrowShowObj[j], 0);
+                Destroy(listDelay[j], 0);
             }
             arrowShowObj.Clear();
+            listDelay.Clear();
             buttonPressed = 0;
+            difficulty--;
         }
-        intArrow.RemoveAt(0);        
     }
     public void ClearRhythm()
     {
@@ -77,9 +95,15 @@ public class Not2Rhythm : MonoBehaviour
         haveRhythm = false;
         deHeat = 0;
         buttonPressed = 0;
+        timeDelayInput = 0;
     }
     private void Update()
     {
+        timeDelayInput += Time.deltaTime;
+        if (buttonPressed > 0)
+        {
+            listDelay[buttonPressed - 1].time = timeDelayInput;
+        }
         if (Input.GetKeyDown(KeyCode.F))
         {
             DebutAllEnum();
@@ -111,9 +135,8 @@ public class Not2Rhythm : MonoBehaviour
             }
             ShowRhythmArrow();
             haveRhythm = true;
-            Debug.Log("difficulty : " + difficulty);
-        }
-        if (intArrow.Count > 0)
+        }//เริ่มต้น
+        if (intArrow.Count > 0 && timeDelayInput >= dataPotion.timeDelayInput)
         {
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
@@ -135,7 +158,6 @@ public class Not2Rhythm : MonoBehaviour
         else if (intArrow.Count == 0 && haveRhythm && difficulty >= 0)
         {
             haveRhythm = false;
-            difficulty--;
         }
         //Debug.Log("difficulty : " + difficulty);
     }

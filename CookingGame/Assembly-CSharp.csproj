@@ -108,6 +108,7 @@
     <Compile Include="Assets\Script\Hospital\table\Not1Rhythm.cs" />
     <Compile Include="Assets\Script\Cooking\UI\GetItemScript.cs" />
     <Compile Include="Assets\Script\Cooking\PlayerAndNPC\NPC\SpawnNPCScript.cs" />
+    <Compile Include="Assets\Script\Hospital\table\DelayScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
