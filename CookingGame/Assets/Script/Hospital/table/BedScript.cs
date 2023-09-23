@@ -1,4 +1,4 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,14 +15,20 @@ public class BedScript : MonoBehaviour
     [SerializeField] private GameObject minigameObj;
     [SerializeField] private Not2Rhythm minigame;
     private bool onMinigame;
+
+    [SerializeField] private float timeBedDirty;
+    [SerializeField] private GameObject bedDirtyModel;
+    private float timeCheck;
+    private bool bedDirty;
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && !bedDirty)
         {
             glowObj.SetActive(true);
             ToolPlayerScript.bed.Add(this);
         }
-        if (other.tag == "Patient")
+        if (other.tag == "Patient" && !bedDirty)
         {
             NPCData = other.gameObject.GetComponent<PatientDataScript>();
             //injury.ShowItemWant(NPCData.sicknessID);
@@ -103,6 +109,10 @@ public class BedScript : MonoBehaviour
         haveSit = false;
         onMinigame = false;
         minigameObj.SetActive(false);
+
+        bedDirtyModel.SetActive(false);
+        bedDirty = false;
+        timeCheck = 0;
     }
     private void Update()
     {
@@ -110,6 +120,18 @@ public class BedScript : MonoBehaviour
         //{
         //    DebutAllEnum();
         //}
+        if (bedDirty)
+        {
+            timeCheck += Time.deltaTime;
+            bedDirtyModel.SetActive(true);
+            if (timeCheck >= timeBedDirty)
+            {
+                timeCheck = 0;
+                bedDirty = false;
+                bedDirtyModel.SetActive(false);
+            }
+        }
+        //Debug.Log("bedDirty : " + bedDirty);
         if (ToolPlayerScript.bed.Count > 0)
         {
             if (id == ToolPlayerScript.bed[0].id && NPCData != null)
@@ -150,7 +172,9 @@ public class BedScript : MonoBehaviour
         }//for Not1Rhythm
         if (minigame.difficulty == 0 && NPCData != null)
         {
+            Debug.Log("HI");
             Goodbye();
+            Debug.Log("bedDirty : " + bedDirty);
             UIManagerScript.treated++;
             NewSpawnNPCScript.numOfNPC--;
         }
@@ -170,6 +194,7 @@ public class BedScript : MonoBehaviour
                 NPCData.deHeat = minigame.deHeat;
             }
             minigame.deHeat = 0;
+            bedDirty = true;
         }
         if (NPCData != null && minigame.difficulty != NPCData.sicknessLevel)
         {

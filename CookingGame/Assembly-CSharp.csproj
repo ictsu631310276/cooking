@@ -92,6 +92,7 @@
     <Compile Include="Assets\Script\Cooking\TableScript\FoodServingTableScript.cs" />
     <Compile Include="Assets\Script\Hospital\Player\PlayerMoveScript.cs" />
     <Compile Include="Assets\Script\Cooking\TableScript\not use\pickupPointScript.cs" />
+    <Compile Include="Assets\Script\Hospital\table\DelayScript.cs" />
     <Compile Include="Assets\Script\Cooking\TableScript\ChairCustomerScript.cs" />
     <Compile Include="Assets\Script\Cooking\ShowModel\ShowPlatelScript.cs" />
     <Compile Include="Assets\Script\Cooking\PlayerAndNPC\Player\CameraScript.cs" />
@@ -108,7 +109,6 @@
     <Compile Include="Assets\Script\Hospital\table\Not1Rhythm.cs" />
     <Compile Include="Assets\Script\Cooking\UI\GetItemScript.cs" />
     <Compile Include="Assets\Script\Cooking\PlayerAndNPC\NPC\SpawnNPCScript.cs" />
-    <Compile Include="Assets\Script\Hospital\table\DelayScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
