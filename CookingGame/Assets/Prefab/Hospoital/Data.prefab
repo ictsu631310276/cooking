@@ -48,4 +48,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f702f840a3d5e204c83624c0873f052f, type: 2}
   - {fileID: 11400000, guid: ee53aba7ad9524f4d8f68348502de184, type: 2}
   - {fileID: 11400000, guid: 856b6dc62665514488ce5cc5e6ff27f7, type: 2}
-  timeDelayInput: 0.2
+  timeDelayInput: 0.05
