@@ -7,6 +7,7 @@ public class PotionDataScript : MonoBehaviour
 {
     public CreateSicknessScript[] sicknessData;
     public float timeDelayInput;
+    public float timeBedDirty;
     //public MixFood[] mixFood;
     //public float timeUseAuto;
     //public float timeUseManuel;

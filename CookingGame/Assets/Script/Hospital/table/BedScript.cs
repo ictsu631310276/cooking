@@ -16,7 +16,6 @@ public class BedScript : MonoBehaviour
     [SerializeField] private Not2Rhythm minigame;
     private bool onMinigame;
 
-    [SerializeField] private float timeBedDirty;
     [SerializeField] private GameObject bedDirtyModel;
     private float timeCheck;
     private bool bedDirty;
@@ -124,7 +123,7 @@ public class BedScript : MonoBehaviour
         {
             timeCheck += Time.deltaTime;
             bedDirtyModel.SetActive(true);
-            if (timeCheck >= timeBedDirty)
+            if (timeCheck >= potionData.timeBedDirty)
             {
                 timeCheck = 0;
                 bedDirty = false;
@@ -188,13 +187,13 @@ public class BedScript : MonoBehaviour
                 CloseMinigame();
                 haveSit = false;
                 NewSpawnNPCScript.numOfNPC--;
+                bedDirty = true;
             }
             else
             {
                 NPCData.deHeat = minigame.deHeat;
             }
             minigame.deHeat = 0;
-            bedDirty = true;
         }
         if (NPCData != null && minigame.difficulty != NPCData.sicknessLevel)
         {

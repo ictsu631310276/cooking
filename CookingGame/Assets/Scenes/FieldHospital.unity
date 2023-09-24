@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: handPoint
       value: 
       objectReference: {fileID: 1647056350}
+    - target: {fileID: 5347172320285451792, guid: 0c0e66cdeb8b8254ba37b46b8c6d65b7, type: 3}
+      propertyPath: handPoint2
+      value: 
+      objectReference: {fileID: 920749720}
     - target: {fileID: 8565228832996343427, guid: 0c0e66cdeb8b8254ba37b46b8c6d65b7, type: 3}
       propertyPath: m_RootOrder
       value: 3
