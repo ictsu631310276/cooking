@@ -24,12 +24,37 @@ ModelImporter:
   - first:
       74: 1624593205714598167
     second: Down
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_Text
+    second: {fileID: 2100000, guid: 48eca44e055161545a3e079f5039e820, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Body
+    second: {fileID: 2100000, guid: 038ad96d81457674abf7050692df087e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Glass
+    second: {fileID: 2100000, guid: ec7af02b2b48e7245af4a8b199721f2d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Mouth
+    second: {fileID: 2100000, guid: 48eca44e055161545a3e079f5039e820, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Potion
+    second: {fileID: 2100000, guid: 368f2ab2bcb010f40bf330b0e5d46424, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0

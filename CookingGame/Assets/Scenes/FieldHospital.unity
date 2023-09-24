@@ -7209,6 +7209,22 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3426363918260002, guid: 9068f075070279a459ce499b799203d4, type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3426363918260002, guid: 9068f075070279a459ce499b799203d4, type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3426363918260002, guid: 9068f075070279a459ce499b799203d4, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3426363918260002, guid: 9068f075070279a459ce499b799203d4, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: c4a462072d29ec544b1a97c2bc233266, type: 2}
     - target: {fileID: 919132149155446097, guid: 9068f075070279a459ce499b799203d4, type: 3}
       propertyPath: m_Name
       value: Tent
@@ -7468,7 +7484,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6ded4a59cc2465441b5bde37c408ffe5, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.30795705
+      value: 0.49573284
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6ded4a59cc2465441b5bde37c408ffe5, type: 3}
       propertyPath: m_LocalRotation.x
@@ -7476,7 +7492,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6ded4a59cc2465441b5bde37c408ffe5, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.9514003
+      value: 0.8684751
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6ded4a59cc2465441b5bde37c408ffe5, type: 3}
       propertyPath: m_LocalRotation.z
@@ -7488,7 +7504,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6ded4a59cc2465441b5bde37c408ffe5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 144.128
+      value: 120.564
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6ded4a59cc2465441b5bde37c408ffe5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
