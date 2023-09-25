@@ -63,6 +63,7 @@ public class BedScript : MonoBehaviour
         Debug.Log("NPCData : " + NPCData);
         Debug.Log("haveSit : " + haveSit);
         Debug.Log("onMinigame : " + onMinigame);
+        Debug.Log("bedDirty : " + bedDirty);
         Debug.Log("~~~~~~~~~~~~~~~~~~~~");
     }
     private void Goodbye()
@@ -115,10 +116,10 @@ public class BedScript : MonoBehaviour
     }
     private void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.F))
-        //{
-        //    DebutAllEnum();
-        //}
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            DebutAllEnum();
+        }
         if (bedDirty)
         {
             timeCheck += Time.deltaTime;
@@ -130,7 +131,10 @@ public class BedScript : MonoBehaviour
                 bedDirtyModel.SetActive(false);
             }
         }
-        //Debug.Log("bedDirty : " + bedDirty);
+        if (NPCData != null)
+        {
+            NPCData.willTreat = (minigame.buttonPressed != 0) ? true : false;
+        }
         if (ToolPlayerScript.bed.Count > 0)
         {
             if (id == ToolPlayerScript.bed[0].id && NPCData != null)

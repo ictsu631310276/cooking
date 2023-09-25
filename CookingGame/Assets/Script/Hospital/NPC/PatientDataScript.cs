@@ -21,6 +21,8 @@ public class PatientDataScript : MonoBehaviour
     [SerializeField] private float cooldown;
     private float cooldownMax;
 
+    public bool willTreat;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
@@ -46,6 +48,11 @@ public class PatientDataScript : MonoBehaviour
                 break;
             }
         }
+        if (onHand)
+        {
+            ToolPlayerScript.havePatient = false;
+            onHand = false;
+        }
         Destroy(gameObject, 0);
     }
     private void Start()
@@ -56,6 +63,8 @@ public class PatientDataScript : MonoBehaviour
         onHand = false;
         cooldownMax = cooldown;
         glowObj.SetActive(false);
+
+        willTreat = false;
     }
     private void Update()
     {
@@ -93,7 +102,7 @@ public class PatientDataScript : MonoBehaviour
                         ToolPlayerScript.bed[0].haveSit = true;
                     }
                 }//วางบนเตียง
-                else if (onHand && ToolPlayerScript.bed.Count > 0 && ToolPlayerScript.bed[0].haveSit && !ToolPlayerScript.havePatient)
+                else if (onHand && ToolPlayerScript.bed.Count > 0 && ToolPlayerScript.bed[0].haveSit && !ToolPlayerScript.havePatient && !willTreat)
                 {
                     glowObj.SetActive(true);
                     if (Input.GetKeyDown(KeyCode.Q))

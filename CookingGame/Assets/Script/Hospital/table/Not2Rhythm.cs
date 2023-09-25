@@ -16,7 +16,7 @@ public class Not2Rhythm : MonoBehaviour
     public int difficulty;//3-0
     public bool haveRhythm;
     public int deHeat;
-    private int buttonPressed;
+    public int buttonPressed;
     private void DebutAllEnum()
     {
         Debug.Log("listDeay : " + listDelay.Count );

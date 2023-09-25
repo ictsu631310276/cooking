@@ -17,6 +17,12 @@ public class PlayerMoveScript : MonoBehaviour
         startPosition = transform.position;
         timeDelayInput = 0;
     }
+    private void AnimationArrow(int i)
+    {
+        playerAnimator.SetInteger("arrow", i);
+        //transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+        timeDelayInput = 0;
+    }
     private void Update()
     {
         float xMove = Input.GetAxisRaw("Horizontal");
@@ -35,27 +41,19 @@ public class PlayerMoveScript : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
-                playerAnimator.SetInteger("arrow", 0);
-                transform.rotation = Quaternion.Euler(0f, 180f, 0f);
-                timeDelayInput = 0;
+                AnimationArrow(0);
             }
             else if (Input.GetKeyDown(KeyCode.DownArrow))
             {
-                playerAnimator.SetInteger("arrow", 1);
-                transform.rotation = Quaternion.Euler(0f, 180f, 0f);
-                timeDelayInput = 0;
+                AnimationArrow(1);
             }
             else if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
-                playerAnimator.SetInteger("arrow", 2);
-                transform.rotation = Quaternion.Euler(0f, 180f, 0f);
-                timeDelayInput = 0;
+                AnimationArrow(2);
             }
             else if (Input.GetKeyDown(KeyCode.RightArrow))
             {
-                playerAnimator.SetInteger("arrow", 3);
-                transform.rotation = Quaternion.Euler(0f, 180f, 0f);
-                timeDelayInput = 0;
+                AnimationArrow(3);
             }
             else
             {
