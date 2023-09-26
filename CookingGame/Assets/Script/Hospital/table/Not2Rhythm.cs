@@ -81,6 +81,7 @@ public class Not2Rhythm : MonoBehaviour
     {
         intAllArrow.Clear();
         intArrow.Clear();
+        listDelay.Clear();
         for (int i = 0; i < arrowShowObj.Count; i++)
         {
             Destroy(arrowShowObj[i], 0);
@@ -104,7 +105,7 @@ public class Not2Rhythm : MonoBehaviour
         {
             listDelay[buttonPressed - 1].time = timeDelayInput;
         }
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F) && haveRhythm)
         {
             DebutAllEnum();
         }

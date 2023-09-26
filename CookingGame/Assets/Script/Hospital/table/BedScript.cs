@@ -17,8 +17,8 @@ public class BedScript : MonoBehaviour
     private bool onMinigame;
 
     [SerializeField] private GameObject bedDirtyModel;
-    private float timeCheck;
-    private bool bedDirty;
+    [SerializeField] private float timeCheck;
+    [SerializeField] private bool bedDirty;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -116,10 +116,10 @@ public class BedScript : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            DebutAllEnum();
-        }
+        //if (Input.GetKeyDown(KeyCode.F))
+        //{
+        //    DebutAllEnum();
+        //}
         if (bedDirty)
         {
             timeCheck += Time.deltaTime;
@@ -134,6 +134,10 @@ public class BedScript : MonoBehaviour
         if (NPCData != null)
         {
             NPCData.willTreat = (minigame.buttonPressed != 0) ? true : false;
+        }
+        if (NPCData == null)
+        {
+            RemovePiatent();
         }
         if (ToolPlayerScript.bed.Count > 0)
         {
@@ -175,11 +179,9 @@ public class BedScript : MonoBehaviour
         }//for Not1Rhythm
         if (minigame.difficulty == 0 && NPCData != null)
         {
-            Debug.Log("HI");
             Goodbye();
-            Debug.Log("bedDirty : " + bedDirty);
-            UIManagerScript.treated++;
             NewSpawnNPCScript.numOfNPC--;
+            UIManagerScript.treated++;
         }
         if (minigame.deHeat != 0 && NPCData != null)
         {
@@ -188,7 +190,6 @@ public class BedScript : MonoBehaviour
                 NPCData.deHeat = minigame.deHeat;
                 NPCData = null;
                 minigame.ClearRhythm();
-                CloseMinigame();
                 haveSit = false;
                 NewSpawnNPCScript.numOfNPC--;
                 bedDirty = true;

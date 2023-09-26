@@ -22,6 +22,7 @@ public class PatientDataScript : MonoBehaviour
     private float cooldownMax;
 
     public bool willTreat;
+    public bool dead;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -65,6 +66,7 @@ public class PatientDataScript : MonoBehaviour
         glowObj.SetActive(false);
 
         willTreat = false;
+        dead = false;
     }
     private void Update()
     {
@@ -159,7 +161,7 @@ public class PatientDataScript : MonoBehaviour
             }
             //Debug.Log("Heat : " + heat);
         }
-        if (heat <= 0)
+        if (dead || heat <= 0)
         {
             WillDestroy();
             UIManagerScript.dead++;
