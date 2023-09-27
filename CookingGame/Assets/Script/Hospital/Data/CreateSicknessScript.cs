@@ -10,5 +10,5 @@ public class CreateSicknessScript : ScriptableObject
     public int[] patternPress;
     public int[] declineLife;
     public Sprite imageSickness;
-    public GameObject effect;
+    public GameObject[] modleSickness;
 }

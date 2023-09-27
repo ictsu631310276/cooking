@@ -11,10 +11,15 @@ public class PatientDataScript : MonoBehaviour
     public int sicknessID;
     public int sicknessLevel;
     public int[] declineH;
+    public GameObject[] allModelSickness;
+    [SerializeField] private Transform modelSicknessPoint;
+    private GameObject modelSickness;
+    private int sicknessLevelMo;
+    private bool haveModel;
 
     [SerializeField] private GameObject glowObj;
-    public GameObject handPoint;
-    public GameObject handPoint2;
+    public GameObject handPoint;//playerhand1
+    public GameObject handPoint2;//playerhand2
     private bool onHand;
 
     [SerializeField] private TextMeshProUGUI textHP;
@@ -60,6 +65,7 @@ public class PatientDataScript : MonoBehaviour
     {
         heat = 100;
         deHeat = 0;
+        haveModel = false;
 
         onHand = false;
         cooldownMax = cooldown;
@@ -124,6 +130,18 @@ public class PatientDataScript : MonoBehaviour
         {
             WillDestroy();
         }
+        if (sicknessLevel > 0 && !haveModel)
+        {
+            modelSickness = Instantiate(allModelSickness[sicknessLevel], modelSicknessPoint, false);
+            sicknessLevelMo = sicknessLevel;
+            haveModel = true;
+        }
+        if (sicknessLevelMo != sicknessLevel)
+        {
+            Destroy(modelSickness, 0);
+            haveModel = false;
+        }
+
         if (onHand)
         {
             transform.position = handPoint.transform.position;

@@ -33,7 +33,7 @@ RectTransform:
   m_Children:
   - {fileID: 81638307169622915}
   m_Father: {fileID: 8565228832996343427}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -135, z: -90}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -267,6 +267,7 @@ Transform:
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children:
+  - {fileID: 5863650492549021309}
   - {fileID: 3951173666872338065}
   - {fileID: 8565228833042616370}
   m_Father: {fileID: 0}
@@ -303,6 +304,8 @@ MonoBehaviour:
   sicknessID: 2
   sicknessLevel: 2
   declineH: 
+  allModelSickness: []
+  modelSicknessPoint: {fileID: 5863650492549021309}
   glowObj: {fileID: 4900299102157320182}
   handPoint: {fileID: 0}
   handPoint2: {fileID: 0}
@@ -357,7 +360,38 @@ Transform:
   - {fileID: 1246954461196598133}
   - {fileID: 5713533827493721420}
   m_Father: {fileID: 8565228832996343427}
-  m_RootOrder: 1
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8944896780197731370
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5863650492549021309}
+  m_Layer: 0
+  m_Name: sickness
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5863650492549021309
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8944896780197731370}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.25, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 8565228832996343427}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1640624200891456670
 PrefabInstance:
