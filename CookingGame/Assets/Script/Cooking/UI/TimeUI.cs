@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class TimeUI : MonoBehaviour
 {
@@ -47,6 +48,10 @@ public class TimeUI : MonoBehaviour
         {
             hotTime += Time.deltaTime;
             haveHotTime = true;
+        }
+        if (UIManagerScript.score >= 800)
+        {
+            time = timeMax;
         }
     }
 }

@@ -7,8 +7,10 @@ public class NewSpawnNPCScript : MonoBehaviour
     [SerializeField] private TimeUI timeUIScript;
     public PotionDataScript potionData;
     public PatientDataScript[] npcData;
-    public Transform[] spawnPoint;
-    private int numSpawn;
+
+    public checkNPC[] spawnPoint;
+    [HideInInspector] public List<int> canSp;
+
     public GameObject handPlayer;
     public GameObject handPlayer2;
     public static GameObject handPlayerShare;
@@ -19,37 +21,44 @@ public class NewSpawnNPCScript : MonoBehaviour
     [SerializeField] private int maxNumOfNPCInS;
     private void SpawnNPC()
     {
-        int a = numSpawn;
-        do
+        for (int i = 0; i < spawnPoint.Length; i++)
         {
-            numSpawn = Random.Range(0, spawnPoint.Length);
-        } while (numSpawn == a);
+            if (spawnPoint[i].canSpawn == true)
+            {
+                canSp.Add(i);
+            }
+        }
         int typeBun = Random.Range(0, npcData.Length);
         int typeSickness = Random.Range(0, potionData.sicknessData.Length);
 
-        PatientDataScript npcSpawn = Instantiate(npcData[typeBun], spawnPoint[numSpawn], false);
-        npcSpawn.id = iDNPC;
-        npcSpawn.handPoint = handPlayer;
-        npcSpawn.handPoint2 = handPlayer2;
+        if (canSp.Count != 0)
+        {
+            int numSpawn = canSp[Random.Range(0, canSp.Count)];
 
-        npcSpawn.sicknessID = potionData.sicknessData[typeSickness].id;
-        npcSpawn.allModelSickness = potionData.sicknessData[typeSickness].modleSickness;
+            PatientDataScript npcSpawn = Instantiate(npcData[typeBun], spawnPoint[numSpawn].transform, false);
+            npcSpawn.id = iDNPC;
+            npcSpawn.handPoint = handPlayer;
+            npcSpawn.handPoint2 = handPlayer2;
 
-        int levelSickness = Random.Range(potionData.sicknessData[typeSickness].startSicknessLevel, 3);
-        npcSpawn.sicknessLevel = levelSickness;
+            npcSpawn.sicknessID = potionData.sicknessData[typeSickness].id;
+            npcSpawn.allModelSickness = potionData.sicknessData[typeSickness].modleSickness;
 
-        npcSpawn.declineH = potionData.sicknessData[typeSickness].declineLife;
-        iDNPC++;
-        npcSpawn.transform.parent = null;
-        numOfNPC++;
+            int levelSickness = Random.Range(potionData.sicknessData[typeSickness].startSicknessLevel, 3);
+            npcSpawn.sicknessLevel = levelSickness;
+
+            npcSpawn.declineH = potionData.sicknessData[typeSickness].declineLife;
+            iDNPC++;
+            npcSpawn.transform.parent = null;
+            numOfNPC++;
+        }
+        canSp.Clear();
     }
     private void Start()
     {
-        numSpawn = 0;
-        timeCount = 0;
         iDNPC = 0;
         numOfNPC = 0;
         handPlayerShare = handPlayer;
+        timeCount = timeInOneRound;
     }
     private void Update()
     {
@@ -62,7 +71,7 @@ public class NewSpawnNPCScript : MonoBehaviour
                 timeCount = 0;
                 SpawnNPC();
             }
-        }
+        }//hot time
         else if (timeCount >= timeInOneRound && !timeUIScript.haveHotTime && !timeUIScript.endDay && numOfNPC <= maxNumOfNPCInS)
         {
             timeCount = 0;

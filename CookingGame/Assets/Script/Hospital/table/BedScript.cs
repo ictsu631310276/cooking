@@ -8,7 +8,7 @@ public class BedScript : MonoBehaviour
     //public ShowInjury injury;
     [SerializeField] private PatientDataScript NPCData;
     [SerializeField] private PotionDataScript potionData;
-    public GameObject glowObj;
+    [SerializeField] private GameObject glowObj;
     public bool haveSit;
     private bool haveMinigame;
     public GameObject handPoint;
