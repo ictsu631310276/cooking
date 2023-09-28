@@ -6126,6 +6126,18 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -438363970635924459, guid: 6ded4a59cc2465441b5bde37c408ffe5, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -438363970635924459, guid: 6ded4a59cc2465441b5bde37c408ffe5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fc701ed26fcec51469e6a72fa42eb006, type: 2}
+    - target: {fileID: -438363970635924459, guid: 6ded4a59cc2465441b5bde37c408ffe5, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: db9c64680c2433049b117bc8b7468aba, type: 2}
     - target: {fileID: 919132149155446097, guid: 6ded4a59cc2465441b5bde37c408ffe5, type: 3}
       propertyPath: m_Name
       value: Tree_Yellow
@@ -6355,7 +6367,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1773676130
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6373,7 +6385,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -6.9773, y: -515}
+  m_AnchoredPosition: {x: -6.977295, y: -515}
   m_SizeDelta: {x: 2008.3865, y: 83.4191}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1773676131
