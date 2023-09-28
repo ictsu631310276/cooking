@@ -5,7 +5,7 @@ using UnityEngine;
 public class BedScript : MonoBehaviour
 {
     public int id;
-    public ShowInjury injury;
+    //public ShowInjury injury;
     [SerializeField] private PatientDataScript NPCData;
     [SerializeField] private PotionDataScript potionData;
     public GameObject glowObj;
@@ -44,10 +44,10 @@ public class BedScript : MonoBehaviour
         }
         else if (other.gameObject.tag == "Player" && onMinigame)
         {
-            if (NPCData != null)
-            {
-                injury.ShowItemWant(NPCData.sicknessID);
-            }
+            //if (NPCData != null)
+            //{
+            //    injury.ShowItemWant(NPCData.sicknessID);
+            //}
             CloseMinigame();
             glowObj.SetActive(false);
             ToolPlayerScript.bed.Remove(this);
@@ -71,7 +71,7 @@ public class BedScript : MonoBehaviour
         NPCData.sicknessID = -1;
         minigame.difficulty = -1;
         haveSit = false;
-        injury.CloseImage();
+        //injury.CloseImage();
         NPCData = null;
         CloseMinigame();
     }
@@ -79,7 +79,7 @@ public class BedScript : MonoBehaviour
     {
         minigame.difficulty = -1;
         NPCData = null;
-        injury.CloseImage();
+        //injury.CloseImage();
         haveSit = false;
         haveMinigame = false;
         minigame.ClearRhythm();
@@ -147,16 +147,16 @@ public class BedScript : MonoBehaviour
                 if (haveSit)
                 {
                     PlayMinigame();
-                    injury.CloseImage();
+                    //injury.CloseImage();
                 }
             }
         }
         else if (ToolPlayerScript.bed.Count == 0)
         {
-            if (NPCData != null)
-            {
-                injury.ShowItemWant(NPCData.sicknessID);
-            }
+            //if (NPCData != null)
+            //{
+            //    injury.ShowItemWant(NPCData.sicknessID);
+            //}
             CloseMinigame();
             glowObj.SetActive(false);
         }

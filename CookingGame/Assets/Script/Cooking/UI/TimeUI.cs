@@ -14,11 +14,16 @@ public class TimeUI : MonoBehaviour
     private float time;
     private float hotTime;
     //public static bool closeDay = false;//use in restaurant
+
+    [SerializeField] private GameObject endgameGoj;
     private void Start()
     {
         endDay = false;
         time = 0;
         hotTime = 0;
+
+        endgameGoj.SetActive(false);
+        Time.timeScale = 1;
     }
     private void Update()
     {
@@ -30,6 +35,9 @@ public class TimeUI : MonoBehaviour
             endDay = true;
             //closeDay = true;
             //SpawnNPCScript.open = false;
+
+            endgameGoj.SetActive(true);
+            Time.timeScale = 0;
         }
         if (hotTime >= hotTimeStay)
         {   

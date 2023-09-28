@@ -98,7 +98,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1003
-  injury: {fileID: 5385673218979695917}
   NPCData: {fileID: 0}
   potionData: {fileID: -5154283208279506760, guid: abaa1cd61ff7b1345aa1d2474df29891, type: 3}
   glowObj: {fileID: 2469376582967577678}
@@ -370,19 +369,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: PotionNeedUI
       objectReference: {fileID: 0}
+    - target: {fileID: 7618729949232824263, guid: 9b34c33925ca096478a357e5cf1aa397, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b34c33925ca096478a357e5cf1aa397, type: 3}
---- !u!114 &5385673218979695917 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7989060851196725963, guid: 9b34c33925ca096478a357e5cf1aa397, type: 3}
-  m_PrefabInstance: {fileID: 2621967747211397094}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 588ed03fe6861594fb7eec12a10813b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &5609289702482376743 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7618729949232824257, guid: 9b34c33925ca096478a357e5cf1aa397, type: 3}
@@ -436,8 +428,12 @@ PrefabInstance:
       value: -0.27059805
       objectReference: {fileID: 0}
     - target: {fileID: 1924475955236368446, guid: b80ff6eb902217449906709bb8fa15c9, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1924475955236368446, guid: b80ff6eb902217449906709bb8fa15c9, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 2.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1924475955236368446, guid: b80ff6eb902217449906709bb8fa15c9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y

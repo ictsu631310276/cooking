@@ -10,6 +10,8 @@ public class UIManagerScript : MonoBehaviour
     public static int money;
     //[SerializeField] private TextMeshProUGUI moneyText;
     public GameObject pauseUI;
+    [SerializeField] private TextMeshProUGUI scoreText;
+    public static int score;
 
     public static int treated;
     public static int dead;
@@ -43,13 +45,16 @@ public class UIManagerScript : MonoBehaviour
     {
         treated = 0;
         dead = 0;
+        score = 0;
         pauseUI.SetActive(false);
     }
     private void Update()
     {
         //moneyText.text = "money : " + money;
-        treatedText.text = "people who have been treated : " + treated + "/" + (NewSpawnNPCScript.iDNPC);
-        deadText.text = "dead : " + dead + "/" + (NewSpawnNPCScript.iDNPC);
+        treatedText.text = "treated : " + treated;
+        deadText.text = "dead : " + dead;
+
+        scoreText.text = "Score : " + score;
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Pause();

@@ -128,6 +128,7 @@ public class PatientDataScript : MonoBehaviour
         }
         if (sicknessID == -1)
         {
+            UIManagerScript.score += 10;
             WillDestroy();
         }
         if (sicknessLevel > 0 && !haveModel)
@@ -181,6 +182,7 @@ public class PatientDataScript : MonoBehaviour
         }
         if (dead || heat <= 0)
         {
+            UIManagerScript.score -= 10;
             WillDestroy();
             UIManagerScript.dead++;
         }

@@ -52,6 +52,7 @@ public class Not2Rhythm : MonoBehaviour
             //arrowShowObj[buttonPressed].GetComponent<RawImage>().color = new Color32(255, 255, 0, 255);
             listDelay[buttonPressed].image.color = new Color32(255, 255, 0, 255);
 
+            UIManagerScript.score += 5;
             deHeat = 5;
             buttonPressed++;
         }
@@ -60,6 +61,7 @@ public class Not2Rhythm : MonoBehaviour
             //arrowShowObj[buttonPressed].GetComponent<RawImage>().color = new Color32(255, 0, 0, 255);
             listDelay[buttonPressed].image.color = new Color32(255, 0, 0, 255);
 
+            UIManagerScript.score -= 5;
             deHeat = -20;
             buttonPressed++;
         }
