@@ -76,7 +76,7 @@ public class PatientDataScript : MonoBehaviour
     }
     private void Update()
     {
-        textHP.text = "HP : " + heat;
+        textHP.text = heat.ToString();
         if (ToolPlayerScript.PatientID.Count > 0)
         {
             if (id == ToolPlayerScript.PatientID[0].id)

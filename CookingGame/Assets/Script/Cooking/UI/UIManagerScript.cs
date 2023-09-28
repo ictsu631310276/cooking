@@ -15,8 +15,11 @@ public class UIManagerScript : MonoBehaviour
 
     public static int treated;
     public static int dead;
+    [SerializeField] private TextMeshProUGUI treatedTextInGame;
+    [SerializeField] private TextMeshProUGUI deadTextInGame;
     [SerializeField] private TextMeshProUGUI treatedText;
     [SerializeField] private TextMeshProUGUI deadText;
+
     public void Pause()
     {
         if (Time.timeScale != 0)
@@ -51,6 +54,8 @@ public class UIManagerScript : MonoBehaviour
     private void Update()
     {
         //moneyText.text = "money : " + money;
+        treatedTextInGame.text = treated.ToString();
+        deadTextInGame.text = dead.ToString();
         treatedText.text = "treated : " + treated;
         deadText.text = "dead : " + dead;
 

@@ -7,6 +7,7 @@ public class DelayScript : MonoBehaviour
 {
     public Image image;
     [SerializeField] private PotionDataScript dataPotion;
+    public Sprite pullFalse;
     public float time;
     private void Start()
     {

@@ -48,18 +48,13 @@ public class Not2Rhythm : MonoBehaviour
         timeDelayInput = 0;
         if (intArrow[0] == i)
         {
-            
-            //arrowShowObj[buttonPressed].GetComponent<RawImage>().color = new Color32(255, 255, 0, 255);
-            listDelay[buttonPressed].image.color = new Color32(255, 255, 0, 255);
-
             UIManagerScript.score += 5;
             deHeat = 5;
             buttonPressed++;
         }
         else
         {
-            //arrowShowObj[buttonPressed].GetComponent<RawImage>().color = new Color32(255, 0, 0, 255);
-            listDelay[buttonPressed].image.color = new Color32(255, 0, 0, 255);
+            listDelay[buttonPressed].image.sprite = listDelay[buttonPressed].pullFalse;
 
             UIManagerScript.score -= 5;
             deHeat = -20;
