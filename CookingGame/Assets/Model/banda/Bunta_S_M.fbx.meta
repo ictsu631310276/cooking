@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b09ba5699cc11514084abf2750c05798
+guid: 63615e0fd40fbbb48b0a0acb9d6866f4
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -7,13 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: M_Leaf
-    second: {fileID: 2100000, guid: f327fe136cac0fa4e89e62ef4b7592fb, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: M_Wood
-    second: {fileID: 2100000, guid: 044258ef929fe85468843b92fc2ac1bc, type: 2}
+      name: Bunta_Shot
+    second: {fileID: 2100000, guid: fea2259157417ee4cbdd688f2784fe82, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -45,7 +40,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 20
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -98,7 +93,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
+    globalScale: 20
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

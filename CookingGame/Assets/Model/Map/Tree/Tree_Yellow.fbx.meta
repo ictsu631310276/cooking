@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: M_Leaf
-    second: {fileID: 2100000, guid: fc701ed26fcec51469e6a72fa42eb006, type: 2}
+    second: {fileID: 2100000, guid: 00535285a7771664686ee77643245d12, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
