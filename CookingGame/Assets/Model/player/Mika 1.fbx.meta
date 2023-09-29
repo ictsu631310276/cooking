@@ -34,77 +34,77 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: M_Eye1
-    second: {fileID: 2100000, guid: a6a797a2b3e4bc64c8c9e8ad9ce2e59d, type: 2}
+    second: {fileID: 2100000, guid: 765a4b59f9ca63b4b820296b58709f74, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: M_Eye10
-    second: {fileID: 2100000, guid: d24800ba54a9a29438d042267122fbfd, type: 2}
+    second: {fileID: 2100000, guid: afae889feb9a93542b3df1f3cd6bcc1a, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: M_Eye11
-    second: {fileID: 2100000, guid: 81c41cf6524e14045b2aef746b8f7427, type: 2}
+    second: {fileID: 2100000, guid: 616f141b93995434b82d02be61d36afa, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: M_Eye12
-    second: {fileID: 2100000, guid: 7fe7af0d7754b1f4da2b279f2388c0d1, type: 2}
+    second: {fileID: 2100000, guid: 23d4f928e9ed0d4458f09774cf689bd6, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: M_Eye14
-    second: {fileID: 2100000, guid: eb84c0cd66302c44a85e7c140891a3c4, type: 2}
+    second: {fileID: 2100000, guid: 2a87ce730f3df8d46a4858cf344e84c5, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: M_Eye15
-    second: {fileID: 2100000, guid: 2aee77d273e192646bd2b2593232e628, type: 2}
+    second: {fileID: 2100000, guid: 7ffed89f872ab004bb10e28ed1d73c7d, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: M_Eye16
-    second: {fileID: 2100000, guid: 48c75cd3119c2794c89c6ee66825a88b, type: 2}
+    second: {fileID: 2100000, guid: 928d7e8dd00a9554abfa2fb18b6f19f1, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: M_Eye17
-    second: {fileID: 2100000, guid: 1904aef1f1f89474cb7c7e6c7afee0d4, type: 2}
+    second: {fileID: 2100000, guid: 3d3dea2f7c7b6b64fb7537ac29dcaab5, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: M_Eye2
-    second: {fileID: 2100000, guid: 867cda1a82a81c64aa0cae2873c5af5c, type: 2}
+    second: {fileID: 2100000, guid: 260c33e736b6a39488c7e2c82d0b17ab, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: M_Eye3
-    second: {fileID: 2100000, guid: a9ea66d84bd5c0e4ca0d0fccedeb057e, type: 2}
+    second: {fileID: 2100000, guid: e144af3ad013b3943903b3441342d29c, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: M_Eye4
-    second: {fileID: 2100000, guid: c7f14eb96b86d4d4cb168550c33ebd7e, type: 2}
+    second: {fileID: 2100000, guid: 7071a22b61a8bfa47a8de7a988d25589, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: M_Eye5
-    second: {fileID: 2100000, guid: a525173dea00e674e81917cb3606aa3b, type: 2}
+    second: {fileID: 2100000, guid: 55ed54ab3c4491e498c8c071cdbac6e6, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: M_Eye6
-    second: {fileID: 2100000, guid: 3aef50e5a1dd96144926ddc976e1dbb1, type: 2}
+    second: {fileID: 2100000, guid: a76341f77ee442b4fbd2839f841f4794, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: M_Eye7
-    second: {fileID: 2100000, guid: e88287da5e5012d42b75bd2f43f2fe1c, type: 2}
+    second: {fileID: 2100000, guid: 51189fb5047b9a24b812b10a31f2a544, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: M_Eye8
-    second: {fileID: 2100000, guid: 5ebf4226a0562374699010e26ef7f4ec, type: 2}
+    second: {fileID: 2100000, guid: 91ccb47a6a3d8ae41a7b46426a6e6060, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -407,7 +407,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.19999999
+    globalScale: 20
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

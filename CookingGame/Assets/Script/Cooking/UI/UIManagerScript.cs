@@ -89,11 +89,13 @@ public class UIManagerScript : MonoBehaviour
         {
             gameoverText.text = "Succeed";
             imageEndgameS.SetActive(true);
+            imageEndgameF.SetActive(false);
         }
         else if (score < 400)
         {
             gameoverText.text = "Fail";
             imageEndgameF.SetActive(true);
+            imageEndgameS.SetActive(false);
         }
     }
 }
