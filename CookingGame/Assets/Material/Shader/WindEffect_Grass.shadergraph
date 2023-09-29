@@ -320,8 +320,8 @@
     },
     "m_FragmentContext": {
         "m_Position": {
-            "x": -8.0000581741333,
-            "y": 414.9999694824219
+            "x": 23.0,
+            "y": 420.0
         },
         "m_Blocks": [
             {
@@ -580,7 +580,7 @@
         "m_SerializableColors": []
     },
     "m_TextureType": 0,
-    "m_NormalMapSpace": 0,
+    "m_NormalMapSpace": 1,
     "m_EnableGlobalMipBias": true
 }
 
