@@ -22,6 +22,9 @@ public class UIManagerScript : MonoBehaviour
     [SerializeField] private TextMeshProUGUI treatedText;
     [SerializeField] private TextMeshProUGUI deadText;
 
+    [SerializeField] private GameObject imageEndgameS;
+    [SerializeField] private GameObject imageEndgameF;
+
     [SerializeField] private TextMeshProUGUI gameoverText;
     [SerializeField] private float timeDownScore;
     private float timeDown;
@@ -57,6 +60,8 @@ public class UIManagerScript : MonoBehaviour
         dead = 0;
         score = scoreStart;
         pauseUI.SetActive(false);
+        imageEndgameS.SetActive(false);
+        imageEndgameF.SetActive(false);
     }
     private void Update()
     {
@@ -83,12 +88,12 @@ public class UIManagerScript : MonoBehaviour
         if (score >= 400)
         {
             gameoverText.text = "Succeed";
-            gameoverText.color = new Color(255, 255, 0, 255);
+            imageEndgameS.SetActive(true);
         }
         else if (score < 400)
         {
             gameoverText.text = "Fail";
-            gameoverText.color = new Color(255, 0, 0, 255);
+            imageEndgameF.SetActive(true);
         }
     }
 }
