@@ -17,6 +17,7 @@ public class PatientDataScript : MonoBehaviour
     private int sicknessLevelMo;
     private bool haveModel;
 
+    [SerializeField] private GameObject Obj;
     [SerializeField] private GameObject glowObj;
     public GameObject handPoint;//playerhand1
     public GameObject handPoint2;//playerhand2
@@ -40,6 +41,7 @@ public class PatientDataScript : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            Obj.SetActive(true);
             glowObj.SetActive(false);
             ToolPlayerScript.PatientID.Remove(this);
         }
@@ -69,6 +71,7 @@ public class PatientDataScript : MonoBehaviour
 
         onHand = false;
         cooldownMax = cooldown;
+        Obj.SetActive(true);
         glowObj.SetActive(false);
 
         willTreat = false;
@@ -83,6 +86,7 @@ public class PatientDataScript : MonoBehaviour
             {
                 if (!ToolPlayerScript.havePatient && !onHand /*&& !ToolPlayerScript.haveToola*/)
                 {
+                    Obj.SetActive(false);
                     glowObj.SetActive(true);
                     if (Input.GetKeyDown(KeyCode.Q))
                     {
@@ -92,6 +96,7 @@ public class PatientDataScript : MonoBehaviour
                 }//หยิบ
                 else if (onHand && ToolPlayerScript.bed.Count == 0 && ToolPlayerScript.havePatient)
                 {
+                    Obj.SetActive(false);
                     glowObj.SetActive(true);
                     if (Input.GetKeyDown(KeyCode.Q))
                     {
@@ -102,6 +107,7 @@ public class PatientDataScript : MonoBehaviour
                 }//วางพื้น
                 else if (onHand && ToolPlayerScript.bed.Count > 0 && !ToolPlayerScript.bed[0].haveSit && ToolPlayerScript.havePatient)
                 {
+                    Obj.SetActive(false);
                     glowObj.SetActive(true);
                     if (Input.GetKeyDown(KeyCode.Q))
                     {
@@ -112,6 +118,7 @@ public class PatientDataScript : MonoBehaviour
                 }//วางบนเตียง
                 else if (onHand && ToolPlayerScript.bed.Count > 0 && ToolPlayerScript.bed[0].haveSit && !ToolPlayerScript.havePatient && !willTreat)
                 {
+                    Obj.SetActive(false);
                     glowObj.SetActive(true);
                     if (Input.GetKeyDown(KeyCode.Q))
                     {
@@ -123,6 +130,7 @@ public class PatientDataScript : MonoBehaviour
             }
             else
             {
+                Obj.SetActive(true);
                 glowObj.SetActive(false);
             }
         }
@@ -146,6 +154,7 @@ public class PatientDataScript : MonoBehaviour
         if (onHand)
         {
             transform.position = handPoint.transform.position;
+            Obj.SetActive(true);
             glowObj.SetActive(false);
             cooldown = cooldown - Time.deltaTime;
             if (cooldown <= 0)

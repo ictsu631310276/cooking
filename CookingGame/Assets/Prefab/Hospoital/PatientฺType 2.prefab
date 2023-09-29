@@ -444,6 +444,7 @@ MonoBehaviour:
   declineH: 
   allModelSickness: []
   modelSicknessPoint: {fileID: 1164816551413595517}
+  Obj: {fileID: 2672306130685618823}
   glowObj: {fileID: 7509058223071878878}
   handPoint: {fileID: 0}
   handPoint2: {fileID: 0}
@@ -544,6 +545,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dea90429fd72b7a40b998ded2b82a3b3, type: 3}
+--- !u!1 &2672306130685618823 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: dea90429fd72b7a40b998ded2b82a3b3, type: 3}
+  m_PrefabInstance: {fileID: 3014202918372923350}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3341144158255263805 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: dea90429fd72b7a40b998ded2b82a3b3, type: 3}
@@ -622,7 +628,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 67e1b0e88856f3b4cb23ebe27026558b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67e1b0e88856f3b4cb23ebe27026558b, type: 3}
