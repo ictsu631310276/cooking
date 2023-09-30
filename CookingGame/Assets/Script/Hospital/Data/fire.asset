@@ -18,6 +18,6 @@ MonoBehaviour:
   declineLife: 0a0000000f00000014000000
   imageSickness: {fileID: 21300000, guid: 168f1ba4f7a0bcc4b8bedff6ce6a260e, type: 3}
   modleSickness:
-  - {fileID: 919132149155446097, guid: 5727c7ef7959439469d0b9e245fcbfde, type: 3}
-  - {fileID: 919132149155446097, guid: 5727c7ef7959439469d0b9e245fcbfde, type: 3}
-  - {fileID: 919132149155446097, guid: 5727c7ef7959439469d0b9e245fcbfde, type: 3}
+  - {fileID: 8428093454066892675, guid: 5965f99327337ad41bd1f03f7532e8a9, type: 3}
+  - {fileID: 8428093454066892675, guid: 76d597c49df5bdf4c89dac7d07f5b959, type: 3}
+  - {fileID: 8428093454066892675, guid: 4f7f390d2528906489e3f332e88e8aff, type: 3}
