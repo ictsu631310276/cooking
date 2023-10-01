@@ -43,7 +43,7 @@ public class NewSpawnNPCScript : MonoBehaviour
             npcSpawn.sicknessID = potionData.sicknessData[typeSickness].id;
             npcSpawn.allModelSickness = potionData.sicknessData[typeSickness].modleSickness;
 
-            int levelSickness = Random.Range(potionData.sicknessData[typeSickness].startSicknessLevel, 3);
+            int levelSickness = Random.Range(potionData.sicknessData[typeSickness].startSicknessLevel, 4);
             npcSpawn.sicknessLevel = levelSickness;
 
             npcSpawn.declineH = potionData.sicknessData[typeSickness].declineLife;

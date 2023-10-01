@@ -22,6 +22,7 @@ public class PatientDataScript : MonoBehaviour
     public GameObject handPoint;//playerhand1
     public GameObject handPoint2;//playerhand2
     private bool onHand;
+    private bool onBed;
 
     [SerializeField] private TextMeshProUGUI textHP;
     [SerializeField] private float cooldown;
@@ -61,7 +62,6 @@ public class PatientDataScript : MonoBehaviour
             ToolPlayerScript.havePatient = false;
             onHand = false;
         }
-        Destroy(gameObject, 0);
     }
     private void Start()
     {
@@ -70,6 +70,7 @@ public class PatientDataScript : MonoBehaviour
         haveModel = false;
 
         onHand = false;
+        onBed = false;
         cooldownMax = cooldown;
         Obj.SetActive(true);
         glowObj.SetActive(false);
@@ -114,6 +115,7 @@ public class PatientDataScript : MonoBehaviour
                         handPoint = ToolPlayerScript.bed[0].handPoint;
                         ToolPlayerScript.havePatient = false;
                         ToolPlayerScript.bed[0].haveSit = true;
+                        onBed = true;
                     }
                 }//วางบนเตียง
                 else if (onHand && ToolPlayerScript.bed.Count > 0 && ToolPlayerScript.bed[0].haveSit && !ToolPlayerScript.havePatient && !willTreat)
@@ -125,6 +127,7 @@ public class PatientDataScript : MonoBehaviour
                         handPoint = NewSpawnNPCScript.handPlayerShare;
                         ToolPlayerScript.havePatient = true;
                         ToolPlayerScript.bed[0].haveSit = false;
+                        onBed = false;
                     }
                 }//ยกออกจากเตียง
             }
@@ -136,12 +139,14 @@ public class PatientDataScript : MonoBehaviour
         }
         if (sicknessID == -1)
         {
+            NewSpawnNPCScript.numOfNPC--;
             UIManagerScript.score += 10;
             WillDestroy();
-        }
+            Destroy(gameObject, 0);
+        }//รักษาหาย
         if (sicknessLevel > 0 && !haveModel)
         {
-            modelSickness = Instantiate(allModelSickness[sicknessLevel], modelSicknessPoint, false);
+            modelSickness = Instantiate(allModelSickness[sicknessLevel - 1], modelSicknessPoint, false);
             sicknessLevelMo = sicknessLevel;
             haveModel = true;
         }
@@ -189,11 +194,31 @@ public class PatientDataScript : MonoBehaviour
             }
             //Debug.Log("Heat : " + heat);
         }
-        if (dead || heat <= 0)
+        if (heat <= 0)
         {
-            UIManagerScript.score -= 10;
-            WillDestroy();
-            UIManagerScript.dead++;
+            if (!onHand)
+            {
+                Destroy(gameObject, 0);
+            }
+            else if (onHand && !onBed)
+            {
+                ToolPlayerScript.havePatient = false;
+                ToolPlayerScript.PatientID.Remove(this);
+
+                NewSpawnNPCScript.numOfNPC--;
+                UIManagerScript.score -= 10;
+                WillDestroy();
+                Destroy(gameObject, 0);
+                UIManagerScript.dead++;
+            }//บนมือ
+            else if (onHand && onBed)
+            {
+                dead = true;
+                NewSpawnNPCScript.numOfNPC--;
+                UIManagerScript.score -= 10;
+                UIManagerScript.dead++;
+                WillDestroy();
+            }//บนเตียง
         }
     }
 }

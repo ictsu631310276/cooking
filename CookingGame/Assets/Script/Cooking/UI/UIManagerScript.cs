@@ -26,6 +26,7 @@ public class UIManagerScript : MonoBehaviour
     [SerializeField] private GameObject imageEndgameF;
 
     [SerializeField] private TextMeshProUGUI gameoverText;
+    [SerializeField] private int scorePass;
     [SerializeField] private float timeDownScore;
     private float timeDown;
     [SerializeField] private int scoreDown;
@@ -62,6 +63,7 @@ public class UIManagerScript : MonoBehaviour
         pauseUI.SetActive(false);
         imageEndgameS.SetActive(false);
         imageEndgameF.SetActive(false);
+        scoreSlider.maxValue = scorePass * 2;
     }
     private void Update()
     {
@@ -85,13 +87,13 @@ public class UIManagerScript : MonoBehaviour
             Pause();
         }
 
-        if (score >= 400)
+        if (score >= scorePass)
         {
             gameoverText.text = "Succeed";
             imageEndgameS.SetActive(true);
             imageEndgameF.SetActive(false);
         }
-        else if (score < 400)
+        else if (score < scorePass)
         {
             gameoverText.text = "Fail";
             imageEndgameF.SetActive(true);

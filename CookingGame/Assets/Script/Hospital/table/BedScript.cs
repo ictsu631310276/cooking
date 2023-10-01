@@ -71,7 +71,6 @@ public class BedScript : MonoBehaviour
         NPCData.sicknessID = -1;
         minigame.difficulty = -1;
         haveSit = false;
-        //injury.CloseImage();
         NPCData = null;
         CloseMinigame();
     }
@@ -79,7 +78,6 @@ public class BedScript : MonoBehaviour
     {
         minigame.difficulty = -1;
         NPCData = null;
-        //injury.CloseImage();
         haveSit = false;
         haveMinigame = false;
         minigame.ClearRhythm();
@@ -134,11 +132,18 @@ public class BedScript : MonoBehaviour
         if (NPCData != null)
         {
             NPCData.willTreat = (minigame.buttonPressed != 0) ? true : false;
+            if (NPCData.dead)
+            {
+                bedDirty = true;
+                Destroy(NPCData.gameObject, 0);
+                RemovePiatent();
+            }
         }
         if (NPCData == null)
         {
             RemovePiatent();
         }
+
         if (ToolPlayerScript.bed.Count > 0)
         {
             if (id == ToolPlayerScript.bed[0].id && NPCData != null)
@@ -153,34 +158,12 @@ public class BedScript : MonoBehaviour
         }
         else if (ToolPlayerScript.bed.Count == 0)
         {
-            //if (NPCData != null)
-            //{
-            //    injury.ShowItemWant(NPCData.sicknessID);
-            //}
             CloseMinigame();
             glowObj.SetActive(false);
         }
-        {
-            //if (minigame.playerGet != 0)
-            //{
-            //    switch (minigame.playerGet)
-            //    {
-            //        case 20:
-            //            Debug.Log("Nice");
-            //            Goodbye();
-            //            break;
-            //        default:
-            //            Debug.Log("Ok");
-            //            Goodbye();
-            //            break;
-            //    }
-            //    minigame.playerGet = 0;
-            //}
-        }//for Not1Rhythm
         if (minigame.difficulty == 0 && NPCData != null)
         {
             Goodbye();
-            NewSpawnNPCScript.numOfNPC--;
             UIManagerScript.treated++;
         }
         if (minigame.deHeat != 0 && NPCData != null)
@@ -191,7 +174,6 @@ public class BedScript : MonoBehaviour
                 NPCData = null;
                 minigame.ClearRhythm();
                 haveSit = false;
-                NewSpawnNPCScript.numOfNPC--;
                 bedDirty = true;
             }
             else
