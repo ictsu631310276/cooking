@@ -2962,21 +2962,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 373995919}
     m_Modifications:
+    - target: {fileID: 2719595166543139877, guid: 77eb839e27cc8164f93babd1c49ecc3d, type: 3}
+      propertyPath: potionData
+      value: 
+      objectReference: {fileID: 1919805386}
     - target: {fileID: 2937681055205230696, guid: 77eb839e27cc8164f93babd1c49ecc3d, type: 3}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2937681055205230696, guid: 77eb839e27cc8164f93babd1c49ecc3d, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2937681055205230696, guid: 77eb839e27cc8164f93babd1c49ecc3d, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2937681055205230696, guid: 77eb839e27cc8164f93babd1c49ecc3d, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2937681055205230696, guid: 77eb839e27cc8164f93babd1c49ecc3d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4752,6 +4744,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5264205218900150042, guid: aa3fac3a49fa731439a5096af97b6c4d, type: 3}
+      propertyPath: dataPotion
+      value: 
+      objectReference: {fileID: 1919805386}
     - target: {fileID: 7155686931167800583, guid: aa3fac3a49fa731439a5096af97b6c4d, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -4800,10 +4796,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 7914312821736022274, guid: aa3fac3a49fa731439a5096af97b6c4d, type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa3fac3a49fa731439a5096af97b6c4d, type: 3}
 --- !u!1 &920749720 stripped
@@ -5369,21 +5361,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 373995919}
     m_Modifications:
+    - target: {fileID: 2719595166543139877, guid: fc9b4ffb0d31a5d4aaacfad1f55f3c83, type: 3}
+      propertyPath: potionData
+      value: 
+      objectReference: {fileID: 1919805386}
     - target: {fileID: 2937681055205230696, guid: fc9b4ffb0d31a5d4aaacfad1f55f3c83, type: 3}
       propertyPath: m_RootOrder
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2937681055205230696, guid: fc9b4ffb0d31a5d4aaacfad1f55f3c83, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2937681055205230696, guid: fc9b4ffb0d31a5d4aaacfad1f55f3c83, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2937681055205230696, guid: fc9b4ffb0d31a5d4aaacfad1f55f3c83, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2937681055205230696, guid: fc9b4ffb0d31a5d4aaacfad1f55f3c83, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5424,10 +5408,6 @@ PrefabInstance:
     - target: {fileID: 2937681055205230696, guid: fc9b4ffb0d31a5d4aaacfad1f55f3c83, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2937681055205230696, guid: fc9b4ffb0d31a5d4aaacfad1f55f3c83, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2937681055205230708, guid: fc9b4ffb0d31a5d4aaacfad1f55f3c83, type: 3}
       propertyPath: m_Name
@@ -10743,21 +10723,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 373995919}
     m_Modifications:
+    - target: {fileID: 2719595166543139877, guid: db4fcb42ba43ca441892c27788d9d067, type: 3}
+      propertyPath: potionData
+      value: 
+      objectReference: {fileID: 1919805386}
     - target: {fileID: 2937681055205230696, guid: db4fcb42ba43ca441892c27788d9d067, type: 3}
       propertyPath: m_RootOrder
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2937681055205230696, guid: db4fcb42ba43ca441892c27788d9d067, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2937681055205230696, guid: db4fcb42ba43ca441892c27788d9d067, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2937681055205230696, guid: db4fcb42ba43ca441892c27788d9d067, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2937681055205230696, guid: db4fcb42ba43ca441892c27788d9d067, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11781,6 +11753,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 373995919}
     m_Modifications:
+    - target: {fileID: 2719595166543139877, guid: eda7484a67f82fd4e939bd8288834974, type: 3}
+      propertyPath: potionData
+      value: 
+      objectReference: {fileID: 1919805386}
     - target: {fileID: 2937681055205230696, guid: eda7484a67f82fd4e939bd8288834974, type: 3}
       propertyPath: m_RootOrder
       value: 1
