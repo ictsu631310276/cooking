@@ -21,7 +21,7 @@ public class BedScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Patient" && !bedDirty)
+        if (other.tag == "Patient" && !bedDirty && NPCData == null)
         {
             NPCData = other.gameObject.GetComponent<PatientDataScript>();
             haveSit = true;

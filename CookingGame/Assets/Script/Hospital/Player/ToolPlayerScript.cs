@@ -13,17 +13,9 @@ public class ToolPlayerScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Patient")
-        {
-            PatientID.Add(other.gameObject.GetComponent<PatientDataScript>());
-        }
-        else if (other.gameObject.tag == "Table")
+        if (other.gameObject.tag == "Table")
         {
             bed.Add(other.gameObject.GetComponent<BedScript>());
-            if (bed[0].haveSit && havePatient)
-            {
-                bed.RemoveAt(0);
-            }
             if (bed.Count != 0)
             {
                 if (!bed[0].bedDirty)
@@ -32,16 +24,14 @@ public class ToolPlayerScript : MonoBehaviour
                 }
             }
         }
+        else if (other.gameObject.tag == "Patient")
+        {
+            PatientID.Add(other.gameObject.GetComponent<PatientDataScript>());
+        }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Patient")
-        {
-            PatientID[0].Obj.SetActive(true);
-            PatientID[0].glowObj.SetActive(false);
-            PatientID.Remove(other.gameObject.GetComponent<PatientDataScript>());
-        }
-        else if (other.gameObject.tag == "Table")
+        if (other.gameObject.tag == "Table")
         {
             if (bed.Count != 0)
             {
@@ -49,8 +39,13 @@ public class ToolPlayerScript : MonoBehaviour
                 bed.RemoveAt(0);
             }
         }
+        else if (other.gameObject.tag == "Patient")
+        {
+            PatientID[0].Obj.SetActive(true);
+            PatientID[0].glowObj.SetActive(false);
+            PatientID.Remove(other.gameObject.GetComponent<PatientDataScript>());
+        }
     }
-
     private void Start()
     {
         PatientID.Clear();
@@ -132,7 +127,7 @@ public class ToolPlayerScript : MonoBehaviour
 
         if (bed.Count > 0)
         {
-            if (bed[0].NPCData != null)
+            if (bed[0].NPCData != null && !havePatient)
             {
                 bed[0].glowObj.SetActive(true);
                 if (bed[0].haveSit)
@@ -141,5 +136,7 @@ public class ToolPlayerScript : MonoBehaviour
                 }
             }
         }
+        //Debug.Log("bed.Count : " + bed.Count);
+        //Debug.Log("PatientID.Count : " + PatientID.Count);
     }
 }
