@@ -6,6 +6,7 @@ public class PlayerMoveScript : MonoBehaviour
 {
     [SerializeField] private PotionDataScript dataPotion;//เอาเวลาที่ใช้ในการกดปุ่ม
     private float timeDelayInput;
+    private ToolPlayerScript toolPlayer;
     [SerializeField] private float playerSpeed = 4.0f;
     private Vector3 startPosition;
     private Rigidbody rb;
@@ -14,6 +15,7 @@ public class PlayerMoveScript : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        toolPlayer = GetComponent<ToolPlayerScript>();
         startPosition = transform.position;
         timeDelayInput = 0;
     }
@@ -37,7 +39,7 @@ public class PlayerMoveScript : MonoBehaviour
             playerAnimator.SetBool("walking", false);
         }//อนิเมชั่นเดิน
         timeDelayInput += Time.deltaTime;
-        if (ToolPlayerScript.bed.Count > 0 && timeDelayInput >= dataPotion.timeDelayInput)
+        if (toolPlayer.bed.Count > 0 && timeDelayInput >= dataPotion.timeDelayInput)
         {
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {

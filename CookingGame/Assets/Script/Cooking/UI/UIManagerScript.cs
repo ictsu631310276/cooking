@@ -9,7 +9,7 @@ public class UIManagerScript : MonoBehaviour
 {
     public static int money;
     //[SerializeField] private TextMeshProUGUI moneyText;
-    public GameObject pauseUI;
+    [SerializeField] private GameObject pauseUI;
     [SerializeField] private TextMeshProUGUI scoreText;
     public static int score;
     [SerializeField] private int scoreStart;

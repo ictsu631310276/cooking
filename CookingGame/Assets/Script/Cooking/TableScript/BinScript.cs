@@ -28,7 +28,7 @@ public class BinScript : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             glowObject.SetActive(true);
-            ToolPlayerScript.idBin.Add(idTable);
+            //ToolPlayerScript.idBin.Add(idTable);
         }
     }
     private void OnTriggerExit(Collider other)
@@ -36,7 +36,7 @@ public class BinScript : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             glowObject.SetActive(false);
-            ToolPlayerScript.idBin.Remove(idTable);
+            //ToolPlayerScript.idBin.Remove(idTable);
         }
     }
     private void Start()
@@ -66,21 +66,21 @@ public class BinScript : MonoBehaviour
         //        glowObject.SetActive(false);
         //    }
         //}//game1
-        if (ToolPlayerScript.idBin.Count > 0)
-        {
-            if (ToolPlayerScript.havePatient && ToolPlayerScript.idBin[0] == idTable)
-            {
-                glowObject.SetActive(true);
-                if (Input.GetKeyDown(KeyCode.Q))
-                {
-                    ToolPlayerScript.havePatient = false;
-                    ToolPlayerScript.PatientID[0].sicknessID = -1;
-                    ToolPlayerScript.PatientID.RemoveAt(0);
-                    spareOrgan++;
-                    NewSpawnNPCScript.numOfNPC--;
-                    UIManagerScript.dead++;
-                }
-            }
-        }
+        //if (ToolPlayerScript.idBin.Count > 0)
+        //{
+        //    if (/*ToolPlayerScript.havePatient &&*/ ToolPlayerScript.idBin[0] == idTable)
+        //    {
+        //        glowObject.SetActive(true);
+        //        if (Input.GetKeyDown(KeyCode.Q))
+        //        {
+        //            //ToolPlayerScript.havePatient = false;
+        //            //ToolPlayerScript.PatientID[0].sicknessID = -1;
+        //            //ToolPlayerScript.PatientID.RemoveAt(0);
+        //            spareOrgan++;
+        //            NewSpawnNPCScript.numOfNPC--;
+        //            UIManagerScript.dead++;
+        //        }
+        //    }
+        //}
     }
 }

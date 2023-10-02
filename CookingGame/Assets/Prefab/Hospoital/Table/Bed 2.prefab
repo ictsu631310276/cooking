@@ -98,15 +98,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1002
   NPCData: {fileID: 0}
-  potionData: {fileID: 0}
+  potionData: {fileID: -5154283208279506760, guid: abaa1cd61ff7b1345aa1d2474df29891, type: 3}
   glowObj: {fileID: 2469376582967577678}
   haveSit: 0
-  handPoint: {fileID: 7208405319434318371}
+  handPoint: {fileID: 9172956116062033445}
   minigameObj: {fileID: 6140679498348383297}
   minigame: {fileID: 4832710439414187712}
   bedDirtyModel: {fileID: 4877700918554106374}
-  timeCheck: 0
-  bedDirty: 0
 --- !u!65 &4022851412384954042
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -5,52 +5,34 @@ using UnityEngine;
 public class BedScript : MonoBehaviour
 {
     public int id;
-    //public ShowInjury injury;
-    [SerializeField] private PatientDataScript NPCData;
+    public PatientDataScript NPCData;
     [SerializeField] private PotionDataScript potionData;
-    [SerializeField] private GameObject glowObj;
+    public GameObject glowObj;
     public bool haveSit;
     private bool haveMinigame;
-    public GameObject handPoint;
+    public Transform handPoint;
     [SerializeField] private GameObject minigameObj;
     [SerializeField] private Not2Rhythm minigame;
     private bool onMinigame;
 
     [SerializeField] private GameObject bedDirtyModel;
-    [SerializeField] private float timeCheck;
-    [SerializeField] private bool bedDirty;
+    private float timeCheck;
+    public bool bedDirty;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player" && !bedDirty)
-        {
-            glowObj.SetActive(true);
-            ToolPlayerScript.bed.Add(this);
-        }
         if (other.tag == "Patient" && !bedDirty)
         {
             NPCData = other.gameObject.GetComponent<PatientDataScript>();
-            //injury.ShowItemWant(NPCData.sicknessID);
             haveSit = true;
             minigame.difficulty = NPCData.sicknessLevel;
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Player" && !onMinigame)
+        if (other.gameObject.tag == "Player" && onMinigame)
         {
-            glowObj.SetActive(false);
-            ToolPlayerScript.bed.Remove(this);
-        }
-        else if (other.gameObject.tag == "Player" && onMinigame)
-        {
-            //if (NPCData != null)
-            //{
-            //    injury.ShowItemWant(NPCData.sicknessID);
-            //}
             CloseMinigame();
-            glowObj.SetActive(false);
-            ToolPlayerScript.bed.Remove(this);
         }
         if (other.tag == "Patient")
         {
@@ -82,7 +64,7 @@ public class BedScript : MonoBehaviour
         haveMinigame = false;
         minigame.ClearRhythm();
     }
-    private void PlayMinigame()
+    public void PlayMinigame()
     {
         onMinigame = true;
         minigameObj.SetActive(true);
@@ -95,7 +77,7 @@ public class BedScript : MonoBehaviour
             }
         }
     }
-    private void CloseMinigame()
+    public void CloseMinigame()
     {
         minigameObj.SetActive(false);
         ////CameraScript.zoomOut = true;
@@ -141,26 +123,10 @@ public class BedScript : MonoBehaviour
         }
         if (NPCData == null)
         {
+            CloseMinigame();
             RemovePiatent();
         }
 
-        if (ToolPlayerScript.bed.Count > 0)
-        {
-            if (id == ToolPlayerScript.bed[0].id && NPCData != null)
-            {
-                glowObj.SetActive(true);
-                if (haveSit)
-                {
-                    PlayMinigame();
-                    //injury.CloseImage();
-                }
-            }
-        }
-        else if (ToolPlayerScript.bed.Count == 0)
-        {
-            CloseMinigame();
-            glowObj.SetActive(false);
-        }
         if (minigame.difficulty == 0 && NPCData != null)
         {
             Goodbye();

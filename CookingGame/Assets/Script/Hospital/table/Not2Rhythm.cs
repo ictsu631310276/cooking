@@ -134,7 +134,7 @@ public class Not2Rhythm : MonoBehaviour
             ShowRhythmArrow();
             haveRhythm = true;
         }//เริ่มต้น
-        if (intArrow.Count > 0 && timeDelayInput >= dataPotion.timeDelayInput && !ToolPlayerScript.havePatient)
+        if (intArrow.Count > 0 && timeDelayInput >= dataPotion.timeDelayInput /*&& !ToolPlayerScript.havePatient*/)
         {
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {

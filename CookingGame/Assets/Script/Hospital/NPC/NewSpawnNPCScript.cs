@@ -11,9 +11,6 @@ public class NewSpawnNPCScript : MonoBehaviour
     public checkNPC[] spawnPoint;
     [HideInInspector] public List<int> canSp;
 
-    public GameObject handPlayer;
-    public GameObject handPlayer2;
-    public static GameObject handPlayerShare;
     [SerializeField] private float timeInOneRound;
     private float timeCount;
     public static int iDNPC;//เพิ่มตลอดทั้งวัน
@@ -37,8 +34,6 @@ public class NewSpawnNPCScript : MonoBehaviour
 
             PatientDataScript npcSpawn = Instantiate(npcData[typeBun], spawnPoint[numSpawn].transform, false);
             npcSpawn.id = iDNPC;
-            npcSpawn.handPoint = handPlayer;
-            npcSpawn.handPoint2 = handPlayer2;
 
             npcSpawn.sicknessID = potionData.sicknessData[typeSickness].id;
             npcSpawn.allModelSickness = potionData.sicknessData[typeSickness].modleSickness;
@@ -57,12 +52,10 @@ public class NewSpawnNPCScript : MonoBehaviour
     {
         iDNPC = 0;
         numOfNPC = 0;
-        handPlayerShare = handPlayer;
         timeCount = timeInOneRound;
     }
     private void Update()
     {
-        //Debug.Log("numOfNPC : " + numOfNPC);
         timeCount = timeCount + Time.deltaTime;
         if (timeUIScript.haveHotTime && !timeUIScript.endDay && numOfNPC <= maxNumOfNPCInS)
         {
@@ -77,6 +70,5 @@ public class NewSpawnNPCScript : MonoBehaviour
             timeCount = 0;
             SpawnNPC();
         }
-
     }
 }
