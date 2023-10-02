@@ -11,10 +11,6 @@ public class checkNPC : MonoBehaviour
         {
             canSpawn = false;
         }
-        else
-        {
-            canSpawn = true;
-        }
     }
     private void OnTriggerExit(Collider other)
     {
@@ -27,11 +23,5 @@ public class checkNPC : MonoBehaviour
     private void Start()
     {
         canSpawn = true;
-    }
-
-    // Update is called once per frame
-    private void Update()
-    {
-        
     }
 }

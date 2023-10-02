@@ -129,6 +129,7 @@ public class PatientDataScript : MonoBehaviour
                 UIManagerScript.score -= 10;
                 UIManagerScript.dead++;
                 handPoint = null;
+                Destroy(gameObject, 0);
             }//บนเตียง
         }//ตาย
     }
