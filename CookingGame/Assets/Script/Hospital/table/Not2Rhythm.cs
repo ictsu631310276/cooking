@@ -48,7 +48,7 @@ public class Not2Rhythm : MonoBehaviour
         timeDelayInput = 0;
         if (intArrow[0] == i)
         {
-            UIManagerScript.score += 5;
+            ScoreManeger.score += 5;
             deHeat = 5;
             buttonPressed++;
         }
@@ -56,7 +56,7 @@ public class Not2Rhythm : MonoBehaviour
         {
             listDelay[buttonPressed].image.sprite = listDelay[buttonPressed].pullFalse;
 
-            UIManagerScript.score -= 5;
+            ScoreManeger.score -= 5;
             deHeat = -20;
             buttonPressed++;
         }

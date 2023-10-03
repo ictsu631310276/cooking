@@ -52,7 +52,7 @@ public class PatientDataScript : MonoBehaviour
         if (sicknessID == -1)
         {
             NewSpawnNPCScript.numOfNPC--;
-            UIManagerScript.score += 10;
+            ScoreManeger.score += 10;
             handPoint = null;
             Destroy(gameObject, 0);
         }//รักษาหาย
@@ -117,7 +117,7 @@ public class PatientDataScript : MonoBehaviour
             else if (onHand && !onBed)
             {
                 NewSpawnNPCScript.numOfNPC--;
-                UIManagerScript.score -= 10;
+                ScoreManeger.score -= 10;
                 handPoint = null;
                 Destroy(gameObject, 0);
                 UIManagerScript.dead++;
@@ -126,7 +126,7 @@ public class PatientDataScript : MonoBehaviour
             {
                 dead = true;
                 NewSpawnNPCScript.numOfNPC--;
-                UIManagerScript.score -= 10;
+                ScoreManeger.score -= 10;
                 UIManagerScript.dead++;
                 handPoint = null;
                 Destroy(gameObject, 0);
