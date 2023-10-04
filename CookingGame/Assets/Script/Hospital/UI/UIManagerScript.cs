@@ -9,8 +9,11 @@ public class UIManagerScript : MonoBehaviour
 {
     public ScoreManeger score;
 
+    public static int numOfPlayer;
+
     public static int treated;
     public static int dead;
+
     [SerializeField] private TextMeshProUGUI treatedTextInGame;
     [SerializeField] private TextMeshProUGUI deadTextInGame;
     [SerializeField] private TextMeshProUGUI treatedText;

@@ -2,14 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ToolPlayerScript : MonoBehaviour
+public class ToolPlayerScript_2 : MonoBehaviour
 {
-    private List<PatientDataScript> PatientID = new List<PatientDataScript>();
+    public List<PatientDataScript> PatientID = new List<PatientDataScript>();
     public List<BedScript> bed = new List<BedScript>();
     private bool havePatient;
     [SerializeField] private Transform[] handPoint;
-
-    //public static List<int> idBin = new List<int>();
 
     private void OnTriggerEnter(Collider other)
     {
@@ -46,20 +44,29 @@ public class ToolPlayerScript : MonoBehaviour
             PatientID.Remove(other.gameObject.GetComponent<PatientDataScript>());
         }
     }
+    public void ChangeTarget()
+    {
+        if (PatientID.Count >= 2)
+        {
+            PatientID[0].glowObj.SetActive(false);
+            PatientID[0].Obj.SetActive(true);
+            PatientID.Add(PatientID[0]);
+            PatientID.RemoveAt(0);
+        }//สลับโต็ะที่เล็ง
+    }
     private void Start()
     {
         PatientID.Clear();
         bed.Clear();
-        //idBin.Clear();
         havePatient = false;
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && PatientID.Count >= 2)
-        {
-            PatientID.Add(PatientID[0]);
-            PatientID.RemoveAt(0);
-        }//สลับโต็ะที่เล็ง
+        //if (Input.GetKeyDown(KeyCode.E) && PatientID.Count >= 2)
+        //{
+        //    PatientID.Add(PatientID[0]);
+        //    PatientID.RemoveAt(0);
+        //}//สลับโต็ะที่เล็ง
         if (PatientID.Count > 0)
         {
             if (PatientID[0] == null)

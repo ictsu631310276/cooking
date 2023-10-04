@@ -9,12 +9,14 @@ public class buttom : MonoBehaviour
 {
     [SerializeField] private GameObject pauseUI;
 
-    public void PlayGameButtom()
+    public void OnePlayer()
     {
+        UIManagerScript.numOfPlayer = 1;
         SceneManager.LoadScene(1);
     }
-    public void JoinGameButtom()
+    public void TwoPlayer()
     {
+        UIManagerScript.numOfPlayer = 2;
         SceneManager.LoadScene(1);
     }
     public void Pause()
@@ -35,6 +37,10 @@ public class buttom : MonoBehaviour
         Time.timeScale = 1;
         SceneManager.LoadScene(1);
     }
+    public void BackManu()
+    {
+        SceneManager.LoadScene(0);
+    }
     public void Exit()
     {
         Application.Quit();
@@ -42,7 +48,10 @@ public class buttom : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        pauseUI.SetActive(false);
+        if (pauseUI != null)
+        {
+            pauseUI.SetActive(false);
+        }
     }
 
    
