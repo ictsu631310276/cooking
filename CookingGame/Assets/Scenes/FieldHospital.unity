@@ -11271,9 +11271,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2117312824}
-        m_TargetAssemblyTypeName: UIManagerScript, Assembly-CSharp
-        m_MethodName: Exit
+      - m_Target: {fileID: 2117312826}
+        m_TargetAssemblyTypeName: buttom, Assembly-CSharp
+        m_MethodName: BackManu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11404,8 +11404,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2117312824}
-        m_TargetAssemblyTypeName: UIManagerScript, Assembly-CSharp
+      - m_Target: {fileID: 2117312826}
+        m_TargetAssemblyTypeName: buttom, Assembly-CSharp
         m_MethodName: Restart
         m_Mode: 1
         m_Arguments:
