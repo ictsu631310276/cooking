@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ToolPlayerScript : MonoBehaviour
 {
@@ -54,6 +55,74 @@ public class ToolPlayerScript : MonoBehaviour
             PatientID.RemoveAt(0);
         }//สลับโต็ะที่เล็ง
     }
+    public void MovePatient()
+    {
+        if (PatientID.Count > 0)
+        {
+            if (PatientID[0] == null)
+            {
+                PatientID.RemoveAt(0);
+            }
+            else if (!havePatient && !PatientID[0].onHand)
+            {
+                PatientID[0].handPoint = handPoint[0];
+                PatientID[0].onHand = true;
+                havePatient = true;
+
+            }//หยิบ
+            else if (PatientID[0].onHand && bed.Count == 0 && havePatient)
+            {
+                PatientID[0].onHand = false;
+                PatientID[0].transform.position = handPoint[1].transform.position;
+                PatientID[0].handPoint = null;
+                havePatient = false;
+
+            }//วางพื้น
+            else if (PatientID[0].onHand && bed.Count > 0 && !bed[0].haveSit && havePatient)
+            {
+                PatientID[0].handPoint = bed[0].handPoint;
+                havePatient = false;
+                bed[0].haveSit = true;
+                PatientID[0].onBed = true;
+
+            }//วางบนเตียง
+            else if (PatientID[0].onHand && bed.Count > 0 && bed[0].haveSit && !havePatient && !PatientID[0].willTreat)
+            {
+                PatientID[0].handPoint = handPoint[0];
+                havePatient = true;
+                bed[0].haveSit = false;
+                PatientID[0].onBed = false;
+
+            }//ยกออกจากเตียง
+            else
+            {
+                PatientID[0].Obj.SetActive(true);
+                PatientID[0].glowObj.SetActive(false);
+            }
+        }
+    }
+    public void AddArrow(InputAction.CallbackContext obj)
+    {
+        Vector2 sw = obj.ReadValue<Vector2>();
+        switch (sw.x,sw.y)
+        {
+            case (0f, 1f):
+                bed[0].arrowAdd = 0;
+                break;
+            case (0f, -1f):
+                bed[0].arrowAdd = 1;
+                break;
+            case (-1f, 0f):
+                bed[0].arrowAdd = 2;
+                break;
+            case (1f, 0f):
+                bed[0].arrowAdd = 3;
+                break;
+            default:
+                bed[0].arrowAdd = 5;
+                break;
+        }
+    }
     private void Start()
     {
         PatientID.Clear();
@@ -77,48 +146,37 @@ public class ToolPlayerScript : MonoBehaviour
             {
                 PatientID[0].Obj.SetActive(false);
                 PatientID[0].glowObj.SetActive(true);
-                if (Input.GetKeyDown(KeyCode.Q))
-                {
-                    PatientID[0].handPoint = handPoint[0];
-                    PatientID[0].onHand = true;
-                    havePatient = true;
-                }
+                //if (Input.GetKeyDown(KeyCode.Q))
+                //{
+                //MovePatient();
+                //}
             }//หยิบ
             else if (PatientID[0].onHand && bed.Count == 0 && havePatient)
             {
                 PatientID[0].Obj.SetActive(false);
                 PatientID[0].glowObj.SetActive(true);
-                if (Input.GetKeyDown(KeyCode.Q))
-                {
-                    PatientID[0].onHand = false;
-                    PatientID[0].transform.position = handPoint[1].transform.position;
-                    PatientID[0].handPoint = null;
-                    havePatient = false;
-                }
+                //if (Input.GetKeyDown(KeyCode.Q))
+                //{
+                //MovePatient();
+                //}
             }//วางพื้น
             else if (PatientID[0].onHand && bed.Count > 0 && !bed[0].haveSit && havePatient)
             {
                 PatientID[0].Obj.SetActive(false);
                 PatientID[0].glowObj.SetActive(true);
-                if (Input.GetKeyDown(KeyCode.Q))
-                {
-                    PatientID[0].handPoint = bed[0].handPoint;
-                    havePatient = false;
-                    bed[0].haveSit = true;
-                    PatientID[0].onBed = true;
-                }
+                //if (Input.GetKeyDown(KeyCode.Q))
+                //{
+                //MovePatient();
+                //}
             }//วางบนเตียง
             else if (PatientID[0].onHand && bed.Count > 0 && bed[0].haveSit && !havePatient && !PatientID[0].willTreat)
             {
                 PatientID[0].Obj.SetActive(false);
                 PatientID[0].glowObj.SetActive(true);
-                if (Input.GetKeyDown(KeyCode.Q))
-                {
-                    PatientID[0].handPoint = handPoint[0];
-                    havePatient = true;
-                    bed[0].haveSit = false;
-                    PatientID[0].onBed = false;
-                }
+                //if (Input.GetKeyDown(KeyCode.Q))
+                //{
+                //MovePatient();
+                //}
             }//ยกออกจากเตียง
             else
             {

@@ -53,6 +53,15 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Arrow"",
+                    ""type"": ""Value"",
+                    ""id"": ""25fd4439-c374-43d4-81df-d1c5053617e0"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -60,7 +69,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""8e143fb2-6620-49ae-93b7-249c773b7a30"",
                     ""path"": ""<Keyboard>/q"",
-                    ""interactions"": """",
+                    ""interactions"": ""Press(behavior=1)"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Q"",
@@ -126,12 +135,67 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""cdfdb0eb-5459-4978-acf1-858dd66a28c2"",
                     ""path"": ""<Keyboard>/e"",
-                    ""interactions"": """",
+                    ""interactions"": ""Press(behavior=1)"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""E"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""faa0f3f7-5738-46bd-a447-70bdd7e7abfc"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": ""Press(behavior=1)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Arrow"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Up"",
+                    ""id"": ""e2ad7f33-5731-4989-9f6b-15e774a5bb05"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Arrow"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Down"",
+                    ""id"": ""31522421-835f-4a2c-848d-8e83206d7160"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Arrow"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Left"",
+                    ""id"": ""7601f6d0-611d-41d9-92af-2bd2c4aff7bf"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Arrow"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Right"",
+                    ""id"": ""26d6c2b3-27db-48a7-9528-f0de707e7332"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Arrow"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -143,6 +207,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_Player_Q = m_Player.FindAction("Q", throwIfNotFound: true);
         m_Player_walk = m_Player.FindAction("walk", throwIfNotFound: true);
         m_Player_E = m_Player.FindAction("E", throwIfNotFound: true);
+        m_Player_Arrow = m_Player.FindAction("Arrow", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -205,6 +270,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Q;
     private readonly InputAction m_Player_walk;
     private readonly InputAction m_Player_E;
+    private readonly InputAction m_Player_Arrow;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -212,6 +278,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         public InputAction @Q => m_Wrapper.m_Player_Q;
         public InputAction @walk => m_Wrapper.m_Player_walk;
         public InputAction @E => m_Wrapper.m_Player_E;
+        public InputAction @Arrow => m_Wrapper.m_Player_Arrow;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -230,6 +297,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @E.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnE;
                 @E.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnE;
                 @E.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnE;
+                @Arrow.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnArrow;
+                @Arrow.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnArrow;
+                @Arrow.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnArrow;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -243,6 +313,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @E.started += instance.OnE;
                 @E.performed += instance.OnE;
                 @E.canceled += instance.OnE;
+                @Arrow.started += instance.OnArrow;
+                @Arrow.performed += instance.OnArrow;
+                @Arrow.canceled += instance.OnArrow;
             }
         }
     }
@@ -252,5 +325,6 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         void OnQ(InputAction.CallbackContext context);
         void OnWalk(InputAction.CallbackContext context);
         void OnE(InputAction.CallbackContext context);
+        void OnArrow(InputAction.CallbackContext context);
     }
 }

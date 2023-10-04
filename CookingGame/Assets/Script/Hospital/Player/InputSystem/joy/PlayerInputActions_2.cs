@@ -53,6 +53,15 @@ public partial class @PlayerInputActions_2 : IInputActionCollection2, IDisposabl
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Arrow"",
+                    ""type"": ""Button"",
+                    ""id"": ""d3fbc475-8a75-467d-9328-2bb044d09f91"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -60,7 +69,7 @@ public partial class @PlayerInputActions_2 : IInputActionCollection2, IDisposabl
                     ""name"": """",
                     ""id"": ""8e143fb2-6620-49ae-93b7-249c773b7a30"",
                     ""path"": ""<Gamepad>/leftShoulder"",
-                    ""interactions"": """",
+                    ""interactions"": ""Press(behavior=1)"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Q"",
@@ -72,7 +81,7 @@ public partial class @PlayerInputActions_2 : IInputActionCollection2, IDisposabl
                     ""id"": ""92567db4-ebfc-44b6-8e6d-b9946d35baa3"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""StickDeadzone(min=0.125)"",
                     ""groups"": """",
                     ""action"": ""walk"",
                     ""isComposite"": true,
@@ -126,12 +135,67 @@ public partial class @PlayerInputActions_2 : IInputActionCollection2, IDisposabl
                     ""name"": """",
                     ""id"": ""cdfdb0eb-5459-4978-acf1-858dd66a28c2"",
                     ""path"": ""<Gamepad>/rightShoulder"",
-                    ""interactions"": """",
+                    ""interactions"": ""Press(behavior=1)"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""E"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""4c40d35c-ac7f-4718-9249-b0449dd282c2"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": ""Press(behavior=1)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Arrow"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Up"",
+                    ""id"": ""b61bc6e2-6f79-4137-921a-73dcf62e5ab6"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Arrow"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Down"",
+                    ""id"": ""6b3b9d4e-2b6b-4c1c-a90e-9b0ddf0b22bb"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Arrow"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Left"",
+                    ""id"": ""f4c89003-d741-43a9-aab7-f44aa4886625"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Arrow"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Right"",
+                    ""id"": ""99944870-c1cf-41c6-a590-5d24af58e987"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Arrow"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -143,6 +207,7 @@ public partial class @PlayerInputActions_2 : IInputActionCollection2, IDisposabl
         m_Player_Q = m_Player.FindAction("Q", throwIfNotFound: true);
         m_Player_walk = m_Player.FindAction("walk", throwIfNotFound: true);
         m_Player_E = m_Player.FindAction("E", throwIfNotFound: true);
+        m_Player_Arrow = m_Player.FindAction("Arrow", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -205,6 +270,7 @@ public partial class @PlayerInputActions_2 : IInputActionCollection2, IDisposabl
     private readonly InputAction m_Player_Q;
     private readonly InputAction m_Player_walk;
     private readonly InputAction m_Player_E;
+    private readonly InputAction m_Player_Arrow;
     public struct PlayerActions
     {
         private @PlayerInputActions_2 m_Wrapper;
@@ -212,6 +278,7 @@ public partial class @PlayerInputActions_2 : IInputActionCollection2, IDisposabl
         public InputAction @Q => m_Wrapper.m_Player_Q;
         public InputAction @walk => m_Wrapper.m_Player_walk;
         public InputAction @E => m_Wrapper.m_Player_E;
+        public InputAction @Arrow => m_Wrapper.m_Player_Arrow;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -230,6 +297,9 @@ public partial class @PlayerInputActions_2 : IInputActionCollection2, IDisposabl
                 @E.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnE;
                 @E.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnE;
                 @E.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnE;
+                @Arrow.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnArrow;
+                @Arrow.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnArrow;
+                @Arrow.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnArrow;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -243,6 +313,9 @@ public partial class @PlayerInputActions_2 : IInputActionCollection2, IDisposabl
                 @E.started += instance.OnE;
                 @E.performed += instance.OnE;
                 @E.canceled += instance.OnE;
+                @Arrow.started += instance.OnArrow;
+                @Arrow.performed += instance.OnArrow;
+                @Arrow.canceled += instance.OnArrow;
             }
         }
     }
@@ -252,5 +325,6 @@ public partial class @PlayerInputActions_2 : IInputActionCollection2, IDisposabl
         void OnQ(InputAction.CallbackContext context);
         void OnWalk(InputAction.CallbackContext context);
         void OnE(InputAction.CallbackContext context);
+        void OnArrow(InputAction.CallbackContext context);
     }
 }

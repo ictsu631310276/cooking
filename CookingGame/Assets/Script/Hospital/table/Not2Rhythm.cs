@@ -17,22 +17,8 @@ public class Not2Rhythm : MonoBehaviour
     public bool haveRhythm;
     public int deHeat;
     public int buttonPressed;
-    private void DebutAllEnum()
-    {
-        Debug.Log("listDeay : " + listDelay.Count );
-        for (int i = 0; i < listDelay.Count; i++)
-        {
-            Debug.Log(listDelay[i].image == null);
-        }
-        //Debug.Log("intAllArrow.Count : " + intAllArrow.Count);
-        //Debug.Log("intArrow.Count : " + intArrow.Count);
-        //Debug.Log("arrowShowObj.Count : " + arrowShowObj.Count);
-        //Debug.Log("difficulty : " + difficulty);
-        //Debug.Log("haveRhythm : " + haveRhythm);
-        //Debug.Log("deHeat : " + deHeat);
-        //Debug.Log("buttonPressed : " + buttonPressed);
-        Debug.Log("~~~~~~~~~~~~~~");
-    }
+
+    public int arrowAdd;
     public void ShowRhythmArrow()
     {
         GameObject _Arrow;
@@ -73,6 +59,7 @@ public class Not2Rhythm : MonoBehaviour
             buttonPressed = 0;
             difficulty--;
         }
+        arrowAdd = 5;
     }
     public void ClearRhythm()
     {
@@ -94,6 +81,7 @@ public class Not2Rhythm : MonoBehaviour
         deHeat = 0;
         buttonPressed = 0;
         timeDelayInput = 0;
+        arrowAdd = 5;
     }
     private void Update()
     {
@@ -101,10 +89,6 @@ public class Not2Rhythm : MonoBehaviour
         if (buttonPressed > 0)
         {
             listDelay[buttonPressed - 1].time = timeDelayInput;
-        }
-        if (Input.GetKeyDown(KeyCode.F) && haveRhythm)
-        {
-            DebutAllEnum();
         }
         if (!haveRhythm)
         {
@@ -134,29 +118,21 @@ public class Not2Rhythm : MonoBehaviour
             ShowRhythmArrow();
             haveRhythm = true;
         }//เริ่มต้น
-        if (intArrow.Count > 0 && timeDelayInput >= dataPotion.timeDelayInput /*&& !ToolPlayerScript.havePatient*/)
+
+        if (intArrow.Count > 0 && timeDelayInput >= dataPotion.timeDelayInput)
         {
-            if (Input.GetKeyDown(KeyCode.UpArrow))
+            if (arrowAdd != 5)
             {
-                checkArrow(0);
-            }
-            else if (Input.GetKeyDown(KeyCode.DownArrow))
-            {
-                checkArrow(1);
-            }
-            else if (Input.GetKeyDown(KeyCode.LeftArrow))
-            {
-                checkArrow(2);
-            }
-            else if (Input.GetKeyDown(KeyCode.RightArrow))
-            {
-                checkArrow(3);
+                checkArrow(arrowAdd);
             }
         }
         else if (intArrow.Count == 0 && haveRhythm && difficulty >= 0)
         {
             haveRhythm = false;
         }
-        //Debug.Log("difficulty : " + difficulty);
+        if (arrowAdd != 5)
+        {
+            arrowAdd = 5;
+        }
     }
 }

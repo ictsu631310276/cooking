@@ -61,6 +61,9 @@
     <Compile Include="Assets\Script\Hospital\Player\InputSystem\key\ToolPlayerScript.cs" />
     <Compile Include="Assets\Script\Hospital\table\ShowInjury.cs" />
     <Compile Include="Assets\Script\Hospital\UI\ScoreManeger.cs" />
+    <Compile Include="Assets\Script\Hospital\Player\InputSystem\joy\PlayerMoveScript_2.cs" />
+    <Compile Include="Assets\Script\Hospital\Player\InputSystem\joy\ToolPlayerScript_2.cs" />
+    <Compile Include="Assets\Script\Hospital\Player\InputSystem\key\PlayerInputActions.cs" />
     <Compile Include="Assets\Script\Hospital\Data\PotionDataScript.cs" />
     <Compile Include="Assets\Script\Hospital\Player\InputSystem\key\PlayerMoveScript.cs" />
     <Compile Include="Assets\Script\Hospital\NPC\checkNPC.cs" />
@@ -73,11 +76,8 @@
     <Compile Include="Assets\Script\Hospital\UI\buttom.cs" />
     <Compile Include="Assets\Script\Hospital\Player\SpawnPlayer.cs" />
     <Compile Include="Assets\Script\Hospital\NPC\NewSpawnNPCScript.cs" />
-    <Compile Include="Assets\Script\Hospital\table\Not1Rhythm.cs" />
-    <Compile Include="Assets\Script\Hospital\Player\InputSystem\key\PlayerInputActions.cs" />
-    <Compile Include="Assets\Script\Hospital\Player\InputSystem\joy\PlayerMoveScript_2.cs" />
-    <Compile Include="Assets\Script\Hospital\Player\InputSystem\joy\ToolPlayerScript_2.cs" />
     <Compile Include="Assets\Script\Hospital\Player\InputSystem\joy\PlayerInputActions_2.cs" />
+    <Compile Include="Assets\Script\Hospital\table\Not1Rhythm.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.dll" />

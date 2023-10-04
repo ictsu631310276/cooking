@@ -33,13 +33,37 @@ public class PlayerMoveScript : MonoBehaviour
         Vector2 inputV = obj.ReadValue<Vector2>();
         xMove = inputV.x;
         zMove = inputV.y;
-        Debug.Log(obj);
     }
     private void AnimationArrow(int i)
     {
         playerAnimator.SetInteger("arrow", i);
         //transform.rotation = Quaternion.Euler(0f, 180f, 0f);
         timeDelayInput = 0;
+    }
+    public void InputAnimationArrow(InputAction.CallbackContext obj)
+    {
+        if (toolPlayer.bed.Count > 0 && timeDelayInput >= dataPotion.timeDelayInput - 0.1f)
+        {
+            Vector2 sw = obj.ReadValue<Vector2>();
+            switch (sw.x, sw.y)
+            {
+                case (0f, 1f):
+                    AnimationArrow(0);
+                    break;
+                case (0f, -1f):
+                    AnimationArrow(1);
+                    break;
+                case (-1f, 0f):
+                    AnimationArrow(2);
+                    break;
+                case (1f, 0f):
+                    AnimationArrow(3);
+                    break;
+                default:
+                    playerAnimator.SetInteger("arrow", 4);
+                    break;
+            }
+        }
     }
 
     private void Update()
@@ -56,33 +80,33 @@ public class PlayerMoveScript : MonoBehaviour
             playerAnimator.SetBool("walking", false);
         }//อนิเมชั่นเดิน
         timeDelayInput += Time.deltaTime;
-        if (toolPlayer.bed.Count > 0 && timeDelayInput >= dataPotion.timeDelayInput - 0.1f)
-        {
-            if (Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                AnimationArrow(0);
-            }
-            else if (Input.GetKeyDown(KeyCode.DownArrow))
-            {
-                AnimationArrow(1);
-            }
-            else if (Input.GetKeyDown(KeyCode.LeftArrow))
-            {
-                AnimationArrow(2);
-            }
-            else if (Input.GetKeyDown(KeyCode.RightArrow))
-            {
-                AnimationArrow(3);
-            }
-            else
-            {
-                playerAnimator.SetInteger("arrow", 4);//null
-            }
-        }
-        else
-        {
-            playerAnimator.SetInteger("arrow", 4);//null
-        }
+        //if (toolPlayer.bed.Count > 0 && timeDelayInput >= dataPotion.timeDelayInput - 0.1f)
+        //{
+        //    if (Input.GetKeyDown(KeyCode.UpArrow))
+        //    {
+        //        AnimationArrow(0);
+        //    }
+        //    else if (Input.GetKeyDown(KeyCode.DownArrow))
+        //    {
+        //        AnimationArrow(1);
+        //    }
+        //    else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        //    {
+        //        AnimationArrow(2);
+        //    }
+        //    else if (Input.GetKeyDown(KeyCode.RightArrow))
+        //    {
+        //        AnimationArrow(3);
+        //    }
+        //    else
+        //    {
+        //        playerAnimator.SetInteger("arrow", 4);//null
+        //    }
+        //}
+        //else
+        //{
+        //    playerAnimator.SetInteger("arrow", 4);//null
+        //}
 
         rb.velocity = new Vector3(xMove, startPosition.y, zMove) * playerSpeed;//เครื่องที่
         switch (xMove , zMove)

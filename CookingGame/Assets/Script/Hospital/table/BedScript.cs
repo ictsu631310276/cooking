@@ -19,6 +19,8 @@ public class BedScript : MonoBehaviour
     private float timeCheck;
     public bool bedDirty;
 
+    public int arrowAdd;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Patient" && !bedDirty && NPCData == null)
@@ -38,15 +40,6 @@ public class BedScript : MonoBehaviour
         {
             RemovePiatent();
         }
-    }
-    private void DebutAllEnum()
-    {
-        Debug.Log("id Bed : " + id);
-        Debug.Log("NPCData : " + NPCData);
-        Debug.Log("haveSit : " + haveSit);
-        Debug.Log("onMinigame : " + onMinigame);
-        Debug.Log("bedDirty : " + bedDirty);
-        Debug.Log("~~~~~~~~~~~~~~~~~~~~");
     }
     private void Goodbye()
     {
@@ -80,7 +73,6 @@ public class BedScript : MonoBehaviour
     public void CloseMinigame()
     {
         minigameObj.SetActive(false);
-        ////CameraScript.zoomOut = true;
         onMinigame = false;
     }
     private void Start()
@@ -93,13 +85,11 @@ public class BedScript : MonoBehaviour
         bedDirtyModel.SetActive(false);
         bedDirty = false;
         timeCheck = 0;
+
+        arrowAdd = 5;
     }
     private void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.F))
-        //{
-        //    DebutAllEnum();
-        //}
         if (bedDirty)
         {
             timeCheck += Time.deltaTime;
@@ -151,6 +141,12 @@ public class BedScript : MonoBehaviour
         if (NPCData != null && minigame.difficulty != NPCData.sicknessLevel)
         {
             NPCData.sicknessLevel = minigame.difficulty;
+        }
+        
+        if (arrowAdd != 5)
+        {
+            minigame.arrowAdd = arrowAdd;
+            arrowAdd = 5;
         }
     }
 }
