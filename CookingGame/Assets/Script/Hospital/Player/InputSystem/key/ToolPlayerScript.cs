@@ -7,7 +7,7 @@ public class ToolPlayerScript : MonoBehaviour
 {
     public List<PatientDataScript> PatientID = new List<PatientDataScript>();
     public List<BedScript> bed = new List<BedScript>();
-    private bool havePatient;
+    public bool havePatient;
     [SerializeField] private Transform[] handPoint;
 
     private void OnTriggerEnter(Collider other)

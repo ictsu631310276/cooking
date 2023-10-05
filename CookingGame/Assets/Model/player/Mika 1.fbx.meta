@@ -263,7 +263,7 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 51
     - serializedVersion: 16
       name: Up
       takeName: Up
@@ -292,7 +292,7 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 62
     - serializedVersion: 16
       name: Right
       takeName: Right
@@ -321,7 +321,7 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 73
     - serializedVersion: 16
       name: Down
       takeName: Down
@@ -350,7 +350,7 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 84
     isReadable: 0
   meshes:
     lODScreenPercentages: []

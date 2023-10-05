@@ -39,6 +39,11 @@ public class PlayerMoveScript_2 : MonoBehaviour
         playerAnimator.SetInteger("arrow", i);
         //transform.rotation = Quaternion.Euler(0f, 180f, 0f);
         timeDelayInput = 0;
+        Invoke("DelaySome", 0.45f);
+    }
+    public void DelaySome()
+    {
+        playerAnimator.SetInteger("arrow", 5);
     }
     public void InputAnimationArrow(InputAction.CallbackContext obj)
     {
@@ -78,6 +83,15 @@ public class PlayerMoveScript_2 : MonoBehaviour
         {
             playerAnimator.SetBool("walking", false);
         }//อนิเมชั่นเดิน
+
+        if (toolPlayer.havePatient)
+        {
+            playerAnimator.SetBool("pick", true);
+        }
+        else
+        {
+            playerAnimator.SetBool("pick", false);
+        }
 
         rb.velocity = new Vector3(xMove, startPosition.y, zMove) * playerSpeed;//เครื่องที่
         switch (xMove , zMove)
