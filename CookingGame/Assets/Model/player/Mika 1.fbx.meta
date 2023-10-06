@@ -239,7 +239,7 @@ ModelImporter:
       name: Left
       takeName: Left
       internalID: 0
-      firstFrame: 51
+      firstFrame: 56
       lastFrame: 61
       wrapMode: 0
       orientationOffsetY: 0
@@ -268,7 +268,7 @@ ModelImporter:
       name: Up
       takeName: Up
       internalID: 0
-      firstFrame: 62
+      firstFrame: 67
       lastFrame: 72
       wrapMode: 0
       orientationOffsetY: 0
@@ -297,7 +297,7 @@ ModelImporter:
       name: Right
       takeName: Right
       internalID: 0
-      firstFrame: 73
+      firstFrame: 78
       lastFrame: 83
       wrapMode: 0
       orientationOffsetY: 0
@@ -326,7 +326,7 @@ ModelImporter:
       name: Down
       takeName: Down
       internalID: 0
-      firstFrame: 84
+      firstFrame: 89
       lastFrame: 94
       wrapMode: 0
       orientationOffsetY: 0
