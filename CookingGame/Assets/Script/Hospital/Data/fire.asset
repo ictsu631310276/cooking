@@ -16,7 +16,10 @@ MonoBehaviour:
   startSicknessLevel: 2
   patternPress: 010000000100000001000000000000000200000002000000020000000100000003000000030000000300000002000000
   declineLife: 0a0000000f00000014000000
-  imageSickness: {fileID: 21300000, guid: 168f1ba4f7a0bcc4b8bedff6ce6a260e, type: 3}
+  timeToDeclineLife:
+  - 5
+  - 5
+  - 5
   modleSickness:
   - {fileID: 8428093454066892675, guid: 5965f99327337ad41bd1f03f7532e8a9, type: 3}
   - {fileID: 8428093454066892675, guid: 76d597c49df5bdf4c89dac7d07f5b959, type: 3}

@@ -105,6 +105,8 @@ MonoBehaviour:
   minigameObj: {fileID: 6140679498348383297}
   minigame: {fileID: 4832710439414187712}
   bedDirtyModel: {fileID: 4877700918554106374}
+  bedDirty: 0
+  arrowAdd: 0
 --- !u!65 &4022851412384954042
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -116,8 +118,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.25, y: 1, z: 0.25}
-  m_Center: {x: 0, y: 0.5, z: 0}
+  m_Size: {x: 0.25, y: 0.5, z: 0.25}
+  m_Center: {x: 0, y: 0.2, z: 0}
 --- !u!1 &3596519581999036695
 GameObject:
   m_ObjectHideFlags: 0
@@ -205,14 +207,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7208405319434318371}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: -0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2937681055205230696}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1001 &2722248763712190857
 PrefabInstance:
   m_ObjectHideFlags: 0

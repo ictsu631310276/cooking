@@ -8,7 +8,7 @@ public class ToolPlayerScript_2 : MonoBehaviour
     public List<PatientDataScript> PatientID = new List<PatientDataScript>();
     public List<BedScript> bed = new List<BedScript>();
     public bool havePatient;
-    [SerializeField] private Transform[] handPoint;
+    [SerializeField] private Transform handPoint;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -66,7 +66,7 @@ public class ToolPlayerScript_2 : MonoBehaviour
             /*else*/
             if (!havePatient && !PatientID[0].onHand)
             {
-                PatientID[0].handPoint = handPoint[0];
+                PatientID[0].handPoint = handPoint;
                 PatientID[0].onHand = true;
                 havePatient = true;
 
@@ -74,7 +74,6 @@ public class ToolPlayerScript_2 : MonoBehaviour
             else if (PatientID[0].onHand && bed.Count == 0 && havePatient)
             {
                 PatientID[0].onHand = false;
-                PatientID[0].transform.position = handPoint[1].transform.position;
                 PatientID[0].handPoint = null;
                 havePatient = false;
 
@@ -89,7 +88,7 @@ public class ToolPlayerScript_2 : MonoBehaviour
             }//วางบนเตียง
             else if (PatientID[0].onHand && bed.Count > 0 && bed[0].haveSit && !havePatient && !PatientID[0].willTreat)
             {
-                PatientID[0].handPoint = handPoint[0];
+                PatientID[0].handPoint = handPoint;
                 havePatient = true;
                 bed[0].haveSit = false;
                 PatientID[0].onBed = false;

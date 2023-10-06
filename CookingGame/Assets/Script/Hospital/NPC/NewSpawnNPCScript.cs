@@ -42,6 +42,7 @@ public class NewSpawnNPCScript : MonoBehaviour
             npcSpawn.sicknessLevel = levelSickness;
 
             npcSpawn.declineH = potionData.sicknessData[typeSickness].declineLife;
+            npcSpawn.tiemDeclineH = potionData.sicknessData[typeSickness].timeToDeclineLife;
             iDNPC++;
             npcSpawn.transform.parent = null;
             numOfNPC++;

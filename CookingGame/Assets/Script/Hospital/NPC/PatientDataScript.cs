@@ -8,9 +8,12 @@ public class PatientDataScript : MonoBehaviour
     public int id;
     public int heat;
     public int deHeat;
+
     public int sicknessID;
     public int sicknessLevel;
+
     public int[] declineH;
+    public float[] tiemDeclineH;
     public GameObject[] allModelSickness;
     [SerializeField] private Transform modelSicknessPoint;
     private GameObject modelSickness;
@@ -24,8 +27,8 @@ public class PatientDataScript : MonoBehaviour
     public bool onBed;
 
     [SerializeField] private TextMeshProUGUI textHP;
-    [SerializeField] private float cooldown;
-    private float cooldownMax;
+    private float cooldown;
+    public GameObject canva;
 
     public bool willTreat;
     public bool dead;
@@ -38,7 +41,7 @@ public class PatientDataScript : MonoBehaviour
 
         onHand = false;
         onBed = false;
-        cooldownMax = cooldown;
+        cooldown = tiemDeclineH[sicknessLevel - 1];
         Obj.SetActive(true);
         glowObj.SetActive(false);
 
@@ -48,7 +51,6 @@ public class PatientDataScript : MonoBehaviour
     private void Update()
     {
         textHP.text = heat.ToString();
-        
         if (sicknessID == -1)
         {
             NewSpawnNPCScript.numOfNPC--;
@@ -67,7 +69,6 @@ public class PatientDataScript : MonoBehaviour
             Destroy(modelSickness, 0);
             haveModel = false;
         }
-
         if (onHand)
         {
             Obj.SetActive(true);
@@ -75,23 +76,28 @@ public class PatientDataScript : MonoBehaviour
             cooldown = cooldown - Time.deltaTime;
             if (cooldown <= 0)
             {
-                cooldown = cooldownMax;
+                cooldown = tiemDeclineH[sicknessLevel - 1];
                 heat -= declineH[sicknessLevel - 1];
             }
             if (handPoint != null)
             {
                 transform.position = handPoint.transform.position;
+                transform.rotation = handPoint.transform.rotation;
+                canva.transform.rotation = new(handPoint.transform.rotation.x, 0f
+                    , handPoint.transform.rotation.z, handPoint.transform.rotation.w);
             }
-        }
+        }//อยู่บนมือ หรือเตียง
         else if (!onHand)
         {
+            transform.rotation = new(0, 0, 0, 0);
             cooldown = cooldown - Time.deltaTime * 2;
             if (cooldown <= 0)
             {
-                cooldown = cooldownMax;
+                cooldown = tiemDeclineH[sicknessLevel - 1];
                 heat -= declineH[sicknessLevel - 1];
             }
-        }
+        }//อยู่ที่พื้น
+
         if (deHeat != 0)
         {
             heat = heat + deHeat;

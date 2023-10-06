@@ -59,7 +59,6 @@
     <Compile Include="Assets\Script\Hospital\UI\TimeUI.cs" />
     <Compile Include="Assets\Script\Hospital\UI\UIManagerScript.cs" />
     <Compile Include="Assets\Script\Hospital\Player\InputSystem\key\ToolPlayerScript.cs" />
-    <Compile Include="Assets\Script\Hospital\table\ShowInjury.cs" />
     <Compile Include="Assets\Script\Hospital\UI\ScoreManeger.cs" />
     <Compile Include="Assets\Script\Hospital\Player\InputSystem\joy\PlayerMoveScript_2.cs" />
     <Compile Include="Assets\Script\Hospital\Player\InputSystem\joy\ToolPlayerScript_2.cs" />
@@ -77,7 +76,6 @@
     <Compile Include="Assets\Script\Hospital\Player\SpawnPlayer.cs" />
     <Compile Include="Assets\Script\Hospital\NPC\NewSpawnNPCScript.cs" />
     <Compile Include="Assets\Script\Hospital\Player\InputSystem\joy\PlayerInputActions_2.cs" />
-    <Compile Include="Assets\Script\Hospital\table\Not1Rhythm.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.dll" />
