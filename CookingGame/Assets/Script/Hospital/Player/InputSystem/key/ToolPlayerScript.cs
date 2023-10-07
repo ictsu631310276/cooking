@@ -120,6 +120,7 @@ public class ToolPlayerScript : MonoBehaviour
                 bed[0].arrowAdd = 5;
                 break;
         }
+        sw = new(0, 0);
     }
     private void Start()
     {
