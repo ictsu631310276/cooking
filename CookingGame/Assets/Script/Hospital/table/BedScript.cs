@@ -21,11 +21,28 @@ public class BedScript : MonoBehaviour
 
     public int arrowAdd;
 
+    public int treatTheSick;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Patient" && !bedDirty && NPCData == null)
         {
             NPCData = other.gameObject.GetComponent<PatientDataScript>();
+            if (NPCData.sicknessID == treatTheSick)
+            {
+                int newSick = Random.Range(1, potionData.sicknessData.Length);
+                while (newSick == NPCData.sicknessID)
+                {
+                    newSick = Random.Range(1, potionData.sicknessData.Length);
+                }
+                Debug.Log(newSick);
+                NPCData.sicknessID = newSick;
+                NPCData.allModelSickness = potionData.sicknessData[newSick - 1].modleSickness;
+
+                NPCData.declineH = potionData.sicknessData[newSick - 1].declineLife;
+                NPCData.tiemDeclineH = potionData.sicknessData[newSick - 1].timeToDeclineLife;
+                NPCData.sicknessLevel--;
+            }
             haveSit = true;
             minigame.difficulty = NPCData.sicknessLevel;
         }
