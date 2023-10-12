@@ -56,26 +56,27 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Script\Hospital\UI\TimeUI.cs" />
-    <Compile Include="Assets\Script\Hospital\UI\UIManagerScript.cs" />
-    <Compile Include="Assets\Script\Hospital\Player\InputSystem\key\ToolPlayerScript.cs" />
-    <Compile Include="Assets\Script\Hospital\UI\ScoreManeger.cs" />
-    <Compile Include="Assets\Script\Hospital\Player\InputSystem\joy\PlayerMoveScript_2.cs" />
-    <Compile Include="Assets\Script\Hospital\Player\InputSystem\joy\ToolPlayerScript_2.cs" />
-    <Compile Include="Assets\Script\Hospital\Player\InputSystem\key\PlayerInputActions.cs" />
-    <Compile Include="Assets\Script\Hospital\Data\PotionDataScript.cs" />
-    <Compile Include="Assets\Script\Hospital\Player\InputSystem\key\PlayerMoveScript.cs" />
-    <Compile Include="Assets\Script\Hospital\NPC\checkNPC.cs" />
-    <Compile Include="Assets\Script\Hospital\table\DelayScript.cs" />
-    <Compile Include="Assets\Script\Hospital\Player\CameraScript.cs" />
-    <Compile Include="Assets\Script\Hospital\table\BedScript.cs" />
-    <Compile Include="Assets\Script\Hospital\Data\CreateSicknessScript.cs" />
-    <Compile Include="Assets\Script\Hospital\table\Not2Rhythm.cs" />
-    <Compile Include="Assets\Script\Hospital\NPC\PatientDataScript.cs" />
-    <Compile Include="Assets\Script\Hospital\UI\buttom.cs" />
-    <Compile Include="Assets\Script\Hospital\Player\SpawnPlayer.cs" />
-    <Compile Include="Assets\Script\Hospital\NPC\NewSpawnNPCScript.cs" />
-    <Compile Include="Assets\Script\Hospital\Player\InputSystem\joy\PlayerInputActions_2.cs" />
+    <Compile Include="Assets\Script\UI\TimeUI.cs" />
+    <Compile Include="Assets\Script\UI\UIManagerScript.cs" />
+    <Compile Include="Assets\Script\Player\InputSystem\key\ToolPlayerScript.cs" />
+    <Compile Include="Assets\Script\UI\ScoreManeger.cs" />
+    <Compile Include="Assets\Script\Player\InputSystem\joy\PlayerMoveScript_2.cs" />
+    <Compile Include="Assets\Script\Player\InputSystem\joy\ToolPlayerScript_2.cs" />
+    <Compile Include="Assets\Script\Player\InputSystem\key\PlayerInputActions.cs" />
+    <Compile Include="Assets\Script\Data\Script\PotionDataScript.cs" />
+    <Compile Include="Assets\Script\Player\InputSystem\key\PlayerMoveScript.cs" />
+    <Compile Include="Assets\Script\NPC\checkNPC.cs" />
+    <Compile Include="Assets\Script\table\DelayScript.cs" />
+    <Compile Include="Assets\Script\Player\CameraScript.cs" />
+    <Compile Include="Assets\Script\table\BedScript.cs" />
+    <Compile Include="Assets\Script\Data\Script\CreateSicknessScript.cs" />
+    <Compile Include="Assets\Script\table\Not2Rhythm.cs" />
+    <Compile Include="Assets\Script\NPC\PatientDataScript.cs" />
+    <Compile Include="Assets\Script\UI\buttom.cs" />
+    <Compile Include="Assets\Script\Player\SpawnPlayer.cs" />
+    <Compile Include="Assets\Script\NPC\NewSpawnNPCScript.cs" />
+    <Compile Include="Assets\Script\Player\InputSystem\joy\PlayerInputActions_2.cs" />
+    <Compile Include="Assets\Script\UI\SoundScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.dll" />

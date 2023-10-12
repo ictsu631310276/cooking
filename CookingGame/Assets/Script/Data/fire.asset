@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84309fd08be65924f8ed74e4d218e296, type: 3}
+  m_Name: fire
+  m_EditorClassIdentifier: 
+  id: 2
+  startSicknessLevel: 2
+  patternPress: 010000000100000001000000000000000200000002000000020000000100000003000000030000000300000002000000
+  declineLife: 0a0000000f00000014000000
+  timeToDeclineLife:
+  - 5
+  - 5
+  - 5
+  modleSickness:
+  - {fileID: 8428093454066892675, guid: 5965f99327337ad41bd1f03f7532e8a9, type: 3}
+  - {fileID: 8428093454066892675, guid: 76d597c49df5bdf4c89dac7d07f5b959, type: 3}
+  - {fileID: 8428093454066892675, guid: 4f7f390d2528906489e3f332e88e8aff, type: 3}
