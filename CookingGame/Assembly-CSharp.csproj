@@ -64,6 +64,7 @@
     <Compile Include="Assets\Script\Player\InputSystem\joy\ToolPlayerScript_2.cs" />
     <Compile Include="Assets\Script\Player\InputSystem\key\PlayerInputActions.cs" />
     <Compile Include="Assets\Script\Data\Script\PotionDataScript.cs" />
+    <Compile Include="Assets\Script\UI\SoundScript.cs" />
     <Compile Include="Assets\Script\Player\InputSystem\key\PlayerMoveScript.cs" />
     <Compile Include="Assets\Script\NPC\checkNPC.cs" />
     <Compile Include="Assets\Script\table\DelayScript.cs" />
@@ -76,7 +77,6 @@
     <Compile Include="Assets\Script\Player\SpawnPlayer.cs" />
     <Compile Include="Assets\Script\NPC\NewSpawnNPCScript.cs" />
     <Compile Include="Assets\Script\Player\InputSystem\joy\PlayerInputActions_2.cs" />
-    <Compile Include="Assets\Script\UI\SoundScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.dll" />

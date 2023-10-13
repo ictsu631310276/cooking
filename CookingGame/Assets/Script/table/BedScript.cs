@@ -35,7 +35,6 @@ public class BedScript : MonoBehaviour
                 {
                     newSick = Random.Range(1, potionData.sicknessData.Length);
                 }
-                Debug.Log(newSick);
                 NPCData.sicknessID = newSick;
                 NPCData.allModelSickness = potionData.sicknessData[newSick - 1].modleSickness;
 

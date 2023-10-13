@@ -5,6 +5,9 @@ using TMPro;
 
 public class PatientDataScript : MonoBehaviour
 {
+    public Animator animatorBunda;
+    public Material[] materialBunda;
+
     public int id;
     public int heat;
     public int deHeat;
@@ -21,7 +24,6 @@ public class PatientDataScript : MonoBehaviour
     private bool haveModel;
 
     public GameObject Obj;
-    public GameObject glowObj;
     public Transform handPoint;//playerhand1
     public bool onHand;
     public bool onBed;
@@ -33,6 +35,19 @@ public class PatientDataScript : MonoBehaviour
     public bool willTreat;
     public bool dead;
 
+    private void DieMethod()
+    {
+        NewSpawnNPCScript.numOfNPC--;
+        ScoreManeger.score -= 10;
+
+        animatorBunda.SetBool("die", true);
+        animatorBunda.SetBool("good", false);
+        Destroy(GetComponent<Collider>());
+        Destroy(GetComponent<Rigidbody>());
+
+        Destroy(gameObject, 2);
+        UIManagerScript.dead++;
+    }
     private void Start()
     {
         heat = 100;
@@ -42,8 +57,6 @@ public class PatientDataScript : MonoBehaviour
         onHand = false;
         onBed = false;
         cooldown = tiemDeclineH[sicknessLevel - 1];
-        Obj.SetActive(true);
-        glowObj.SetActive(false);
 
         willTreat = false;
         dead = false;
@@ -56,8 +69,14 @@ public class PatientDataScript : MonoBehaviour
             NewSpawnNPCScript.numOfNPC--;
             ScoreManeger.score += 10;
             handPoint = null;
-            Destroy(gameObject, 0);
+
+            animatorBunda.SetBool("die", true);
+            animatorBunda.SetBool("good", true);
+
+            sicknessID = -2;
+            Destroy(gameObject, 2);
         }//รักษาหาย
+
         if (sicknessLevel > 0 && !haveModel)
         {
             modelSickness = Instantiate(allModelSickness[sicknessLevel - 1], modelSicknessPoint, false);
@@ -68,11 +87,11 @@ public class PatientDataScript : MonoBehaviour
         {
             Destroy(modelSickness, 0);
             haveModel = false;
-        }
+        }//โมโรค
+
         if (onHand)
         {
-            Obj.SetActive(true);
-            glowObj.SetActive(false);
+            Obj.GetComponent<Renderer>().material = materialBunda[0];
             cooldown = cooldown - Time.deltaTime;
             if (cooldown <= 0)
             {
@@ -118,24 +137,20 @@ public class PatientDataScript : MonoBehaviour
         {
             if (!onHand)
             {
-                Destroy(gameObject, 0);
+                DieMethod();
             }//ไม่ได้ถือ ไม่ได้อยู่บนเตียง
             else if (onHand && !onBed)
             {
-                NewSpawnNPCScript.numOfNPC--;
-                ScoreManeger.score -= 10;
                 handPoint = null;
-                Destroy(gameObject, 0);
-                UIManagerScript.dead++;
+
+                DieMethod();
             }//บนมือ
             else if (onHand && onBed)
             {
                 dead = true;
-                NewSpawnNPCScript.numOfNPC--;
-                ScoreManeger.score -= 10;
-                UIManagerScript.dead++;
                 handPoint = null;
-                Destroy(gameObject, 0);
+
+                DieMethod();
             }//บนเตียง
         }//ตาย
     }

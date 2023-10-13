@@ -40,8 +40,7 @@ public class ToolPlayerScript : MonoBehaviour
         }
         else if (other.gameObject.tag == "Patient")
         {
-            PatientID[0].Obj.SetActive(true);
-            PatientID[0].glowObj.SetActive(false);
+            PatientID[0].Obj.GetComponent<Renderer>().material = PatientID[0].materialBunda[0];
             PatientID.Remove(other.gameObject.GetComponent<PatientDataScript>());
         }
     }
@@ -49,8 +48,7 @@ public class ToolPlayerScript : MonoBehaviour
     {
         if (PatientID.Count >= 2)
         {
-            PatientID[0].glowObj.SetActive(false);
-            PatientID[0].Obj.SetActive(true);
+            PatientID[0].Obj.GetComponent<Renderer>().material = PatientID[0].materialBunda[1];
             PatientID.Add(PatientID[0]);
             PatientID.RemoveAt(0);
         }//สลับโต็ะที่เล็ง
@@ -94,8 +92,7 @@ public class ToolPlayerScript : MonoBehaviour
             }//ยกออกจากเตียง
             else
             {
-                PatientID[0].Obj.SetActive(true);
-                PatientID[0].glowObj.SetActive(false);
+                PatientID[0].Obj.GetComponent<Renderer>().material = PatientID[0].materialBunda[0];
             }
         }
     }
@@ -144,8 +141,7 @@ public class ToolPlayerScript : MonoBehaviour
             }
             else if (!havePatient && !PatientID[0].onHand)
             {
-                PatientID[0].Obj.SetActive(false);
-                PatientID[0].glowObj.SetActive(true);
+                PatientID[0].Obj.GetComponent<Renderer>().material = PatientID[0].materialBunda[1];
                 //if (Input.GetKeyDown(KeyCode.Q))
                 //{
                 //MovePatient();
@@ -153,8 +149,7 @@ public class ToolPlayerScript : MonoBehaviour
             }//หยิบ
             else if (PatientID[0].onHand && bed.Count == 0 && havePatient)
             {
-                PatientID[0].Obj.SetActive(false);
-                PatientID[0].glowObj.SetActive(true);
+                PatientID[0].Obj.GetComponent<Renderer>().material = PatientID[0].materialBunda[1];
                 //if (Input.GetKeyDown(KeyCode.Q))
                 //{
                 //MovePatient();
@@ -162,8 +157,7 @@ public class ToolPlayerScript : MonoBehaviour
             }//วางพื้น
             else if (PatientID[0].onHand && bed.Count > 0 && !bed[0].haveSit && havePatient)
             {
-                PatientID[0].Obj.SetActive(false);
-                PatientID[0].glowObj.SetActive(true);
+                PatientID[0].Obj.GetComponent<Renderer>().material = PatientID[0].materialBunda[1];
                 //if (Input.GetKeyDown(KeyCode.Q))
                 //{
                 //MovePatient();
@@ -171,8 +165,7 @@ public class ToolPlayerScript : MonoBehaviour
             }//วางบนเตียง
             else if (PatientID[0].onHand && bed.Count > 0 && bed[0].haveSit && !havePatient && !PatientID[0].willTreat)
             {
-                PatientID[0].Obj.SetActive(false);
-                PatientID[0].glowObj.SetActive(true);
+                PatientID[0].Obj.GetComponent<Renderer>().material = PatientID[0].materialBunda[1];
                 //if (Input.GetKeyDown(KeyCode.Q))
                 //{
                 //MovePatient();
@@ -180,8 +173,7 @@ public class ToolPlayerScript : MonoBehaviour
             }//ยกออกจากเตียง
             else
             {
-                PatientID[0].Obj.SetActive(true);
-                PatientID[0].glowObj.SetActive(false);
+                PatientID[0].Obj.GetComponent<Renderer>().material = PatientID[0].materialBunda[0];
             }
         }
         else if (PatientID.Count == 0)
