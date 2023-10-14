@@ -3978,7 +3978,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2719595166543139877, guid: 77eb839e27cc8164f93babd1c49ecc3d, type: 3}
       propertyPath: treatTheSick
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2937681055205230696, guid: 77eb839e27cc8164f93babd1c49ecc3d, type: 3}
       propertyPath: m_RootOrder
@@ -6744,7 +6744,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2719595166543139877, guid: fc9b4ffb0d31a5d4aaacfad1f55f3c83, type: 3}
       propertyPath: treatTheSick
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2937681055205230696, guid: fc9b4ffb0d31a5d4aaacfad1f55f3c83, type: 3}
       propertyPath: m_RootOrder
@@ -12337,7 +12337,7 @@ MonoBehaviour:
   - {fileID: 899033324}
   - {fileID: 1558248659}
   canSp: 
-  timeInOneRound: 3.5
+  timeInOneRound: 5
   maxNumOfNPCInS: 7
 --- !u!1001 &1935372358
 PrefabInstance:
@@ -13077,7 +13077,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2719595166543139877, guid: db4fcb42ba43ca441892c27788d9d067, type: 3}
       propertyPath: treatTheSick
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2937681055205230696, guid: db4fcb42ba43ca441892c27788d9d067, type: 3}
       propertyPath: m_RootOrder

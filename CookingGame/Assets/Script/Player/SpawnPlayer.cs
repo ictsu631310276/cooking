@@ -23,24 +23,20 @@ public class SpawnPlayer : MonoBehaviour
                 player[0].transform.parent = null;
                 player[1].transform.parent = null;
                 break;
-            default:
-                if (!twoPlayer)
-                {
-                    player[0] = Instantiate(playerP[0], spawnPoint[0], false);
-                    player[0].transform.parent = null;
-                }
-                else
-                {
-                    player[0] = Instantiate(playerP[0], spawnPoint[1], false);
-                    player[1] = Instantiate(playerP[1], spawnPoint[2], false);
-                    player[0].transform.parent = null;
-                    player[1].transform.parent = null;
-                }
-                break;
         }
     }
     private void Start()
     {
+#if UNITY_EDITOR
+        if (twoPlayer)
+        {
+            UIManagerScript.numOfPlayer = 2;
+        }
+        else
+        {
+            UIManagerScript.numOfPlayer = 1;
+        }
+#endif
         Spawn(UIManagerScript.numOfPlayer);
     }
     private void Update()

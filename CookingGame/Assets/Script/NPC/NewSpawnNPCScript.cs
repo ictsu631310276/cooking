@@ -53,6 +53,10 @@ public class NewSpawnNPCScript : MonoBehaviour
     {
         iDNPC = 0;
         numOfNPC = 0;
+        if (UIManagerScript.numOfPlayer == 2)
+        {
+            timeInOneRound = timeInOneRound / 2;
+        }
         timeCount = timeInOneRound;
     }
     private void Update()

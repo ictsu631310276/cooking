@@ -40,6 +40,7 @@ public class PatientDataScript : MonoBehaviour
         NewSpawnNPCScript.numOfNPC--;
         ScoreManeger.score -= 10;
 
+        Destroy(modelSickness, 0);
         animatorBunda.SetBool("die", true);
         animatorBunda.SetBool("good", false);
         Destroy(GetComponent<Collider>());
