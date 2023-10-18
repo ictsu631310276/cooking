@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using TMPro;
 
 public class UIManagerScript : MonoBehaviour
@@ -21,6 +20,7 @@ public class UIManagerScript : MonoBehaviour
 
     [SerializeField] private GameObject imageEndgameS;
     [SerializeField] private GameObject imageEndgameF;
+    [SerializeField] private GameObject nextDatButtom;
 
     private void Start()
     {
@@ -29,6 +29,7 @@ public class UIManagerScript : MonoBehaviour
 
         imageEndgameS.SetActive(false);
         imageEndgameF.SetActive(false);
+        nextDatButtom.SetActive(false);
     }
     private void Update()
     {
@@ -41,11 +42,13 @@ public class UIManagerScript : MonoBehaviour
         {
             imageEndgameS.SetActive(true);
             imageEndgameF.SetActive(false);
+            nextDatButtom.SetActive(true);
         }
         else if (ScoreManeger.score < score.scorePass)
         {
             imageEndgameF.SetActive(true);
             imageEndgameS.SetActive(false);
+            nextDatButtom.SetActive(false);
         }
     }
 }

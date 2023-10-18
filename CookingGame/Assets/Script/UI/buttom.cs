@@ -8,40 +8,46 @@ using TMPro;
 public class buttom : MonoBehaviour
 {
     [SerializeField] private GameObject pauseUI;
+    private int day = 1;
 
-    public void OnePlayer()
+    public void OnePlayerButtom()
     {
         UIManagerScript.numOfPlayer = 1;
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(day);
     }
-    public void TwoPlayer()
+    public void TwoPlayerButtom()
     {
         UIManagerScript.numOfPlayer = 2;
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(day);
     }
-    public void Pause()
+    public void PauseButtom()
     {
         if (Time.timeScale != 0 && pauseUI != null)
         {
             pauseUI.SetActive(true);
             Time.timeScale = 0;
         }
-        else if (Time.timeScale == 0  && pauseUI != null)
+        else if (Time.timeScale == 0 && pauseUI != null)
         {
             pauseUI.SetActive(false);
             Time.timeScale = 1;
         }
     }
-    public void Restart()
+    public void RestartButtom()
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(1);
     }
-    public void BackManu()
+    public void BackManuButtom()
     {
         SceneManager.LoadScene(0);
     }
-    public void Exit()
+    public void NextDayButtom()
+    {
+        day++;
+        SceneManager.LoadScene(day);
+    }
+    public void ExitButtom()
     {
         Application.Quit();
     }
@@ -59,7 +65,7 @@ public class buttom : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Pause();
+            PauseButtom();
         }
     }
 }

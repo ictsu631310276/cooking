@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 58d720b9f30550846a94abdbe771c227
   - enabled: 1
-    path: Assets/Scenes/FieldHospital.unity
+    path: Assets/Scenes/Day 2.unity
     guid: e6bbcd2b600f2904aa03c37cc4e8a597
   m_configObjects: {}
