@@ -23,8 +23,8 @@ public class PatientDataScript : MonoBehaviour
     private int sicknessLevelMo;
     private bool haveModel;
 
-    public GameObject Obj;
-    public Transform handPoint;//playerhand1
+    public GameObject modelBunda;
+    public Transform handPoint;//playerhand
     public bool onHand;
     public bool onBed;
 
@@ -33,8 +33,28 @@ public class PatientDataScript : MonoBehaviour
     public GameObject canva;
 
     public bool willTreat;
+    private float opacityValue;
+    private float timeFaded;
     public bool dead;
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "FireDragon")
+        {
+            Debug.Log("Hi");
+            deHeat = -50;
+        }
+    }
+    private void ChangeOpacityModel()
+    {
+        opacityValue = 2.55f;
+        timeFaded = timeFaded + Time.deltaTime;
+        if (timeFaded >= 1)
+        {
+            opacityValue = opacityValue - 0.25f;
+            modelBunda.GetComponent<Renderer>().material.color = new Color(0, 0, 0, opacityValue);
 
+        }
+    }
     private void DieMethod()
     {
         NewSpawnNPCScript.numOfNPC--;
@@ -75,6 +95,10 @@ public class PatientDataScript : MonoBehaviour
             animatorBunda.SetBool("good", true);
 
             sicknessID = -2;
+            Destroy(modelSickness);
+            Destroy(canva);
+
+            ChangeOpacityModel();
             Destroy(gameObject, 2);
         }//รักษาหาย
 
@@ -88,11 +112,11 @@ public class PatientDataScript : MonoBehaviour
         {
             Destroy(modelSickness, 0);
             haveModel = false;
-        }//โมโรค
+        }//โมเดลโรค
 
         if (onHand)
         {
-            Obj.GetComponent<Renderer>().material = materialBunda[0];
+            modelBunda.GetComponent<Renderer>().material = materialBunda[0];
             cooldown = cooldown - Time.deltaTime;
             if (cooldown <= 0)
             {
@@ -133,9 +157,10 @@ public class PatientDataScript : MonoBehaviour
                     heat = 0;
                 }
             }
-        }//เพิ่ม หรือ ตาย
-        if (heat <= 0)
+        }//เพิ่ม หรือ ลด
+        if (heat <= 0 && !dead)
         {
+            dead = true;
             if (!onHand)
             {
                 DieMethod();
@@ -148,7 +173,6 @@ public class PatientDataScript : MonoBehaviour
             }//บนมือ
             else if (onHand && onBed)
             {
-                dead = true;
                 handPoint = null;
 
                 DieMethod();

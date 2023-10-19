@@ -8,6 +8,7 @@ TagManager:
   - Customer
   - OutDoor
   - Patient
+  - FireDragon
   layers:
   - Default
   - TransparentFX

@@ -62,15 +62,7 @@ public class NewSpawnNPCScript : MonoBehaviour
     private void Update()
     {
         timeCount = timeCount + Time.deltaTime;
-        if (timeUIScript.haveHotTime && !timeUIScript.endDay && numOfNPC <= maxNumOfNPCInS)
-        {
-            if (timeCount >= 1)
-            {
-                timeCount = 0;
-                SpawnNPC();
-            }
-        }//hot time
-        else if (timeCount >= timeInOneRound && !timeUIScript.haveHotTime && !timeUIScript.endDay && numOfNPC <= maxNumOfNPCInS)
+        if (timeCount >= timeInOneRound && !timeUIScript.endDay && numOfNPC <= maxNumOfNPCInS)
         {
             timeCount = 0;
             SpawnNPC();
