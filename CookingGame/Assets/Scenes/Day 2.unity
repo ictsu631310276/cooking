@@ -715,7 +715,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2117312826}
         m_TargetAssemblyTypeName: buttom, Assembly-CSharp
-        m_MethodName: Restart
+        m_MethodName: RestartButtom
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5624,7 +5624,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2117312826}
         m_TargetAssemblyTypeName: buttom, Assembly-CSharp
-        m_MethodName: Pause
+        m_MethodName: PauseButtom
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13723,6 +13723,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   twoPlayer: 0
+  potionData: {fileID: -5154283208279506760, guid: abaa1cd61ff7b1345aa1d2474df29891, type: 3}
   playerP:
   - {fileID: 7155686931167800699, guid: a7d6f277a8a7ba34290ad28d8bf61a0a, type: 3}
   - {fileID: 7155686931167800699, guid: bf64e801032877b49b22bf8a525b3c7f, type: 3}
@@ -14070,7 +14071,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2117312826}
         m_TargetAssemblyTypeName: buttom, Assembly-CSharp
-        m_MethodName: Restart
+        m_MethodName: RestartButtom
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

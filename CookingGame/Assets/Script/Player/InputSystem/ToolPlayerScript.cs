@@ -99,25 +99,27 @@ public class ToolPlayerScript : MonoBehaviour
     public void AddArrow(InputAction.CallbackContext obj)
     {
         Vector2 sw = obj.ReadValue<Vector2>();
-        switch (sw.x,sw.y)
+        if (obj.started)
         {
-            case (0f, 1f):
-                bed[0].arrowAdd = 0;
-                break;
-            case (0f, -1f):
-                bed[0].arrowAdd = 1;
-                break;
-            case (-1f, 0f):
-                bed[0].arrowAdd = 2;
-                break;
-            case (1f, 0f):
-                bed[0].arrowAdd = 3;
-                break;
-            default:
-                bed[0].arrowAdd = 5;
-                break;
+            switch (sw.x, sw.y)
+            {
+                case (0f, 1f):
+                    bed[0].arrowAdd = 0;
+                    break;
+                case (0f, -1f):
+                    bed[0].arrowAdd = 1;
+                    break;
+                case (-1f, 0f):
+                    bed[0].arrowAdd = 2;
+                    break;
+                case (1f, 0f):
+                    bed[0].arrowAdd = 3;
+                    break;
+                default:
+                    bed[0].arrowAdd = 5;
+                    break;
+            }
         }
-        sw = new(0, 0);
     }
     private void Start()
     {

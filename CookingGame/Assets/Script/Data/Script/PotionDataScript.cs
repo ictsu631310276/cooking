@@ -8,9 +8,6 @@ public class PotionDataScript : MonoBehaviour
     public CreateSicknessScript[] sicknessData;
     public float timeDelayInput;
     public float timeBedDirty;
-    //public MixFood[] mixFood;
-    //public float timeUseAuto;
-    //public float timeUseManuel;
 
     public int FindNumOfSick(int id)
     {
@@ -24,11 +21,4 @@ public class PotionDataScript : MonoBehaviour
         }
         return j;
     }
-
-    //[System.Serializable]
-    //public class MixFood
-    //{
-    //    public int[] mixfood;
-    //    public int food;
-    //}
 }

@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 399400795}
   - component: {fileID: 2056429788}
   - component: {fileID: 2056429789}
-  - component: {fileID: 3868467648973308229}
-  - component: {fileID: 5781423383227026226}
   - component: {fileID: 2479231992310301775}
+  - component: {fileID: 7483357883024497896}
+  - component: {fileID: 4281157602216798236}
   m_Layer: 0
   m_Name: Player 2
   m_TagString: Player
@@ -83,37 +83,6 @@ CapsuleCollider:
   m_Height: 1.9
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3868467648973308229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7155686931167800699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 756a13673ce70674995d0f29e6fffcb5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PatientID: []
-  bed: []
-  havePatient: 0
-  handPoint: {fileID: 2572889224831709386}
---- !u!114 &5781423383227026226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7155686931167800699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 317b8048b2f11d648877c62c3a91e6f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dataPotion: {fileID: -5154283208279506760, guid: abaa1cd61ff7b1345aa1d2474df29891, type: 3}
-  playerSpeed: 15
-  playerAnimator: {fileID: 1565707287}
 --- !u!114 &2479231992310301775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,8 +110,8 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3868467648973308229}
-        m_TargetAssemblyTypeName: ToolPlayerScript_2, Assembly-CSharp
+      - m_Target: {fileID: 4281157602216798236}
+        m_TargetAssemblyTypeName: ToolPlayerScript, Assembly-CSharp
         m_MethodName: MovePatient
         m_Mode: 1
         m_Arguments:
@@ -157,8 +126,8 @@ MonoBehaviour:
     m_ActionName: Player/Q[/XInputControllerWindows/leftShoulder]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5781423383227026226}
-        m_TargetAssemblyTypeName: PlayerMoveScript_2, Assembly-CSharp
+      - m_Target: {fileID: 7483357883024497896}
+        m_TargetAssemblyTypeName: PlayerMoveScript, Assembly-CSharp
         m_MethodName: Movement_performed
         m_Mode: 0
         m_Arguments:
@@ -173,8 +142,8 @@ MonoBehaviour:
     m_ActionName: Player/walk[/XInputControllerWindows/leftStick/up,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3868467648973308229}
-        m_TargetAssemblyTypeName: ToolPlayerScript_2, Assembly-CSharp
+      - m_Target: {fileID: 4281157602216798236}
+        m_TargetAssemblyTypeName: ToolPlayerScript, Assembly-CSharp
         m_MethodName: ChangeTarget
         m_Mode: 1
         m_Arguments:
@@ -189,8 +158,8 @@ MonoBehaviour:
     m_ActionName: Player/E[/XInputControllerWindows/rightShoulder]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3868467648973308229}
-        m_TargetAssemblyTypeName: ToolPlayerScript_2, Assembly-CSharp
+      - m_Target: {fileID: 4281157602216798236}
+        m_TargetAssemblyTypeName: ToolPlayerScript, Assembly-CSharp
         m_MethodName: AddArrow
         m_Mode: 0
         m_Arguments:
@@ -201,8 +170,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 5781423383227026226}
-        m_TargetAssemblyTypeName: PlayerMoveScript_2, Assembly-CSharp
+      - m_Target: {fileID: 7483357883024497896}
+        m_TargetAssemblyTypeName: PlayerMoveScript, Assembly-CSharp
         m_MethodName: InputAnimationArrow
         m_Mode: 0
         m_Arguments:
@@ -220,6 +189,37 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &7483357883024497896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7155686931167800699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce990ee8b78853a448aa8480f246f218, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dataPotion: {fileID: 0}
+  playerSpeed: 15
+  playerAnimator: {fileID: 1565707287}
+--- !u!114 &4281157602216798236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7155686931167800699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7ea59bcb09e5d94eba99e558071393b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PatientID: []
+  bed: []
+  havePatient: 0
+  handPoint: {fileID: 2572889224831709386}
 --- !u!1 &7914312821736022274
 GameObject:
   m_ObjectHideFlags: 0
