@@ -28,6 +28,7 @@ public class BedScript : MonoBehaviour
         if (other.tag == "Patient" && !bedDirty && NPCData == null)
         {
             NPCData = other.gameObject.GetComponent<PatientDataScript>();
+
             if (NPCData.sicknessID == treatTheSick)
             {
                 int newSick = Random.Range(1, potionData.sicknessData.Length);
@@ -41,8 +42,13 @@ public class BedScript : MonoBehaviour
                 NPCData.declineH = potionData.sicknessData[newSick - 1].declineLife;
                 NPCData.tiemDeclineH = potionData.sicknessData[newSick - 1].timeToDeclineLife;
                 NPCData.sicknessLevel--;
-            }
+            }//รักษาทันที
+
+            NPCData.handPoint = handPoint;
+            NPCData.onHand = true;
+            NPCData.onBed = true;
             haveSit = true;
+
             minigame.difficulty = NPCData.sicknessLevel;
         }
     }

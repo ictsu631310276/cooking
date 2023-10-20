@@ -129,12 +129,6 @@ public class ToolPlayerScript : MonoBehaviour
     }
     private void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.E) && PatientID.Count >= 2)
-        //{
-        //    PatientID.Add(PatientID[0]);
-        //    PatientID.RemoveAt(0);
-        //}//สลับโต็ะที่เล็ง
-
         if (PatientID.Count > 0)
         {
             if (PatientID[0] == null)
@@ -144,34 +138,18 @@ public class ToolPlayerScript : MonoBehaviour
             else if (!havePatient && !PatientID[0].onHand)
             {
                 PatientID[0].modelBunda.GetComponent<Renderer>().material = PatientID[0].materialBunda[1];
-                //if (Input.GetKeyDown(KeyCode.Q))
-                //{
-                //MovePatient();
-                //}
             }//หยิบ
             else if (PatientID[0].onHand && bed.Count == 0 && havePatient)
             {
                 PatientID[0].modelBunda.GetComponent<Renderer>().material = PatientID[0].materialBunda[1];
-                //if (Input.GetKeyDown(KeyCode.Q))
-                //{
-                //MovePatient();
-                //}
             }//วางพื้น
             else if (PatientID[0].onHand && bed.Count > 0 && !bed[0].haveSit && havePatient)
             {
                 PatientID[0].modelBunda.GetComponent<Renderer>().material = PatientID[0].materialBunda[1];
-                //if (Input.GetKeyDown(KeyCode.Q))
-                //{
-                //MovePatient();
-                //}
             }//วางบนเตียง
             else if (PatientID[0].onHand && bed.Count > 0 && bed[0].haveSit && !havePatient && !PatientID[0].willTreat)
             {
                 PatientID[0].modelBunda.GetComponent<Renderer>().material = PatientID[0].materialBunda[1];
-                //if (Input.GetKeyDown(KeyCode.Q))
-                //{
-                //MovePatient();
-                //}
             }//ยกออกจากเตียง
             else
             {
@@ -182,7 +160,7 @@ public class ToolPlayerScript : MonoBehaviour
         {
             havePatient = false;
             PatientID.Clear();
-        }
+        }//บันดะเลืองแสง
 
         if (bed.Count > 0)
         {
@@ -195,7 +173,5 @@ public class ToolPlayerScript : MonoBehaviour
                 }
             }
         }
-        //Debug.Log("bed.Count : " + bed.Count);
-        //Debug.Log("PatientID.Count : " + PatientID.Count);
     }
 }

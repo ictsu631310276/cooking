@@ -14,8 +14,8 @@ public class PlayerMoveScript : MonoBehaviour
     [SerializeField] private Animator playerAnimator;
 
     private PlayerInputActions inputActions;
-
-    float xMove,zMove;
+    [HideInInspector]
+    public float xMove,zMove;
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -86,7 +86,7 @@ public class PlayerMoveScript : MonoBehaviour
         {
             playerAnimator.SetBool("pick", true);
         }
-        else
+        else 
         {
             playerAnimator.SetBool("pick", false);
         }
