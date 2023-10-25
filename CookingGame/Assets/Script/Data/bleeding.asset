@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84309fd08be65924f8ed74e4d218e296, type: 3}
   m_Name: bleeding
   m_EditorClassIdentifier: 
-  id: 1
+  id: 2
   startSicknessLevel: 1
   patternPress: 010000000200000001000000020000000000000003000000000000000300000001000000030000000100000003000000
   declineLife: 050000000a0000000a000000

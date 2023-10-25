@@ -7,7 +7,7 @@ public class Not2Rhythm : MonoBehaviour
 {
     [SerializeField] private GameObject[] arrow = new GameObject[4]; //^ v < >
     [SerializeField] private GameObject displayPsition;
-    [SerializeField] private PotionDataScript dataPotion;//เอาเวลาที่ใช้ในการกดปุ่ม
+    [SerializeField] private PotionDataScript dataPotion;
     private float timeDelayInput;
     public List<int> intAllArrow;
     public List<int> intArrow;

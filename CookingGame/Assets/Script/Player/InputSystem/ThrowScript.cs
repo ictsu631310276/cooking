@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ThrowScript : MonoBehaviour
 {
@@ -10,13 +11,13 @@ public class ThrowScript : MonoBehaviour
 
     public GameObject directionShow;
 
-    public void ThrowMethid()
+    public void ThrowMethid(InputAction.CallbackContext obj)
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (obj.started)
         {
             directionShow.SetActive(true);
         }
-        if (Input.GetKeyUp(KeyCode.Z))
+        else if (obj.canceled)
         {
             directionShow.SetActive(false);
             if (toolPlayer.PatientID.Count != 0 && toolPlayer.havePatient)
@@ -41,6 +42,14 @@ public class ThrowScript : MonoBehaviour
                 }
             }
         }
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            
+        }
+        if (Input.GetKeyUp(KeyCode.Z))
+        {
+
+        }
     }
     private void Start()
     {
@@ -48,15 +57,11 @@ public class ThrowScript : MonoBehaviour
         toolPlayer = GetComponent<ToolPlayerScript>();
         directionShow.SetActive(false);
     }
-
-    // Update is called once per frame
     void Update()
     {
         if (toolPlayer.PatientID.Count != 0)
         {
             patient = toolPlayer.PatientID[0].gameObject;
         }
-
-        ThrowMethid();
     }
 }

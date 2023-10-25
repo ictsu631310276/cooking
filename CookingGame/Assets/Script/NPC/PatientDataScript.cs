@@ -99,7 +99,7 @@ public class PatientDataScript : MonoBehaviour
             Destroy(canva);
 
             ChangeOpacityModel();
-            Destroy(gameObject, 2);
+            Destroy(gameObject, 1f);
         }//รักษาหาย
 
         if (sicknessLevel > 0 && !haveModel)
@@ -108,7 +108,12 @@ public class PatientDataScript : MonoBehaviour
             sicknessLevelMo = sicknessLevel;
             haveModel = true;
         }
-        if (sicknessLevelMo != sicknessLevel)
+        else if (sicknessLevelMo != sicknessLevel)
+        {
+            Destroy(modelSickness, 0);
+            haveModel = false;
+        }
+        else if (sicknessID == 1)
         {
             Destroy(modelSickness, 0);
             haveModel = false;
@@ -123,6 +128,7 @@ public class PatientDataScript : MonoBehaviour
                 cooldown = tiemDeclineH[sicknessLevel - 1];
                 heat -= declineH[sicknessLevel - 1];
             }
+
             if (handPoint != null)
             {
                 transform.position = handPoint.transform.position;

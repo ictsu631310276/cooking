@@ -269,6 +269,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: d3fbc475-8a75-467d-9328-2bb044d09f91
     m_ActionName: Player/Arrow[/XInputControllerWindows/buttonNorth,/XInputControllerWindows/buttonSouth,/XInputControllerWindows/buttonWest,/XInputControllerWindows/buttonEast]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6032189820873132406}
+        m_TargetAssemblyTypeName: ThrowScript, Assembly-CSharp
+        m_MethodName: ThrowMethid
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 1427ac0e-f523-4222-a8a3-acb714bd30f9
+    m_ActionName: Player/Throw[/XInputControllerWindows/leftTrigger,/XInputControllerWindows/rightTrigger]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

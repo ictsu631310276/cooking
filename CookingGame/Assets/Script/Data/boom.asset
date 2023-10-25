@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84309fd08be65924f8ed74e4d218e296, type: 3}
   m_Name: boom
   m_EditorClassIdentifier: 
-  id: 3
+  id: 4
   startSicknessLevel: 1
   patternPress: 010000000100000002000000020000000000000000000000030000000300000002000000020000000300000003000000
   declineLife: 640000003200000014000000

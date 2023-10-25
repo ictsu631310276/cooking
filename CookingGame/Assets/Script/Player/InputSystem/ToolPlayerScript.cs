@@ -74,7 +74,8 @@ public class ToolPlayerScript : MonoBehaviour
                 havePatient = false;
 
             }//วางพื้น
-            else if (PatientID[0].onHand && bed.Count > 0 && !bed[0].haveSit && havePatient)
+            else if (PatientID[0].onHand && bed.Count > 0 && !bed[0].haveSit && havePatient
+                && PatientID[0].sicknessID == bed[0].treatTheSick)
             {
                 PatientID[0].handPoint = bed[0].handPoint;
                 havePatient = false;

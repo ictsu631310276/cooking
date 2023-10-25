@@ -26,7 +26,7 @@ public class NewSpawnNPCScript : MonoBehaviour
             }
         }
         int typeBun = Random.Range(0, npcData.Length);
-        int typeSickness = Random.Range(0, potionData.sicknessData.Length);
+        int typeSickness = Random.Range(1, potionData.sicknessData.Length);
 
         if (canSp.Count != 0)
         {

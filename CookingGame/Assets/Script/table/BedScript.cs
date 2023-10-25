@@ -27,29 +27,21 @@ public class BedScript : MonoBehaviour
     {
         if (other.tag == "Patient" && !bedDirty && NPCData == null)
         {
-            NPCData = other.gameObject.GetComponent<PatientDataScript>();
-
-            if (NPCData.sicknessID == treatTheSick)
+            if (treatTheSick < 0)
             {
-                int newSick = Random.Range(1, potionData.sicknessData.Length);
-                while (newSick == NPCData.sicknessID)
+                AddPatient(other.gameObject);
+            }//ถ้าต่ำกว่า 0 จะรักษาแบบไม่สนโรค
+            else if (treatTheSick > 0)
+            {
+                if (treatTheSick == other.gameObject.GetComponent<PatientDataScript>().sicknessID)
                 {
-                    newSick = Random.Range(1, potionData.sicknessData.Length);
+                    AddPatient(other.gameObject);
                 }
-                NPCData.sicknessID = newSick;
-                NPCData.allModelSickness = potionData.sicknessData[newSick - 1].modleSickness;
-
-                NPCData.declineH = potionData.sicknessData[newSick - 1].declineLife;
-                NPCData.tiemDeclineH = potionData.sicknessData[newSick - 1].timeToDeclineLife;
-                NPCData.sicknessLevel--;
-            }//รักษาทันที
-
-            NPCData.handPoint = handPoint;
-            NPCData.onHand = true;
-            NPCData.onBed = true;
-            haveSit = true;
-
-            minigame.difficulty = NPCData.sicknessLevel;
+            }
+            else
+            {
+                Debug.Log("Add tratTheSick in bed " + id);
+            }
         }
     }
     private void OnTriggerExit(Collider other)
@@ -63,6 +55,36 @@ public class BedScript : MonoBehaviour
             RemovePiatent();
         }
     }
+    private void AddPatient(GameObject other)
+    {
+        NPCData = other.GetComponent<PatientDataScript>();
+
+        //TreatImmediately(treatTheSick);
+
+        NPCData.handPoint = handPoint;
+        NPCData.onHand = true;
+        NPCData.onBed = true;
+        haveSit = true;
+
+        minigame.difficulty = NPCData.sicknessLevel;
+    }
+    private void TreatImmediately(int i)
+    {
+        if (NPCData.sicknessID == i)
+        {
+            int newSick = Random.Range(1, potionData.sicknessData.Length);
+            while (newSick == NPCData.sicknessID)
+            {
+                newSick = Random.Range(1, potionData.sicknessData.Length);
+            }
+            NPCData.sicknessID = newSick;
+            NPCData.allModelSickness = potionData.sicknessData[newSick - 1].modleSickness;
+
+            NPCData.declineH = potionData.sicknessData[newSick - 1].declineLife;
+            NPCData.tiemDeclineH = potionData.sicknessData[newSick - 1].timeToDeclineLife;
+            NPCData.sicknessLevel--;
+        }//รักษาทันที
+    }
     private void Goodbye()
     {
         NPCData.sicknessID = -1;
@@ -73,6 +95,12 @@ public class BedScript : MonoBehaviour
     }
     private void RemovePiatent()
     {
+        if (NPCData != null)
+        {
+            NPCData.handPoint = null;
+            NPCData.onBed = false;
+            NPCData.onHand = false;
+        }        
         minigame.difficulty = -1;
         NPCData = null;
         haveSit = false;
@@ -132,6 +160,10 @@ public class BedScript : MonoBehaviour
                 Destroy(NPCData.gameObject, 0);
                 RemovePiatent();
             }
+            if (treatTheSick != NPCData.sicknessID)
+            {
+                RemovePiatent();
+            }
         }
         if (NPCData == null)
         {
@@ -141,8 +173,20 @@ public class BedScript : MonoBehaviour
 
         if (minigame.difficulty == 0 && NPCData != null)
         {
-            Goodbye();
-            UIManagerScript.treated++;
+            if (NPCData.sicknessID != 1)
+            {
+                NPCData.sicknessID = 1;
+                minigame.difficulty = 0;
+                NPCData.declineH = potionData.sicknessData[0].declineLife;
+                NPCData.tiemDeclineH = potionData.sicknessData[0].timeToDeclineLife;
+                NPCData.allModelSickness = potionData.sicknessData[0].modleSickness;
+                RemovePiatent();
+            }
+            else
+            {
+                Goodbye();
+                UIManagerScript.treated++;
+            }
         }
         if (minigame.deHeat != 0 && NPCData != null)
         {

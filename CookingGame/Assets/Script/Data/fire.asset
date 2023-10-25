@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84309fd08be65924f8ed74e4d218e296, type: 3}
   m_Name: fire
   m_EditorClassIdentifier: 
-  id: 2
+  id: 3
   startSicknessLevel: 2
   patternPress: 010000000100000001000000000000000200000002000000020000000100000003000000030000000300000002000000
   declineLife: 0a0000000f00000014000000
