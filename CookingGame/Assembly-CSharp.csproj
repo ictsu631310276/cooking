@@ -59,6 +59,7 @@
     <Compile Include="Assets\Script\UI\TimeUI.cs" />
     <Compile Include="Assets\Script\UI\UIManagerScript.cs" />
     <Compile Include="Assets\Script\Player\InputSystem\ToolPlayerScript.cs" />
+    <Compile Include="Assets\Script\NPC\Fish\FishScript.cs" />
     <Compile Include="Assets\Script\UI\ScoreManeger.cs" />
     <Compile Include="Assets\Script\NPC\DragonScript.cs" />
     <Compile Include="Assets\Script\Player\InputSystem\ThrowScript.cs" />
@@ -77,7 +78,7 @@
     <Compile Include="Assets\Script\Player\SpawnPlayer.cs" />
     <Compile Include="Assets\Script\NPC\NewSpawnNPCScript.cs" />
     <Compile Include="Assets\Script\Player\InputSystem\joy\PlayerInputActions_2.cs" />
-    <Compile Include="Assets\Script\NPC\FishScript.cs" />
+    <Compile Include="Assets\Script\NPC\Fish\FishMoveScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.dll" />
