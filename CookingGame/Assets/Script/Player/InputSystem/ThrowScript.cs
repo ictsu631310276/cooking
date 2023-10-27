@@ -20,7 +20,7 @@ public class ThrowScript : MonoBehaviour
         else if (obj.canceled)
         {
             directionShow.SetActive(false);
-            if (toolPlayer.PatientID.Count != 0 && toolPlayer.havePatient)
+            if (toolPlayer.patientID.Count != 0 && toolPlayer.havePatient)
             {
                 patient.GetComponent<PatientDataScript>().onHand = false;
                 toolPlayer.havePatient = false;
@@ -59,9 +59,9 @@ public class ThrowScript : MonoBehaviour
     }
     void Update()
     {
-        if (toolPlayer.PatientID.Count != 0)
+        if (toolPlayer.patientID.Count != 0)
         {
-            patient = toolPlayer.PatientID[0].gameObject;
+            patient = toolPlayer.patientID[0].gameObject;
         }
     }
 }

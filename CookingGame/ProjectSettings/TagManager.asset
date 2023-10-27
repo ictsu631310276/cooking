@@ -9,6 +9,7 @@ TagManager:
   - OutDoor
   - Patient
   - FireDragon
+  - ItemBox
   layers:
   - Default
   - TransparentFX

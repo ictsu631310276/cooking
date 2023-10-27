@@ -9,6 +9,7 @@ public class BedScript : MonoBehaviour
     [SerializeField] private PotionDataScript potionData;
     public GameObject glowObj;
     public bool haveSit;
+
     private bool haveMinigame;
     public Transform handPoint;
     [SerializeField] private GameObject minigameObj;
@@ -20,7 +21,6 @@ public class BedScript : MonoBehaviour
     public bool bedDirty;
 
     public int arrowAdd;
-
     public int treatTheSick;
 
     private void OnTriggerEnter(Collider other)
@@ -37,10 +37,6 @@ public class BedScript : MonoBehaviour
                 {
                     AddPatient(other.gameObject);
                 }
-            }
-            else
-            {
-                Debug.Log("Add tratTheSick in bed " + id);
             }
         }
     }
@@ -135,8 +131,11 @@ public class BedScript : MonoBehaviour
         bedDirtyModel.SetActive(false);
         bedDirty = false;
         timeCheck = 0;
-
         arrowAdd = 5;
+        if (treatTheSick == 0)
+        {
+            Debug.Log("Add treatTheSick in bed " + id);
+        }
     }
     private void Update()
     {
@@ -160,7 +159,7 @@ public class BedScript : MonoBehaviour
                 Destroy(NPCData.gameObject, 0);
                 RemovePiatent();
             }
-            if (treatTheSick != NPCData.sicknessID)
+            if (treatTheSick > 0 && treatTheSick != NPCData.sicknessID)
             {
                 RemovePiatent();
             }
@@ -173,14 +172,25 @@ public class BedScript : MonoBehaviour
 
         if (minigame.difficulty == 0 && NPCData != null)
         {
-            if (NPCData.sicknessID != 1)
+            if (NPCData.sicknessID != 1 && NPCData.sicknessLevel != -1)
             {
-                NPCData.sicknessID = 1;
-                minigame.difficulty = 0;
+                minigame.difficulty = 1;
                 NPCData.declineH = potionData.sicknessData[0].declineLife;
                 NPCData.tiemDeclineH = potionData.sicknessData[0].timeToDeclineLife;
                 NPCData.allModelSickness = potionData.sicknessData[0].modleSickness;
-                RemovePiatent();
+                if (NPCData.sicknessID == 2)
+                {
+                    NPCData.sicknessID = 1;
+                    minigame.ClearRhythm();
+                    minigame.difficulty = 1;
+                    haveMinigame = false;
+                    PlayMinigame();
+                }
+                else
+                {
+                    NPCData.sicknessID = 1;
+                    RemovePiatent();
+                }
             }
             else
             {

@@ -5,9 +5,14 @@ using UnityEngine.InputSystem;
 
 public class ToolPlayerScript : MonoBehaviour
 {
-    public List<PatientDataScript> PatientID = new List<PatientDataScript>();
+    public List<PatientDataScript> patientID = new List<PatientDataScript>();
     public List<BedScript> bed = new List<BedScript>();
     public bool havePatient;
+
+    public List<ItemBoxScript> itemBox = new List<ItemBoxScript>();
+    public bool haveItem;
+    public int itemID;
+
     [SerializeField] private Transform handPoint;
 
     private void OnTriggerEnter(Collider other)
@@ -23,9 +28,13 @@ public class ToolPlayerScript : MonoBehaviour
                 }
             }
         }
+        else if (other.gameObject.tag == "ItemBox")
+        {
+            itemBox.Add(other.gameObject.GetComponent<ItemBoxScript>());
+        }
         else if (other.gameObject.tag == "Patient")
         {
-            PatientID.Add(other.gameObject.GetComponent<PatientDataScript>());
+            patientID.Add(other.gameObject.GetComponent<PatientDataScript>());
         }
     }
     private void OnTriggerExit(Collider other)
@@ -38,63 +47,85 @@ public class ToolPlayerScript : MonoBehaviour
                 bed.RemoveAt(0);
             }
         }
+        else if (other.gameObject.tag == "ItemBox")
+        {
+            itemBox.Remove(other.gameObject.GetComponent<ItemBoxScript>());
+        }
         else if (other.gameObject.tag == "Patient")
         {
-            PatientID[0].modelBunda.GetComponent<Renderer>().material = PatientID[0].materialBunda[0];
-            PatientID.Remove(other.gameObject.GetComponent<PatientDataScript>());
+            patientID[0].modelBunda.GetComponent<Renderer>().material = patientID[0].materialBunda[0];
+            patientID.Remove(other.gameObject.GetComponent<PatientDataScript>());
         }
     }
     public void ChangeTarget()
     {
-        if (PatientID.Count >= 2)
+        if (patientID.Count >= 2)
         {
-            PatientID[0].modelBunda.GetComponent<Renderer>().material = PatientID[0].materialBunda[1];
-            PatientID.Add(PatientID[0]);
-            PatientID.RemoveAt(0);
+            patientID[0].modelBunda.GetComponent<Renderer>().material = patientID[0].materialBunda[1];
+            patientID.Add(patientID[0]);
+            patientID.RemoveAt(0);
         }//สลับโต็ะที่เล็ง
     }
-    public void MovePatient()
+    public void MovePatient(InputAction.CallbackContext obj)
     {
-        if (PatientID.Count > 0)
+        if (patientID.Count > 0 && !haveItem && obj.started)
         {
-            if (PatientID[0] == null)
+            if (patientID[0] == null)
             {
-                PatientID.RemoveAt(0);
+                patientID.RemoveAt(0);
             }
-            else if (!havePatient && !PatientID[0].onHand)
+            else if (!havePatient && !patientID[0].onHand)
             {
-                PatientID[0].handPoint = handPoint;
-                PatientID[0].onHand = true;
+                patientID[0].handPoint = handPoint;
+                patientID[0].onHand = true;
                 havePatient = true;
             }//หยิบ
-            else if (PatientID[0].onHand && bed.Count == 0 && havePatient)
+            else if (patientID[0].onHand && bed.Count == 0 && havePatient)
             {
-                PatientID[0].onHand = false;
-                PatientID[0].handPoint = null;
+                patientID[0].onHand = false;
+                patientID[0].handPoint = null;
                 havePatient = false;
 
             }//วางพื้น
-            else if (PatientID[0].onHand && bed.Count > 0 && !bed[0].haveSit && havePatient
-                && PatientID[0].sicknessID == bed[0].treatTheSick)
+            else if (patientID[0].onHand && bed.Count > 0 && !bed[0].haveSit && havePatient)
             {
-                PatientID[0].handPoint = bed[0].handPoint;
-                havePatient = false;
-                bed[0].haveSit = true;
-                PatientID[0].onBed = true;
-
+                if (patientID[0].sicknessID == bed[0].treatTheSick || bed[0].treatTheSick < 0)
+                {
+                    patientID[0].handPoint = bed[0].handPoint;
+                    havePatient = false;
+                    bed[0].haveSit = true;
+                    patientID[0].onBed = true;
+                }
             }//วางบนเตียง
-            else if (PatientID[0].onHand && bed.Count > 0 && bed[0].haveSit && !havePatient && !PatientID[0].willTreat)
+            else if (patientID[0].onHand && bed.Count > 0 && bed[0].haveSit && !havePatient && !patientID[0].willTreat)
             {
-                PatientID[0].handPoint = handPoint;
+                patientID[0].handPoint = handPoint;
                 havePatient = true;
                 bed[0].haveSit = false;
-                PatientID[0].onBed = false;
+                patientID[0].onBed = false;
 
             }//ยกออกจากเตียง
             else
             {
-                PatientID[0].modelBunda.GetComponent<Renderer>().material = PatientID[0].materialBunda[0];
+                patientID[0].modelBunda.GetComponent<Renderer>().material = patientID[0].materialBunda[0];
             }
+        }
+        else
+        {
+            PickUpItem(obj);
+        }
+    }
+    public void PickUpItem(InputAction.CallbackContext obj)
+    {
+        if (itemBox.Count > 0 && !haveItem && !havePatient && obj.started)
+        {
+            haveItem = true;
+            itemID = itemBox[0].itemID;
+        }
+        else if (itemBox.Count > 0 && haveItem && obj.started && itemID == itemBox[0].itemID)
+        {
+            haveItem = false;
+            itemID = 0;
         }
     }
     public void AddArrow(InputAction.CallbackContext obj)
@@ -124,43 +155,46 @@ public class ToolPlayerScript : MonoBehaviour
     }
     private void Start()
     {
-        PatientID.Clear();
+        patientID.Clear();
         bed.Clear();
         havePatient = false;
+        itemBox.Clear();
+        haveItem = false;
+        itemID = 0;
     }
     private void Update()
     {
-        if (PatientID.Count > 0)
+        if (patientID.Count > 0)
         {
-            if (PatientID[0] == null)
+            if (patientID[0] == null)
             {
-                PatientID.RemoveAt(0);
+                patientID.RemoveAt(0);
             }
-            else if (!havePatient && !PatientID[0].onHand)
+            else if (!havePatient && !patientID[0].onHand)
             {
-                PatientID[0].modelBunda.GetComponent<Renderer>().material = PatientID[0].materialBunda[1];
+                patientID[0].modelBunda.GetComponent<Renderer>().material = patientID[0].materialBunda[1];
             }//หยิบ
-            else if (PatientID[0].onHand && bed.Count == 0 && havePatient)
+            else if (patientID[0].onHand && bed.Count == 0 && havePatient)
             {
-                PatientID[0].modelBunda.GetComponent<Renderer>().material = PatientID[0].materialBunda[1];
+                patientID[0].modelBunda.GetComponent<Renderer>().material = patientID[0].materialBunda[1];
             }//วางพื้น
-            else if (PatientID[0].onHand && bed.Count > 0 && !bed[0].haveSit && havePatient)
+            else if (patientID[0].onHand && bed.Count > 0 && !bed[0].haveSit && havePatient)
             {
-                PatientID[0].modelBunda.GetComponent<Renderer>().material = PatientID[0].materialBunda[1];
+                patientID[0].modelBunda.GetComponent<Renderer>().material = patientID[0].materialBunda[1];
             }//วางบนเตียง
-            else if (PatientID[0].onHand && bed.Count > 0 && bed[0].haveSit && !havePatient && !PatientID[0].willTreat)
+            else if (patientID[0].onHand && bed.Count > 0 && bed[0].haveSit && !havePatient && !patientID[0].willTreat)
             {
-                PatientID[0].modelBunda.GetComponent<Renderer>().material = PatientID[0].materialBunda[1];
+                patientID[0].modelBunda.GetComponent<Renderer>().material = patientID[0].materialBunda[1];
             }//ยกออกจากเตียง
             else
             {
-                PatientID[0].modelBunda.GetComponent<Renderer>().material = PatientID[0].materialBunda[0];
+                patientID[0].modelBunda.GetComponent<Renderer>().material = patientID[0].materialBunda[0];
             }
         }
-        else if (PatientID.Count == 0)
+        else if (patientID.Count == 0)
         {
             havePatient = false;
-            PatientID.Clear();
+            patientID.Clear();
         }//บันดะเลืองแสง
 
         if (bed.Count > 0)

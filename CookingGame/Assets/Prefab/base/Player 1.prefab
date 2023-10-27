@@ -152,9 +152,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7ea59bcb09e5d94eba99e558071393b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PatientID: []
+  patientID: []
   bed: []
   havePatient: 0
+  itemBox: []
+  haveItem: 0
+  itemID: 0
   handPoint: {fileID: 2572889224831709386}
 --- !u!114 &5264205218900150042
 MonoBehaviour:
@@ -231,7 +234,7 @@ MonoBehaviour:
       - m_Target: {fileID: 2056429782}
         m_TargetAssemblyTypeName: ToolPlayerScript, Assembly-CSharp
         m_MethodName: MovePatient
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
