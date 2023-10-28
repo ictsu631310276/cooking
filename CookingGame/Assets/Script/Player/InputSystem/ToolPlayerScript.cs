@@ -10,8 +10,8 @@ public class ToolPlayerScript : MonoBehaviour
     public bool havePatient;
 
     public List<ItemBoxScript> itemBox = new List<ItemBoxScript>();
-    public bool haveItem;
     public int itemID;
+    private GameObject modelItem;
 
     [SerializeField] private Transform handPoint;
 
@@ -68,7 +68,7 @@ public class ToolPlayerScript : MonoBehaviour
     }
     public void MovePatient(InputAction.CallbackContext obj)
     {
-        if (patientID.Count > 0 && !haveItem && obj.started)
+        if (patientID.Count > 0 && itemID == 0 && obj.started)
         {
             if (patientID[0] == null)
             {
@@ -110,6 +110,25 @@ public class ToolPlayerScript : MonoBehaviour
                 patientID[0].modelBunda.GetComponent<Renderer>().material = patientID[0].materialBunda[0];
             }
         }
+        else if (bed.Count > 0 && itemID != 0)
+        {
+            if (bed[0].itemId == 0)
+            {
+                bed[0].itemId = itemID;
+                itemID = 0;
+                modelItem.transform.parent = bed[0].handPoint;
+            }
+        }
+        else if (bed.Count > 0 && itemID == 0)
+        {
+            if (bed[0].itemId != 0)
+            {
+                itemID = bed[0].itemId;
+                bed[0].itemId = 0;
+                modelItem = bed[0].handPoint.transform.GetChild(0).gameObject;
+                modelItem.transform.parent = handPoint;
+            }
+        }
         else
         {
             PickUpItem(obj);
@@ -117,15 +136,15 @@ public class ToolPlayerScript : MonoBehaviour
     }
     public void PickUpItem(InputAction.CallbackContext obj)
     {
-        if (itemBox.Count > 0 && !haveItem && !havePatient && obj.started)
+        if (itemBox.Count > 0 && itemID == 0 && !havePatient && obj.started)
         {
-            haveItem = true;
             itemID = itemBox[0].itemID;
+            modelItem = Instantiate(itemBox[0].modelItem, handPoint, false);
         }
-        else if (itemBox.Count > 0 && haveItem && obj.started && itemID == itemBox[0].itemID)
+        else if (itemBox.Count > 0 && obj.started && itemID == itemBox[0].itemID)
         {
-            haveItem = false;
             itemID = 0;
+            Destroy(modelItem, 0);
         }
     }
     public void AddArrow(InputAction.CallbackContext obj)
@@ -159,7 +178,6 @@ public class ToolPlayerScript : MonoBehaviour
         bed.Clear();
         havePatient = false;
         itemBox.Clear();
-        haveItem = false;
         itemID = 0;
     }
     private void Update()
@@ -199,11 +217,22 @@ public class ToolPlayerScript : MonoBehaviour
 
         if (bed.Count > 0)
         {
-            if (bed[0].NPCData != null && !havePatient)
+            if (bed[0].NPCData != null && !havePatient && bed[0].haveSit)
             {
-                bed[0].glowObj.SetActive(true);
-                if (bed[0].haveSit)
+                if ((bed[0].NPCData.sicknessID == 1 && bed[0].itemId == 1) ||
+                    (bed[0].NPCData.sicknessID == 2 && bed[0].itemId == 2))
                 {
+                    bed[0].glowObj.SetActive(true);
+                    bed[0].PlayMinigame();
+                }
+                else if (bed[0].NPCData.sicknessID != 1 && bed[0].NPCData.sicknessID != 2)
+                {
+                    bed[0].glowObj.SetActive(true);
+                    bed[0].PlayMinigame();
+                }
+                else if (bed[0].treatTheSick < -1)
+                {
+                    bed[0].glowObj.SetActive(true);
                     bed[0].PlayMinigame();
                 }
             }

@@ -6,6 +6,7 @@ public class ItemBoxScript : MonoBehaviour
 {
     public int id;
     public int itemID;
+    public GameObject modelItem;
     [SerializeField] private GameObject glowObj;
 
     private void OnTriggerEnter(Collider other)

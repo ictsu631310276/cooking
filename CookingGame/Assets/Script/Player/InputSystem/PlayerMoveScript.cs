@@ -82,7 +82,7 @@ public class PlayerMoveScript : MonoBehaviour
             playerAnimator.SetBool("walking", false);
         }//อนิเมชั่นเดิน
 
-        if (toolPlayer.havePatient || toolPlayer.haveItem)
+        if (toolPlayer.havePatient || toolPlayer.itemID != 0)
         {
             playerAnimator.SetBool("pick", true);
         }

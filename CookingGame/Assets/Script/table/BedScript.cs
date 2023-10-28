@@ -19,6 +19,7 @@ public class BedScript : MonoBehaviour
     [SerializeField] private GameObject bedDirtyModel;
     private float timeCheck;
     public bool bedDirty;
+    public int itemId;
 
     public int arrowAdd;
     public int treatTheSick;
@@ -130,6 +131,7 @@ public class BedScript : MonoBehaviour
 
         bedDirtyModel.SetActive(false);
         bedDirty = false;
+        itemId = 0;
         timeCheck = 0;
         arrowAdd = 5;
         if (treatTheSick == 0)
@@ -174,6 +176,8 @@ public class BedScript : MonoBehaviour
         {
             if (NPCData.sicknessID != 1 && NPCData.sicknessLevel != -1)
             {
+                itemId = 0;
+                Destroy(handPoint.GetChild(0).gameObject, 0);
                 minigame.difficulty = 1;
                 NPCData.declineH = potionData.sicknessData[0].declineLife;
                 NPCData.tiemDeclineH = potionData.sicknessData[0].timeToDeclineLife;
@@ -185,6 +189,7 @@ public class BedScript : MonoBehaviour
                     minigame.difficulty = 1;
                     haveMinigame = false;
                     PlayMinigame();
+                    CloseMinigame();
                 }
                 else
                 {
@@ -195,6 +200,7 @@ public class BedScript : MonoBehaviour
             else
             {
                 Goodbye();
+                Destroy(handPoint.GetChild(0).gameObject, 0);
                 UIManagerScript.treated++;
             }
         }
