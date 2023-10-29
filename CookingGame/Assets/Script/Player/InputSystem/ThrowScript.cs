@@ -5,57 +5,42 @@ using UnityEngine.InputSystem;
 
 public class ThrowScript : MonoBehaviour
 {
-    private PlayerMoveScript moveScript;
     private ToolPlayerScript toolPlayer;
     private GameObject patient;
 
     public GameObject directionShow;
+    private GameObject launchPointShow;
+    public Transform launchPoint;
+    public float height;
+    public float distance;
 
     public void ThrowMethid(InputAction.CallbackContext obj)
     {
         if (obj.started)
         {
             directionShow.SetActive(true);
+            launchPointShow.SetActive(true);
         }
         else if (obj.canceled)
         {
             directionShow.SetActive(false);
+            launchPointShow.SetActive(false);
             if (toolPlayer.patientID.Count != 0 && toolPlayer.havePatient)
             {
                 patient.GetComponent<PatientDataScript>().onHand = false;
                 toolPlayer.havePatient = false;
-                patient.GetComponent<Rigidbody>().AddForce(Vector3.up * 150f, ForceMode.Impulse);
-                switch (moveScript.gameObject.GetComponent<Transform>().rotation.y)
-                {
-                    case (0f):
-                        patient.GetComponent<Rigidbody>().AddForce(Vector3.forward * 100f, ForceMode.Impulse);
-                        break;
-                    case (0.7071068f):
-                        patient.GetComponent<Rigidbody>().AddForce(Vector3.right * 100f, ForceMode.Impulse);
-                        break;
-                    case (1f):
-                        patient.GetComponent<Rigidbody>().AddForce(Vector3.back * 100f, ForceMode.Impulse);
-                        break;
-                    case (-0.7071068f):
-                        patient.GetComponent<Rigidbody>().AddForce(Vector3.left * 100f, ForceMode.Impulse);
-                        break;
-                }
-            }
-        }
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            
-        }
-        if (Input.GetKeyUp(KeyCode.Z))
-        {
 
+                patient.GetComponent<Rigidbody>().velocity = height * launchPoint.up;
+                patient.GetComponent<Rigidbody>().velocity = distance * transform.forward;
+            }
         }
     }
     private void Start()
     {
-        moveScript = GetComponent<PlayerMoveScript>();
         toolPlayer = GetComponent<ToolPlayerScript>();
         directionShow.SetActive(false);
+        launchPointShow = launchPoint.transform.GetChild(0).gameObject;
+        launchPointShow.SetActive(false);
     }
     void Update()
     {

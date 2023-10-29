@@ -92,12 +92,6 @@ public class BedScript : MonoBehaviour
     }
     private void RemovePiatent()
     {
-        if (NPCData != null)
-        {
-            NPCData.handPoint = null;
-            NPCData.onBed = false;
-            NPCData.onHand = false;
-        }        
         minigame.difficulty = -1;
         NPCData = null;
         haveSit = false;
@@ -194,6 +188,9 @@ public class BedScript : MonoBehaviour
                 else
                 {
                     NPCData.sicknessID = 1;
+                    NPCData.handPoint = null;
+                    NPCData.onBed = false;
+                    NPCData.onHand = false;
                     RemovePiatent();
                 }
             }

@@ -110,7 +110,7 @@ public class ToolPlayerScript : MonoBehaviour
                 patientID[0].modelBunda.GetComponent<Renderer>().material = patientID[0].materialBunda[0];
             }
         }
-        else if (bed.Count > 0 && itemID != 0)
+        else if (bed.Count > 0 && itemID != 0 && obj.started)
         {
             if (bed[0].itemId == 0)
             {
@@ -119,7 +119,7 @@ public class ToolPlayerScript : MonoBehaviour
                 modelItem.transform.parent = bed[0].handPoint;
             }
         }
-        else if (bed.Count > 0 && itemID == 0)
+        else if (bed.Count > 0 && itemID == 0 && obj.started)
         {
             if (bed[0].itemId != 0)
             {
@@ -129,7 +129,7 @@ public class ToolPlayerScript : MonoBehaviour
                 modelItem.transform.parent = handPoint;
             }
         }
-        else
+        else if(obj.started)
         {
             PickUpItem(obj);
         }
