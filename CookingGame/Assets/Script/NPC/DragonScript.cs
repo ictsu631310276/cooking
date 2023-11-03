@@ -20,7 +20,7 @@ public class DragonScript : MonoBehaviour
     private void RandomFirePoint()
     {
         int randomNum = Random.Range(0, 2);
-        randomNum = 1;
+        randomNum = 0;
         switch (randomNum)
         {
             case 0:

@@ -40,8 +40,7 @@ public class PatientDataScript : MonoBehaviour
     {
         if (other.tag == "FireDragon")
         {
-            Debug.Log("Hi");
-            deHeat = -50;
+            heat = 0;
         }
     }
     private void ChangeOpacityModel()
