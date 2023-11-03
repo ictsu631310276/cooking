@@ -6,7 +6,22 @@ ModelImporter:
   - first:
       74: 5414490534771693905
     second: Swim
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Body_M
+    second: {fileID: 2100000, guid: 37d08a695a764d547822556b5c480347, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eyes_M
+    second: {fileID: 2100000, guid: afae9709dfa2d3e4ea116f1ecb1fe165, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tooth_M
+    second: {fileID: 2100000, guid: de9ccf77a246e31468b85f64fc0076a6, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -91,7 +106,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.39999998
+    globalScale: 40
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

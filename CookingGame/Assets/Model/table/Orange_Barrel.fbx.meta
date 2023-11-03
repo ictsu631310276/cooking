@@ -3,7 +3,27 @@ guid: 01d7a1df521f3b8409daa44059fd7ebb
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Jar_M
+    second: {fileID: 2100000, guid: b07ea9ac3eb7e69428f7f47229b77721, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Leaf_M
+    second: {fileID: 2100000, guid: ac4d9894a7cae88429461175cd59a96a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Orange_M
+    second: {fileID: 2100000, guid: ce3e54f081a554642860c76c93da5c0f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: limb
+    second: {fileID: 2100000, guid: fc97720d8ebd916409a453003d583c22, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -88,7 +108,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.29999998
+    globalScale: 30
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
