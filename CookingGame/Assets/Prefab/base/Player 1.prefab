@@ -208,12 +208,12 @@ GameObject:
   m_Component:
   - component: {fileID: 7155686931167800583}
   - component: {fileID: 399400795}
+  - component: {fileID: 5921342563033429932}
   - component: {fileID: 2056429782}
   - component: {fileID: 5264205218900150042}
   - component: {fileID: 2056429788}
   - component: {fileID: 2056429789}
   - component: {fileID: 5893716296610794322}
-  - component: {fileID: 5921342563033429932}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Player
@@ -256,6 +256,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!114 &5921342563033429932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7155686931167800699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa86f6f7000c011478f49443a892fcd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  directionShow: {fileID: 3394216777206035760}
+  launchPoint: {fileID: 2065235633536409014}
+  height: 10
+  distance: 10
 --- !u!114 &2056429782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -441,22 +457,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &5921342563033429932
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7155686931167800699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa86f6f7000c011478f49443a892fcd3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  directionShow: {fileID: 3394216777206035760}
-  launchPoint: {fileID: 2065235633536409014}
-  height: 10
-  distance: 10
 --- !u!1 &7914312821736022274
 GameObject:
   m_ObjectHideFlags: 0

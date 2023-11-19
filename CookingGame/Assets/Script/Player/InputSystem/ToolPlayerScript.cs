@@ -20,13 +20,13 @@ public class ToolPlayerScript : MonoBehaviour
         if (other.gameObject.tag == "Table")
         {
             bed.Add(other.gameObject.GetComponent<BedScript>());
-            if (bed.Count != 0)
-            {
-                if (!bed[0].bedDirty)
-                {
-                    bed[0].glowObj.SetActive(true);
-                }
-            }
+            //if (bed.Count != 0)
+            //{
+            //    if (!bed[0].bedDirty)
+            //    {
+            //        bed[0].glowObj.SetActive(true);
+            //    }
+            //}
         }
         else if (other.gameObject.tag == "ItemBox")
         {

@@ -18,7 +18,7 @@ public class BedScript : MonoBehaviour
 
     [SerializeField] private GameObject bedDirtyModel;
     private float timeCheck;
-    public bool bedDirty;
+    //public bool bedDirty;
     public int itemId;
 
     public int arrowAdd;
@@ -26,19 +26,20 @@ public class BedScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Patient" && !bedDirty && NPCData == null)
+        if (other.tag == "Patient" /*&& !bedDirty */&& NPCData == null)
         {
-            if (treatTheSick < 0)
-            {
-                AddPatient(other.gameObject);
-            }//ถ้าต่ำกว่า 0 จะรักษาแบบไม่สนโรค
-            else if (treatTheSick > 0)
-            {
-                if (treatTheSick == other.gameObject.GetComponent<PatientDataScript>().sicknessID)
+
+                if (treatTheSick < 0)
                 {
                     AddPatient(other.gameObject);
+                }//ถ้าต่ำกว่า 0 จะรักษาแบบไม่สนโรค
+                else if (treatTheSick > 0)
+                {
+                    if (treatTheSick == other.gameObject.GetComponent<PatientDataScript>().sicknessID)
+                    {
+                        AddPatient(other.gameObject);
+                    }
                 }
-            }
         }
     }
     private void OnTriggerExit(Collider other)
@@ -57,13 +58,20 @@ public class BedScript : MonoBehaviour
         NPCData = other.GetComponent<PatientDataScript>();
 
         //TreatImmediately(treatTheSick);
+        if (!NPCData.dead)
+        {
+            NPCData.handPoint = handPoint;
+            NPCData.onHand = true;
+            NPCData.onBed = true;
+            haveSit = true;
 
-        NPCData.handPoint = handPoint;
-        NPCData.onHand = true;
-        NPCData.onBed = true;
-        haveSit = true;
+            minigame.difficulty = NPCData.sicknessLevel;
+        }
+        else
+        {
+            NPCData = null;
+        }
 
-        minigame.difficulty = NPCData.sicknessLevel;
     }
     private void TreatImmediately(int i)
     {
@@ -124,7 +132,7 @@ public class BedScript : MonoBehaviour
         minigameObj.SetActive(false);
 
         bedDirtyModel.SetActive(false);
-        bedDirty = false;
+        //bedDirty = false;
         itemId = 0;
         timeCheck = 0;
         arrowAdd = 5;
@@ -135,23 +143,23 @@ public class BedScript : MonoBehaviour
     }
     private void Update()
     {
-        if (bedDirty)
-        {
-            timeCheck += Time.deltaTime;
-            bedDirtyModel.SetActive(true);
-            if (timeCheck >= potionData.timeBedDirty)
-            {
-                timeCheck = 0;
-                bedDirty = false;
-                bedDirtyModel.SetActive(false);
-            }
-        }
+        //if (bedDirty)
+        //{
+        //    timeCheck += Time.deltaTime;
+        //    bedDirtyModel.SetActive(true);
+        //    if (timeCheck >= potionData.timeBedDirty)
+        //    {
+        //        timeCheck = 0;
+        //        bedDirty = false;
+        //        bedDirtyModel.SetActive(false);
+        //    }
+        //}
         if (NPCData != null)
         {
             NPCData.willTreat = (minigame.buttonPressed != 0) ? true : false;
             if (NPCData.dead)
             {
-                bedDirty = true;
+                //bedDirty = true;
                 Destroy(NPCData.gameObject, 0);
                 RemovePiatent();
             }
@@ -209,7 +217,8 @@ public class BedScript : MonoBehaviour
                 NPCData = null;
                 minigame.ClearRhythm();
                 haveSit = false;
-                bedDirty = true;
+                Destroy(handPoint.GetChild(0).gameObject, 0);
+                //bedDirty = true;
             }
             else
             {
@@ -225,6 +234,7 @@ public class BedScript : MonoBehaviour
         if (arrowAdd != 5)
         {
             minigame.arrowAdd = arrowAdd;
+            NPCData.animatorBunda.SetInteger("treat", arrowAdd);
             arrowAdd = 5;
         }
     }

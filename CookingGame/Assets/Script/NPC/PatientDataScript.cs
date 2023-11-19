@@ -14,10 +14,10 @@ public class PatientDataScript : MonoBehaviour
 
     public int sicknessID;
     public int sicknessLevel;
-
     public int[] declineH;
     public float[] tiemDeclineH;
     public GameObject[] allModelSickness;
+
     [SerializeField] private Transform modelSicknessPoint;
     private GameObject modelSickness;
     private int sicknessLevelMo;
@@ -36,6 +36,7 @@ public class PatientDataScript : MonoBehaviour
     private float opacityValue;
     private float timeFaded;
     public bool dead;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "FireDragon")
@@ -54,7 +55,7 @@ public class PatientDataScript : MonoBehaviour
 
         }
     }
-    private void DieMethod()
+    private void DestroyMethod()
     {
         NewSpawnNPCScript.numOfNPC--;
         ScoreManeger.score -= 10;
@@ -67,7 +68,21 @@ public class PatientDataScript : MonoBehaviour
 
         Destroy(gameObject, 2);
         UIManagerScript.dead++;
-    }
+    }//ทำลายร่าง
+    private void DieMethod()
+    {
+        NewSpawnNPCScript.numOfNPC--;
+        ScoreManeger.score -= 10;
+
+        animatorBunda.SetBool("die", true);
+        animatorBunda.SetBool("good", false);
+        onHand = false;
+        onBed = false;
+        Destroy(canva);
+        sicknessID = 1;
+
+        UIManagerScript.dead++;
+    }//เป็นศพ
     private void Start()
     {
         heat = 100;
@@ -80,6 +95,7 @@ public class PatientDataScript : MonoBehaviour
 
         willTreat = false;
         dead = false;
+        animatorBunda.SetInteger("treat", 5);
     }
     private void Update()
     {
