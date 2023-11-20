@@ -58,20 +58,12 @@ public class BedScript : MonoBehaviour
         NPCData = other.GetComponent<PatientDataScript>();
 
         //TreatImmediately(treatTheSick);
-        if (!NPCData.dead)
-        {
-            NPCData.handPoint = handPoint;
-            NPCData.onHand = true;
-            NPCData.onBed = true;
-            haveSit = true;
+        NPCData.handPoint = handPoint;
+        NPCData.onHand = true;
+        NPCData.onBed = true;
+        haveSit = true;
 
-            minigame.difficulty = NPCData.sicknessLevel;
-        }
-        else
-        {
-            NPCData = null;
-        }
-
+        minigame.difficulty = NPCData.sicknessLevel;
     }
     private void TreatImmediately(int i)
     {
@@ -157,16 +149,24 @@ public class BedScript : MonoBehaviour
         if (NPCData != null)
         {
             NPCData.willTreat = (minigame.buttonPressed != 0) ? true : false;
-            if (NPCData.dead)
-            {
-                //bedDirty = true;
-                Destroy(NPCData.gameObject, 0);
-                RemovePiatent();
-            }
+            //if (NPCData.dead)
+            //{
+            //    //bedDirty = true;
+            //    //Destroy(NPCData.gameObject, 0);
+            //    RemovePiatent();
+            //}
             if (treatTheSick > 0 && treatTheSick != NPCData.sicknessID)
             {
                 RemovePiatent();
-            }
+            }//เตียงไม่ตรงโรค
+            else if (itemId == 99)
+            {
+                Goodbye();
+
+                itemId = 0;
+                Destroy(handPoint.GetChild(0).gameObject, 0);
+                UIManagerScript.treated++;
+            }//ยาวิเศษ
         }
         if (NPCData == null)
         {
@@ -201,22 +201,27 @@ public class BedScript : MonoBehaviour
                     NPCData.onHand = false;
                     RemovePiatent();
                 }
-            }
+            }//รักษาโรคปกติ
             else
             {
                 Goodbye();
+                
+                itemId = 0;
                 Destroy(handPoint.GetChild(0).gameObject, 0);
                 UIManagerScript.treated++;
-            }
-        }
+            }//รักษาหาย
+        }//เรื่องรักษา
         if (minigame.deHeat != 0 && NPCData != null)
         {
             if (NPCData.heat <= minigame.deHeat * -1)
             {
                 NPCData.deHeat = minigame.deHeat;
-                NPCData = null;
+                CloseMinigame();
                 minigame.ClearRhythm();
-                haveSit = false;
+                //NPCData = null;
+                //haveSit = false;
+
+                itemId = 0;
                 Destroy(handPoint.GetChild(0).gameObject, 0);
                 //bedDirty = true;
             }
@@ -225,7 +230,7 @@ public class BedScript : MonoBehaviour
                 NPCData.deHeat = minigame.deHeat;
             }
             minigame.deHeat = 0;
-        }
+        }//ได้รับความเสียหาย
         if (NPCData != null && minigame.difficulty != NPCData.sicknessLevel)
         {
             NPCData.sicknessLevel = minigame.difficulty;
@@ -234,7 +239,10 @@ public class BedScript : MonoBehaviour
         if (arrowAdd != 5)
         {
             minigame.arrowAdd = arrowAdd;
-            NPCData.animatorBunda.SetInteger("treat", arrowAdd);
+            if (NPCData != null)
+            {
+                NPCData.animatorBunda.SetInteger("treat", arrowAdd);
+            }
             arrowAdd = 5;
         }
     }

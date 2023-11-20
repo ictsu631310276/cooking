@@ -6,6 +6,8 @@ public class ItemBoxScript : MonoBehaviour
 {
     public int id;
     public int itemID;
+    public int numOfRequiredMax;
+    [HideInInspector] public int numOfRequired;
     public GameObject modelItem;
     [SerializeField] private GameObject glowObj;
 
@@ -26,9 +28,6 @@ public class ItemBoxScript : MonoBehaviour
     private void Start()
     {
         glowObj.SetActive(false);
-    }
-    private void Update()
-    {
-        
+        numOfRequired = numOfRequiredMax;
     }
 }

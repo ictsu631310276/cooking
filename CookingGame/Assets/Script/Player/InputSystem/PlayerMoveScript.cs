@@ -46,7 +46,7 @@ public class PlayerMoveScript : MonoBehaviour
     {
         if (obj.started)
         {
-            if (toolPlayer.bed.Count > 0 && timeDelayInput >= dataPotion.timeDelayInput - 0.1f)
+            if (toolPlayer.bed.Count > 0 && timeDelayInput >= dataPotion.timeDelayInput - 0.1f && !toolPlayer.bed[0].NPCData)
             {
                 Vector2 sw = obj.ReadValue<Vector2>();
                 switch (sw.x, sw.y)

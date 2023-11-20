@@ -50,6 +50,10 @@ public class ToolPlayerScript : MonoBehaviour
         else if (other.gameObject.tag == "ItemBox")
         {
             itemBox.Remove(other.gameObject.GetComponent<ItemBoxScript>());
+            if (itemBox.Count > 0 && itemBox[0]== null)
+            {
+                itemBox.RemoveAt(0);
+            }
         }
         else if (other.gameObject.tag == "Patient")
         {
@@ -68,7 +72,7 @@ public class ToolPlayerScript : MonoBehaviour
     }
     public void MovePatient(InputAction.CallbackContext obj)
     {
-        if (patientID.Count > 0 && itemID == 0 && obj.started)
+        if (patientID.Count > 0 && itemID == 0 && itemBox.Count == 0 && obj.started)
         {
             if (patientID[0] == null)
             {
@@ -85,7 +89,6 @@ public class ToolPlayerScript : MonoBehaviour
                 patientID[0].onHand = false;
                 patientID[0].handPoint = null;
                 havePatient = false;
-
             }//วางพื้น
             else if (patientID[0].onHand && bed.Count > 0 && !bed[0].haveSit && havePatient)
             {
@@ -129,21 +132,43 @@ public class ToolPlayerScript : MonoBehaviour
                 modelItem.transform.parent = handPoint;
             }
         }
-        else if(obj.started)
+        else if (itemBox.Count > 0 && obj.started)
         {
-            PickUpItem(obj);
+            if (itemBox[0].itemID == 99)
+            {
+                if (havePatient && patientID[0].dead)
+                {
+                    itemBox[0].numOfRequired--;
+
+                    Destroy(patientID[0].gameObject);
+                    havePatient = false;
+                }
+                else
+                {
+                    PickUpItem(obj);
+                }
+            }
+            else
+            {
+                PickUpItem(obj);
+            }
         }
     }
-    public void PickUpItem(InputAction.CallbackContext obj)
+    private void PickUpItem(InputAction.CallbackContext obj)
     {
         if (itemBox.Count > 0 && itemID == 0 && !havePatient && obj.started)
         {
-            itemID = itemBox[0].itemID;
-            modelItem = Instantiate(itemBox[0].modelItem, handPoint, false);
+            if (itemBox[0].numOfRequired <= 0)
+            {
+                itemID = itemBox[0].itemID;
+                itemBox[0].numOfRequired = itemBox[0].numOfRequiredMax;
+                modelItem = Instantiate(itemBox[0].modelItem, handPoint, false);
+            }
         }
         else if (itemBox.Count > 0 && obj.started && itemID == itemBox[0].itemID)
         {
             itemID = 0;
+            itemBox[0].numOfRequired = 0;
             Destroy(modelItem, 0);
         }
     }

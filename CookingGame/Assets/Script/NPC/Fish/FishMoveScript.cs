@@ -18,18 +18,18 @@ public class FishMoveScript : MonoBehaviour
     {
         if (startGo)
         {
-            transform.Translate(point_2.position * Time.deltaTime * moveSpeed , Space.World);
+            transform.position = Vector3.MoveTowards(transform.position, point_2.position, moveSpeed);
         }
         else
         {
-            transform.Translate(point_1.position * Time.deltaTime * moveSpeed, Space.World);
+            transform.position = Vector3.MoveTowards(transform.position, point_1.position, moveSpeed);
         }
 
-        if (transform.position.z <= point_2.position.z)
+        if (transform.position == point_2.position)
         {
             startGo = false;
         }
-        else if (transform.position.z >= point_1.position.z)
+        else if (transform.position == point_1.position)
         {
             startGo = true;
         }

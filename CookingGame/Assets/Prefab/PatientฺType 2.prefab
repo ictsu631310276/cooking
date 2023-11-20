@@ -382,9 +382,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8565228832996343427}
-  - component: {fileID: 8565228832996343426}
   - component: {fileID: 5347172320285451792}
   - component: {fileID: 8413418773362838883}
+  - component: {fileID: 7263166585473893990}
   m_Layer: 0
   m_Name: "Patient\u0E3AType 2"
   m_TagString: Patient
@@ -410,19 +410,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &8565228832996343426
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8565228832996343428}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2, y: 0.75, z: 1}
-  m_Center: {x: -0, y: 0, z: 0}
 --- !u!114 &5347172320285451792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -472,6 +459,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!136 &7263166585473893990
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8565228832996343428}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2.5
+  m_Direction: 0
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &6193297869675730748
 PrefabInstance:
   m_ObjectHideFlags: 0

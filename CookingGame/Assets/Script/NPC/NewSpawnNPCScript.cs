@@ -9,7 +9,7 @@ public class NewSpawnNPCScript : MonoBehaviour
     public PatientDataScript[] npcData;
 
     public checkNPC[] spawnPoint;
-    [HideInInspector] public List<int> canSp;
+    [HideInInspector] public List<int> canSpawn;
 
     [SerializeField] private float timeInOneRound;
     private float timeCount;
@@ -22,15 +22,15 @@ public class NewSpawnNPCScript : MonoBehaviour
         {
             if (spawnPoint[i].canSpawn == true)
             {
-                canSp.Add(i);
+                canSpawn.Add(i);
             }
         }
         int typeBun = Random.Range(0, npcData.Length);
         int typeSickness = Random.Range(1, potionData.sicknessData.Length);
 
-        if (canSp.Count != 0)
+        if (canSpawn.Count != 0)
         {
-            int numSpawn = canSp[Random.Range(0, canSp.Count)];
+            int numSpawn = canSpawn[Random.Range(0, canSpawn.Count)];
 
             PatientDataScript npcSpawn = Instantiate(npcData[typeBun], spawnPoint[numSpawn].transform, false);
             npcSpawn.id = iDNPC;
@@ -47,7 +47,7 @@ public class NewSpawnNPCScript : MonoBehaviour
             npcSpawn.transform.parent = null;
             numOfNPC++;
         }
-        canSp.Clear();
+        canSpawn.Clear();
     }
     private void Start()
     {

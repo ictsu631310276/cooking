@@ -46,7 +46,7 @@ public class ThrowScript : MonoBehaviour
     {
         if (toolPlayer.patientID.Count != 0)
         {
-            if (!toolPlayer.patientID[0].onBed)
+            if (!toolPlayer.patientID[0].onBed && toolPlayer.patientID[0] != null)
             {
                 patient = toolPlayer.patientID[0].gameObject;
             }

@@ -76,9 +76,10 @@ public class PatientDataScript : MonoBehaviour
 
         animatorBunda.SetBool("die", true);
         animatorBunda.SetBool("good", false);
-        onHand = false;
-        onBed = false;
+        //onHand = false;
+        //onBed = false;
         Destroy(canva);
+        sicknessLevel = 0;
         sicknessID = 1;
 
         UIManagerScript.dead++;
@@ -138,7 +139,7 @@ public class PatientDataScript : MonoBehaviour
         {
             modelBunda.GetComponent<Renderer>().material = materialBunda[0];
             cooldown = cooldown - Time.deltaTime;
-            if (cooldown <= 0)
+            if (cooldown <= 0 && sicknessLevel >= 1)
             {
                 cooldown = tiemDeclineH[sicknessLevel - 1];
                 heat -= declineH[sicknessLevel - 1];
@@ -148,15 +149,18 @@ public class PatientDataScript : MonoBehaviour
             {
                 transform.position = handPoint.transform.position;
                 transform.rotation = handPoint.transform.rotation;
-                canva.transform.rotation = new(handPoint.transform.rotation.x, 0f
+                if (canva != null)
+                {
+                    canva.transform.rotation = new(handPoint.transform.rotation.x, 0f
                     , handPoint.transform.rotation.z, handPoint.transform.rotation.w);
+                }
             }
         }//อยู่บนมือ หรือเตียง
         else if (!onHand)
         {
             transform.rotation = new(0, 0, 0, 0);
             cooldown = cooldown - Time.deltaTime * 2;
-            if (cooldown <= 0)
+            if (cooldown <= 0 && sicknessLevel >= 1)
             {
                 cooldown = tiemDeclineH[sicknessLevel - 1];
                 heat -= declineH[sicknessLevel - 1];
@@ -188,13 +192,13 @@ public class PatientDataScript : MonoBehaviour
             }//ไม่ได้ถือ ไม่ได้อยู่บนเตียง
             else if (onHand && !onBed)
             {
-                handPoint = null;
+                //handPoint = null;
 
                 DieMethod();
             }//บนมือ
             else if (onHand && onBed)
             {
-                handPoint = null;
+                //handPoint = null;
 
                 DieMethod();
             }//บนเตียง
