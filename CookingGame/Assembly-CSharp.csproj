@@ -56,13 +56,17 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Script\Trolley\TrolleyMoveScript.cs" />
     <Compile Include="Assets\Script\UI\TimeUI.cs" />
+    <Compile Include="Assets\Script\Trolley\TrolleySpawnScript.cs" />
     <Compile Include="Assets\Script\UI\UIManagerScript.cs" />
+    <Compile Include="Assets\Script\table\BoxItem\UIItemBoxScript.cs" />
     <Compile Include="Assets\Script\Player\InputSystem\ToolPlayerScript.cs" />
     <Compile Include="Assets\Script\NPC\Fish\FishScript.cs" />
-    <Compile Include="Assets\Script\table\ItemBoxScript.cs" />
+    <Compile Include="Assets\Script\table\MedicineBoxScript.cs" />
     <Compile Include="Assets\Script\UI\ScoreManeger.cs" />
     <Compile Include="Assets\Script\NPC\DragonScript.cs" />
+    <Compile Include="Assets\Script\table\BoxItem\ItemBoxScript.cs" />
     <Compile Include="Assets\Script\Player\InputSystem\ThrowScript.cs" />
     <Compile Include="Assets\Script\Player\InputSystem\key\PlayerInputActions.cs" />
     <Compile Include="Assets\Script\Data\Script\PotionDataScript.cs" />
@@ -80,9 +84,6 @@
     <Compile Include="Assets\Script\Player\SpawnPlayer.cs" />
     <Compile Include="Assets\Script\NPC\NewSpawnNPCScript.cs" />
     <Compile Include="Assets\Script\Player\InputSystem\joy\PlayerInputActions_2.cs" />
-    <Compile Include="Assets\Script\table\MedicineBoxScript.cs" />
-    <Compile Include="Assets\Script\Trolley\TrolleyMoveScript.cs" />
-    <Compile Include="Assets\Script\Trolley\TrolleySpawnScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.dll" />

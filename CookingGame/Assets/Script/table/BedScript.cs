@@ -215,6 +215,7 @@ public class BedScript : MonoBehaviour
         {
             if (NPCData.heat <= minigame.deHeat * -1)
             {
+                NPCData.sicknessLevel = 1;
                 NPCData.deHeat = minigame.deHeat;
                 CloseMinigame();
                 minigame.ClearRhythm();

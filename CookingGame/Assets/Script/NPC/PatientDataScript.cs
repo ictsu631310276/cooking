@@ -185,6 +185,7 @@ public class PatientDataScript : MonoBehaviour
         }//เพิ่ม หรือ ลด
         if (heat <= 0 && !dead)
         {
+            sicknessLevel = 1;
             dead = true;
             if (!onHand)
             {

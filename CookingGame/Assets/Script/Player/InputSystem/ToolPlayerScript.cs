@@ -121,7 +121,7 @@ public class ToolPlayerScript : MonoBehaviour
                 itemID = 0;
                 modelItem.transform.parent = bed[0].handPoint;
             }
-        }
+        }//วาง item ใส่เตียง
         else if (bed.Count > 0 && itemID == 0 && obj.started)
         {
             if (bed[0].itemId != 0)
@@ -131,44 +131,44 @@ public class ToolPlayerScript : MonoBehaviour
                 modelItem = bed[0].handPoint.transform.GetChild(0).gameObject;
                 modelItem.transform.parent = handPoint;
             }
-        }
+        }//หยิบ item ออกจากเตียง
         else if (itemBox.Count > 0 && obj.started)
         {
             if (itemBox[0].itemID == 99)
             {
                 if (havePatient && patientID[0].dead)
                 {
-                    itemBox[0].numOfRequired--;
+                    itemBox[0].numOfRequired++;
 
                     Destroy(patientID[0].gameObject);
                     havePatient = false;
-                }
+                }//ใส่ศพ
                 else
                 {
                     PickUpItem(obj);
-                }
-            }
+                }//หยิบ
+            }//กล่องยาวิเศษ
             else
             {
                 PickUpItem(obj);
-            }
+            }//หยิบ
         }
     }
     private void PickUpItem(InputAction.CallbackContext obj)
     {
         if (itemBox.Count > 0 && itemID == 0 && !havePatient && obj.started)
         {
-            if (itemBox[0].numOfRequired <= 0)
+            if (itemBox[0].numOfItem > 0)
             {
                 itemID = itemBox[0].itemID;
-                itemBox[0].numOfRequired = itemBox[0].numOfRequiredMax;
+                itemBox[0].numOfItem--;
                 modelItem = Instantiate(itemBox[0].modelItem, handPoint, false);
             }
         }
         else if (itemBox.Count > 0 && obj.started && itemID == itemBox[0].itemID)
         {
             itemID = 0;
-            itemBox[0].numOfRequired = 0;
+            itemBox[0].numOfItem++;
             Destroy(modelItem, 0);
         }
     }

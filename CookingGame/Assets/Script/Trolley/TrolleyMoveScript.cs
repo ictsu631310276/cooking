@@ -11,40 +11,55 @@ public class TrolleyMoveScript : MonoBehaviour
     private float timeCount;
     public Transform position1;
     public Transform position2;
+    [SerializeField] private float timeToSpare;
     private bool po1;
-    private bool willSpawn;
-
-    public float timeSpawnSet;
-    private float timeSpawn;
-    private void SetTrolley()
+    private bool spawning;
+    private int randomNumToSpawn;
+    private void MoveTrolley()
     {
-        willSpawn = true;
+        transform.position = Vector3.MoveTowards(transform.position, position2.position, moveSpeed);
+    }
+    private void ResetTrolley()
+    {
         timeCount = timeInOneRound;
         po1 = true;
         transform.position = position1.position;
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "SpawnPoint")
+        {
+            spawning = true;
+            StartCoroutine(SpawnDelay(timeToSpare));
+            randomNumToSpawn = Random.Range(spawnScript.minNumOfNPC, spawnScript.maxNumOfNPC);
+        }
+    }
+    IEnumerator SpawnDelay(float T)
+    {
+        randomNumToSpawn = Random.Range(spawnScript.minNumOfNPC, spawnScript.maxNumOfNPC);
+        for (int i = 0; i < randomNumToSpawn; i++)
+        {
+            yield return new WaitForSeconds(T);
+            spawnScript.SpawnPatient();
+        }
+        spawning = false;
+    }
     private void Start()
     {
         spawnScript = GetComponent<TrolleySpawnScript>();
-        SetTrolley();
+        randomNumToSpawn = Random.Range(spawnScript.minNumOfNPC, spawnScript.maxNumOfNPC);
+        ResetTrolley();
         timeCount = timeInOneRound;
-        timeSpawn = timeSpawnSet;
+        spawning = false;
     }
     // Update is called once per frame
     private void Update()
     {
         if (po1)
         {
-            if (this.gameObject.transform.position.x >= -2 && this.gameObject.transform.position.x <= 2)
+            if (!spawning)
             {
-                //transform.position = Vector3.MoveTowards(transform.position, position2.position, moveSpeed);
-                //spawnScript.SpawnPatient();
-                timeSpawn = timeSpawn - Time.deltaTime;
-            }
-            else
-            {
-                transform.position = Vector3.MoveTowards(transform.position, position2.position, moveSpeed);
-                timeSpawn = timeSpawnSet;
+                MoveTrolley();
             }
         }
         else if (!po1)
@@ -52,20 +67,7 @@ public class TrolleyMoveScript : MonoBehaviour
             timeCount = timeCount - Time.deltaTime;
             if (timeCount <= 0)
             {
-                SetTrolley();
-            }
-        }
-
-        if (timeSpawn < timeSpawnSet)
-        {
-            if (willSpawn)
-            {
-                spawnScript.SpawnPatient();
-                willSpawn = false;
-            }
-            if (timeSpawn <= 0)
-            {
-                transform.position = Vector3.MoveTowards(transform.position, position2.position, moveSpeed);
+                ResetTrolley();
             }
         }
     }

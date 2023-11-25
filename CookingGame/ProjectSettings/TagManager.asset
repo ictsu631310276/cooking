@@ -5,11 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Table
-  - Customer
-  - OutDoor
   - Patient
   - FireDragon
   - ItemBox
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX
