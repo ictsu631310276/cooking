@@ -118,7 +118,7 @@ public class PatientDataScript : MonoBehaviour
             Destroy(gameObject, 1f);
         }//รักษาหาย
 
-        if (sicknessLevel > 0 && !haveModel)
+        if (sicknessLevel > 0 && !haveModel && !dead)
         {
             modelSickness = Instantiate(allModelSickness[sicknessLevel - 1], modelSicknessPoint, false);
             sicknessLevelMo = sicknessLevel;

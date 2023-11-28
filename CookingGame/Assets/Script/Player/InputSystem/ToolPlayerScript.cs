@@ -72,87 +72,102 @@ public class ToolPlayerScript : MonoBehaviour
     }
     public void MovePatient(InputAction.CallbackContext obj)
     {
-        if (patientID.Count > 0 && itemID == 0 && itemBox.Count == 0 && obj.started)
+        if (obj.started)
         {
-            if (patientID[0] == null)
+            if (patientID.Count > 0 && itemID == 0 && itemBox.Count == 0)
             {
-                patientID.RemoveAt(0);
-            }
-            else if (!havePatient && !patientID[0].onHand)
-            {
-                patientID[0].handPoint = handPoint;
-                patientID[0].onHand = true;
-                havePatient = true;
-            }//หยิบ
-            else if (patientID[0].onHand && bed.Count == 0 && havePatient)
-            {
-                patientID[0].onHand = false;
-                patientID[0].handPoint = null;
-                havePatient = false;
-            }//วางพื้น
-            else if (patientID[0].onHand && bed.Count > 0 && !bed[0].haveSit && havePatient)
-            {
-                if (patientID[0].sicknessID == bed[0].treatTheSick || bed[0].treatTheSick < 0)
+                if (patientID[0] == null)
                 {
-                    patientID[0].handPoint = bed[0].handPoint;
-                    havePatient = false;
-                    bed[0].haveSit = true;
-                    patientID[0].onBed = true;
+                    patientID.RemoveAt(0);
                 }
-            }//วางบนเตียง
-            else if (patientID[0].onHand && bed.Count > 0 && bed[0].haveSit && !havePatient && !patientID[0].willTreat)
-            {
-                patientID[0].handPoint = handPoint;
-                havePatient = true;
-                bed[0].haveSit = false;
-                patientID[0].onBed = false;
-
-            }//ยกออกจากเตียง
-            else
-            {
-                patientID[0].modelBunda.GetComponent<Renderer>().material = patientID[0].materialBunda[0];
-            }
-        }
-        else if (bed.Count > 0 && itemID != 0 && obj.started)
-        {
-            if (bed[0].itemId == 0)
-            {
-                bed[0].itemId = itemID;
-                itemID = 0;
-                modelItem.transform.parent = bed[0].handPoint;
-            }
-        }//วาง item ใส่เตียง
-        else if (bed.Count > 0 && itemID == 0 && obj.started)
-        {
-            if (bed[0].itemId != 0)
-            {
-                itemID = bed[0].itemId;
-                bed[0].itemId = 0;
-                modelItem = bed[0].handPoint.transform.GetChild(0).gameObject;
-                modelItem.transform.parent = handPoint;
-            }
-        }//หยิบ item ออกจากเตียง
-        else if (itemBox.Count > 0 && obj.started)
-        {
-            if (itemBox[0].itemID == 99)
-            {
-                if (havePatient && patientID[0].dead)
+                else if (!havePatient && !patientID[0].onHand)
                 {
-                    itemBox[0].numOfRequired++;
-
-                    Destroy(patientID[0].gameObject);
+                    patientID[0].handPoint = handPoint;
+                    patientID[0].onHand = true;
+                    havePatient = true;
+                }//หยิบ
+                else if (patientID[0].onHand && bed.Count == 0 && havePatient)
+                {
+                    patientID[0].onHand = false;
+                    patientID[0].handPoint = null;
                     havePatient = false;
-                }//ใส่ศพ
+                }//วางพื้น
+                else if (patientID[0].onHand && bed.Count > 0 && !bed[0].haveSit && havePatient)
+                {
+                    if (patientID[0].sicknessID == bed[0].treatTheSick || bed[0].treatTheSick < 0)
+                    {
+                        patientID[0].handPoint = bed[0].handPoint;
+                        havePatient = false;
+                        bed[0].haveSit = true;
+                        patientID[0].onBed = true;
+                    }
+                }//วางบนเตียง
+                else if (patientID[0].onHand && bed.Count > 0 && bed[0].haveSit && !havePatient && !patientID[0].willTreat)
+                {
+                    patientID[0].handPoint = handPoint;
+                    havePatient = true;
+                    bed[0].haveSit = false;
+                    patientID[0].onBed = false;
+
+                }//ยกออกจากเตียง
+                else
+                {
+                    patientID[0].modelBunda.GetComponent<Renderer>().material = patientID[0].materialBunda[0];
+                }
+            }
+            else if (bed.Count > 0 && itemID != 0)
+            {
+                if (bed[0].itemId == 0)
+                {
+                    bed[0].itemId = itemID;
+                    itemID = 0;
+                    modelItem.transform.parent = bed[0].handPoint;
+                }
+            }//วาง item ใส่เตียง
+            else if (bed.Count > 0 && itemID == 0)
+            {
+                if (bed[0].itemId != 0)
+                {
+                    itemID = bed[0].itemId;
+                    bed[0].itemId = 0;
+                    modelItem = bed[0].handPoint.transform.GetChild(0).gameObject;
+                    modelItem.transform.parent = handPoint;
+                }
+            }//หยิบ item ออกจากเตียง
+            else if (itemBox.Count > 0)
+            {
+                if (itemBox[0].itemID == 99)
+                {
+                    if (havePatient && patientID[0].dead)
+                    {
+                        itemBox[0].numOfRequired++;
+
+                        Destroy(patientID[0].gameObject);
+                        havePatient = false;
+                    }//ใส่ศพ
+                    else
+                    {
+                        PickUpItem(obj);
+                    }//หยิบ
+                }//กล่องยาวิเศษ
                 else
                 {
                     PickUpItem(obj);
-                }//หยิบ
-            }//กล่องยาวิเศษ
-            else
+                }//หยิบปกติ
+            }
+            else if (itemID == 99 && patientID.Count > 0)
             {
-                PickUpItem(obj);
-            }//หยิบ
+                if (!patientID[0].dead)
+                {
+                    itemID = 0;
+                    Destroy(modelItem);
+                    patientID[0].sicknessLevel = 1;
+                    patientID[0].sicknessID = -1;
+                    patientID.RemoveAt(0);
+                }
+            }
         }
+
     }
     private void PickUpItem(InputAction.CallbackContext obj)
     {
@@ -163,6 +178,7 @@ public class ToolPlayerScript : MonoBehaviour
                 itemID = itemBox[0].itemID;
                 itemBox[0].numOfItem--;
                 modelItem = Instantiate(itemBox[0].modelItem, handPoint, false);
+                modelItem.transform.position = handPoint.transform.position;
             }
         }
         else if (itemBox.Count > 0 && obj.started && itemID == itemBox[0].itemID)

@@ -6391,6 +6391,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 416960645, guid: 76f61ca03f941264db12b566e40041a4, type: 3}
+      propertyPath: numOfItem
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 531482953351117104, guid: 76f61ca03f941264db12b566e40041a4, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -6589,6 +6593,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2056681367, guid: 3414f1f4766e7b24682f6110c6603754, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5772022887885921672, guid: 3414f1f4766e7b24682f6110c6603754, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8482266052376219649, guid: 3414f1f4766e7b24682f6110c6603754, type: 3}
       propertyPath: m_Name
       value: AllTrolley
@@ -6640,6 +6652,18 @@ PrefabInstance:
     - target: {fileID: 8482266052376219650, guid: 3414f1f4766e7b24682f6110c6603754, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8482266052793276934, guid: 3414f1f4766e7b24682f6110c6603754, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8482266053327639142, guid: 3414f1f4766e7b24682f6110c6603754, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8482266053644039924, guid: 3414f1f4766e7b24682f6110c6603754, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3414f1f4766e7b24682f6110c6603754, type: 3}
