@@ -1,27 +1,15 @@
 fileFormatVersion: 2
-guid: 67a5c46c93bb21545aff7af0f262c4aa
+guid: df38e6093cd71b84bbef0aa8c58822f7
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
   - first:
-      74: 5414490534771693905
-    second: Swim
-  externalObjects:
+      74: 1358262452650834379
+    second: Move
   - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Body_M
-    second: {fileID: 2100000, guid: 37d08a695a764d547822556b5c480347, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Eyes_M
-    second: {fileID: 2100000, guid: afae9709dfa2d3e4ea116f1ecb1fe165, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Tooth_M
-    second: {fileID: 2100000, guid: de9ccf77a246e31468b85f64fc0076a6, type: 2}
+      74: -2797134668357508131
+    second: Idel
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -51,11 +39,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Swim
-      takeName: Swim
+      name: Move
+      takeName: Move
       internalID: 0
       firstFrame: 1
-      lastFrame: 50
+      lastFrame: 61
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -79,10 +67,39 @@ ModelImporter:
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: Idel
+      takeName: Idel
+      internalID: 0
+      firstFrame: 62
+      lastFrame: 92
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 62
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 25
+    globalScale: 10
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -135,7 +152,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.25
+    globalScale: 10
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

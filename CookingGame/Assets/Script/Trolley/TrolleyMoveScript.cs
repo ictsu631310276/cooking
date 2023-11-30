@@ -15,6 +15,7 @@ public class TrolleyMoveScript : MonoBehaviour
     private bool po1;
     private bool spawning;
     private int randomNumToSpawn;
+    private Animator animatorTrolley;
     private void MoveTrolley()
     {
         transform.position = Vector3.MoveTowards(transform.position, position2.position, moveSpeed);
@@ -22,6 +23,8 @@ public class TrolleyMoveScript : MonoBehaviour
     private void ResetTrolley()
     {
         timeCount = timeInOneRound;
+        animatorTrolley.SetBool("run", true);
+        animatorTrolley.SetBool("reset", false);
         po1 = true;
         transform.position = position1.position;
     }
@@ -29,6 +32,7 @@ public class TrolleyMoveScript : MonoBehaviour
     {
         if (other.tag == "SpawnPoint")
         {
+            animatorTrolley.SetBool("run", false);
             spawning = true;
             StartCoroutine(SpawnDelay(timeToSpare));
             randomNumToSpawn = Random.Range(spawnScript.minNumOfNPC, spawnScript.maxNumOfNPC);
@@ -47,6 +51,7 @@ public class TrolleyMoveScript : MonoBehaviour
     private void Start()
     {
         spawnScript = GetComponent<TrolleySpawnScript>();
+        animatorTrolley = GetComponent<Animator>();
         randomNumToSpawn = Random.Range(spawnScript.minNumOfNPC, spawnScript.maxNumOfNPC);
         ResetTrolley();
         timeCount = timeInOneRound;
@@ -60,10 +65,12 @@ public class TrolleyMoveScript : MonoBehaviour
             if (!spawning)
             {
                 MoveTrolley();
+                animatorTrolley.SetBool("run", true);
             }
         }
         else if (!po1)
         {
+            animatorTrolley.SetBool("reset", true);
             timeCount = timeCount - Time.deltaTime;
             if (timeCount <= 0)
             {
