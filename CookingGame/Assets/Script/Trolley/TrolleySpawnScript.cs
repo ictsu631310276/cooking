@@ -12,7 +12,6 @@ public class TrolleySpawnScript : MonoBehaviour
     public static int numOfNPC;
     public int maxNumOfNPC;
     public int minNumOfNPC;
-
     public void SpawnPatient()
     {
         int typeBun = Random.Range(0, npcData.Length);

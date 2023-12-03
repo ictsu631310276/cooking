@@ -16,6 +16,10 @@ public class TrolleyMoveScript : MonoBehaviour
     private bool spawning;
     private int randomNumToSpawn;
     private Animator animatorTrolley;
+
+    public Animator bantaAnimation;
+    private bool yeet;
+
     private void MoveTrolley()
     {
         transform.position = Vector3.MoveTowards(transform.position, position2.position, moveSpeed);
@@ -43,13 +47,23 @@ public class TrolleyMoveScript : MonoBehaviour
         randomNumToSpawn = Random.Range(spawnScript.minNumOfNPC, spawnScript.maxNumOfNPC);
         for (int i = 0; i < randomNumToSpawn; i++)
         {
-            yield return new WaitForSeconds(T);
+            if (!yeet)
+            {
+                yeet = true;
+            }
+            else
+            {
+                yeet = false;
+            }
+            bantaAnimation.SetBool("Yeet", yeet);
+            yield return new WaitForSeconds(T + 0.05f);
             spawnScript.SpawnPatient();
         }
         spawning = false;
     }
     private void Start()
     {
+        yeet = false;
         spawnScript = GetComponent<TrolleySpawnScript>();
         animatorTrolley = GetComponent<Animator>();
         randomNumToSpawn = Random.Range(spawnScript.minNumOfNPC, spawnScript.maxNumOfNPC);
