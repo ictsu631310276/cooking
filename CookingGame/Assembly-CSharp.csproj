@@ -57,20 +57,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Script\Trolley\TrolleyMoveScript.cs" />
-    <Compile Include="Assets\Script\UI\TimeUI.cs" />
+    <Compile Include="Assets\Script\UI\InGame\TimeUI.cs" />
     <Compile Include="Assets\Script\Trolley\TrolleySpawnScript.cs" />
-    <Compile Include="Assets\Script\UI\UIManagerScript.cs" />
+    <Compile Include="Assets\Script\UI\InGame\UIManagerScript.cs" />
     <Compile Include="Assets\Script\table\BoxItem\UIItemBoxScript.cs" />
     <Compile Include="Assets\Script\Player\InputSystem\ToolPlayerScript.cs" />
     <Compile Include="Assets\Script\NPC\Fish\FishScript.cs" />
     <Compile Include="Assets\Script\table\MedicineBoxScript.cs" />
-    <Compile Include="Assets\Script\UI\ScoreManeger.cs" />
+    <Compile Include="Assets\Script\UI\InGame\ScoreManeger.cs" />
     <Compile Include="Assets\Script\NPC\DragonScript.cs" />
     <Compile Include="Assets\Script\table\BoxItem\ItemBoxScript.cs" />
     <Compile Include="Assets\Script\Player\InputSystem\ThrowScript.cs" />
     <Compile Include="Assets\Script\Player\InputSystem\key\PlayerInputActions.cs" />
     <Compile Include="Assets\Script\Data\Script\PotionDataScript.cs" />
-    <Compile Include="Assets\Script\UI\SoundScript.cs" />
+    <Compile Include="Assets\Script\UI\InGame\SoundScript.cs" />
     <Compile Include="Assets\Script\Player\InputSystem\PlayerMoveScript.cs" />
     <Compile Include="Assets\Script\NPC\Fish\FishMoveScript.cs" />
     <Compile Include="Assets\Script\NPC\checkNPC.cs" />
@@ -80,10 +80,11 @@
     <Compile Include="Assets\Script\Data\Script\CreateSicknessScript.cs" />
     <Compile Include="Assets\Script\table\Not2Rhythm.cs" />
     <Compile Include="Assets\Script\NPC\PatientDataScript.cs" />
-    <Compile Include="Assets\Script\UI\buttom.cs" />
+    <Compile Include="Assets\Script\UI\InGame\buttomInGame.cs" />
     <Compile Include="Assets\Script\Player\SpawnPlayer.cs" />
     <Compile Include="Assets\Script\NPC\NewSpawnNPCScript.cs" />
     <Compile Include="Assets\Script\Player\InputSystem\joy\PlayerInputActions_2.cs" />
+    <Compile Include="Assets\Script\UI\Menu\ButtomInMenu.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
