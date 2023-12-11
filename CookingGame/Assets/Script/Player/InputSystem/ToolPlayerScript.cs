@@ -222,7 +222,7 @@ public class ToolPlayerScript : MonoBehaviour
     {
         if (patientID.Count > 0)
         {
-            if (patientID[0] == null || patientID[0].onBed)
+            if (patientID[0] == null)
             {
                 patientID.RemoveAt(0);
             }

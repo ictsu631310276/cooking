@@ -52,7 +52,6 @@ public class PatientDataScript : MonoBehaviour
         {
             opacityValue = opacityValue - 0.25f;
             modelBunda.GetComponent<Renderer>().material.color = new Color(0, 0, 0, opacityValue);
-
         }
     }
     private void DestroyMethod()

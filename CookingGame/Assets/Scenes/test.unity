@@ -1813,14 +1813,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 373995919}
     m_Modifications:
-    - target: {fileID: 2719595166543139877, guid: 77eb839e27cc8164f93babd1c49ecc3d, type: 3}
-      propertyPath: potionData
-      value: 
-      objectReference: {fileID: -5154283208279506760, guid: 38435adab317cb24a8bbdcadfd3b55c5, type: 3}
-    - target: {fileID: 2719595166543139877, guid: 77eb839e27cc8164f93babd1c49ecc3d, type: 3}
-      propertyPath: treatTheSick
-      value: -1
-      objectReference: {fileID: 0}
     - target: {fileID: 2937681055205230696, guid: 77eb839e27cc8164f93babd1c49ecc3d, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -6277,14 +6269,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 373995919}
     m_Modifications:
-    - target: {fileID: 2719595166543139877, guid: eda7484a67f82fd4e939bd8288834974, type: 3}
-      propertyPath: potionData
-      value: 
-      objectReference: {fileID: -5154283208279506760, guid: 38435adab317cb24a8bbdcadfd3b55c5, type: 3}
-    - target: {fileID: 2719595166543139877, guid: eda7484a67f82fd4e939bd8288834974, type: 3}
-      propertyPath: treatTheSick
-      value: -1
-      objectReference: {fileID: 0}
     - target: {fileID: 2937681055205230696, guid: eda7484a67f82fd4e939bd8288834974, type: 3}
       propertyPath: m_RootOrder
       value: 0

@@ -56,26 +56,26 @@ public class BedScript : MonoBehaviour
         NPCData.onBed = true;
         haveSit = true;
 
-        minigame.notRhythm.difficulty = NPCData.sicknessLevel;
+        minigame.difficulty = NPCData.sicknessLevel;
         PlayMinigame();
     }
     private void Goodbye()
     {
         NPCData.sicknessID = -1;
         haveMinigame = false;
-        minigame.notRhythm.difficulty = -1;
+        minigame.difficulty = -1;
         haveSit = false;
         NPCData = null;
-        minigame.notRhythm.ClearRhythm();
+        minigame.ClearRhythm();
         CloseMinigame();
     }
     private void RemovePiatent()
     {
         haveMinigame = false;
-        minigame.notRhythm.difficulty = -1;
+        minigame.difficulty = -1;
         haveSit = false;
         NPCData = null;
-        minigame.notRhythm.ClearRhythm();
+        minigame.ClearRhythm();
     }
     public void PlayMinigame()
     {
@@ -86,7 +86,7 @@ public class BedScript : MonoBehaviour
             haveMinigame = true;
             for (int i = 0; i < potionData.sicknessData[potionData.FindNumOfSick(NPCData.sicknessID)].patternPress.Length; i++)
             {
-                minigame.notRhythm.intAllArrow.Add(potionData.sicknessData[potionData.FindNumOfSick(NPCData.sicknessID)].patternPress[i]);
+                minigame.intAllArrow.Add(potionData.sicknessData[potionData.FindNumOfSick(NPCData.sicknessID)].patternPress[i]);
             }
         }
     }
@@ -113,7 +113,7 @@ public class BedScript : MonoBehaviour
     {
         if (NPCData != null)
         {
-            NPCData.willTreat = (minigame.notRhythm.buttonPressed != 0) ? true : false;
+            NPCData.willTreat = (minigame.buttonPressed != 0) ? true : false;
             if (treatTheSick > 0 && treatTheSick != NPCData.sicknessID)
             {
                 RemovePiatent();
@@ -132,7 +132,7 @@ public class BedScript : MonoBehaviour
             CloseMinigame();
             RemovePiatent();
         }
-        if (minigame.notRhythm.difficulty == 0 && NPCData != null)
+        if (minigame.difficulty == 0 && NPCData != null)
         {
             //if (NPCData.sicknessID != 1 && NPCData.sicknessLevel != -1)
             //{
@@ -171,35 +171,36 @@ public class BedScript : MonoBehaviour
                 UIManagerScript.treated++;
             //}//รักษาหาย
         }//เรื่องรักษา
-        if (minigame.notRhythm.deHeat != 0 && NPCData != null)
+        if (minigame.deHeat != 0 && NPCData != null)
         {
-            if (NPCData.heat <= minigame.notRhythm.deHeat * -1)
+            if (NPCData.heat <= minigame.deHeat * -1)
             {
                 NPCData.sicknessLevel = 1;
-                NPCData.deHeat = minigame.notRhythm.deHeat;
+                NPCData.deHeat = minigame.deHeat;
                 CloseMinigame();
-                minigame.notRhythm.ClearRhythm();
-                //NPCData = null;
-                //haveSit = false;
-
-                itemId = 0;
-                Destroy(handPoint.GetChild(0).gameObject, 0);
-                //bedDirty = true;
+                minigame.ClearRhythm();
+                NPCData = null;
+                haveSit = false;
+                if (itemId != 0)
+                {
+                    itemId = 0;
+                    Destroy(handPoint.GetChild(0).gameObject, 0);
+                }
+                RemovePiatent();
             }
             else
             {
-                NPCData.deHeat = minigame.notRhythm.deHeat;
+                NPCData.deHeat = minigame.deHeat;
             }
-            minigame.notRhythm.deHeat = 0;
+            minigame.deHeat = 0;
         }//ได้รับความเสียหาย
-        if (NPCData != null && minigame.notRhythm.difficulty != NPCData.sicknessLevel)
+        if (NPCData != null && minigame.difficulty != NPCData.sicknessLevel)
         {
-            NPCData.sicknessLevel = minigame.notRhythm.difficulty;
+            NPCData.sicknessLevel = minigame.difficulty;
         }
-        
         if (arrowAdd != 5)
         {
-            minigame.notRhythm.arrowAdd = arrowAdd;
+            minigame.arrowAdd = arrowAdd;
             if (NPCData != null)
             {
                 NPCData.animatorBunda.SetInteger("treat", arrowAdd);
