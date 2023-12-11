@@ -49,7 +49,6 @@ GameObject:
   - component: {fileID: 7410210681691223292}
   - component: {fileID: 1951683274271845014}
   - component: {fileID: 2401531195843286628}
-  - component: {fileID: 747722299}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -141,20 +140,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &747722299
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2347741698770305052}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e3595f379c778b449d5216003b4be43, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 1957344109586348642}
-  slider: {fileID: 7234009134962585322}
 --- !u!1 &2363871183012608260
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,7 +250,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5414972023287130990
 Transform:
   m_ObjectHideFlags: 0
@@ -359,6 +344,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 1957344109586348642}
   slider: {fileID: 7234009134962585322}
+  numOfItem: 0
+  value: 0
+  maxValue: 0
 --- !u!114 &416960645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -373,7 +361,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2003
   itemID: 99
-  numOfItem: 0
+  numOfItem: 1
   numOfRequiredMax: 3
   numOfRequired: 0
   modelItem: {fileID: 4682749076649666726, guid: 333ad832feb972e4abe90d9cee1d99b8, type: 3}
@@ -415,7 +403,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 1, y: 1}

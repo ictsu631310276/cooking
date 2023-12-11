@@ -20,13 +20,6 @@ public class ToolPlayerScript : MonoBehaviour
         if (other.gameObject.tag == "Table")
         {
             bed.Add(other.gameObject.GetComponent<BedScript>());
-            //if (bed.Count != 0)
-            //{
-            //    if (!bed[0].bedDirty)
-            //    {
-            //        bed[0].glowObj.SetActive(true);
-            //    }
-            //}
         }
         else if (other.gameObject.tag == "ItemBox")
         {
@@ -57,17 +50,21 @@ public class ToolPlayerScript : MonoBehaviour
         }
         else if (other.gameObject.tag == "Patient")
         {
-            patientID[0].modelBunda.GetComponent<Renderer>().material = patientID[0].materialBunda[0];
-            patientID.Remove(other.gameObject.GetComponent<PatientDataScript>());
+            if (patientID.Count > 0)
+            {
+                patientID[0].modelBunda.GetComponent<Renderer>().material = patientID[0].materialBunda[0];
+                patientID.Remove(other.gameObject.GetComponent<PatientDataScript>());
+            }
         }
     }
     public void ChangeTarget()
     {
         if (patientID.Count >= 2)
         {
-            patientID[0].modelBunda.GetComponent<Renderer>().material = patientID[0].materialBunda[1];
+            patientID[0].modelBunda.GetComponent<Renderer>().material = patientID[0].materialBunda[0];
             patientID.Add(patientID[0]);
             patientID.RemoveAt(0);
+            patientID[0].modelBunda.GetComponent<Renderer>().material = patientID[0].materialBunda[1];
         }//สลับโต็ะที่เล็ง
     }
     public void MovePatient(InputAction.CallbackContext obj)
@@ -115,25 +112,25 @@ public class ToolPlayerScript : MonoBehaviour
                     patientID[0].modelBunda.GetComponent<Renderer>().material = patientID[0].materialBunda[0];
                 }
             }
-            else if (bed.Count > 0 && itemID != 0)
-            {
-                if (bed[0].itemId == 0)
-                {
-                    bed[0].itemId = itemID;
-                    itemID = 0;
-                    modelItem.transform.parent = bed[0].handPoint;
-                }
-            }//วาง item ใส่เตียง
-            else if (bed.Count > 0 && itemID == 0)
-            {
-                if (bed[0].itemId != 0)
-                {
-                    itemID = bed[0].itemId;
-                    bed[0].itemId = 0;
-                    modelItem = bed[0].handPoint.transform.GetChild(0).gameObject;
-                    modelItem.transform.parent = handPoint;
-                }
-            }//หยิบ item ออกจากเตียง
+            //else if (bed.Count > 0 && itemID != 0)
+            //{
+            //    if (bed[0].itemId == 0)
+            //    {
+            //        bed[0].itemId = itemID;
+            //        itemID = 0;
+            //        modelItem.transform.parent = bed[0].handPoint;
+            //    }
+            //}//วาง item ใส่เตียง
+            //else if (bed.Count > 0 && itemID == 0)
+            //{
+            //    if (bed[0].itemId != 0)
+            //    {
+            //        itemID = bed[0].itemId;
+            //        bed[0].itemId = 0;
+            //        modelItem = bed[0].handPoint.transform.GetChild(0).gameObject;
+            //        modelItem.transform.parent = handPoint;
+            //    }
+            //}//หยิบ item ออกจากเตียง
             else if (itemBox.Count > 0)
             {
                 if (itemBox[0].itemID == 99)
@@ -225,7 +222,7 @@ public class ToolPlayerScript : MonoBehaviour
     {
         if (patientID.Count > 0)
         {
-            if (patientID[0] == null)
+            if (patientID[0] == null || patientID[0].onBed)
             {
                 patientID.RemoveAt(0);
             }
@@ -260,22 +257,22 @@ public class ToolPlayerScript : MonoBehaviour
         {
             if (bed[0].NPCData != null && !havePatient && bed[0].haveSit)
             {
-                if ((bed[0].NPCData.sicknessID == 1 && bed[0].itemId == 1) ||
-                    (bed[0].NPCData.sicknessID == 2 && bed[0].itemId == 2))
-                {
+                //if (bed[0].treatTheSick < -1)
+                //{
                     bed[0].glowObj.SetActive(true);
                     bed[0].PlayMinigame();
-                }
-                else if (bed[0].NPCData.sicknessID != 1 && bed[0].NPCData.sicknessID != 2)
-                {
-                    bed[0].glowObj.SetActive(true);
-                    bed[0].PlayMinigame();
-                }
-                else if (bed[0].treatTheSick < -1)
-                {
-                    bed[0].glowObj.SetActive(true);
-                    bed[0].PlayMinigame();
-                }
+                //}
+                //else if ((bed[0].NPCData.sicknessID == 1 && bed[0].itemId == 1) ||
+                //    (bed[0].NPCData.sicknessID == 2 && bed[0].itemId == 2))
+                //{
+                //    bed[0].glowObj.SetActive(true);
+                //    bed[0].PlayMinigame();
+                //}
+                //else if (bed[0].NPCData.sicknessID != 1 && bed[0].NPCData.sicknessID != 2)
+                //{
+                //    bed[0].glowObj.SetActive(true);
+                //    bed[0].PlayMinigame();
+                //}
             }
         }
     }

@@ -13,33 +13,27 @@ public class BedScript : MonoBehaviour
     private bool haveMinigame;
     public Transform handPoint;
     [SerializeField] private GameObject minigameObj;
-    [SerializeField] private Not2Rhythm minigame;
+    [SerializeField] private miniGame minigame;
     private bool onMinigame;
 
-    [SerializeField] private GameObject bedDirtyModel;
-    private float timeCheck;
-    //public bool bedDirty;
     public int itemId;
-
     public int arrowAdd;
     public int treatTheSick;
-
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Patient" /*&& !bedDirty */&& NPCData == null)
+        if (other.tag == "Patient" && NPCData == null)
         {
-
-                if (treatTheSick < 0)
+            if (treatTheSick < 0)
+            {
+                AddPatient(other.gameObject);
+            }//ถ้าต่ำกว่า 0 จะรักษาแบบไม่สนโรค
+            else if (treatTheSick > 0)
+            {
+                if (treatTheSick == other.gameObject.GetComponent<PatientDataScript>().sicknessID)
                 {
                     AddPatient(other.gameObject);
-                }//ถ้าต่ำกว่า 0 จะรักษาแบบไม่สนโรค
-                else if (treatTheSick > 0)
-                {
-                    if (treatTheSick == other.gameObject.GetComponent<PatientDataScript>().sicknessID)
-                    {
-                        AddPatient(other.gameObject);
-                    }
                 }
+            }
         }
     }
     private void OnTriggerExit(Collider other)
@@ -57,46 +51,31 @@ public class BedScript : MonoBehaviour
     {
         NPCData = other.GetComponent<PatientDataScript>();
 
-        //TreatImmediately(treatTheSick);
         NPCData.handPoint = handPoint;
         NPCData.onHand = true;
         NPCData.onBed = true;
         haveSit = true;
 
-        minigame.difficulty = NPCData.sicknessLevel;
-    }
-    private void TreatImmediately(int i)
-    {
-        if (NPCData.sicknessID == i)
-        {
-            int newSick = Random.Range(1, potionData.sicknessData.Length);
-            while (newSick == NPCData.sicknessID)
-            {
-                newSick = Random.Range(1, potionData.sicknessData.Length);
-            }
-            NPCData.sicknessID = newSick;
-            NPCData.allModelSickness = potionData.sicknessData[newSick - 1].modleSickness;
-
-            NPCData.declineH = potionData.sicknessData[newSick - 1].declineLife;
-            NPCData.tiemDeclineH = potionData.sicknessData[newSick - 1].timeToDeclineLife;
-            NPCData.sicknessLevel--;
-        }//รักษาทันที
+        minigame.notRhythm.difficulty = NPCData.sicknessLevel;
+        PlayMinigame();
     }
     private void Goodbye()
     {
         NPCData.sicknessID = -1;
-        minigame.difficulty = -1;
+        haveMinigame = false;
+        minigame.notRhythm.difficulty = -1;
         haveSit = false;
         NPCData = null;
+        minigame.notRhythm.ClearRhythm();
         CloseMinigame();
     }
     private void RemovePiatent()
     {
-        minigame.difficulty = -1;
-        NPCData = null;
-        haveSit = false;
         haveMinigame = false;
-        minigame.ClearRhythm();
+        minigame.notRhythm.difficulty = -1;
+        haveSit = false;
+        NPCData = null;
+        minigame.notRhythm.ClearRhythm();
     }
     public void PlayMinigame()
     {
@@ -107,7 +86,7 @@ public class BedScript : MonoBehaviour
             haveMinigame = true;
             for (int i = 0; i < potionData.sicknessData[potionData.FindNumOfSick(NPCData.sicknessID)].patternPress.Length; i++)
             {
-                minigame.intAllArrow.Add(potionData.sicknessData[potionData.FindNumOfSick(NPCData.sicknessID)].patternPress[i]);
+                minigame.notRhythm.intAllArrow.Add(potionData.sicknessData[potionData.FindNumOfSick(NPCData.sicknessID)].patternPress[i]);
             }
         }
     }
@@ -123,10 +102,7 @@ public class BedScript : MonoBehaviour
         onMinigame = false;
         minigameObj.SetActive(false);
 
-        bedDirtyModel.SetActive(false);
-        //bedDirty = false;
         itemId = 0;
-        timeCheck = 0;
         arrowAdd = 5;
         if (treatTheSick == 0)
         {
@@ -135,26 +111,9 @@ public class BedScript : MonoBehaviour
     }
     private void Update()
     {
-        //if (bedDirty)
-        //{
-        //    timeCheck += Time.deltaTime;
-        //    bedDirtyModel.SetActive(true);
-        //    if (timeCheck >= potionData.timeBedDirty)
-        //    {
-        //        timeCheck = 0;
-        //        bedDirty = false;
-        //        bedDirtyModel.SetActive(false);
-        //    }
-        //}
         if (NPCData != null)
         {
-            NPCData.willTreat = (minigame.buttonPressed != 0) ? true : false;
-            //if (NPCData.dead)
-            //{
-            //    //bedDirty = true;
-            //    //Destroy(NPCData.gameObject, 0);
-            //    RemovePiatent();
-            //}
+            NPCData.willTreat = (minigame.notRhythm.buttonPressed != 0) ? true : false;
             if (treatTheSick > 0 && treatTheSick != NPCData.sicknessID)
             {
                 RemovePiatent();
@@ -173,52 +132,53 @@ public class BedScript : MonoBehaviour
             CloseMinigame();
             RemovePiatent();
         }
-
-        if (minigame.difficulty == 0 && NPCData != null)
+        if (minigame.notRhythm.difficulty == 0 && NPCData != null)
         {
-            if (NPCData.sicknessID != 1 && NPCData.sicknessLevel != -1)
+            //if (NPCData.sicknessID != 1 && NPCData.sicknessLevel != -1)
+            //{
+            //    itemId = 0;
+            //    Destroy(handPoint.GetChild(0).gameObject, 0);
+            //    minigame.difficulty = 1;
+            //    NPCData.declineH = potionData.sicknessData[0].declineLife;
+            //    NPCData.tiemDeclineH = potionData.sicknessData[0].timeToDeclineLife;
+            //    NPCData.allModelSickness = potionData.sicknessData[0].modleSickness;
+            //    if (NPCData.sicknessID == 2)
+            //    {
+            //        NPCData.sicknessID = 1;
+            //        minigame.ClearRhythm();
+            //        minigame.difficulty = 1;
+            //        haveMinigame = false;
+            //        PlayMinigame();
+            //        CloseMinigame();
+            //    }
+            //    else
+            //    {
+            //        NPCData.sicknessID = 1;
+            //        NPCData.handPoint = null;
+            //        NPCData.onBed = false;
+            //        NPCData.onHand = false;
+            //        RemovePiatent();
+            //    }
+            //}//รักษาโรคปกติ
+            //else
+            //{
+                Goodbye();   
+            if (itemId != 0)
             {
                 itemId = 0;
                 Destroy(handPoint.GetChild(0).gameObject, 0);
-                minigame.difficulty = 1;
-                NPCData.declineH = potionData.sicknessData[0].declineLife;
-                NPCData.tiemDeclineH = potionData.sicknessData[0].timeToDeclineLife;
-                NPCData.allModelSickness = potionData.sicknessData[0].modleSickness;
-                if (NPCData.sicknessID == 2)
-                {
-                    NPCData.sicknessID = 1;
-                    minigame.ClearRhythm();
-                    minigame.difficulty = 1;
-                    haveMinigame = false;
-                    PlayMinigame();
-                    CloseMinigame();
-                }
-                else
-                {
-                    NPCData.sicknessID = 1;
-                    NPCData.handPoint = null;
-                    NPCData.onBed = false;
-                    NPCData.onHand = false;
-                    RemovePiatent();
-                }
-            }//รักษาโรคปกติ
-            else
-            {
-                Goodbye();
-                
-                itemId = 0;
-                Destroy(handPoint.GetChild(0).gameObject, 0);
+            }
                 UIManagerScript.treated++;
-            }//รักษาหาย
+            //}//รักษาหาย
         }//เรื่องรักษา
-        if (minigame.deHeat != 0 && NPCData != null)
+        if (minigame.notRhythm.deHeat != 0 && NPCData != null)
         {
-            if (NPCData.heat <= minigame.deHeat * -1)
+            if (NPCData.heat <= minigame.notRhythm.deHeat * -1)
             {
                 NPCData.sicknessLevel = 1;
-                NPCData.deHeat = minigame.deHeat;
+                NPCData.deHeat = minigame.notRhythm.deHeat;
                 CloseMinigame();
-                minigame.ClearRhythm();
+                minigame.notRhythm.ClearRhythm();
                 //NPCData = null;
                 //haveSit = false;
 
@@ -228,18 +188,18 @@ public class BedScript : MonoBehaviour
             }
             else
             {
-                NPCData.deHeat = minigame.deHeat;
+                NPCData.deHeat = minigame.notRhythm.deHeat;
             }
-            minigame.deHeat = 0;
+            minigame.notRhythm.deHeat = 0;
         }//ได้รับความเสียหาย
-        if (NPCData != null && minigame.difficulty != NPCData.sicknessLevel)
+        if (NPCData != null && minigame.notRhythm.difficulty != NPCData.sicknessLevel)
         {
-            NPCData.sicknessLevel = minigame.difficulty;
+            NPCData.sicknessLevel = minigame.notRhythm.difficulty;
         }
         
         if (arrowAdd != 5)
         {
-            minigame.arrowAdd = arrowAdd;
+            minigame.notRhythm.arrowAdd = arrowAdd;
             if (NPCData != null)
             {
                 NPCData.animatorBunda.SetInteger("treat", arrowAdd);

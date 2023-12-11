@@ -1,24 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class Not2Rhythm : MonoBehaviour
+public class notRhythmScript : MonoBehaviour
 {
     [SerializeField] private GameObject[] arrow = new GameObject[4]; //^ v < >
     [SerializeField] private GameObject displayPsition;
     [SerializeField] private PotionDataScript dataPotion;
     private float timeDelayInput;
-    public List<int> intAllArrow;
-    public List<int> intArrow;
-    public List<GameObject> arrowShowObj;
-    public List<DelayScript> listDelay;
-    public int difficulty;//3-0
-    public bool haveRhythm;
-    public int deHeat;
-    public int buttonPressed;
-
-    public int arrowAdd;
+    [HideInInspector] public List<int> intAllArrow;
+    [HideInInspector] public List<int> intArrow;
+    [HideInInspector] public List<GameObject> arrowShowObj;
+    [HideInInspector] public List<DelayScript> listDelay;
+    [HideInInspector] public int difficulty;//3-0
+    [HideInInspector] public bool haveRhythm;
+    [HideInInspector] public int deHeat;
+    [HideInInspector] public int buttonPressed;
+    [HideInInspector] public int arrowAdd;
     public void ShowRhythmArrow()
     {
         GameObject _Arrow;

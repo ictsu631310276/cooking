@@ -15,7 +15,7 @@ public class TrolleySpawnScript : MonoBehaviour
     public void SpawnPatient()
     {
         int typeBun = Random.Range(0, npcData.Length);
-        int typeSickness = Random.Range(1, potionData.sicknessData.Length);
+        int typeSickness = Random.Range(0, potionData.sicknessData.Length);
 
         float random1 = Random.Range(-2f, 2f);
         float random2 = Random.Range(-2f, 2f);
@@ -28,7 +28,7 @@ public class TrolleySpawnScript : MonoBehaviour
         npcSpawn.sicknessID = potionData.sicknessData[typeSickness].id;
         npcSpawn.allModelSickness = potionData.sicknessData[typeSickness].modleSickness;
 
-        int levelSickness = Random.Range(potionData.sicknessData[typeSickness].startSicknessLevel, 4);
+        int levelSickness = Random.Range(potionData.sicknessData[typeSickness].startSicknessLevel, 3);
         npcSpawn.sicknessLevel = levelSickness;
 
         npcSpawn.declineH = potionData.sicknessData[typeSickness].declineLife;
