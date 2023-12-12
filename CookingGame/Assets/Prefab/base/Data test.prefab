@@ -46,5 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sicknessData:
   - {fileID: 11400000, guid: f702f840a3d5e204c83624c0873f052f, type: 2}
-  timeDelayInput: 0
-  timeBedDirty: 10
+  timeDelayInput: 0.5

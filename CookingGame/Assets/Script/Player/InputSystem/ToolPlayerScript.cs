@@ -226,6 +226,10 @@ public class ToolPlayerScript : MonoBehaviour
             {
                 patientID.RemoveAt(0);
             }
+            else if (patientID[0].onBed)
+            {
+                havePatient = false;
+            }
             else if (!havePatient && !patientID[0].onHand)
             {
                 patientID[0].modelBunda.GetComponent<Renderer>().material = patientID[0].materialBunda[1];

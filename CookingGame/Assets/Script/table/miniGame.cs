@@ -46,13 +46,91 @@ public class miniGame : MonoBehaviour
             listDelay.Add(_Arrow.GetComponent<DelayScript>());
         }
     }//แบบ1
+    private void CheckArrowOld(int i)
+    {
+        timeDelayInput = 0;
+        if (intArrow[0] == i)
+        {
+            ScoreManeger.score += 5;
+            deHeat = healCorrectly;
+            buttonPressed++;
+        }
+        else
+        {
+            listDelay[buttonPressed].image.sprite = listDelay[buttonPressed].pullFalse;
+            ScoreManeger.score -= 5;
+            deHeat = healWrong * -1;
+            buttonPressed++;
+        }
+        intArrow.RemoveAt(0);
+        if (buttonPressed >= 4)
+        {
+            for (int j = 0; j < arrowShowObj.Count; j++)
+            {
+                Destroy(arrowShowObj[j], 0);
+                Destroy(listDelay[j], 0);
+            }
+            arrowShowObj.Clear();
+            listDelay.Clear();
+            buttonPressed = 0;
+            difficulty--;
+        }
+        arrowAdd = 5;
+    }//แบบ1
+    private void BuildArrow()//แบบ2
+    {
+        GameObject _Arrow;
+        for (int i = 0; i < intArrow.Count; i++)
+        {
+            _Arrow = Instantiate(arrow[intArrow[i]], spawnPoint[intArrow[i]], false);
+            _Arrow.transform.SetParent(spawnPoint[4]);
+            _Arrow.transform.position = spawnPoint[intArrow[i]].position;
+            arrowShowObj.Add(_Arrow);
+            listDelay.Add(_Arrow.GetComponent<DelayScript>());
+        }
+        listDelay[0].transform.position = spawnPoint[4].position;
+    }
+    private void CheckArrowNew(int i)
+    {
+        timeDelayInput = 0;
+        if (intArrow[0] == i)
+        {
+            ScoreManeger.score += 5;
+            deHeat = healCorrectly;
+            buttonPressed++;
+
+            Destroy(arrowShowObj[0], 0);
+            Destroy(listDelay[0], 0);
+            arrowShowObj.RemoveAt(0);
+            listDelay.RemoveAt(0);
+            intArrow.RemoveAt(0);
+            //if (buttonPressed != 4)
+            //{
+            //    listDelay[0].transform.position = spawnPoint[4].position;
+            //}
+        }
+        //else
+        //{
+        //    ScoreManeger.score -= 5;
+        //    deHeat = healWrong * -1;
+
+        //    listDelay[buttonPressed].image.sprite = listDelay[buttonPressed].pullFalse;
+        //}
+
+        if (buttonPressed >= 4)
+        {
+            buttonPressed = 0;
+            difficulty--;
+        }
+        arrowAdd = 5;
+    }//แบบ2
     private void SetNotRhythm()
     {
         timeDelayInput += Time.deltaTime;
-        if (buttonPressed > 0)
-        {
-            listDelay[buttonPressed - 1].time = timeDelayInput;
-        }
+        //if (buttonPressed > 0)
+        //{
+        //    listDelay[0].time = timeDelayInput;
+        //}//ใช้ในแบบแรก
         if (!haveRhythm)
         {
             switch (difficulty)
@@ -83,70 +161,28 @@ public class miniGame : MonoBehaviour
             haveRhythm = true;
         }//เริ่มต้น
     }
-    private void CheckArrow(int i)
-    {
-        timeDelayInput = 0;
-        if (intArrow[0] == i)
-        {
-            ScoreManeger.score += 5;
-            deHeat = healCorrectly;
-            buttonPressed++;
-        }
-        else
-        {
-            listDelay[buttonPressed].image.sprite = listDelay[buttonPressed].pullFalse;
-
-            ScoreManeger.score -= 5;
-            deHeat = healWrong * -1;
-            buttonPressed++;
-        }
-        intArrow.RemoveAt(0);
-        if (buttonPressed >= 4)
-        {
-            for (int j = 0; j < arrowShowObj.Count; j++)
-            {
-                Destroy(arrowShowObj[j], 0);
-                Destroy(listDelay[j], 0);
-            }
-            arrowShowObj.Clear();
-            listDelay.Clear();
-            buttonPressed = 0;
-            difficulty--;
-        }
-        arrowAdd = 5;
-    }
-    private void BuildArrow()//แบบ2
-    {
-        GameObject _Arrow;
-        for (int i = 0; i < intArrow.Count; i++)
-        {
-            _Arrow = Instantiate(arrow[intArrow[i]], spawnPoint[i], false);
-            _Arrow.transform.position = new Vector3(0f, 0f, 0f);
-            arrowShowObj.Add(_Arrow);
-            listDelay.Add(_Arrow.GetComponent<DelayScript>());
-        }
-        listDelay[0].transform.position = new Vector3(0f, 0f, 0f);
-    }
     private void Start()
     {
         haveRhythm = false;
         deHeat = 0;
         buttonPressed = 0;
-        timeDelayInput = 0;
+        timeDelayInput = 10;
         arrowAdd = 5;
     }
     private void Update()
     {
         SetNotRhythm();
-        if (timeDelayInput < dataPotion.timeDelayInput)
+        if (timeDelayInput < dataPotion.timeDelayInput && listDelay.Count > 0)
         {
-            
+            listDelay[0].transform.position = Vector3.MoveTowards(listDelay[0].transform.position, spawnPoint[4].position, speedArrow);
         }
-        else if (intArrow.Count > 0 && timeDelayInput >= dataPotion.timeDelayInput)
+
+        if (intArrow.Count > 0 && timeDelayInput >= dataPotion.timeDelayInput)
         {
             if (arrowAdd != 5)
             {
-                CheckArrow(arrowAdd);
+                //CheckArrowOld(arrowAdd);
+                CheckArrowNew(arrowAdd);
             }
         }
         else if (intArrow.Count == 0 && haveRhythm && difficulty >= 0)
@@ -157,7 +193,5 @@ public class miniGame : MonoBehaviour
         {
             arrowAdd = 5;
         }
-
-        
     }
 }
