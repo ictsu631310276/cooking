@@ -109,13 +109,12 @@ public class miniGame : MonoBehaviour
             //    listDelay[0].transform.position = spawnPoint[4].position;
             //}
         }
-        //else
-        //{
-        //    ScoreManeger.score -= 5;
-        //    deHeat = healWrong * -1;
-
-        //    listDelay[buttonPressed].image.sprite = listDelay[buttonPressed].pullFalse;
-        //}
+        else
+        {
+            ScoreManeger.score -= 5;
+            deHeat = healWrong * -1;
+            listDelay[0].transform.position = spawnPoint[i].position;
+        }
 
         if (buttonPressed >= 4)
         {
