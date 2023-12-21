@@ -361,10 +361,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2937681055205230696}
     m_Modifications:
-    - target: {fileID: 3719034835830778275, guid: b80ff6eb902217449906709bb8fa15c9, type: 3}
-      propertyPath: speedArrow
-      value: 0.05
-      objectReference: {fileID: 0}
     - target: {fileID: 7622152761831316917, guid: b80ff6eb902217449906709bb8fa15c9, type: 3}
       propertyPath: m_Name
       value: 2NotRhythm
