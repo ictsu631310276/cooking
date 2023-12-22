@@ -21,6 +21,18 @@ ModelImporter:
   - first:
       74: 1624593205714598167
     second: Down
+  - first:
+      74: 3345553723673729907
+    second: Pickup_Idle
+  - first:
+      74: 1511899585067261244
+    second: Pickup_Move
+  - first:
+      74: 1200166304240697798
+    second: Wrong_1
+  - first:
+      74: 7289276861661998837
+    second: Wrong_2
   externalObjects: {}
   materials:
     materialImportMode: 2
