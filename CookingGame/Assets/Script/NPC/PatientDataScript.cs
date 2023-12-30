@@ -10,13 +10,13 @@ public class PatientDataScript : MonoBehaviour
 
     public int id;
     public int heat;
-    public int deHeat;
+    [HideInInspector] public int deHeat;
 
     public int sicknessID;
     public int sicknessLevel;
-    public int[] declineH;
-    public float[] tiemDeclineH;
-    public GameObject[] allModelSickness;
+    [HideInInspector] public int[] declineH;
+    [HideInInspector] public float[] tiemDeclineH;
+    [HideInInspector] public GameObject[] allModelSickness;
 
     [SerializeField] private Transform modelSicknessPoint;
     private GameObject modelSickness;
@@ -24,18 +24,12 @@ public class PatientDataScript : MonoBehaviour
     private bool haveModel;
 
     public GameObject modelBunda;
-    public Transform handPoint;//playerhand
-    public bool onHand;
-    public bool onBed;
-
-    [SerializeField] private TextMeshProUGUI textHP;
+    [HideInInspector] public Transform handPoint;//playerhand
+    [HideInInspector] public bool onHand;
+    [HideInInspector] public bool onBed;
     private float cooldown;
-    public GameObject canva;
-
-    public bool willTreat;
-    private float opacityValue;
-    private float timeFaded;
-    public bool dead;
+    [HideInInspector] public bool willTreat;
+    [HideInInspector] public bool dead;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -44,30 +38,21 @@ public class PatientDataScript : MonoBehaviour
             heat = 0;
         }
     }
-    private void ChangeOpacityModel()
+    public void ChangeColorModel()
     {
-        opacityValue = 2.55f;
-        timeFaded = timeFaded + Time.deltaTime;
-        if (timeFaded >= 1)
+        if (heat < 60 && heat > 31)
         {
-            opacityValue = opacityValue - 0.25f;
-            modelBunda.GetComponent<Renderer>().material.color = new Color(0, 0, 0, opacityValue);
+            modelBunda.GetComponent<Renderer>().material.color = Color.yellow;
+        }
+        else if (heat < 30 && heat > 0)
+        {
+            modelBunda.GetComponent<Renderer>().material.color = Color.red;
+        }
+        else if (heat > 51 || heat <= 0)
+        {
+            modelBunda.GetComponent<Renderer>().material.color = Color.white;
         }
     }
-    private void DestroyMethod()
-    {
-        NewSpawnNPCScript.numOfNPC--;
-        ScoreManeger.score -= 10;
-
-        Destroy(modelSickness, 0);
-        animatorBunda.SetBool("die", true);
-        animatorBunda.SetBool("good", false);
-        Destroy(GetComponent<Collider>());
-        Destroy(GetComponent<Rigidbody>());
-
-        Destroy(gameObject, 2);
-        UIManagerScript.dead++;
-    }//ทำลายร่าง
     private void DieMethod()
     {
         NewSpawnNPCScript.numOfNPC--;
@@ -75,9 +60,6 @@ public class PatientDataScript : MonoBehaviour
 
         animatorBunda.SetBool("die", true);
         animatorBunda.SetBool("good", false);
-        //onHand = false;
-        //onBed = false;
-        Destroy(canva);
         sicknessLevel = 0;
         sicknessID = 1;
 
@@ -96,10 +78,11 @@ public class PatientDataScript : MonoBehaviour
         willTreat = false;
         dead = false;
         animatorBunda.SetInteger("treat", 5);
+        modelBunda.GetComponent<Renderer>().material = materialBunda[0];
     }
     private void Update()
     {
-        textHP.text = heat.ToString();
+        ChangeColorModel();
         if (sicknessID == -1)
         {
             NewSpawnNPCScript.numOfNPC--;
@@ -111,9 +94,6 @@ public class PatientDataScript : MonoBehaviour
 
             sicknessID = -2;
             Destroy(modelSickness);
-            Destroy(canva);
-
-            ChangeOpacityModel();
             Destroy(gameObject, 1f);
         }//รักษาหาย
 
@@ -137,6 +117,7 @@ public class PatientDataScript : MonoBehaviour
         if (onHand)
         {
             modelBunda.GetComponent<Renderer>().material = materialBunda[0];
+            ChangeColorModel();
             cooldown = cooldown - Time.deltaTime;
             if (cooldown <= 0 && sicknessLevel >= 1)
             {
@@ -148,11 +129,6 @@ public class PatientDataScript : MonoBehaviour
             {
                 transform.position = handPoint.transform.position;
                 transform.rotation = handPoint.transform.rotation;
-                if (canva != null)
-                {
-                    canva.transform.rotation = new(handPoint.transform.rotation.x, 0f
-                    , handPoint.transform.rotation.z, handPoint.transform.rotation.w);
-                }
             }
         }//อยู่บนมือ หรือเตียง
         else if (!onHand)
@@ -181,6 +157,7 @@ public class PatientDataScript : MonoBehaviour
                     heat = 0;
                 }
             }
+            ChangeColorModel();
         }//เพิ่ม หรือ ลด
         if (heat <= 0 && !dead)
         {

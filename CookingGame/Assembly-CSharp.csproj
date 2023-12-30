@@ -64,6 +64,7 @@
     <Compile Include="Assets\Script\table\BoxItem\UIItemBoxScript.cs" />
     <Compile Include="Assets\Script\Player\InputSystem\ToolPlayerScript.cs" />
     <Compile Include="Assets\Script\NPC\Fish\FishScript.cs" />
+    <Compile Include="Assets\Script\UI\TextTo\TextScript.cs" />
     <Compile Include="Assets\Script\table\MedicineBoxScript.cs" />
     <Compile Include="Assets\Script\UI\InGame\ScoreManeger.cs" />
     <Compile Include="Assets\Script\NPC\DragonScript.cs" />
@@ -76,7 +77,6 @@
     <Compile Include="Assets\Script\UI\Menu\ButtomInMenu.cs" />
     <Compile Include="Assets\Script\NPC\Fish\FishMoveScript.cs" />
     <Compile Include="Assets\Script\NPC\checkNPC.cs" />
-    <Compile Include="Assets\Script\table\DelayScript.cs" />
     <Compile Include="Assets\Script\Player\CameraScript.cs" />
     <Compile Include="Assets\Script\table\BedScript.cs" />
     <Compile Include="Assets\Script\Data\Script\CreateSicknessScript.cs" />
@@ -85,7 +85,6 @@
     <Compile Include="Assets\Script\Player\SpawnPlayer.cs" />
     <Compile Include="Assets\Script\NPC\NewSpawnNPCScript.cs" />
     <Compile Include="Assets\Script\Player\InputSystem\joy\PlayerInputActions_2.cs" />
-    <Compile Include="Assets\Script\UI\TextTo\TextScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

@@ -62,7 +62,6 @@ public class ToolPlayerScript : MonoBehaviour
         if (patientID.Count >= 2)
         {
             patientID[0].modelBunda.GetComponent<Renderer>().material = patientID[0].materialBunda[0];
-            patientID.Add(patientID[0]);
             patientID.RemoveAt(0);
             patientID[0].modelBunda.GetComponent<Renderer>().material = patientID[0].materialBunda[1];
         }//สลับโต็ะที่เล็ง

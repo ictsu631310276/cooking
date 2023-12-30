@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Bunta_Tall 1
+  m_Name: M_Bunta_Tall_20
   m_Shader: {fileID: 4800000, guid: 76374158b4c4e5744b394e9290aae693, type: 3}
   m_ValidKeywords:
   - _COLOR_ON
@@ -86,7 +86,7 @@ Material:
     - _VertexColor: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 1, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _OutlineColor: {r: 0.1960783, g: 1, b: 0, a: 1}
+    - _OutlineColor: {r: 0.4339623, g: 0.26275447, b: 0.16580635, a: 1}
   m_BuildTextureStacks: []

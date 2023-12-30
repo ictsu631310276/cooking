@@ -426,7 +426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.43137255}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -456,7 +456,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8826172268698079306
 Transform:
   m_ObjectHideFlags: 0
@@ -502,8 +502,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b89326c8cee68524fb5cf3c95d6e4ff8, type: 3}
   - {fileID: 21300000, guid: d0176123ec8d42749b6d9cda57ed0c9c, type: 3}
   - {fileID: 21300000, guid: e08ffb419f0846b4ab00ac58f99a05b9, type: 3}
-  - {fileID: 21300000, guid: eb0f9ada4f9814f4e933412db8168de7, type: 3}
-  speedArrow: 0.1
+  - {fileID: 21300000, guid: f5f48702452cd27489cd53059c34a438, type: 3}
+  speedArrow: 0.5
   dataPotion: {fileID: -5154283208279506760, guid: 38435adab317cb24a8bbdcadfd3b55c5, type: 3}
   intAllArrow: 
   intArrow: 

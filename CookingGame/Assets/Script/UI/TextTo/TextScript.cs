@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.UI;
+using UnityEngine.UI;
 using TMPro;
 
 public class TextScript : MonoBehaviour
 {
+    [SerializeField] private RawImage playerImage;
     [SerializeField] private TextMeshProUGUI textBox;
-    [SerializeField] private string[] allText = new string[0];
+    [SerializeField] private TextAndImage[] allText = new TextAndImage[1];
     [SerializeField] private float speedText;
     [SerializeField] private GameObject allObj;
     private int numChar;
@@ -15,12 +16,13 @@ public class TextScript : MonoBehaviour
     private void ShowText()
     {
         showTexting = true;
+        playerImage = allText[numChar].playImage;
         textBox.text = string.Empty;
         StartCoroutine(TypeLine());
     }
     IEnumerator TypeLine()
     {
-        foreach (char item in allText[numChar].ToCharArray())
+        foreach (char item in allText[numChar].text.ToCharArray())
         {
             textBox.text += item;
             yield return new WaitForSeconds(speedText);
@@ -57,9 +59,15 @@ public class TextScript : MonoBehaviour
             else
             {
                 StopCoroutine(TypeLine());
-                textBox.text = allText[numChar];
+                textBox.text = allText[numChar].text;
                 showTexting = false;
             }
         }
     }
+}
+[System.Serializable]
+public class TextAndImage
+{
+    public string text;
+    public RawImage playImage;
 }
