@@ -6098,6 +6098,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bed 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6140679498348383297, guid: eda7484a67f82fd4e939bd8288834974, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eda7484a67f82fd4e939bd8288834974, type: 3}
 --- !u!4 &4604963297051241862 stripped

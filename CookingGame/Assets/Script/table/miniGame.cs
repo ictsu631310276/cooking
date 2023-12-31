@@ -8,6 +8,7 @@ public class miniGame : MonoBehaviour
     [SerializeField] private GameObject[] arrow = new GameObject[0]; //^ v < >
     [SerializeField] private Transform[] spawnPoint = new Transform[0]; //^ v < >
     [SerializeField] private RawImage potion;
+    [SerializeField] private ParticleSystem[] particle;
     [SerializeField] private Sprite[] allPotionSprite = new Sprite[0];
     [SerializeField] private float speedArrow;
     [SerializeField] private PotionDataScript dataPotion;
@@ -72,9 +73,11 @@ public class miniGame : MonoBehaviour
             listDelay[0].transform.position = spawnPoint[intArrow[0]].position;
         }
         potion.texture = allPotionSprite[buttonPressed].texture;
+
         if (buttonPressed >= 4)
         {
             buttonPressed = 0;
+            potion.texture = allPotionSprite[buttonPressed].texture;
             difficulty--;
         }
         arrowAdd = 5;
@@ -114,22 +117,25 @@ public class miniGame : MonoBehaviour
     }
     private void MoveRhythm()
     {
-        switch (intArrow[0])
+        if (intArrow.Count > 0)
         {
-            case 0:
-                listDelay[0].transform.Translate(0, -0.1f * speedArrow, 0);
-                break;
-            case 1:
-                listDelay[0].transform.Translate(0, 0.1f * speedArrow, 0);
-                break;
-            case 2:
-                listDelay[0].transform.Translate(-0.1f * speedArrow, 0, 0);
-                break;
-            case 3:
-                listDelay[0].transform.Translate(0.1f * speedArrow, 0, 0);
-                break;
-            default:
-                break;
+            switch (intArrow[0])
+            {
+                case 0:
+                    listDelay[0].transform.Translate(0, -0.1f * speedArrow, 0);
+                    break;
+                case 1:
+                    listDelay[0].transform.Translate(0, 0.1f * speedArrow, 0);
+                    break;
+                case 2:
+                    listDelay[0].transform.Translate(-0.1f * speedArrow, 0, 0);
+                    break;
+                case 3:
+                    listDelay[0].transform.Translate(0.1f * speedArrow, 0, 0);
+                    break;
+                default:
+                    break;
+            }
         }
     }
     private void Start()
@@ -145,14 +151,17 @@ public class miniGame : MonoBehaviour
     {
         SetRhythm();
         MoveRhythm();
+        Debug.Log(buttonPressed);
         if (intArrow.Count > 0 && timeDelayInput >= dataPotion.timeDelayInput)
         {
             if (arrowAdd != 5)
             {
+                particle[0].Play();
                 CheckArrowNew(arrowAdd);
             }
             if (timeDelayInput >= dataPotion.timeDelayInput + 0.5f)
             {
+                particle[1].Play();
                 CheckArrowNew(5);
             }
         }

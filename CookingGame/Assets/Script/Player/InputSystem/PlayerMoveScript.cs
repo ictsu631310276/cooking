@@ -12,20 +12,11 @@ public class PlayerMoveScript : MonoBehaviour
     private Vector3 startPosition;
     private Rigidbody rb;
     [SerializeField] private Animator playerAnimator;
+    [SerializeField] private ParticleSystem particleWalk;
 
     private PlayerInputActions inputActions;
     [HideInInspector]
     public float xMove,zMove;
-    private void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-        toolPlayer = GetComponent<ToolPlayerScript>();
-        startPosition = transform.position;
-        timeDelayInput = 0;
-
-        inputActions = new PlayerInputActions();
-        inputActions.Player.walk.performed += Movement_performed;
-    }
     public void Movement_performed(InputAction.CallbackContext obj)
     {
         Vector2 inputV = obj.ReadValue<Vector2>();
@@ -70,11 +61,21 @@ public class PlayerMoveScript : MonoBehaviour
             }
         }
     }
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+        toolPlayer = GetComponent<ToolPlayerScript>();
+        startPosition = transform.position;
+        timeDelayInput = 0;
 
+        inputActions = new PlayerInputActions();
+        inputActions.Player.walk.performed += Movement_performed;
+    }
     private void Update()
     {
         if (xMove != 0 || zMove != 0)
         {
+            particleWalk.Play();
             playerAnimator.SetBool("walking", true);
         }
         else
