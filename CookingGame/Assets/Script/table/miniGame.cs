@@ -10,7 +10,7 @@ public class miniGame : MonoBehaviour
     [SerializeField] private RawImage potion;
     [SerializeField] private ParticleSystem[] particle;
     [SerializeField] private Sprite[] allPotionSprite = new Sprite[0];
-    [SerializeField] private float speedArrow;
+    private float speedArrow;
     [SerializeField] private PotionDataScript dataPotion;
     private float timeDelayInput;
     [HideInInspector] public List<int> intAllArrow;
@@ -145,13 +145,13 @@ public class miniGame : MonoBehaviour
         buttonPressed = 0;
         timeDelayInput = 10;
         arrowAdd = 5;
+        speedArrow = dataPotion.timeDelayInput - 0.2f;
         potion.texture = allPotionSprite[0].texture;
     }
     private void Update()
     {
         SetRhythm();
         MoveRhythm();
-        Debug.Log(buttonPressed);
         if (intArrow.Count > 0 && timeDelayInput >= dataPotion.timeDelayInput)
         {
             if (arrowAdd != 5)

@@ -187,7 +187,7 @@ public class ToolPlayerScript : MonoBehaviour
     public void AddArrow(InputAction.CallbackContext obj)
     {
         Vector2 sw = obj.ReadValue<Vector2>();
-        if (obj.started)
+        if (obj.started && bed.Count > 0)
         {
             switch (sw.x, sw.y)
             {

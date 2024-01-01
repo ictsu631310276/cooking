@@ -35,6 +35,10 @@ public class BedScript : MonoBehaviour
                 }
             }
         }
+        if (other.tag == "Player" && NPCData != null)
+        {
+            PlayMinigame();
+        }
     }
     private void OnTriggerExit(Collider other)
     {
@@ -57,7 +61,6 @@ public class BedScript : MonoBehaviour
         haveSit = true;
 
         minigame.difficulty = NPCData.sicknessLevel;
-        PlayMinigame();
     }
     private void Goodbye()
     {
