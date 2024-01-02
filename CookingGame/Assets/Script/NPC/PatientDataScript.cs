@@ -52,7 +52,7 @@ public class PatientDataScript : MonoBehaviour
         {
             modelBunda.GetComponent<Renderer>().material.color = Color.white;
         }
-    }
+    }//เลือดลด
     private void DieMethod()
     {
         NewSpawnNPCScript.numOfNPC--;
@@ -116,6 +116,12 @@ public class PatientDataScript : MonoBehaviour
 
         if (onHand)
         {
+            if (handPoint != null)
+            {
+                transform.position = handPoint.transform.position;
+                transform.rotation = handPoint.transform.rotation;
+            }
+
             modelBunda.GetComponent<Renderer>().material = materialBunda[0];
             ChangeColorModel();
             cooldown = cooldown - Time.deltaTime;
@@ -123,12 +129,6 @@ public class PatientDataScript : MonoBehaviour
             {
                 cooldown = tiemDeclineH[sicknessLevel - 1];
                 heat -= declineH[sicknessLevel - 1];
-            }
-
-            if (handPoint != null)
-            {
-                transform.position = handPoint.transform.position;
-                transform.rotation = handPoint.transform.rotation;
             }
         }//อยู่บนมือ หรือเตียง
         else if (!onHand)

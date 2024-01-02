@@ -8,21 +8,46 @@ public class TextScript : MonoBehaviour
 {
     [SerializeField] private RawImage playerImage;
     [SerializeField] private TextMeshProUGUI textBox;
+    public int textStart;
     [SerializeField] private TextAndImage[] allText = new TextAndImage[1];
     [SerializeField] private float speedText;
-    [SerializeField] private GameObject allObj;
+    public GameObject allObj;
     private int numChar;
     private bool showTexting;
-    private void ShowText()
+    public TextAndImage[] WillTreat;
+    public void ShowText(TextAndImage[] i)
     {
-        showTexting = true;
-        playerImage = allText[numChar].playImage;
-        textBox.text = string.Empty;
-        StartCoroutine(TypeLine());
+        if (Input.anyKeyDown)
+        {
+            if (!showTexting)
+            {
+                if (numChar >= i.Length - 1)
+                {
+                    allObj.SetActive(false);
+                    numChar = 0;
+                    textStart++;
+                }
+                else
+                {
+                    numChar++;
+                    showTexting = true;
+
+                    playerImage = i[numChar].playImage;
+                    textBox.text = string.Empty;
+                    StartCoroutine(TypeLine(i));
+                }
+            }
+            else
+            {
+                StopCoroutine(TypeLine(i));
+                textBox.text = i[numChar].text;
+                showTexting = false;
+            }
+        }
     }
-    IEnumerator TypeLine()
+    IEnumerator TypeLine(TextAndImage[] i)
     {
-        foreach (char item in allText[numChar].text.ToCharArray())
+        foreach (char item in i[numChar].text.ToCharArray())
         {
             textBox.text += item;
             yield return new WaitForSeconds(speedText);
@@ -35,33 +60,22 @@ public class TextScript : MonoBehaviour
     }
     private void Start()
     {
+        textStart = 0;
         showTexting = false;
-        allObj.SetActive(true);
         numChar = 0;
-        ShowText();
     }
     private void Update()
     {
-        if (Input.anyKeyDown)
+        Debug.Log("Hi");
+        if (textStart == 0)
         {
-            if (!showTexting)
-            {
-                if (numChar == allText.Length - 1)
-                {
-                    allObj.SetActive(false);
-                }
-                else
-                {
-                    numChar++;
-                    ShowText();
-                }
-            }
-            else
-            {
-                StopCoroutine(TypeLine());
-                textBox.text = allText[numChar].text;
-                showTexting = false;
-            }
+            allObj.SetActive(true);
+            ShowText(allText);
+        }
+        else if (textStart == 2)
+        {
+            allObj.SetActive(true);
+            ShowText(WillTreat);
         }
     }
 }

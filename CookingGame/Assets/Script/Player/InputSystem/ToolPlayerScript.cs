@@ -6,15 +6,15 @@ using UnityEngine.InputSystem;
 public class ToolPlayerScript : MonoBehaviour
 {
     public List<PatientDataScript> patientID = new List<PatientDataScript>();
-    public List<BedScript> bed = new List<BedScript>();
     public bool havePatient;
+    public List<BedScript> bed = new List<BedScript>();
 
     public List<ItemBoxScript> itemBox = new List<ItemBoxScript>();
-    public int itemID;
+    [HideInInspector] public int itemID;
     private GameObject modelItem;
-
     [SerializeField] private Transform handPoint;
 
+    [SerializeField] private TextScript textBox;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Table")
@@ -81,6 +81,10 @@ public class ToolPlayerScript : MonoBehaviour
                     patientID[0].handPoint = handPoint;
                     patientID[0].onHand = true;
                     havePatient = true;
+                    if (textBox != null)
+                    {
+                        textBox.textStart = 2;
+                    }//แสดงข้อความ
                 }//หยิบ
                 else if (patientID[0].onHand && bed.Count == 0 && havePatient)
                 {
@@ -163,7 +167,6 @@ public class ToolPlayerScript : MonoBehaviour
                 }
             }
         }
-
     }
     private void PickUpItem(InputAction.CallbackContext obj)
     {
@@ -278,5 +281,7 @@ public class ToolPlayerScript : MonoBehaviour
                 //}
             }
         }
+
+
     }
 }

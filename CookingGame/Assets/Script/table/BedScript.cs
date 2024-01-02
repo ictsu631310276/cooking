@@ -116,7 +116,11 @@ public class BedScript : MonoBehaviour
     {
         if (NPCData != null)
         {
-            NPCData.willTreat = (minigame.buttonPressed != 0) ? true : false;
+            if (!NPCData.onBed)
+            {
+                CloseMinigame();
+            }
+            NPCData.willTreat = (minigame.buttonPressed != 0) ? true : false;//กำลังรักษาอยู่หรือเปล่า
             if (treatTheSick > 0 && treatTheSick != NPCData.sicknessID)
             {
                 RemovePiatent();
