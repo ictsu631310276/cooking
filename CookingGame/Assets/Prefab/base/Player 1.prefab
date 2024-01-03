@@ -307,7 +307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dataPotion: {fileID: -5154283208279506760, guid: 38435adab317cb24a8bbdcadfd3b55c5, type: 3}
-  playerSpeed: 15
+  playerSpeed: 16
   playerAnimator: {fileID: 5253230649811570099}
   particleWalk: {fileID: 3822139880265044963}
   xMove: 0

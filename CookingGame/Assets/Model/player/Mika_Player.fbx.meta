@@ -33,7 +33,107 @@ ModelImporter:
   - first:
       74: 7289276861661998837
     second: Wrong_2
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Leaf_M
+    second: {fileID: 2100000, guid: 4de9bdcf666485b4bad31edac5e33449, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Body
+    second: {fileID: 2100000, guid: 58ac7297ec831a74d81092ceb3c88ca6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Eye1
+    second: {fileID: 2100000, guid: a6a797a2b3e4bc64c8c9e8ad9ce2e59d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Eye10
+    second: {fileID: 2100000, guid: d24800ba54a9a29438d042267122fbfd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Eye11
+    second: {fileID: 2100000, guid: 81c41cf6524e14045b2aef746b8f7427, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Eye12
+    second: {fileID: 2100000, guid: 7fe7af0d7754b1f4da2b279f2388c0d1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Eye14
+    second: {fileID: 2100000, guid: eb84c0cd66302c44a85e7c140891a3c4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Eye15
+    second: {fileID: 2100000, guid: 2aee77d273e192646bd2b2593232e628, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Eye16
+    second: {fileID: 2100000, guid: 48c75cd3119c2794c89c6ee66825a88b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Eye17
+    second: {fileID: 2100000, guid: 1904aef1f1f89474cb7c7e6c7afee0d4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Eye2
+    second: {fileID: 2100000, guid: 867cda1a82a81c64aa0cae2873c5af5c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Eye3
+    second: {fileID: 2100000, guid: a9ea66d84bd5c0e4ca0d0fccedeb057e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Eye4
+    second: {fileID: 2100000, guid: c7f14eb96b86d4d4cb168550c33ebd7e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Eye5
+    second: {fileID: 2100000, guid: a525173dea00e674e81917cb3606aa3b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Eye6
+    second: {fileID: 2100000, guid: 3aef50e5a1dd96144926ddc976e1dbb1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Eye7
+    second: {fileID: 2100000, guid: e88287da5e5012d42b75bd2f43f2fe1c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Eye8
+    second: {fileID: 2100000, guid: 5ebf4226a0562374699010e26ef7f4ec, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Glass
+    second: {fileID: 2100000, guid: d005a67ce2926694ab6ff27df474e439, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Potion
+    second: {fileID: 2100000, guid: 20b876a512e46ba4bbe6406abecb7113, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wand_M
+    second: {fileID: 2100000, guid: 7615edcf43710194cbbddae8f9dd3a2a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -408,7 +508,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.19999999
+    globalScale: 20
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
