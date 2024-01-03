@@ -54,13 +54,15 @@ public class BedScript : MonoBehaviour
     private void AddPatient(GameObject other)
     {
         NPCData = other.GetComponent<PatientDataScript>();
+        if (!NPCData.dead)
+        {
+            NPCData.handPoint = handPoint;
+            NPCData.onHand = true;
+            NPCData.onBed = true;
+            haveSit = true;
 
-        NPCData.handPoint = handPoint;
-        NPCData.onHand = true;
-        NPCData.onBed = true;
-        haveSit = true;
-
-        minigame.difficulty = NPCData.sicknessLevel;
+            minigame.difficulty = NPCData.sicknessLevel;
+        }
     }
     private void Goodbye()
     {
@@ -131,6 +133,10 @@ public class BedScript : MonoBehaviour
 
                 itemId = 0;
                 Destroy(handPoint.GetChild(0).gameObject, 0);
+                if (TextScript.textStart == 13)
+                {
+                    TextScript.textStart++;
+                }
                 UIManagerScript.treated++;
             }//ยาวิเศษ
         }
@@ -176,12 +182,18 @@ public class BedScript : MonoBehaviour
                 Destroy(handPoint.GetChild(0).gameObject, 0);
             }
                 UIManagerScript.treated++;
+            if (TextScript.textStart == 2 || TextScript.textStart == 5 || TextScript.textStart == 6)
+            {
+                TextScript.textStart++;//TextScript.textStart = 7
+            }
             //}//รักษาหาย
         }//เรื่องรักษา
         if (minigame.deHeat != 0 && NPCData != null)
         {
             if (NPCData.heat <= minigame.deHeat * -1)
             {
+                NPCData.onHand = false;
+                NPCData.onBed = false;
                 NPCData.sicknessLevel = 1;
                 NPCData.deHeat = minigame.deHeat;
                 CloseMinigame();

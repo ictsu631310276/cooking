@@ -289,8 +289,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2117312826}
-        m_TargetAssemblyTypeName: buttom, Assembly-CSharp
-        m_MethodName: Restart
+        m_TargetAssemblyTypeName: buttomInGame, Assembly-CSharp
+        m_MethodName: RestartButtom
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1833,10 +1833,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bed 2
       objectReference: {fileID: 0}
-    - target: {fileID: 6140679498348383297, guid: 77eb839e27cc8164f93babd1c49ecc3d, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77eb839e27cc8164f93babd1c49ecc3d, type: 3}
 --- !u!4 &677487404 stripped
@@ -2583,8 +2579,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2117312826}
-        m_TargetAssemblyTypeName: buttom, Assembly-CSharp
-        m_MethodName: Pause
+        m_TargetAssemblyTypeName: buttomInGame, Assembly-CSharp
+        m_MethodName: PauseButtom
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3154,14 +3150,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 373995919}
     m_Modifications:
-    - target: {fileID: 2719595166543139877, guid: fc9b4ffb0d31a5d4aaacfad1f55f3c83, type: 3}
-      propertyPath: potionData
-      value: 
-      objectReference: {fileID: -5154283208279506760, guid: 38435adab317cb24a8bbdcadfd3b55c5, type: 3}
-    - target: {fileID: 2719595166543139877, guid: fc9b4ffb0d31a5d4aaacfad1f55f3c83, type: 3}
-      propertyPath: treatTheSick
-      value: -1
-      objectReference: {fileID: 0}
     - target: {fileID: 2937681055205230696, guid: fc9b4ffb0d31a5d4aaacfad1f55f3c83, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -5178,14 +5166,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 373995919}
     m_Modifications:
-    - target: {fileID: 2719595166543139877, guid: db4fcb42ba43ca441892c27788d9d067, type: 3}
-      propertyPath: potionData
-      value: 
-      objectReference: {fileID: -5154283208279506760, guid: 38435adab317cb24a8bbdcadfd3b55c5, type: 3}
-    - target: {fileID: 2719595166543139877, guid: db4fcb42ba43ca441892c27788d9d067, type: 3}
-      propertyPath: treatTheSick
-      value: -1
-      objectReference: {fileID: 0}
     - target: {fileID: 2937681055205230696, guid: db4fcb42ba43ca441892c27788d9d067, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -5990,10 +5970,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bed 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6140679498348383297, guid: eda7484a67f82fd4e939bd8288834974, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eda7484a67f82fd4e939bd8288834974, type: 3}
 --- !u!4 &4604963297051241862 stripped
@@ -6023,7 +5999,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7266416137902331746, guid: f6167db6efaa41447b772616f90192cb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7266416137902331746, guid: f6167db6efaa41447b772616f90192cb, type: 3}
       propertyPath: m_LocalPosition.z

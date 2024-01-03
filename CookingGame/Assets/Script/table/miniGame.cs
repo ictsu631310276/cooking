@@ -11,6 +11,7 @@ public class miniGame : MonoBehaviour
     [SerializeField] private ParticleSystem[] particle;
     [SerializeField] private Sprite[] allPotionSprite = new Sprite[0];
     private float speedArrow;
+    private float errorProtectionDistance;
     [SerializeField] private PotionDataScript dataPotion;
     private float timeDelayInput;
     [HideInInspector] public List<int> intAllArrow;
@@ -146,7 +147,8 @@ public class miniGame : MonoBehaviour
         timeDelayInput = 10;
         arrowAdd = 5;
         potion.sprite = allPotionSprite[0];
-        speedArrow = 1.5f / 12 * dataPotion.timeDelayInput;//ใช้ได้เฉพาะ ระยะ 1.5 หน่วย
+        speedArrow = 1.5f / 50 * dataPotion.timeDelayInput;//ใช้ได้เฉพาะ ระยะ 1.5 หน่วย
+        errorProtectionDistance = (1.75f / dataPotion.timeDelayInput) - (1.25f / dataPotion.timeDelayInput);
     }
     private void Update()
     {
@@ -154,17 +156,18 @@ public class miniGame : MonoBehaviour
         MoveRhythm();
         if (intArrow.Count > 0)
         {
-            if (timeDelayInput < dataPotion.timeDelayInput - 0.25f && arrowAdd != 5)
+            if (timeDelayInput < dataPotion.timeDelayInput - errorProtectionDistance && arrowAdd != 5)
             {
                 particle[1].Play();
                 CheckArrowNew(5);
             }
-            else if (timeDelayInput >= dataPotion.timeDelayInput - 0.25f && timeDelayInput < dataPotion.timeDelayInput + 0.25f && arrowAdd != 5)
+            else if (timeDelayInput >= dataPotion.timeDelayInput - errorProtectionDistance && 
+                timeDelayInput < dataPotion.timeDelayInput + errorProtectionDistance && arrowAdd != 5)
             {
                 particle[0].Play();
                 CheckArrowNew(arrowAdd);
             }
-            else if (timeDelayInput >= dataPotion.timeDelayInput + 0.25f)
+            else if (timeDelayInput >= dataPotion.timeDelayInput + errorProtectionDistance)
             {
                 particle[1].Play();
                 CheckArrowNew(5);

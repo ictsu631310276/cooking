@@ -25,8 +25,8 @@ public class PatientDataScript : MonoBehaviour
 
     public GameObject modelBunda;
     [HideInInspector] public Transform handPoint;//playerhand
-    [HideInInspector] public bool onHand;
-    [HideInInspector] public bool onBed;
+    public bool onHand;
+    public bool onBed;
     private float cooldown;
     [HideInInspector] public bool willTreat;
     [HideInInspector] public bool dead;
@@ -67,7 +67,7 @@ public class PatientDataScript : MonoBehaviour
     }//เป็นศพ
     private void Start()
     {
-        heat = 100;
+        //heat = 100;
         deHeat = 0;
         haveModel = false;
 

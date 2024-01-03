@@ -97,7 +97,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1004
   NPCData: {fileID: 0}
-  potionData: {fileID: -5154283208279506760, guid: abaa1cd61ff7b1345aa1d2474df29891, type: 3}
+  potionData: {fileID: -5154283208279506760, guid: 38435adab317cb24a8bbdcadfd3b55c5, type: 3}
   glowObj: {fileID: 2469376582967577678}
   haveSit: 0
   handPoint: {fileID: 9172956116062033445}
@@ -105,7 +105,7 @@ MonoBehaviour:
   minigame: {fileID: 1108987833615169623}
   itemId: 0
   arrowAdd: 0
-  treatTheSick: 4
+  treatTheSick: -1
 --- !u!65 &4022851412384954042
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -118,7 +118,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.25, z: 0}
 --- !u!1 &3596519581999036695
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,7 +533,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8826172268698079306, guid: b80ff6eb902217449906709bb8fa15c9, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8826172268698079306, guid: b80ff6eb902217449906709bb8fa15c9, type: 3}
       propertyPath: m_LocalRotation.x
@@ -541,7 +541,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8826172268698079306, guid: b80ff6eb902217449906709bb8fa15c9, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8826172268698079306, guid: b80ff6eb902217449906709bb8fa15c9, type: 3}
       propertyPath: m_LocalRotation.z
@@ -553,7 +553,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8826172268698079306, guid: b80ff6eb902217449906709bb8fa15c9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8826172268698079306, guid: b80ff6eb902217449906709bb8fa15c9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z

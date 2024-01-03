@@ -3,79 +3,92 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class TextScript : MonoBehaviour
 {
     [SerializeField] private RawImage playerImage;
     [SerializeField] private TextMeshProUGUI textBox;
-    public int textStart;
-    [SerializeField] private TextAndImage[] allText = new TextAndImage[1];
+    public static int textStart;//0 start , 1 ยกบันดะ ,2 เปล่า , 3 รักษาเสร็จ , 4 สร้างอีกสองตัว , 5 = เปล่า , 6,7 = รักษาเสร็จ , 9 = เปล่า
+    [SerializeField] private TextAndImage[] allText;
     [SerializeField] private float speedText;
     public GameObject allObj;
     private int numChar;
-    private bool showTexting;
-    public TextAndImage[] WillTreat;
-    public void ShowText(TextAndImage[] i)
+    [SerializeField] private TextAndImage[] willTreat;
+    [SerializeField] private TextAndImage[] finishTreat;
+    [SerializeField] private TextAndImage[] newTreat;
+    [SerializeField] private TextAndImage[] deadNPC;
+    [SerializeField] private TextAndImage[] useMedicine1;
+    [SerializeField] private TextAndImage[] useMedicine2;
+    [SerializeField] private TextAndImage[] done;
+    private IEnumerator ShowText(TextAndImage[] textArray)
     {
-        if (Input.anyKeyDown)
+        textStart++;
+        allObj.SetActive(true);
+        textBox.text = string.Empty;
+        numChar = 0;
+        for (int i = 0; i < textArray.Length; i++)
         {
-            if (!showTexting)
+            textBox.text = string.Empty;
+            playerImage = textArray[numChar].playImage;
+            foreach (char itemText in textArray[numChar].text.ToCharArray())
             {
-                if (numChar >= i.Length - 1)
-                {
-                    allObj.SetActive(false);
-                    numChar = 0;
-                    textStart++;
-                }
-                else
-                {
-                    numChar++;
-                    showTexting = true;
-
-                    playerImage = i[numChar].playImage;
-                    textBox.text = string.Empty;
-                    StartCoroutine(TypeLine(i));
-                }
+                textBox.text += itemText;
+                yield return new WaitForSeconds(speedText);
             }
-            else
-            {
-                StopCoroutine(TypeLine(i));
-                textBox.text = i[numChar].text;
-                showTexting = false;
-            }
+            numChar++;
+            yield return new WaitForSeconds(3);
         }
+        allObj.SetActive(false);
     }
-    IEnumerator TypeLine(TextAndImage[] i)
+    public void SkipTextButtom()
     {
-        foreach (char item in i[numChar].text.ToCharArray())
-        {
-            textBox.text += item;
-            yield return new WaitForSeconds(speedText);
-            if (!showTexting)
-            {
-                break;
-            }
-        }
-        showTexting = false;
+        StopAllCoroutines();
     }
     private void Start()
     {
-        textStart = 0;
-        showTexting = false;
-        numChar = 0;
+        textStart = -1;
+        Debug.Log(UIManagerScript.dayInGame);
+        allObj.SetActive(true);
+        StartCoroutine(ShowText(allText));
     }
     private void Update()
     {
-        Debug.Log("Hi");
-        if (textStart == 0)
+        Debug.Log("textStart : " + textStart);
+        if (textStart == 1)
         {
-            allObj.SetActive(true);
-            ShowText(allText);
+            StopAllCoroutines();
+            StartCoroutine(ShowText(willTreat));
         }
-        else if (textStart == 2)
+        else if (textStart == 3)
         {
-            allObj.SetActive(true);
-            ShowText(WillTreat);
+            StopAllCoroutines();
+            StartCoroutine(ShowText(finishTreat));
+        }
+        else if (textStart == 7)
+        {
+            StopAllCoroutines();
+            StartCoroutine(ShowText(deadNPC));
+        }
+        else if (textStart == 10)
+        {
+            StopAllCoroutines();
+            StartCoroutine(ShowText(useMedicine1));
+        }
+        else if (textStart == 12)
+        {
+            StopAllCoroutines();
+            StartCoroutine(ShowText(useMedicine2));
+        }
+        else if (textStart == 14)
+        {
+            StopAllCoroutines();
+            StartCoroutine(ShowText(done));
+        }
+        else if (textStart == 15)
+        {
+            UIManagerScript.dayInGame++;
+            SceneManager.LoadScene(UIManagerScript.dayInGame);
         }
     }
 }

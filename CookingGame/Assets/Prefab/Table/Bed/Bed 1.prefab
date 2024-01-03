@@ -118,7 +118,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5, z: 0.75}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.25, z: 0}
 --- !u!1 &3596519581999036695
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,6 +392,10 @@ PrefabInstance:
     - target: {fileID: 7622152761831316917, guid: b80ff6eb902217449906709bb8fa15c9, type: 3}
       propertyPath: m_Name
       value: 2NotRhythm
+      objectReference: {fileID: 0}
+    - target: {fileID: 7622152761831316917, guid: b80ff6eb902217449906709bb8fa15c9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8826172268698079306, guid: b80ff6eb902217449906709bb8fa15c9, type: 3}
       propertyPath: m_RootOrder

@@ -14,7 +14,6 @@ public class ToolPlayerScript : MonoBehaviour
     private GameObject modelItem;
     [SerializeField] private Transform handPoint;
 
-    [SerializeField] private TextScript textBox;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Table")
@@ -81,10 +80,10 @@ public class ToolPlayerScript : MonoBehaviour
                     patientID[0].handPoint = handPoint;
                     patientID[0].onHand = true;
                     havePatient = true;
-                    if (textBox != null)
+                    if (TextScript.textStart == 0)
                     {
-                        textBox.textStart = 2;
-                    }//แสดงข้อความ
+                        TextScript.textStart = 1;
+                    }
                 }//หยิบ
                 else if (patientID[0].onHand && bed.Count == 0 && havePatient)
                 {
@@ -92,7 +91,7 @@ public class ToolPlayerScript : MonoBehaviour
                     patientID[0].handPoint = null;
                     havePatient = false;
                 }//วางพื้น
-                else if (patientID[0].onHand && bed.Count > 0 && !bed[0].haveSit && havePatient)
+                else if (patientID[0].onHand && bed.Count > 0 && !bed[0].haveSit && havePatient && !patientID[0].dead)
                 {
                     if (patientID[0].sicknessID == bed[0].treatTheSick || bed[0].treatTheSick < 0)
                     {
@@ -144,6 +143,10 @@ public class ToolPlayerScript : MonoBehaviour
 
                         Destroy(patientID[0].gameObject);
                         havePatient = false;
+                        if (TextScript.textStart == 9)
+                        {
+                            TextScript.textStart++;
+                        }
                     }//ใส่ศพ
                     else
                     {

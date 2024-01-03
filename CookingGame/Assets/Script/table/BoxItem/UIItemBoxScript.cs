@@ -6,11 +6,11 @@ using TMPro;
 
 public class UIItemBoxScript : MonoBehaviour
 {
-    public TextMeshProUGUI text;
-    public Slider slider;
-     public int numOfItem;
-     public int value;
-     public int maxValue;
+    [SerializeField] private TextMeshProUGUI text;
+    [SerializeField] private Slider slider;
+    [HideInInspector] public int numOfItem;
+    [HideInInspector] public int value;
+    [HideInInspector] public int maxValue;
     private void Start()
     {
         

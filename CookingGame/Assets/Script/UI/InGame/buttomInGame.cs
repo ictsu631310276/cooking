@@ -48,8 +48,6 @@ public class buttomInGame : MonoBehaviour
             pauseUI.SetActive(false);
         }
     }
-
-   
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
