@@ -148,7 +148,7 @@ public class miniGame : MonoBehaviour
         timeDelayInput = 10;
         arrowAdd = 5;
         potion.sprite = allPotionSprite[0];
-        speedArrow = 1.5f / 50 * dataPotion.timeDelayInput;//ใช้ได้เฉพาะ ระยะ 1.5 หน่วย
+        speedArrow = 1.5f / 45 * dataPotion.timeDelayInput;//ใช้ได้เฉพาะ ระยะ 1.5 หน่วย
         errorProtectionDistance = (1.75f / dataPotion.timeDelayInput) - (1.25f / dataPotion.timeDelayInput);
     }
     private void Update()
@@ -160,18 +160,18 @@ public class miniGame : MonoBehaviour
             if (timeDelayInput < dataPotion.timeDelayInput - errorProtectionDistance && arrowAdd != 5)
             {
                 particle[1].Play();
-                CheckArrowNew(5);
+                CheckArrowNew(4);
             }
             else if (timeDelayInput >= dataPotion.timeDelayInput - errorProtectionDistance && 
-                timeDelayInput < dataPotion.timeDelayInput + errorProtectionDistance && arrowAdd != 5)
+                timeDelayInput <= dataPotion.timeDelayInput + errorProtectionDistance && arrowAdd != 5)
             {
                 particle[0].Play();
                 CheckArrowNew(arrowAdd);
             }
-            else if (timeDelayInput >= dataPotion.timeDelayInput + errorProtectionDistance)
+            else if (timeDelayInput > dataPotion.timeDelayInput + errorProtectionDistance)
             {
                 particle[1].Play();
-                CheckArrowNew(5);
+                CheckArrowNew(4);
             }
         }
         else if (intArrow.Count == 0 && haveRhythm && difficulty >= 0)
