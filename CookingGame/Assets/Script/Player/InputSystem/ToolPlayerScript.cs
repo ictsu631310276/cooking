@@ -162,6 +162,10 @@ public class ToolPlayerScript : MonoBehaviour
             {
                 if (!patientID[0].dead)
                 {
+                    if (TextScript.textStart == 13)
+                    {
+                        TextScript.textStart++;
+                    }
                     itemID = 0;
                     Destroy(modelItem);
                     patientID[0].sicknessLevel = 1;

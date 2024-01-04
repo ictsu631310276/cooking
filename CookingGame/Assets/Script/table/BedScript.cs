@@ -133,10 +133,6 @@ public class BedScript : MonoBehaviour
 
                 itemId = 0;
                 Destroy(handPoint.GetChild(0).gameObject, 0);
-                if (TextScript.textStart == 13)
-                {
-                    TextScript.textStart++;
-                }
                 UIManagerScript.treated++;
             }//ยาวิเศษ
         }

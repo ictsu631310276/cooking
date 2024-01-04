@@ -3310,8 +3310,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1770062396}
   - {fileID: 1590437697}
+  - {fileID: 1770062396}
   - {fileID: 1611059767}
   m_Father: {fileID: 1228689017}
   m_RootOrder: 0
@@ -7276,94 +7276,94 @@ MonoBehaviour:
   allText:
   - text: "\u0E23\u0E39\u0E49\u0E2A\u0E36\u0E01\u0E27\u0E48\u0E32\u0E15\u0E31\u0E27\u0E17\u0E35\u0E48\u0E40\u0E23\u0E32\u0E0A\u0E19\u0E40\u0E21\u0E37\u0E48\u0E2D\u0E01\u0E35\u0E49
       \u0E08\u0E30\u0E0A\u0E37\u0E48\u0E2D\"\u0E1A\u0E31\u0E19\u0E15\u0E30\"\u0E2A\u0E34\u0E19\u0E30"
-    playImage: {fileID: 0}
+    playImage: {fileID: 21300000, guid: c632f330d60d04643a02be58489a7713, type: 3}
   - text: "\u0E19\u0E35\u0E49\u0E21\u0E31\u0E19\u0E42\u0E2D\u0E01\u0E32\u0E2A\u0E17\u0E35\u0E48\u0E14\u0E35\u0E2A\u0E38\u0E14\u0E46\u0E44\u0E1B\u0E40\u0E25\u0E22!!!"
-    playImage: {fileID: 0}
+    playImage: {fileID: 21300000, guid: 306d9d65f685f6c4d80d762a46d8f52c, type: 3}
   - text: "\u0E1E\u0E27\u0E01\u0E21\u0E31\u0E19\u0E2A\u0E32\u0E21\u0E23\u0E16\u0E40\u0E1B\u0E47\u0E19\u0E41\u0E23\u0E07\u0E07\u0E32\u0E19\u0E1F\u0E23\u0E35
       \u0E17\u0E35\u0E48\u0E41\u0E17\u0E1A\u0E44\u0E21\u0E48\u0E15\u0E49\u0E2D\u0E07\u0E40\u0E2A\u0E35\u0E22\u0E04\u0E48\u0E32\u0E43\u0E0A\u0E49\u0E08\u0E48\u0E32\u0E22\u0E43\u0E19\u0E01\u0E32\u0E23\u0E40\u0E25\u0E35\u0E49\u0E22\u0E07\u0E14\u0E39\u0E40\u0E25\u0E22"
-    playImage: {fileID: 0}
+    playImage: {fileID: 21300000, guid: 296bb8e9dfbadbf4b8a8882618239b10, type: 3}
   - text: "\u0E41\u0E15\u0E48\u0E01\u0E48\u0E2D\u0E19\u0E2D\u0E37\u0E48\u0E19\u0E19\u0E48\u0E32\u0E08\u0E30\u0E15\u0E49\u0E2D\u0E07\u0E23\u0E31\u0E01\u0E29\u0E32\u0E21\u0E31\u0E19\u0E01\u0E48\u0E2D\u0E19"
-    playImage: {fileID: 0}
+    playImage: {fileID: 21300000, guid: ac5c91f96894d5d478364b18c0b42731, type: 3}
   - text: "\u0E40\u0E23\u0E34\u0E48\u0E21\u0E08\u0E32\u0E01\u0E40\u0E14\u0E34\u0E19\u0E44\u0E1B\u0E2B\u0E32\u0E21\u0E31\u0E19
       (W A S D) \u0E41\u0E25\u0E30\u0E22\u0E01\u0E21\u0E31\u0E19 (Q)"
-    playImage: {fileID: 0}
+    playImage: {fileID: 21300000, guid: d716dadc51283f248979ec8d114c9a16, type: 3}
   speedText: 0.025
   allObj: {fileID: 511785300}
   willTreat:
   - text: "\u0E44\u0E1B\u0E27\u0E32\u0E07\u0E17\u0E35\u0E48\u0E40\u0E15\u0E35\u0E22\u0E07
       (Q) \u0E41\u0E25\u0E49\u0E27\u0E01\u0E47\u0E40\u0E23\u0E34\u0E48\u0E21\u0E23\u0E31\u0E01\u0E29\u0E32\u0E40\u0E25\u0E22(\u0E25\u0E39\u0E01\u0E28\u0E23
       ^v<>)"
-    playImage: {fileID: 0}
+    playImage: {fileID: 21300000, guid: c632f330d60d04643a02be58489a7713, type: 3}
   finishTreat:
   - text: "\u0E02\u0E2D\u0E1A\u0E04\u0E38\u0E13\u0E17\u0E35\u0E48\u0E23\u0E31\u0E01\u0E29\u0E32\u0E40\u0E23\u0E32
       \u0E41\u0E15\u0E48\u0E44\u0E14\u0E49\u0E42\u0E1B\u0E23\u0E14\u0E23\u0E31\u0E01\u0E29\u0E32\u0E40\u0E1E\u0E37\u0E48\u0E2D\u0E19\u0E02\u0E2D\u0E07\u0E40\u0E23\u0E32\u0E14\u0E49\u0E27\u0E22
       \u0E40\u0E23\u0E32\u0E15\u0E49\u0E2D\u0E07\u0E44\u0E1B\u0E2A\u0E39\u0E49\u0E23\u0E1A\u0E01\u0E31\u0E1A\u0E2A\u0E31\u0E15\u0E27\u0E4C\u0E1B\u0E23\u0E30\u0E2B\u0E25\u0E32\u0E14\u0E15\u0E48\u0E2D"
-    playImage: {fileID: 0}
+    playImage: {fileID: 21300000, guid: ac813d82e96b73c44b845dfec05364af, type: 3}
   - text: "\u0E21\u0E30..\u0E21\u0E32\u0E08\u0E32\u0E01\u0E44\u0E2B\u0E19\u0E01\u0E31\u0E19
       \u0E41\u0E15\u0E48\u0E01\u0E47\u0E44\u0E14\u0E49"
-    playImage: {fileID: 0}
+    playImage: {fileID: 21300000, guid: 4301b3ed8dd21684685841f724cf5bf2, type: 3}
   - text: "(\u0E21\u0E2D\u0E07\u0E2D\u0E35\u0E01\u0E21\u0E38\u0E21\u0E2B\u0E19\u0E36\u0E07
       \u0E40\u0E23\u0E32\u0E01\u0E47\u0E44\u0E14\u0E49\u0E41\u0E23\u0E07\u0E07\u0E32\u0E19\u0E21\u0E32\u0E01\u0E02\u0E36\u0E49\u0E19\u0E25\u0E30\u0E19\u0E30)"
-    playImage: {fileID: 0}
+    playImage: {fileID: 21300000, guid: ac5c91f96894d5d478364b18c0b42731, type: 3}
   newTreat:
   - text: "\u0E2D\u0E32\u0E01\u0E32\u0E23\u0E1A\u0E32\u0E14\u0E40\u0E08\u0E47\u0E1A\u0E41\u0E1A\u0E1A\u0E43\u0E2B\u0E21\u0E48!!"
-    playImage: {fileID: 0}
+    playImage: {fileID: 21300000, guid: 4301b3ed8dd21684685841f724cf5bf2, type: 3}
   - text: "\u0E41\u0E15\u0E48\u0E40\u0E23\u0E32\u0E01\u0E47\u0E40\u0E04\u0E22\u0E23\u0E31\u0E01\u0E29\u0E32\u0E04\u0E19\u0E2D\u0E37\u0E48\u0E19\u0E21\u0E32\u0E41\u0E25\u0E49\u0E27
       \u0E44\u0E21\u0E48\u0E21\u0E35\u0E1B\u0E31\u0E0D\u0E2B\u0E32\u0E43\u0E19\u0E01\u0E32\u0E23\u0E23\u0E31\u0E01\u0E29\u0E32\u0E2D\u0E35\u0E01\u0E04\u0E23\u0E31\u0E49\u0E07\u0E2B\u0E23\u0E2D\u0E01\u0E19\u0E30"
-    playImage: {fileID: 0}
+    playImage: {fileID: 21300000, guid: fdf6d62ed564553428631b9589f8fcd4, type: 3}
   deadNPC:
   - text: "\u0E40\u0E08\u0E49\u0E32\u0E19\u0E31\u0E49\u0E19 \u0E15\u0E32\u0E22\u0E41\u0E25\u0E49\u0E27!!"
-    playImage: {fileID: 0}
+    playImage: {fileID: 21300000, guid: 4301b3ed8dd21684685841f724cf5bf2, type: 3}
   - text: "\u0E40\u0E2D\u0E32\u0E40\u0E16\u0E2D\u0E30 \u0E0A\u0E35\u0E27\u0E34\u0E15\u0E01\u0E47\u0E21\u0E35\u0E27\u0E31\u0E0F\u0E08\u0E31\u0E01\u0E23\u0E02\u0E2D\u0E07\u0E21\u0E31\u0E19"
-    playImage: {fileID: 0}
+    playImage: {fileID: 21300000, guid: d698cc7493b930d4c8d94e391921cdff, type: 3}
   - text: "\u0E40\u0E2D\u0E30! \u0E21\u0E31\u0E19\u0E1E\u0E36\u0E48\u0E07\u0E15\u0E32\u0E22\u0E43\u0E2B\u0E21\u0E48\u0E46
       \u0E0A\u0E34\u0E49\u0E19\u0E2A\u0E48\u0E27\u0E19\u0E1A\u0E32\u0E07\u0E2D\u0E22\u0E48\u0E32\u0E07\u0E21\u0E31\u0E19\u0E22\u0E31\u0E07\u0E43\u0E0A\u0E49\u0E44\u0E14\u0E49\u0E2D\u0E22\u0E39\u0E48"
-    playImage: {fileID: 0}
+    playImage: {fileID: 21300000, guid: c632f330d60d04643a02be58489a7713, type: 3}
   - text: "\u0E42\u0E14\u0E19\u0E40\u0E09\u0E1E\u0E32\u0E30\u0E17\u0E35\u0E48\u0E2B\u0E31\u0E27\u0E43\u0E08\u0E21\u0E31\u0E19
       \u0E19\u0E35\u0E49\u0E21\u0E31\u0E19\u0E1B\u0E38\u0E4B\u0E22\u0E0A\u0E31\u0E49\u0E19\u0E14\u0E35\u0E40\u0E25\u0E22\u0E19\u0E34!!"
-    playImage: {fileID: 0}
+    playImage: {fileID: 21300000, guid: bd08c90a171d54d42b985c5679365139, type: 3}
   - text: "\u0E16\u0E49\u0E32\u0E40\u0E2D\u0E32\u0E44\u0E1B\u0E21\u0E31\u0E01\u0E14\u0E35\u0E46
       \u0E08\u0E30\u0E2A\u0E32\u0E21\u0E32\u0E23\u0E16\u0E17\u0E33\u0E1B\u0E38\u0E4B\u0E22\u0E0A\u0E31\u0E49\u0E19
       (\u0E22\u0E01\u0E28\u0E1E(Q) \u0E44\u0E1B\u0E43\u0E2A\u0E48\u0E43\u0E19\u0E16\u0E31\u0E07\u0E2B\u0E21\u0E31\u0E01(Q))"
-    playImage: {fileID: 0}
+    playImage: {fileID: 21300000, guid: ac5c91f96894d5d478364b18c0b42731, type: 3}
   useMedicine1:
   - text: "\u0E2A\u0E30..\u0E2A\u0E33\u0E40\u0E23\u0E47\u0E08!!! \u0E21\u0E31\u0E19\u0E01\u0E25\u0E32\u0E22\u0E40\u0E1B\u0E47\u0E19\u0E1B\u0E38\u0E4B\u0E22\u0E04\u0E38\u0E13\u0E20\u0E32\u0E1E\u0E2A\u0E39\u0E07!! "
-    playImage: {fileID: 0}
+    playImage: {fileID: 21300000, guid: bd08c90a171d54d42b985c5679365139, type: 3}
   - text: "\u0E2D\u0E32\u0E08\u0E08\u0E30\u0E40\u0E1E\u0E23\u0E32\u0E30\u0E23\u0E48\u0E32\u0E07\u0E17\u0E35\u0E48\u0E43\u0E0A\u0E49\u0E22\u0E31\u0E07\u0E2A\u0E21\u0E1A\u0E39\u0E23\u0E13\u0E4C\u0E2D\u0E22\u0E39\u0E48
       \u0E08\u0E36\u0E07\u0E43\u0E0A\u0E49\u0E41\u0E04\u0E48\u0E23\u0E48\u0E32\u0E07\u0E40\u0E14\u0E35\u0E48\u0E22\u0E27"
-    playImage: {fileID: 0}
+    playImage: {fileID: 21300000, guid: d716dadc51283f248979ec8d114c9a16, type: 3}
   - text: "\u0E04\u0E23\u0E31\u0E49\u0E07\u0E16\u0E31\u0E14\u0E44\u0E1B\u0E2D\u0E32\u0E08\u0E08\u0E30\u0E15\u0E49\u0E2D\u0E07\u0E43\u0E0A\u0E49\u0E2B\u0E25\u0E32\u0E22\u0E23\u0E48\u0E32\u0E07\u0E43\u0E19\u0E01\u0E32\u0E23\u0E2A\u0E23\u0E49\u0E32\u0E07"
-    playImage: {fileID: 0}
+    playImage: {fileID: 21300000, guid: 190df3e3df8ea5246a50a07ee6dab167, type: 3}
   useMedicine2:
   - text: "\u0E19\u0E31\u0E49\u0E19\u0E21\u0E31\u0E19 \u0E15\u0E31\u0E27\u0E17\u0E35\u0E48\u0E43\u0E01\u0E25\u0E49\u0E15\u0E32\u0E22"
-    playImage: {fileID: 0}
+    playImage: {fileID: 21300000, guid: 4301b3ed8dd21684685841f724cf5bf2, type: 3}
   - text: "\u0E21\u0E31\u0E19\u0E40\u0E1B\u0E47\u0E19\u0E1E\u0E37\u0E0A \u0E2D\u0E32\u0E08\u0E08\u0E30\u0E43\u0E0A\u0E49\u0E1B\u0E39\u0E48\u0E22\u0E19\u0E35\u0E49\u0E01\u0E31\u0E1A\u0E21\u0E31\u0E19\u0E44\u0E14\u0E49\u0E44\u0E2B\u0E21\u0E19\u0E30
       (\u0E2B\u0E22\u0E34\u0E1A\u0E1B\u0E39\u0E4B\u0E22(Q)\u0E41\u0E25\u0E49\u0E27\u0E44\u0E1B\u0E27\u0E48\u0E32\u0E07\u0E17\u0E35\u0E48\u0E40\u0E15\u0E35\u0E22\u0E07(Q)\u0E1E\u0E23\u0E49\u0E2D\u0E07\u0E01\u0E31\u0E1A\u0E1C\u0E39\u0E49\u0E1B\u0E48\u0E27\u0E22)"
-    playImage: {fileID: 0}
+    playImage: {fileID: 21300000, guid: c632f330d60d04643a02be58489a7713, type: 3}
   done:
   - text: "\u0E2A\u0E30..."
-    playImage: {fileID: 0}
+    playImage: {fileID: 21300000, guid: 4301b3ed8dd21684685841f724cf5bf2, type: 3}
   - text: "\u0E2A\u0E33\u0E40\u0E23\u0E47\u0E08\u0E41\u0E25\u0E49\u0E27!!!! \u0E21\u0E31\u0E19\u0E43\u0E0A\u0E49\u0E44\u0E14\u0E49\u0E1C\u0E25"
-    playImage: {fileID: 0}
+    playImage: {fileID: 21300000, guid: 296bb8e9dfbadbf4b8a8882618239b10, type: 3}
   - text: "\u0E14\u0E39\u0E40\u0E2B\u0E21\u0E37\u0E2D\u0E19\u0E27\u0E48\u0E32\u0E1E\u0E27\u0E01\u0E21\u0E31\u0E19\u0E22\u0E31\u0E07\u0E15\u0E48\u0E2D\u0E2A\u0E39\u0E49\u0E01\u0E31\u0E1A\u0E2D\u0E30\u0E44\u0E23\u0E2A\u0E31\u0E01\u0E2D\u0E22\u0E48\u0E32\u0E07\u0E2D\u0E22\u0E39\u0E48\u0E2A\u0E34\u0E19\u0E30"
-    playImage: {fileID: 0}
+    playImage: {fileID: 21300000, guid: c632f330d60d04643a02be58489a7713, type: 3}
   - text: "\u0E08\u0E30\u0E0A\u0E48\u0E27\u0E22\u0E1E\u0E27\u0E01\u0E21\u0E31\u0E19\u0E01\u0E47\u0E44\u0E14\u0E49
       \u0E2B\u0E32\u0E01\u0E0A\u0E48\u0E27\u0E22\u0E21\u0E31\u0E19\u0E2A\u0E33\u0E40\u0E23\u0E47\u0E08
       \u0E21\u0E31\u0E19\u0E08\u0E30\u0E01\u0E25\u0E32\u0E22\u0E40\u0E1B\u0E47\u0E19\u0E1A\u0E38\u0E0D\u0E04\u0E38\u0E13\u0E01\u0E31\u0E1A\u0E40\u0E23\u0E32"
-    playImage: {fileID: 0}
+    playImage: {fileID: 21300000, guid: bd08c90a171d54d42b985c5679365139, type: 3}
   - text: "\u0E41\u0E25\u0E49\u0E27\u0E21\u0E31\u0E19\u0E08\u0E30\u0E01\u0E25\u0E32\u0E22\u0E40\u0E1B\u0E47\u0E19\u0E41\u0E23\u0E07\u0E07\u0E32\u0E19\u0E0A\u0E31\u0E49\u0E19\u0E22\u0E2D\u0E14\u0E2D\u0E22\u0E48\u0E32\u0E07\u0E41\u0E19\u0E48\u0E19\u0E2D\u0E19!!!"
-    playImage: {fileID: 0}
-  - text: "\u0E17\u0E48\u0E32\u0E23\u0E39\u0E49\u0E43\u0E0A\u0E48\u0E44\u0E2B\u0E21\u0E27\u0E48\u0E32\u0E1E\u0E27\u0E01\u0E40\u0E23\u0E32\u0E1F\u0E31\u0E07\u0E2D\u0E22\u0E39\u0E48"
-    playImage: {fileID: 0}
+    playImage: {fileID: 21300000, guid: 296bb8e9dfbadbf4b8a8882618239b10, type: 3}
+  - text: "\u0E17\u0E48\u0E32\u0E19\u0E23\u0E39\u0E49\u0E43\u0E0A\u0E48\u0E44\u0E2B\u0E21\u0E27\u0E48\u0E32\u0E1E\u0E27\u0E01\u0E40\u0E23\u0E32\u0E1F\u0E31\u0E07\u0E2D\u0E22\u0E39\u0E48"
+    playImage: {fileID: 21300000, guid: ac813d82e96b73c44b845dfec05364af, type: 3}
   - text: . . . .
-    playImage: {fileID: 0}
+    playImage: {fileID: 21300000, guid: d698cc7493b930d4c8d94e391921cdff, type: 3}
   - text: "\u0E40\u0E23\u0E32\u0E08\u0E30\u0E22\u0E2D\u0E21\u0E17\u0E33\u0E15\u0E32\u0E21\u0E17\u0E35\u0E48\u0E17\u0E48\u0E32\u0E19\u0E1E\u0E39\u0E14\u0E01\u0E47\u0E44\u0E14\u0E49
       \u0E2B\u0E32\u0E01\u0E17\u0E48\u0E32\u0E19\u0E0A\u0E48\u0E27\u0E22\u0E1E\u0E27\u0E01\u0E40\u0E23\u0E32\u0E19\u0E30"
-    playImage: {fileID: 0}
+    playImage: {fileID: 21300000, guid: ac813d82e96b73c44b845dfec05364af, type: 3}
   - text: "\u0E08\u0E30... \u0E08\u0E23\u0E34\u0E07\u0E2B\u0E23\u0E2D"
-    playImage: {fileID: 0}
-  - text: "\u0E2A\u0E27\u0E31\u0E2A\u0E14\u0E34\u0E01\u0E32\u0E23\u0E08\u0E30\u0E15\u0E49\u0E2D\u0E07\u0E14\u0E35\u0E14\u0E49\u0E48\u0E27\u0E22\u0E25\u0E30"
-    playImage: {fileID: 0}
+    playImage: {fileID: 21300000, guid: cf5ddb911bb546849a540e3bb6aee707, type: 3}
+  - text: "\u0E2A\u0E27\u0E31\u0E2A\u0E14\u0E34\u0E01\u0E32\u0E23\u0E08\u0E30\u0E14\u0E35\u0E14\u0E49\u0E48\u0E27\u0E22\u0E25\u0E30"
+    playImage: {fileID: 21300000, guid: ac813d82e96b73c44b845dfec05364af, type: 3}
 --- !u!1 &1262653899
 GameObject:
   m_ObjectHideFlags: 0
@@ -9445,11 +9445,11 @@ RectTransform:
   m_Children:
   - {fileID: 1880853904}
   m_Father: {fileID: 511785301}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1353.6456, y: 162.24396}
+  m_AnchoredPosition: {x: 788, y: 200}
   m_SizeDelta: {x: 707.7002, y: 193.9063}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1590437698
@@ -9472,7 +9472,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 2800000, guid: 2ee5322d047efc2469a59bdb479ef580, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -9598,7 +9598,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1600, y: 67}
+  m_AnchoredPosition: {x: 1137, y: 111}
   m_SizeDelta: {x: 227.0212, y: 68.8017}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1611059768
@@ -10412,11 +10412,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 511785301}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1628, y: 308}
+  m_AnchoredPosition: {x: 264, y: 283}
   m_SizeDelta: {x: 415.3389, y: 480.7866}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1770062397
@@ -10432,14 +10432,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6320754, g: 0.6320754, b: 0.6320754, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 2800000, guid: c632f330d60d04643a02be58489a7713, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -11233,8 +11233,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -11251,7 +11251,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 47.8
+  m_fontSize: 48.2
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -11287,7 +11287,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 35.69873, y: 23.799164, z: 41.648438, w: 26.774063}
+  m_margin: {x: 33.32129, y: 33.308533, z: 30.950562, w: 31.528763}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -11519,7 +11519,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5414972023287130990, guid: 76f61ca03f941264db12b566e40041a4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.64
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5414972023287130990, guid: 76f61ca03f941264db12b566e40041a4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -11527,7 +11527,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5414972023287130990, guid: 76f61ca03f941264db12b566e40041a4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.16
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5414972023287130990, guid: 76f61ca03f941264db12b566e40041a4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -12073,7 +12073,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npcData: {fileID: 5347172320285451792, guid: a9baccc8b179d0c4b9a5d81ba84b1eca, type: 3}
-  obj: {fileID: 8034468794178463426, guid: af412644931fed64198fd619f5535569, type: 3}
+  sicknessData:
+  - {fileID: 11400000, guid: f702f840a3d5e204c83624c0873f052f, type: 2}
+  - {fileID: 11400000, guid: ee53aba7ad9524f4d8f68348502de184, type: 2}
+  obj: {fileID: 3863336846585653855, guid: b7ba0a85707f41a4ea7934e743b2dc31, type: 3}
   bedObj: {fileID: 1934770163}
   binObj: {fileID: 547073523}
 --- !u!4 &2090858829

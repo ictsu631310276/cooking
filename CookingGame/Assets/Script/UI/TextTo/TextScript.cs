@@ -30,7 +30,7 @@ public class TextScript : MonoBehaviour
         for (int i = 0; i < textArray.Length; i++)
         {
             textBox.text = string.Empty;
-            playerImage = textArray[numChar].playImage;
+            playerImage.texture = textArray[numChar].playImage.texture;
             foreach (char itemText in textArray[numChar].text.ToCharArray())
             {
                 textBox.text += itemText;
@@ -40,6 +40,10 @@ public class TextScript : MonoBehaviour
             yield return new WaitForSeconds(3);
         }
         allObj.SetActive(false);
+        if (textStart == 15)
+        {
+            textStart++;
+        }
     }
     public void SkipTextButtom()
     {
@@ -85,7 +89,7 @@ public class TextScript : MonoBehaviour
             StopAllCoroutines();
             StartCoroutine(ShowText(done));
         }
-        else if (textStart == 15)
+        else if (textStart == 16)
         {
             UIManagerScript.dayInGame++;
             SceneManager.LoadScene(UIManagerScript.dayInGame);
@@ -96,5 +100,5 @@ public class TextScript : MonoBehaviour
 public class TextAndImage
 {
     public string text;
-    public RawImage playImage;
+    public Sprite playImage;
 }

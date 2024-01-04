@@ -109,6 +109,7 @@ public class miniGame : MonoBehaviour
                     }
                     break;
                 default:
+                    Debug.LogError("Don't have data!!!");
                     break;
             }
             BuildArrow();

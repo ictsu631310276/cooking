@@ -6,29 +6,46 @@ public class SpawnNPCTo : MonoBehaviour
 {
     [SerializeField] private PatientDataScript npcData;
     private int idNPC;
-    [SerializeField] private GameObject obj;//โรค
+    [SerializeField] private CreateSicknessScript[] sicknessData;
+    [SerializeField] private GameObject obj;//โรคเปล่า
     [SerializeField] private GameObject bedObj;
     [SerializeField] private GameObject binObj;
-    private void SpawnNPC(int numNPC)
+    private void SpawnOneNPC()
     {
         GameObject[] _ObjArray = { obj, obj, obj };
-        int[] _IntArray = { 1, 1, 1 };//ระดับความรุนแรงของโรค
+        int[] _IntArray = { 1, 1, 1 };//ระดับลดเลือด
         float[] _FolatArray = { 20, 20, 20 };//เวลาลดเลือด
-        for (int i = 0; i < numNPC; i++)
+
+        PatientDataScript npcSpawn = Instantiate(npcData, this.gameObject.transform, false);
+        npcSpawn.id = idNPC;
+        idNPC++;
+        npcSpawn.sicknessID = 2;
+        npcSpawn.allModelSickness = _ObjArray;
+
+        npcSpawn.sicknessLevel = 1;
+
+        npcSpawn.declineH = _IntArray;
+        npcSpawn.tiemDeclineH = _FolatArray;
+        npcSpawn.transform.parent = null;
+    }
+    private void SpawnTwoNPC()
+    {
+        int[] _IntArray = { 1, 1, 1 };//ระดับลดเลือด
+        float[] _FolatArray = { 20, 20, 20 };//เวลาลดเลือด
+        for (int i = 0; i < 2; i++)
         {
             PatientDataScript npcSpawn = Instantiate(npcData, this.gameObject.transform, false);
             npcSpawn.id = idNPC;
             idNPC++;
-            npcSpawn.sicknessID = 2;
-            npcSpawn.allModelSickness = _ObjArray;
+            npcSpawn.sicknessID = sicknessData[i].id;
+            npcSpawn.allModelSickness = sicknessData[i].modleSickness;
 
             npcSpawn.sicknessLevel = 1;
-
             npcSpawn.declineH = _IntArray;
             npcSpawn.tiemDeclineH = _FolatArray;
             npcSpawn.transform.parent = null;
         }
-    }
+    }//โรคใหม่
     private void SpawnDeadNPC()
     {
         GameObject[] _ObjArray = { obj, obj, obj };
@@ -73,7 +90,7 @@ public class SpawnNPCTo : MonoBehaviour
         idNPC = 0;
         bedObj.SetActive(false);
         binObj.SetActive(false);
-        SpawnNPC(1);
+        SpawnOneNPC();
     }
 
     // Update is called once per frame
@@ -85,7 +102,7 @@ public class SpawnNPCTo : MonoBehaviour
         }
         else if (TextScript.textStart == 4)
         {
-            SpawnNPC(2);
+            SpawnTwoNPC();
             TextScript.textStart++;
         }
         else if (TextScript.textStart == 8)
