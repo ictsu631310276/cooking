@@ -9,9 +9,9 @@ public class ItemBoxScript : MonoBehaviour
     public int itemID;
     public int numOfItem;
     public int numOfRequiredMax;
+    [SerializeField] private GameObject glowObj;
     [HideInInspector] public int numOfRequired;
     public GameObject modelItem;
-    [SerializeField] private Material[] materialObj;
     private ToolPlayerScript player;
     public UIItemBoxScript canva;
     private void OnTriggerStay(Collider other)
@@ -30,7 +30,7 @@ public class ItemBoxScript : MonoBehaviour
     }
     private void Start()
     {
-        GetComponent<MeshRenderer>().material = materialObj[0];
+        glowObj.SetActive(false);
         if (canva != null)
         {
             canva.maxValue = numOfRequiredMax;
@@ -42,16 +42,16 @@ public class ItemBoxScript : MonoBehaviour
         {
             if (player.itemBox[0].id == id)
             {
-                GetComponent<MeshRenderer>().material = materialObj[1];
+                glowObj.SetActive(true);
             }
             else
             {
-                GetComponent<MeshRenderer>().material = materialObj[0];
+                glowObj.SetActive(false);
             }
         }
         else
         {
-            GetComponent<MeshRenderer>().material = materialObj[0];
+            glowObj.SetActive(false);
         }//glowObj
 
         if (numOfRequired >= numOfRequiredMax && numOfItem <= 255)

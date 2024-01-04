@@ -79,7 +79,7 @@ public class PlayerMoveScript : MonoBehaviour
     }
     public void InputAnimationArrow(InputAction.CallbackContext obj)
     {
-        if (toolPlayer.bed.Count > 0 && timeDelayInput >= dataPotion.timeDelayInput - 0.1f && toolPlayer.bed[0].NPCData != null)
+        if (toolPlayer.bed.Count > 0 && toolPlayer.bed[0].NPCData != null)
         {
             Vector2 sw = obj.ReadValue<Vector2>();
             if (obj.started)
