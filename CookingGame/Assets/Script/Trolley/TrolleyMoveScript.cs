@@ -8,11 +8,11 @@ public class TrolleyMoveScript : MonoBehaviour
     public float moveSpeed;
 
     [SerializeField] private float timeInOneRound;
-    private float timeCount;
+    [SerializeField] private float timeCount;
     public Transform position1;
     public Transform position2;
     [SerializeField] private float timeToSpare;
-    private bool po1;
+    [SerializeField] private bool po1;
     private bool spawning;
     private int randomNumToSpawn;
     private Animator animatorTrolley;
@@ -26,7 +26,7 @@ public class TrolleyMoveScript : MonoBehaviour
     }
     private void ResetTrolley()
     {
-        timeCount = timeInOneRound;
+        timeCount = timeInOneRound + 7f;
         animatorTrolley.SetBool("run", true);
         animatorTrolley.SetBool("reset", false);
         po1 = true;
@@ -68,7 +68,7 @@ public class TrolleyMoveScript : MonoBehaviour
         animatorTrolley = GetComponent<Animator>();
         randomNumToSpawn = Random.Range(spawnScript.minNumOfNPC, spawnScript.maxNumOfNPC);
         ResetTrolley();
-        timeCount = timeInOneRound;
+        timeCount = timeInOneRound + 7f;
         spawning = false;
     }
     // Update is called once per frame
@@ -81,15 +81,16 @@ public class TrolleyMoveScript : MonoBehaviour
                 MoveTrolley();
                 animatorTrolley.SetBool("run", true);
             }
+            timeCount = timeCount - Time.deltaTime;
+            if (timeCount <= 0)
+            {
+                po1 = false;
+            }
         }
         else if (!po1)
         {
             animatorTrolley.SetBool("reset", true);
-            timeCount = timeCount - Time.deltaTime;
-            if (timeCount <= 0)
-            {
-                ResetTrolley();
-            }
+            ResetTrolley();
         }
     }
 }
