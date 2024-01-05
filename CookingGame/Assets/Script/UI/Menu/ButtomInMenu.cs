@@ -26,7 +26,7 @@ public class ButtomInMenu : MonoBehaviour
     }
     private void CutScene()
     {
-        SceneManager.LoadScene("CutScene");
+        SceneManager.LoadScene("CutScene1");
     }
     public void SkipButtom()
     {
