@@ -313,12 +313,9 @@ MonoBehaviour:
   itemID: 99
   numOfItem: 1
   numOfRequiredMax: 3
-  boxObj: {fileID: 0}
+  glowObj: {fileID: 0}
   numOfRequired: 0
   modelItem: {fileID: 4682749076649666726, guid: 333ad832feb972e4abe90d9cee1d99b8, type: 3}
-  materialObj:
-  - {fileID: 2100000, guid: 10e1ab1d041b206499b436013d1695e3, type: 2}
-  - {fileID: 2100000, guid: de431b109c186a541b1b515cd645e770, type: 2}
   canva: {fileID: 4181055572183358639}
 --- !u!1 &5321038243907433717
 GameObject:
@@ -379,14 +376,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0.13331223, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 1d33c1e83b8b21641b7cce04862ea0c7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 0
@@ -462,7 +459,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: cab70d811b2fe494bb723a3f2dcc27f4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -498,17 +495,17 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5587279293334447258}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0, z: 0.001}
+  m_LocalScale: {x: 0.002, y: 0.002, z: 0.002}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8640622680947678256}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.75, y: 0}
-  m_SizeDelta: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -0.75, y: 0.062}
+  m_SizeDelta: {x: 482, y: 612}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &636811416259387823
 CanvasRenderer:
@@ -538,7 +535,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 2800000, guid: e969b50276886f14f8c11e9a2aad32aa, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -882,6 +879,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 4febd30e2f0fbb5439258dfabac69cec, type: 3}
       propertyPath: m_Name
       value: Pot glow
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4febd30e2f0fbb5439258dfabac69cec, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1578658401623561443, guid: 4febd30e2f0fbb5439258dfabac69cec, type: 3}
       propertyPath: m_Materials.Array.data[0]
