@@ -258,8 +258,8 @@ Transform:
   m_GameObject: {fileID: 3049383860226282688}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.44, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1802948190737009041}
   - {fileID: 8451562929980044579}
@@ -311,9 +311,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2003
   itemID: 99
-  numOfItem: 1
-  numOfRequiredMax: 3
-  glowObj: {fileID: 0}
+  numOfItem: 0
+  numOfRequiredMax: 2
+  glowObj: {fileID: 9079867181967191961}
   numOfRequired: 0
   modelItem: {fileID: 4682749076649666726, guid: 333ad832feb972e4abe90d9cee1d99b8, type: 3}
   canva: {fileID: 4181055572183358639}
@@ -786,7 +786,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4febd30e2f0fbb5439258dfabac69cec, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4febd30e2f0fbb5439258dfabac69cec, type: 3}
       propertyPath: m_LocalRotation.y
@@ -961,5 +961,10 @@ PrefabInstance:
 --- !u!4 &8451562929980044579 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4febd30e2f0fbb5439258dfabac69cec, type: 3}
+  m_PrefabInstance: {fileID: 8269526774538080968}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &9079867181967191961 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 4febd30e2f0fbb5439258dfabac69cec, type: 3}
   m_PrefabInstance: {fileID: 8269526774538080968}
   m_PrefabAsset: {fileID: 0}

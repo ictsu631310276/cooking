@@ -21,7 +21,17 @@ ModelImporter:
   - first:
       74: -5459702853713710489
     second: Yeet
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Grass1
+    second: {fileID: 3705159867082093326, guid: 350b76d237cdc094ba5b8225123da285, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Munta_Tall
+    second: {fileID: -8399274551015934816, guid: 7ed84d0682a79a54daee2c5581b8518b, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -53,7 +63,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 20
+    globalScale: 22
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -106,7 +116,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.19999999
+    globalScale: 0.22
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

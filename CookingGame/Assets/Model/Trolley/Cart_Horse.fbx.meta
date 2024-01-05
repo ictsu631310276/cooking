@@ -9,7 +9,27 @@ ModelImporter:
   - first:
       74: -2797134668357508131
     second: Idel
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cart_M
+    second: {fileID: 2100000, guid: 616d489d6d5b89c48be61a59c9e99d6d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Horse_M
+    second: {fileID: 2100000, guid: 43209251f5cc6a041881ffd23bf4f556, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Leaf_M
+    second: {fileID: 2100000, guid: 2279436267df1c54a85aec046029e04f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wheel_M
+    second: {fileID: 2100000, guid: 86ed814f669f81240b29000ebba96bfc, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
