@@ -6178,7 +6178,7 @@ ParticleSystem:
     enabled: 1
     mode: 0
     timeMode: 2
-    fps: 20
+    fps: 16
     frameOverTime:
       serializedVersion: 2
       minMaxState: 1
@@ -6287,9 +6287,9 @@ ParticleSystem:
         m_RotationOrder: 4
     speedRange: {x: 1, y: 3}
     tilesX: 1
-    tilesY: 5
+    tilesY: 10
     animationType: 0
-    rowIndex: 1
+    rowIndex: 0
     cycles: 0.0001
     uvChannelMask: -1
     rowMode: 2
