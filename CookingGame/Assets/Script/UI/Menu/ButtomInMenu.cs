@@ -10,7 +10,7 @@ public class ButtomInMenu : MonoBehaviour
     {
         playUI.SetActive(true);
     }
-    public void BackButtom()
+    public void PlayBackButtom()
     {
         playUI.SetActive(false);
     }
