@@ -1,0 +1,2 @@
+change pitch 36.866
+clip Fix 100.0 , 0.00

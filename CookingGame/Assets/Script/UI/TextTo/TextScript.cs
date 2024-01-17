@@ -58,7 +58,6 @@ public class TextScript : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log("textStart : " + textStart);
         if (textStart == 1)
         {
             StopAllCoroutines();

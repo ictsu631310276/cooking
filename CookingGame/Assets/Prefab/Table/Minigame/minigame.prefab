@@ -233,7 +233,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5235b902379a6464d903fc4727147381, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0120493a809bad14c9bd60a7277a6cd0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -340,11 +340,10 @@ MonoBehaviour:
   - {fileID: 5985744601633386174}
   - {fileID: 1492749665687298041}
   allPotionSprite:
-  - {fileID: 21300000, guid: 5235b902379a6464d903fc4727147381, type: 3}
-  - {fileID: 21300000, guid: b89326c8cee68524fb5cf3c95d6e4ff8, type: 3}
-  - {fileID: 21300000, guid: d0176123ec8d42749b6d9cda57ed0c9c, type: 3}
-  - {fileID: 21300000, guid: e08ffb419f0846b4ab00ac58f99a05b9, type: 3}
-  - {fileID: 21300000, guid: f5f48702452cd27489cd53059c34a438, type: 3}
+  - {fileID: 21300000, guid: 1e99e120b968d034ea366e30b3c8414a, type: 3}
+  - {fileID: 21300000, guid: 0120493a809bad14c9bd60a7277a6cd0, type: 3}
+  - {fileID: 21300000, guid: 1bd62599abb7c204aa4f10cd1162d53d, type: 3}
+  - {fileID: 21300000, guid: 4efe1b4f8da180042b55a2a27eb50aec, type: 3}
   dataPotion: {fileID: -5154283208279506760, guid: 38435adab317cb24a8bbdcadfd3b55c5, type: 3}
   intAllArrow: 
   intArrow: 
@@ -430,7 +429,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ed13a44cb46e7904d8d82bc1f28b0703, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 873b3510f88429a408ee3e9f716d6e44, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.8235294}
   m_FlipX: 0
   m_FlipY: 0

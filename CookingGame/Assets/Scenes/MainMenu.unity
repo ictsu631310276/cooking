@@ -1330,6 +1330,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 709176392}
+        m_TargetAssemblyTypeName: ButtomInMenu, Assembly-CSharp
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &542286149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1619,6 +1631,7 @@ GameObject:
   - component: {fileID: 709176395}
   - component: {fileID: 709176394}
   - component: {fileID: 709176396}
+  - component: {fileID: 709176397}
   m_Layer: 5
   m_Name: BG&Script
   m_TagString: Untagged
@@ -1694,6 +1707,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playUI: {fileID: 1287535140}
+--- !u!114 &709176397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 709176392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67750d4c21ceeb541bed3a4e3d661b5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundBG: {fileID: 0}
+  soundEffect: {fileID: 0}
+  buttonSound: {fileID: 0}
 --- !u!1 &718227645
 GameObject:
   m_ObjectHideFlags: 0

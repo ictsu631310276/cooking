@@ -57,6 +57,7 @@ public class miniGame : MonoBehaviour
         timeDelayInput = 0;
         if (intArrow[0] == i)
         {
+            particle[0].Play();
             ScoreManeger.score += 5;
             deHeat = healCorrectly;
             buttonPressed++;
@@ -69,16 +70,15 @@ public class miniGame : MonoBehaviour
         }
         else
         {
+            particle[1].Play();
             ScoreManeger.score -= 5;
             deHeat = healWrong * -1;
             listDelay[0].transform.position = spawnPoint[intArrow[0]].position;
         }
-        potion.sprite = allPotionSprite[buttonPressed];
 
         if (buttonPressed >= 4)
         {
             buttonPressed = 0;
-            potion.sprite = allPotionSprite[buttonPressed];
             difficulty--;
         }
         arrowAdd = 5;
@@ -121,6 +121,7 @@ public class miniGame : MonoBehaviour
     {
         if (intArrow.Count > 0)
         {
+            potion.sprite = allPotionSprite[intArrow[0]];
             switch (intArrow[0])
             {
                 case 0:
@@ -130,10 +131,10 @@ public class miniGame : MonoBehaviour
                     listDelay[0].transform.Translate(0, 1f * speedArrow, 0);
                     break;
                 case 2:
-                    listDelay[0].transform.Translate(1f * speedArrow, 0, 0);
+                    listDelay[0].transform.Translate(-1f * speedArrow, 0, 0);
                     break;
                 case 3:
-                    listDelay[0].transform.Translate(-1f * speedArrow, 0, 0);
+                    listDelay[0].transform.Translate(1f * speedArrow, 0, 0);
                     break;
                 default:
                     break;
@@ -165,7 +166,6 @@ public class miniGame : MonoBehaviour
             else if (timeDelayInput >= dataPotion.timeDelayInput - errorProtectionDistance && 
                 timeDelayInput <= dataPotion.timeDelayInput + errorProtectionDistance && arrowAdd != 5)
             {
-                particle[0].Play();
                 CheckArrowNew(arrowAdd);
             }
             else if (timeDelayInput > dataPotion.timeDelayInput + errorProtectionDistance)
