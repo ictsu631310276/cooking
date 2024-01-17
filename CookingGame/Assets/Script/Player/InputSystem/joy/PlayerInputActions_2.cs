@@ -28,7 +28,7 @@ public partial class @PlayerInputActions_2 : IInputActionCollection2, IDisposabl
             ""id"": ""e063dcfa-250f-4a9c-8504-64fca66a958a"",
             ""actions"": [
                 {
-                    ""name"": ""Q"",
+                    ""name"": ""Pick"",
                     ""type"": ""PassThrough"",
                     ""id"": ""49928570-2dda-470f-8cdc-19d00a5a0d91"",
                     ""expectedControlType"": ""Button"",
@@ -46,7 +46,7 @@ public partial class @PlayerInputActions_2 : IInputActionCollection2, IDisposabl
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""E"",
+                    ""name"": ""ChangeTarget"",
                     ""type"": ""Button"",
                     ""id"": ""9d24e631-cf38-41a6-88f7-ed15bd7049d9"",
                     ""expectedControlType"": ""Button"",
@@ -81,7 +81,7 @@ public partial class @PlayerInputActions_2 : IInputActionCollection2, IDisposabl
                     ""interactions"": ""Press(behavior=1)"",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Q"",
+                    ""action"": ""Pick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -147,7 +147,7 @@ public partial class @PlayerInputActions_2 : IInputActionCollection2, IDisposabl
                     ""interactions"": ""Press(behavior=1)"",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""E"",
+                    ""action"": ""ChangeTarget"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -235,9 +235,9 @@ public partial class @PlayerInputActions_2 : IInputActionCollection2, IDisposabl
 }");
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-        m_Player_Q = m_Player.FindAction("Q", throwIfNotFound: true);
+        m_Player_Pick = m_Player.FindAction("Pick", throwIfNotFound: true);
         m_Player_walk = m_Player.FindAction("walk", throwIfNotFound: true);
-        m_Player_E = m_Player.FindAction("E", throwIfNotFound: true);
+        m_Player_ChangeTarget = m_Player.FindAction("ChangeTarget", throwIfNotFound: true);
         m_Player_Arrow = m_Player.FindAction("Arrow", throwIfNotFound: true);
         m_Player_Throw = m_Player.FindAction("Throw", throwIfNotFound: true);
     }
@@ -299,18 +299,18 @@ public partial class @PlayerInputActions_2 : IInputActionCollection2, IDisposabl
     // Player
     private readonly InputActionMap m_Player;
     private IPlayerActions m_PlayerActionsCallbackInterface;
-    private readonly InputAction m_Player_Q;
+    private readonly InputAction m_Player_Pick;
     private readonly InputAction m_Player_walk;
-    private readonly InputAction m_Player_E;
+    private readonly InputAction m_Player_ChangeTarget;
     private readonly InputAction m_Player_Arrow;
     private readonly InputAction m_Player_Throw;
     public struct PlayerActions
     {
         private @PlayerInputActions_2 m_Wrapper;
         public PlayerActions(@PlayerInputActions_2 wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Q => m_Wrapper.m_Player_Q;
+        public InputAction @Pick => m_Wrapper.m_Player_Pick;
         public InputAction @walk => m_Wrapper.m_Player_walk;
-        public InputAction @E => m_Wrapper.m_Player_E;
+        public InputAction @ChangeTarget => m_Wrapper.m_Player_ChangeTarget;
         public InputAction @Arrow => m_Wrapper.m_Player_Arrow;
         public InputAction @Throw => m_Wrapper.m_Player_Throw;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
@@ -322,15 +322,15 @@ public partial class @PlayerInputActions_2 : IInputActionCollection2, IDisposabl
         {
             if (m_Wrapper.m_PlayerActionsCallbackInterface != null)
             {
-                @Q.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnQ;
-                @Q.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnQ;
-                @Q.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnQ;
+                @Pick.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPick;
+                @Pick.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPick;
+                @Pick.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPick;
                 @walk.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWalk;
                 @walk.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWalk;
                 @walk.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWalk;
-                @E.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnE;
-                @E.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnE;
-                @E.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnE;
+                @ChangeTarget.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChangeTarget;
+                @ChangeTarget.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChangeTarget;
+                @ChangeTarget.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnChangeTarget;
                 @Arrow.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnArrow;
                 @Arrow.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnArrow;
                 @Arrow.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnArrow;
@@ -341,15 +341,15 @@ public partial class @PlayerInputActions_2 : IInputActionCollection2, IDisposabl
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Q.started += instance.OnQ;
-                @Q.performed += instance.OnQ;
-                @Q.canceled += instance.OnQ;
+                @Pick.started += instance.OnPick;
+                @Pick.performed += instance.OnPick;
+                @Pick.canceled += instance.OnPick;
                 @walk.started += instance.OnWalk;
                 @walk.performed += instance.OnWalk;
                 @walk.canceled += instance.OnWalk;
-                @E.started += instance.OnE;
-                @E.performed += instance.OnE;
-                @E.canceled += instance.OnE;
+                @ChangeTarget.started += instance.OnChangeTarget;
+                @ChangeTarget.performed += instance.OnChangeTarget;
+                @ChangeTarget.canceled += instance.OnChangeTarget;
                 @Arrow.started += instance.OnArrow;
                 @Arrow.performed += instance.OnArrow;
                 @Arrow.canceled += instance.OnArrow;
@@ -362,9 +362,9 @@ public partial class @PlayerInputActions_2 : IInputActionCollection2, IDisposabl
     public PlayerActions @Player => new PlayerActions(this);
     public interface IPlayerActions
     {
-        void OnQ(InputAction.CallbackContext context);
+        void OnPick(InputAction.CallbackContext context);
         void OnWalk(InputAction.CallbackContext context);
-        void OnE(InputAction.CallbackContext context);
+        void OnChangeTarget(InputAction.CallbackContext context);
         void OnArrow(InputAction.CallbackContext context);
         void OnThrow(InputAction.CallbackContext context);
     }

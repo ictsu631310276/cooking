@@ -6,7 +6,7 @@
             "id": "e063dcfa-250f-4a9c-8504-64fca66a958a",
             "actions": [
                 {
-                    "name": "Q",
+                    "name": "Pick",
                     "type": "PassThrough",
                     "id": "49928570-2dda-470f-8cdc-19d00a5a0d91",
                     "expectedControlType": "Button",
@@ -24,7 +24,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "E",
+                    "name": "ChangeTarget",
                     "type": "Button",
                     "id": "9d24e631-cf38-41a6-88f7-ed15bd7049d9",
                     "expectedControlType": "Button",
@@ -55,11 +55,11 @@
                 {
                     "name": "",
                     "id": "8e143fb2-6620-49ae-93b7-249c773b7a30",
-                    "path": "<Keyboard>/q",
+                    "path": "<Keyboard>/space",
                     "interactions": "Press(behavior=1)",
                     "processors": "",
                     "groups": "",
-                    "action": "Q",
+                    "action": "Pick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -121,11 +121,11 @@
                 {
                     "name": "",
                     "id": "cdfdb0eb-5459-4978-acf1-858dd66a28c2",
-                    "path": "<Keyboard>/e",
+                    "path": "<Keyboard>/c",
                     "interactions": "Press(behavior=1)",
                     "processors": "",
                     "groups": "",
-                    "action": "E",
+                    "action": "ChangeTarget",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
