@@ -1864,7 +1864,7 @@ MonoBehaviour:
   soundBGBar: {fileID: 718227647}
   soundEffectBar: {fileID: 379590554}
   musicBG: {fileID: 8300000, guid: 80e866ba3dd6bcf4d9f1d2c411ea9ee5, type: 3}
-  buttonSound: {fileID: 0}
+  buttonSound: {fileID: 8300000, guid: 5f63a53d40d09894ca1324cefd3b56b9, type: 3}
   settingUI: {fileID: 1793537888}
 --- !u!1 &718227645
 GameObject:

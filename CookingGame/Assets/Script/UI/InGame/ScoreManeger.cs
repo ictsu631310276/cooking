@@ -23,12 +23,18 @@ public class ScoreManeger : MonoBehaviour
     {
         timeDown = 0;
         score = scoreStart;
-        scoreSlider.maxValue = scorePass * 2;
+        if (scoreSlider != null)
+        {
+            scoreSlider.maxValue = scorePass * 2;
+        }
     }
 
     private void Update()
     {
-        scoreSlider.value = score;
+        if (scoreSlider != null)
+        {
+            scoreSlider.value = score;
+        }
         timeDown += Time.deltaTime;
         if (timeDown >= timeDownScore)
         {

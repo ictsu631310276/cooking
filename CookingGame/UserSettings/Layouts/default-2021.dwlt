@@ -165,8 +165,8 @@ MonoBehaviour:
     y: 0
     width: 239
     height: 987
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -245,8 +245,8 @@ MonoBehaviour:
     y: 430
     width: 909
     height: 557
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -532,9 +532,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 921.0969, y: 638.8657, z: -533.8064}
+    m_Target: {x: 916.93994, y: 639.1244, z: -533.05853}
     speed: 2
-    m_Value: {x: 921.0969, y: 638.8657, z: -533.8064}
+    m_Value: {x: 916.93994, y: 639.1244, z: -533.05853}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -581,9 +581,9 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.023156976, y: -0.12420516, z: -0.0011357764, w: -0.9931461}
+    m_Target: {x: -0.018512812, y: -0.050925985, z: -0.0030646098, w: -0.9996791}
     speed: 2
-    m_Value: {x: -0.023130348, y: -0.12406234, z: -0.0011344703, w: -0.9920041}
+    m_Value: {x: -0.018491523, y: -0.050867427, z: -0.003061086, w: -0.99852955}
   m_Size:
     m_Target: 14.351445
     speed: 2
@@ -645,7 +645,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: e6faffffa0680000ec680000
+      m_ExpandedIDs: ce7effffd889ffff5e8dffffcc98ffff20a7ffffc8a7ffff00a8ffff78b2ffffc2c8ffff5ed4ffff1eecffffb0f6ffff20f7ffffe6faffffaa820000c298000046990000fc990000aeb000004eb20000feb900001ebc00000ec20000e6c80000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1580,7 +1580,7 @@ MonoBehaviour:
     m_VAllowExceedBaseRangeMin: 1
     m_VAllowExceedBaseRangeMax: 1
     m_ScaleWithWindow: 0
-    m_HSlider: 0
+    m_HSlider: 1
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
     m_EnableMouseInput: 1
@@ -1594,7 +1594,7 @@ MonoBehaviour:
       y: 21
       width: 907
       height: 515
-    m_Scale: {x: 0.47239584, y: 0.47239587}
+    m_Scale: {x: 0.47239587, y: 0.47239587}
     m_Translation: {x: 453.5, y: 257.5}
     m_MarginLeft: 0
     m_MarginRight: 0
@@ -1602,9 +1602,9 @@ MonoBehaviour:
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -960
+      x: -959.99994
       y: -545.0937
-      width: 1920
+      width: 1919.9999
       height: 1090.1874
     m_MinimalGUI: 1
   m_defaultScale: 0.47239584
@@ -1752,22 +1752,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/sound/BG
+    - Assets/sound/Button
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/sound/BG
+  - Assets/sound/Button
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\User\Documents\GitHub\cooking\CookingGame
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: e86c0000
-    m_LastClickedID: 27880
-    m_ExpandedIDs: 00000000026a0000046a0000066a0000086a00000a6a00000c6a00000e6a0000106a0000946b0000966b000000ca9a3b
+    m_SelectedIDs: 72bc0000
+    m_LastClickedID: 48242
+    m_ExpandedIDs: 00000000046a0000066a0000086a00000a6a00000c6a00000e6a0000106a0000126a0000966b0000986b000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1795,7 +1795,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000026a0000046a0000066a0000086a00000a6a00000c6a00000e6a0000106a0000
+    m_ExpandedIDs: 00000000046a0000066a0000086a00000a6a00000c6a00000e6a0000106a0000126a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
