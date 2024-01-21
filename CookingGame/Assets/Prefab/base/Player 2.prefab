@@ -81,7 +81,7 @@ SpriteRenderer:
   m_Size: {x: 10, y: 10}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &2482706259499233757
@@ -165,7 +165,7 @@ SpriteRenderer:
   m_Size: {x: 10, y: 10}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &5991053328341163348
@@ -216,6 +216,7 @@ GameObject:
   - component: {fileID: 7483357883024497896}
   - component: {fileID: 4281157602216798236}
   - component: {fileID: 6032189820873132406}
+  - component: {fileID: 6713218595202468630}
   m_Layer: 0
   m_Name: Player 2
   m_TagString: Player
@@ -441,10 +442,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   patientID: []
   bed: []
-  havePatient: 0
   itemBox: []
-  itemID: 0
   handPoint: {fileID: 2572889224831709386}
+  itemID: 0
+  havePatient: 0
 --- !u!114 &6032189820873132406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -461,6 +462,23 @@ MonoBehaviour:
   launchPoint: {fileID: 8683780638861831070}
   height: 10
   distance: 10
+--- !u!114 &6713218595202468630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7155686931167800699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a64a6d58e026374e86d68ed2a1582ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundPick: {fileID: 8300000, guid: 285165ef88beaa14c90bafc8387d2ce2, type: 3}
+  soundArrow: {fileID: 8300000, guid: 297b6a331ed3c7b479db3b43ca5e9ae5, type: 3}
+  soundThrow: {fileID: 8300000, guid: 54f11bcf02d2d6945b0118b6b3699428, type: 3}
+  soundWalk: {fileID: 8300000, guid: 25c95b2ecb4ad294792b6c542285fb43, type: 3}
+  soundPlayerEffect: {fileID: 0}
 --- !u!1 &7914312821736022274
 GameObject:
   m_ObjectHideFlags: 0

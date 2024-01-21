@@ -13,7 +13,7 @@ public class ThrowScript : MonoBehaviour
     public Transform launchPoint;
     public float height;
     public float distance;
-
+    private SoundPlayerScript sound;
     public void ThrowMethid(InputAction.CallbackContext obj)
     {
         if (obj.started)
@@ -23,6 +23,7 @@ public class ThrowScript : MonoBehaviour
         }
         else if (obj.canceled)
         {
+            sound.PlaySoundThrow();
             directionShow.SetActive(false);
             launchPointShow.SetActive(false);
             if (toolPlayer.patientID.Count != 0 && toolPlayer.havePatient)
@@ -38,6 +39,7 @@ public class ThrowScript : MonoBehaviour
     private void Start()
     {
         toolPlayer = GetComponent<ToolPlayerScript>();
+        sound = GetComponent<SoundPlayerScript>();
         directionShow.SetActive(false);
         launchPointShow = launchPoint.transform.GetChild(0).gameObject;
         launchPointShow.SetActive(false);

@@ -216,6 +216,7 @@ GameObject:
   - component: {fileID: 2056429788}
   - component: {fileID: 2056429789}
   - component: {fileID: 5893716296610794322}
+  - component: {fileID: 6275489385435524161}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Player
@@ -288,11 +289,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patientID: []
-  havePatient: 0
   bed: []
   itemBox: []
-  itemID: 0
   handPoint: {fileID: 2572889224831709386}
+  itemID: 0
+  havePatient: 0
 --- !u!114 &5264205218900150042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -461,6 +462,23 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &6275489385435524161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7155686931167800699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a64a6d58e026374e86d68ed2a1582ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundPick: {fileID: 8300000, guid: 285165ef88beaa14c90bafc8387d2ce2, type: 3}
+  soundArrow: {fileID: 8300000, guid: 297b6a331ed3c7b479db3b43ca5e9ae5, type: 3}
+  soundThrow: {fileID: 8300000, guid: 54f11bcf02d2d6945b0118b6b3699428, type: 3}
+  soundWalk: {fileID: 8300000, guid: 25c95b2ecb4ad294792b6c542285fb43, type: 3}
+  soundPlayerEffect: {fileID: 0}
 --- !u!1 &7914312821736022274
 GameObject:
   m_ObjectHideFlags: 0

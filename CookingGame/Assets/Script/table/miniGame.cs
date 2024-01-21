@@ -125,16 +125,16 @@ public class miniGame : MonoBehaviour
             switch (intArrow[0])
             {
                 case 0:
-                    listDelay[0].transform.Translate(0, -1f * speedArrow, 0);
+                    listDelay[0].transform.Translate(0, -1f * speedArrow * Time.deltaTime, 0);
                     break;
                 case 1:
-                    listDelay[0].transform.Translate(0, 1f * speedArrow, 0);
+                    listDelay[0].transform.Translate(0, 1f * speedArrow * Time.deltaTime, 0);
                     break;
                 case 2:
-                    listDelay[0].transform.Translate(-1f * speedArrow, 0, 0);
+                    listDelay[0].transform.Translate(-1f * speedArrow * Time.deltaTime, 0, 0);
                     break;
                 case 3:
-                    listDelay[0].transform.Translate(1f * speedArrow, 0, 0);
+                    listDelay[0].transform.Translate(1f * speedArrow * Time.deltaTime, 0, 0);
                     break;
                 default:
                     break;
@@ -149,11 +149,12 @@ public class miniGame : MonoBehaviour
         timeDelayInput = 10;
         arrowAdd = 5;
         potion.sprite = allPotionSprite[0];
-        speedArrow = 1.5f / 45 * dataPotion.timeDelayInput;//ใช้ได้เฉพาะ ระยะ 1.5 หน่วย
+        speedArrow = 1.5f * 3 / dataPotion.timeDelayInput;//ใช้ได้เฉพาะ ระยะ 1.5 หน่วย
         errorProtectionDistance = (1.75f / dataPotion.timeDelayInput) - (1.25f / dataPotion.timeDelayInput);
     }
     private void Update()
     {
+        Debug.Log(Time.deltaTime);
         SetRhythm();
         MoveRhythm();
         if (intArrow.Count > 0)

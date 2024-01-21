@@ -51,7 +51,6 @@ public class SoundScript : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        Debug.Log(PlayerPrefs.GetFloat("valueSoundBG"));
         if (soundBGBar.value != soundBG.volume)
         {
             if (soundBGBar.value != PlayerPrefs.GetFloat("valueSoundBG"))
@@ -66,8 +65,5 @@ public class SoundScript : MonoBehaviour
                 UpdateSettingSound();
             }
         }
-
-
-
     }
 }

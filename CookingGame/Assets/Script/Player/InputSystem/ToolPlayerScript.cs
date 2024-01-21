@@ -6,14 +6,13 @@ using UnityEngine.InputSystem;
 public class ToolPlayerScript : MonoBehaviour
 {
     public List<PatientDataScript> patientID = new List<PatientDataScript>();
-    public bool havePatient;
     public List<BedScript> bed = new List<BedScript>();
-
     public List<ItemBoxScript> itemBox = new List<ItemBoxScript>();
-    [HideInInspector] public int itemID;
-    private GameObject modelItem;
     [SerializeField] private Transform handPoint;
-
+    [HideInInspector] public int itemID;
+    [HideInInspector] public bool havePatient;
+    private GameObject modelItem;
+    private SoundPlayerScript sound;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Table")
@@ -69,6 +68,7 @@ public class ToolPlayerScript : MonoBehaviour
     {
         if (obj.started)
         {
+            sound.PlaySoundPick();
             if (patientID.Count > 0 && itemID == 0 && itemBox.Count == 0)
             {
                 if (patientID[0] == null)
@@ -199,6 +199,7 @@ public class ToolPlayerScript : MonoBehaviour
         Vector2 sw = obj.ReadValue<Vector2>();
         if (obj.started && bed.Count > 0)
         {
+            sound.PlaySoundArrow();
             switch (sw.x, sw.y)
             {
                 case (0f, 1f):
@@ -226,6 +227,7 @@ public class ToolPlayerScript : MonoBehaviour
         havePatient = false;
         itemBox.Clear();
         itemID = 0;
+        sound = GetComponent<SoundPlayerScript>();
     }
     private void Update()
     {

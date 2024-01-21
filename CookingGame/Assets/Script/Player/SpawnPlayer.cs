@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpawnPlayer : MonoBehaviour
 {
     public bool twoPlayer;
+    public AudioSource soundPlayerEffect;
 
     public PotionDataScript potionData;
     public GameObject[] playerP;
@@ -16,6 +17,7 @@ public class SpawnPlayer : MonoBehaviour
         {
             case 1:
                 player[0] = Instantiate(playerP[0], this.gameObject.transform, false);
+                player[0].GetComponent<SoundPlayerScript>().soundPlayerEffect = soundPlayerEffect;
                 player[0].GetComponent<PlayerMoveScript>().dataPotion = potionData;
                 player[0].transform.parent = null;
                 break;
@@ -23,7 +25,9 @@ public class SpawnPlayer : MonoBehaviour
                 player[0] = Instantiate(playerP[0], spawnPoint[0], false);
                 player[1] = Instantiate(playerP[1], spawnPoint[1], false);
                 player[0].GetComponent<PlayerMoveScript>().dataPotion = potionData;
+                player[0].GetComponent<SoundPlayerScript>().soundPlayerEffect = soundPlayerEffect;
                 player[1].GetComponent<PlayerMoveScript>().dataPotion = potionData;
+                player[1].GetComponent<SoundPlayerScript>().soundPlayerEffect = soundPlayerEffect;
                 player[0].transform.parent = null;
                 player[1].transform.parent = null;
                 break;

@@ -11,12 +11,12 @@ public class PlayerMoveScript : MonoBehaviour
     [SerializeField] private float playerSpeed = 4.0f;
     private Vector3 startPosition;
     private Rigidbody rb;
+    private SoundPlayerScript sound;
     [SerializeField] private Animator playerAnimator;
     [SerializeField] private ParticleSystem particleWalk;
 
     private PlayerInputActions inputActions;
-    [HideInInspector]
-    public float xMove, zMove;
+    [HideInInspector] public float xMove, zMove;
     private void PlayerMovement()
     {
         rb.velocity = new Vector3(xMove, startPosition.y, zMove) * playerSpeed;//เครื่องที่
@@ -47,23 +47,27 @@ public class PlayerMoveScript : MonoBehaviour
                 transform.rotation = Quaternion.Euler(0f, -45f, 0f);
                 break;
         }//หมุน
-        if (xMove != 0 || zMove != 0)
-        {
-            particleWalk.gameObject.SetActive(true);
-            particleWalk.Play();
-            playerAnimator.SetBool("walking", true);
-        }
-        else
-        {
-            particleWalk.gameObject.SetActive(false);
-            playerAnimator.SetBool("walking", false);
-        }//อนิเมชั่นเดิน
     }
     public void Movement_performed(InputAction.CallbackContext obj)
     {
         Vector2 inputV = obj.ReadValue<Vector2>();
         xMove = inputV.x;
         zMove = inputV.y;
+
+        if (xMove != 0 || zMove != 0)
+        {
+            particleWalk.gameObject.SetActive(true);
+            particleWalk.Play();
+            playerAnimator.SetBool("walking", true);
+            sound.PlaySoundWalk();
+            sound.soundPlayerEffect.loop = true;
+        }
+        else
+        {
+            particleWalk.gameObject.SetActive(false);
+            playerAnimator.SetBool("walking", false);
+            sound.soundPlayerEffect.loop = false;
+        }//อนิเมชั่นเดินและเสียง
     }
     private void AnimationArrow(int i)
     {
@@ -71,7 +75,6 @@ public class PlayerMoveScript : MonoBehaviour
         timeDelayInput = 0;
         StartCoroutine(Delaysome());
     }
-
     IEnumerator Delaysome()
     {
         yield return new WaitForSeconds(0.1f);
@@ -114,6 +117,8 @@ public class PlayerMoveScript : MonoBehaviour
 
         inputActions = new PlayerInputActions();
         inputActions.Player.walk.performed += Movement_performed;
+
+        sound = GetComponent<SoundPlayerScript>();
     }
     private void Update()
     {
