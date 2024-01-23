@@ -52,7 +52,6 @@ public class TextScript : MonoBehaviour
     private void Start()
     {
         textStart = -1;
-        Debug.Log(UIManagerScript.dayInGame);
         allObj.SetActive(true);
         StartCoroutine(ShowText(allText));
     }

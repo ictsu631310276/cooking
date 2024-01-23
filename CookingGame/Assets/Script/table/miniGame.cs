@@ -125,16 +125,16 @@ public class miniGame : MonoBehaviour
             switch (intArrow[0])
             {
                 case 0:
-                    listDelay[0].transform.Translate(0, -1f * speedArrow * Time.deltaTime, 0);
-                    break;
-                case 1:
                     listDelay[0].transform.Translate(0, 1f * speedArrow * Time.deltaTime, 0);
                     break;
+                case 1:
+                    listDelay[0].transform.Translate(0, -1f * speedArrow * Time.deltaTime, 0);
+                    break;
                 case 2:
-                    listDelay[0].transform.Translate(-1f * speedArrow * Time.deltaTime, 0, 0);
+                    listDelay[0].transform.Translate(1f * speedArrow * Time.deltaTime, 0, 0);
                     break;
                 case 3:
-                    listDelay[0].transform.Translate(1f * speedArrow * Time.deltaTime, 0, 0);
+                    listDelay[0].transform.Translate(-1f * speedArrow * Time.deltaTime, 0, 0);
                     break;
                 default:
                     break;
@@ -154,7 +154,6 @@ public class miniGame : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log(Time.deltaTime);
         SetRhythm();
         MoveRhythm();
         if (intArrow.Count > 0)

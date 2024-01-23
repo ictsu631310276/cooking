@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Assets\Script\Trolley\TrolleyMoveScript.cs" />
     <Compile Include="Assets\Script\table\miniGame.cs" />
+    <Compile Include="Assets\Script\Player\InputSystem\SoundPlayerScript.cs" />
     <Compile Include="Assets\Script\UI\InGame\TimeUI.cs" />
     <Compile Include="Assets\Script\Trolley\TrolleySpawnScript.cs" />
     <Compile Include="Assets\Script\UI\InGame\UIManagerScript.cs" />
@@ -86,7 +87,6 @@
     <Compile Include="Assets\Script\Player\SpawnPlayer.cs" />
     <Compile Include="Assets\Script\NPC\NewSpawnNPCScript.cs" />
     <Compile Include="Assets\Script\Player\InputSystem\joy\PlayerInputActions_2.cs" />
-    <Compile Include="Assets\Script\Player\InputSystem\SoundPlayerScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
