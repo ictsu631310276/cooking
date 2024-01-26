@@ -15699,6 +15699,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1098356815313007524, guid: 3414f1f4766e7b24682f6110c6603754, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a3262dd8dcf896146a3cd7940ca24027, type: 2}
     - target: {fileID: 2630101487871994352, guid: 3414f1f4766e7b24682f6110c6603754, type: 3}
       propertyPath: maxNumOfNPC
       value: 2
@@ -15711,6 +15715,10 @@ PrefabInstance:
       propertyPath: timeInOneRound
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 5982356456225086336, guid: 3414f1f4766e7b24682f6110c6603754, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a3262dd8dcf896146a3cd7940ca24027, type: 2}
     - target: {fileID: 8482266052376219649, guid: 3414f1f4766e7b24682f6110c6603754, type: 3}
       propertyPath: m_Name
       value: AllTrolley
