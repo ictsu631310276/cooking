@@ -10298,6 +10298,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2056429782, guid: a7d6f277a8a7ba34290ad28d8bf61a0a, type: 3}
+      propertyPath: potionData
+      value: 
+      objectReference: {fileID: 1861203850}
+    - target: {fileID: 5264205218900150042, guid: a7d6f277a8a7ba34290ad28d8bf61a0a, type: 3}
+      propertyPath: dataPotion
+      value: 
+      objectReference: {fileID: 1861203850}
+    - target: {fileID: 5921342563033429932, guid: a7d6f277a8a7ba34290ad28d8bf61a0a, type: 3}
+      propertyPath: potionData
+      value: 
+      objectReference: {fileID: 1861203850}
     - target: {fileID: 6275489385435524161, guid: a7d6f277a8a7ba34290ad28d8bf61a0a, type: 3}
       propertyPath: soundPlayerEffect
       value: 

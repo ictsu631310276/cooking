@@ -11,7 +11,6 @@ public class PlayerMoveScript : MonoBehaviour
     [SerializeField] private float playerSpeed = 4.0f;
     private Vector3 startPosition;
     private Rigidbody rb;
-    private SoundPlayerScript sound;
     [SerializeField] private Animator playerAnimator;
     [SerializeField] private ParticleSystem particleWalk;
 
@@ -59,14 +58,14 @@ public class PlayerMoveScript : MonoBehaviour
             particleWalk.gameObject.SetActive(true);
             particleWalk.Play();
             playerAnimator.SetBool("walking", true);
-            sound.PlaySoundWalk();
-            sound.soundPlayerEffect.loop = true;
+            dataPotion.sound.PlaySoundWalk();
+            dataPotion.sound.soundPlayerEffect.loop = true;
         }
         else
         {
             particleWalk.gameObject.SetActive(false);
             playerAnimator.SetBool("walking", false);
-            sound.soundPlayerEffect.loop = false;
+            dataPotion.sound.soundPlayerEffect.loop = false;
         }//อนิเมชั่นเดินและเสียง
     }
     private void AnimationArrow(int i)
@@ -112,7 +111,6 @@ public class PlayerMoveScript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         toolPlayer = GetComponent<ToolPlayerScript>();
-        sound = GetComponent<SoundPlayerScript>();
         startPosition = transform.position;
         timeDelayInput = 0;
 

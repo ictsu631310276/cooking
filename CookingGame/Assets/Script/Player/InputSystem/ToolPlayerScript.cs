@@ -12,7 +12,7 @@ public class ToolPlayerScript : MonoBehaviour
     [HideInInspector] public int itemID;
     [HideInInspector] public bool havePatient;
     private GameObject modelItem;
-    private SoundPlayerScript sound;
+    public PotionDataScript potionData;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Table")
@@ -68,7 +68,7 @@ public class ToolPlayerScript : MonoBehaviour
     {
         if (obj.started)
         {
-            sound.PlaySoundPick();
+            potionData.sound.PlaySoundPick();
             if (patientID.Count > 0 && itemID == 0 && itemBox.Count == 0)
             {
                 if (patientID[0] == null)
@@ -226,7 +226,6 @@ public class ToolPlayerScript : MonoBehaviour
         havePatient = false;
         itemBox.Clear();
         itemID = 0;
-        sound = GetComponent<SoundPlayerScript>();
     }
     private void Update()
     {
