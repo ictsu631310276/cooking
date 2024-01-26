@@ -58,7 +58,7 @@
   <ItemGroup>
     <Compile Include="Assets\Script\Trolley\TrolleyMoveScript.cs" />
     <Compile Include="Assets\Script\table\miniGame.cs" />
-    <Compile Include="Assets\Script\Player\InputSystem\SoundPlayerScript.cs" />
+    <Compile Include="Assets\Script\Data\SoundPlayerScript.cs" />
     <Compile Include="Assets\Script\UI\InGame\TimeUI.cs" />
     <Compile Include="Assets\Script\Trolley\TrolleySpawnScript.cs" />
     <Compile Include="Assets\Script\UI\InGame\UIManagerScript.cs" />
@@ -72,7 +72,7 @@
     <Compile Include="Assets\Script\table\BoxItem\ItemBoxScript.cs" />
     <Compile Include="Assets\Script\Player\InputSystem\ThrowScript.cs" />
     <Compile Include="Assets\Script\Player\InputSystem\key\PlayerInputActions.cs" />
-    <Compile Include="Assets\Script\Data\Script\PotionDataScript.cs" />
+    <Compile Include="Assets\Script\Data\PotionDataScript.cs" />
     <Compile Include="Assets\Script\UI\InGame\SoundScript.cs" />
     <Compile Include="Assets\Script\NPC\SpawnNPCTo.cs" />
     <Compile Include="Assets\Script\Player\InputSystem\PlayerMoveScript.cs" />
@@ -81,7 +81,7 @@
     <Compile Include="Assets\Script\NPC\checkNPC.cs" />
     <Compile Include="Assets\Script\Player\CameraScript.cs" />
     <Compile Include="Assets\Script\table\BedScript.cs" />
-    <Compile Include="Assets\Script\Data\Script\CreateSicknessScript.cs" />
+    <Compile Include="Assets\Script\Data\CreateSicknessScript.cs" />
     <Compile Include="Assets\Script\NPC\PatientDataScript.cs" />
     <Compile Include="Assets\Script\UI\InGame\buttomInGame.cs" />
     <Compile Include="Assets\Script\Player\SpawnPlayer.cs" />

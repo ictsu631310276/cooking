@@ -6,7 +6,8 @@ using UnityEngine.InputSystem;
 public class SoundPlayerScript : MonoBehaviour
 {
     [SerializeField] private AudioClip soundPick;
-    [SerializeField] private AudioClip soundArrow;
+    [SerializeField] private AudioClip soundArrowCorrect;
+    [SerializeField] private AudioClip soundArrowWrong;
     [SerializeField] private AudioClip soundThrow;
     [SerializeField] private AudioClip soundWalk;
     public AudioSource soundPlayerEffect;
@@ -26,9 +27,16 @@ public class SoundPlayerScript : MonoBehaviour
     {
         PlaySound(soundWalk);
     }
-    public void PlaySoundArrow()
+    public void PlaySoundArrow(bool correct)
     {
-        PlaySound(soundArrow);
+        if (correct)
+        {
+            PlaySound(soundArrowCorrect);
+        }
+        else
+        {
+            PlaySound(soundArrowWrong);
+        }
     }
     public void PlaySoundThrow()
     {

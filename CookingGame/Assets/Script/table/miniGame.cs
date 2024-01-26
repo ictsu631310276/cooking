@@ -12,7 +12,7 @@ public class miniGame : MonoBehaviour
     [SerializeField] private Sprite[] allPotionSprite = new Sprite[0];
     private float speedArrow;
     private float errorProtectionDistance;
-    [SerializeField] private PotionDataScript dataPotion;
+    [HideInInspector] public PotionDataScript dataPotion;
     private float timeDelayInput;
     [HideInInspector] public List<int> intAllArrow;
     [HideInInspector] public List<int> intArrow;
@@ -58,6 +58,7 @@ public class miniGame : MonoBehaviour
         if (intArrow[0] == i)
         {
             particle[0].Play();
+            dataPotion.sound.PlaySoundArrow(true);
             ScoreManeger.score += 5;
             deHeat = healCorrectly;
             buttonPressed++;
@@ -71,6 +72,7 @@ public class miniGame : MonoBehaviour
         else
         {
             particle[1].Play();
+            dataPotion.sound.PlaySoundArrow(false);
             ScoreManeger.score -= 5;
             deHeat = healWrong * -1;
             listDelay[0].transform.position = spawnPoint[intArrow[0]].position;

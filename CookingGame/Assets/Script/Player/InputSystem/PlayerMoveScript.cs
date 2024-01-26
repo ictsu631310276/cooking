@@ -112,13 +112,13 @@ public class PlayerMoveScript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         toolPlayer = GetComponent<ToolPlayerScript>();
+        sound = GetComponent<SoundPlayerScript>();
         startPosition = transform.position;
         timeDelayInput = 0;
 
         inputActions = new PlayerInputActions();
         inputActions.Player.walk.performed += Movement_performed;
 
-        sound = GetComponent<SoundPlayerScript>();
     }
     private void Update()
     {

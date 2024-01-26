@@ -199,7 +199,6 @@ public class ToolPlayerScript : MonoBehaviour
         Vector2 sw = obj.ReadValue<Vector2>();
         if (obj.started && bed.Count > 0)
         {
-            sound.PlaySoundArrow();
             switch (sw.x, sw.y)
             {
                 case (0f, 1f):

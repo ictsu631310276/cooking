@@ -102,6 +102,7 @@ public class BedScript : MonoBehaviour
     }
     private void Start()
     {
+        minigame.dataPotion = potionData;
         haveMinigame = false;
         haveSit = false;
         onMinigame = false;
