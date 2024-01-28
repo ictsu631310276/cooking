@@ -68,7 +68,6 @@ public class ToolPlayerScript : MonoBehaviour
     {
         if (obj.started)
         {
-            potionData.sound.PlaySoundPick();
             if (patientID.Count > 0 && itemID == 0 && itemBox.Count == 0)
             {
                 if (patientID[0] == null)
@@ -77,6 +76,7 @@ public class ToolPlayerScript : MonoBehaviour
                 }
                 else if (!havePatient && !patientID[0].onHand)
                 {
+                    potionData.sound.PlaySoundPick();
                     patientID[0].handPoint = handPoint;
                     patientID[0].onHand = true;
                     havePatient = true;
@@ -87,6 +87,7 @@ public class ToolPlayerScript : MonoBehaviour
                 }//หยิบ
                 else if (patientID[0].onHand && bed.Count == 0 && havePatient)
                 {
+                    potionData.sound.PlaySoundPick();
                     patientID[0].onHand = false;
                     patientID[0].handPoint = null;
                     havePatient = false;
@@ -95,6 +96,7 @@ public class ToolPlayerScript : MonoBehaviour
                 {
                     if (patientID[0].sicknessID == bed[0].treatTheSick || bed[0].treatTheSick < 0)
                     {
+                        potionData.sound.PlaySoundPick();
                         patientID[0].handPoint = bed[0].handPoint;
                         havePatient = false;
                         bed[0].haveSit = true;
@@ -107,7 +109,7 @@ public class ToolPlayerScript : MonoBehaviour
                     havePatient = true;
                     bed[0].haveSit = false;
                     patientID[0].onBed = false;
-
+                    potionData.sound.PlaySoundPick();
                 }//ยกออกจากเตียง
                 else
                 {
@@ -140,7 +142,7 @@ public class ToolPlayerScript : MonoBehaviour
                     if (havePatient && patientID[0].dead)
                     {
                         itemBox[0].numOfRequired++;
-
+                        potionData.sound.PlaySoundPick();
                         Destroy(patientID[0].gameObject);
                         havePatient = false;
                         if (TextScript.textStart == 12)
@@ -150,11 +152,13 @@ public class ToolPlayerScript : MonoBehaviour
                     }//ใส่ศพ
                     else
                     {
+                        potionData.sound.PlaySoundPick();
                         PickUpItem(obj);
                     }//หยิบ
                 }//กล่องยาวิเศษ
                 else
                 {
+                    potionData.sound.PlaySoundPick();
                     PickUpItem(obj);
                 }//หยิบปกติ
             }
@@ -166,6 +170,7 @@ public class ToolPlayerScript : MonoBehaviour
                     {
                         TextScript.textStart++;
                     }
+                    potionData.sound.PlaySoundPick();
                     itemID = 0;
                     Destroy(modelItem);
                     patientID[0].sicknessLevel = 1;

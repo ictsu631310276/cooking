@@ -48,10 +48,4 @@ public class ButtomInMenu : MonoBehaviour
             playUI.SetActive(false);
         }
     }
-
-    // Update is called once per frame
-    private void Update()
-    {
-        
-    }
 }

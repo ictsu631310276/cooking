@@ -39,30 +39,36 @@ public class SoundScript : MonoBehaviour
     }
     private void Start()
     {
-        soundBG.clip = musicBG;
-        soundBG.Play();
-        settingUI.SetActive(false);
-        soundBG.volume = PlayerPrefs.GetFloat("valueSoundBG");
-        soundEffect.volume = PlayerPrefs.GetFloat("valueSoundEffect");
-        soundBGBar.value = soundBG.volume;
-        soundEffectBar.value = soundEffect.volume;
+        if (soundBGBar != null)
+        {
+            soundBG.clip = musicBG;
+            soundBG.Play();
+            settingUI.SetActive(false);
+            soundBG.volume = PlayerPrefs.GetFloat("valueSoundBG");
+            soundEffect.volume = PlayerPrefs.GetFloat("valueSoundEffect");
+            soundBGBar.value = soundBG.volume;
+            soundEffectBar.value = soundEffect.volume;
+        }
     }
 
     // Update is called once per frame
     private void Update()
     {
-        if (soundBGBar.value != soundBG.volume)
+        if (soundBGBar != null)
         {
-            if (soundBGBar.value != PlayerPrefs.GetFloat("valueSoundBG"))
+            if (soundBGBar.value != soundBG.volume)
             {
-                UpdateSettingSound();
+                if (soundBGBar.value != PlayerPrefs.GetFloat("valueSoundBG"))
+                {
+                    UpdateSettingSound();
+                }
             }
-        }
-        if (soundEffectBar.value != soundEffect.volume)
-        {
-            if (soundEffectBar.value != PlayerPrefs.GetFloat("valueSoundEffect"))
+            if (soundEffectBar.value != soundEffect.volume)
             {
-                UpdateSettingSound();
+                if (soundEffectBar.value != PlayerPrefs.GetFloat("valueSoundEffect"))
+                {
+                    UpdateSettingSound();
+                }
             }
         }
     }
