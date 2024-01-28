@@ -108,13 +108,18 @@ public class SpawnNPCTo : MonoBehaviour
         if (rectTransformImage.position.x <= 650 + 1920 && hindTu)
         {
             rectTransformImage.Translate(Vector3.right * Time.deltaTime * speedHind, Space.Self);
+            if (rectTransformImage.position.x >= 650 - 5 + 1920)
+            {
+                rectTransformImage.gameObject.SetActive(false);
+            }
         }
         else if (rectTransformImage.position.x >= 1920 && !hindTu)
         {
+            rectTransformImage.gameObject.SetActive(true);
             rectTransformImage.Translate(Vector3.left * Time.deltaTime * speedHind, Space.Self);
         }
     }
-    void Start()
+    private void Start()
     {
         tutorialImage.texture = tutorial[0].texture;
         timeToShowTutorialMax = timeToShowTutorial;
@@ -125,34 +130,35 @@ public class SpawnNPCTo : MonoBehaviour
         binObj.SetActive(false);
         SpawnOneNPC();
     }
-    void Update()
+    private void Update()
     {
         Tutorial();
-        switch (TextScript.textStart)
+        if (TextScript.textStart >= 1 && TextScript.textStart <= 5)
         {
-            case 2:
-                hindTu = false;
-                timeToShowTutorial = timeToShowTutorialMax;
-                tutorialImage.texture = tutorial[1].texture;
-                bedObj.SetActive(true);
-                break;
-            case 4:
-                SpawnTwoNPC();
-                hindTu = false;
-                timeToShowTutorial = timeToShowTutorialMax;
-                tutorialImage.texture = tutorial[2].texture;
-                TextScript.textStart++;
-                break;
-            case 8:
-                bedObj.SetActive(false);
-                binObj.SetActive(true);
-                SpawnDeadNPC();
-                TextScript.textStart++;
-                break;
-            case 11:
-                SpawnNPCWillDead();
-                TextScript.textStart++;
-                break;
+            hindTu = false;
+            timeToShowTutorial = timeToShowTutorialMax;
+            tutorialImage.texture = tutorial[1].texture;
+            bedObj.SetActive(true);
+        }
+        else if (TextScript.textStart == 6)
+        {
+            SpawnTwoNPC();
+            hindTu = false;
+            timeToShowTutorial = timeToShowTutorialMax;
+            tutorialImage.texture = tutorial[2].texture;
+            TextScript.textStart++;
+        }
+        else if (TextScript.textStart == 11)
+        {
+            bedObj.SetActive(false);
+            binObj.SetActive(true);
+            SpawnDeadNPC();
+            TextScript.textStart++;
+        }
+        else if (TextScript.textStart == 13)
+        {
+            SpawnNPCWillDead();
+            TextScript.textStart++;
         }
     }
 }

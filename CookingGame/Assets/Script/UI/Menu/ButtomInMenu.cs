@@ -28,10 +28,15 @@ public class ButtomInMenu : MonoBehaviour
     {
         SceneManager.LoadScene("CutScene1");
     }
-    public void SkipButtom()
+    public void GoToTuTorialDayButtom()
     {
-        SceneManager.LoadScene(UIManagerScript.dayInGame);
+        SceneManager.LoadScene("TuDay");
     }
+    public void GoToDayOneButtom()
+    {
+        SceneManager.LoadScene(1);
+    }
+
     public void ExitButtom()
     {
         Application.Quit();

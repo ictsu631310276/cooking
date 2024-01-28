@@ -11,10 +11,6 @@ public class UIItemBoxScript : MonoBehaviour
     [HideInInspector] public int numOfItem;
     [HideInInspector] public int value;
     [HideInInspector] public int maxValue;
-    private void Start()
-    {
-        
-    }
     private void Update()
     {
         slider.maxValue = maxValue;

@@ -143,7 +143,7 @@ public class ToolPlayerScript : MonoBehaviour
 
                         Destroy(patientID[0].gameObject);
                         havePatient = false;
-                        if (TextScript.textStart == 9)
+                        if (TextScript.textStart == 12)
                         {
                             TextScript.textStart++;
                         }
@@ -162,7 +162,7 @@ public class ToolPlayerScript : MonoBehaviour
             {
                 if (!patientID[0].dead)
                 {
-                    if (TextScript.textStart == 13)
+                    if (TextScript.textStart == 16)
                     {
                         TextScript.textStart++;
                     }

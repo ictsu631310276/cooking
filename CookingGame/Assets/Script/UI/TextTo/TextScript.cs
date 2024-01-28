@@ -10,15 +10,15 @@ public class TextScript : MonoBehaviour
     [SerializeField] private RawImage playerImage;
     [SerializeField] private TextMeshProUGUI textBox;
     public static int textStart;//0 start , 1 ยกบันดะ ,2 เปล่า , 3 รักษาเสร็จ , 4 สร้างอีกสองตัว , 5 = เปล่า , 6,7 = รักษาเสร็จ , 9 = เปล่า
-    [SerializeField] private TextAndImage[] allText;
     [SerializeField] private float speedText;
+    [SerializeField] private float ageText;
     public GameObject allObj;
     private int numChar;
+    [SerializeField] private TextAndImage[] allText;
     [SerializeField] private TextAndImage[] willTreat;
     [SerializeField] private TextAndImage[] finishTreat;
     [SerializeField] private TextAndImage[] newTreat;
     [SerializeField] private TextAndImage[] deadNPC;
-    [SerializeField] private TextAndImage[] useMedicine1;
     [SerializeField] private TextAndImage[] useMedicine2;
     [SerializeField] private TextAndImage[] done;
     private IEnumerator ShowText(TextAndImage[] textArray)
@@ -37,17 +37,13 @@ public class TextScript : MonoBehaviour
                 yield return new WaitForSeconds(speedText);
             }
             numChar++;
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(ageText);
         }
         allObj.SetActive(false);
-        if (textStart == 15)
+        if (textStart == 2 || textStart == 5 || textStart == 15 || textStart == 18)
         {
             textStart++;
         }
-    }
-    public void SkipTextButtom()
-    {
-        StopAllCoroutines();
     }
     private void Start()
     {
@@ -57,12 +53,13 @@ public class TextScript : MonoBehaviour
     }
     private void Update()
     {
+        Debug.Log(textStart);
         if (textStart == 1)
         {
             StopAllCoroutines();
             StartCoroutine(ShowText(willTreat));
         }
-        else if (textStart == 3)
+        else if (textStart == 4)
         {
             StopAllCoroutines();
             StartCoroutine(ShowText(finishTreat));
@@ -70,27 +67,26 @@ public class TextScript : MonoBehaviour
         else if (textStart == 7)
         {
             StopAllCoroutines();
-            StartCoroutine(ShowText(deadNPC));
+            StartCoroutine(ShowText(newTreat));
         }
         else if (textStart == 10)
         {
             StopAllCoroutines();
-            StartCoroutine(ShowText(useMedicine1));
-        }
-        else if (textStart == 12)
-        {
-            StopAllCoroutines();
-            StartCoroutine(ShowText(useMedicine2));
+            StartCoroutine(ShowText(deadNPC));
         }
         else if (textStart == 14)
         {
             StopAllCoroutines();
+            StartCoroutine(ShowText(useMedicine2));
+        }
+        else if (textStart == 17)
+        {
+            StopAllCoroutines();
             StartCoroutine(ShowText(done));
         }
-        else if (textStart == 16)
+        else if (textStart == 19)
         {
-            UIManagerScript.dayInGame++;
-            SceneManager.LoadScene(UIManagerScript.dayInGame);
+            SceneManager.LoadScene("CutScene2");
         }
     }
 }
