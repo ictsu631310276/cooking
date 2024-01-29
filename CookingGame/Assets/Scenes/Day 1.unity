@@ -16045,7 +16045,9 @@ MonoBehaviour:
   soundBGBar: {fileID: 1155453472}
   soundEffectBar: {fileID: 1694086859}
   musicBG: {fileID: 8300000, guid: 376ed7dd819dfbc48be1fb02b506fe3c, type: 3}
-  buttonSound: {fileID: 8300000, guid: 5f63a53d40d09894ca1324cefd3b56b9, type: 3}
+  buttonSound: {fileID: 8300000, guid: aa5ed25d1512d9940a733c191a85c4d4, type: 3}
+  soundWin: {fileID: 8300000, guid: 11991abd9b37af54487e964996cd571f, type: 3}
+  soundLose: {fileID: 8300000, guid: 71efd8a6d3ee7c64b9431ae9304750b0, type: 3}
   settingUI: {fileID: 1478653999}
 --- !u!1 &2118921739
 GameObject:

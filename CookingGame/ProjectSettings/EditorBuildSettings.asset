@@ -11,12 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Day 1.unity
     guid: 70756cc23d40a9c4097f6f89902a30cc
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Day 2.unity
-    guid: e6bbcd2b600f2904aa03c37cc4e8a597
-  - enabled: 0
-    path: Assets/Scenes/Day 3.unity
-    guid: 89b5038f9db403b4291407fb959bcf92
+    guid: 1844b9c788524424cad29c5537ad8545
   - enabled: 1
     path: Assets/Scenes/TuDay.unity
     guid: 4367d3fe0e614e149a9205b7a7729479

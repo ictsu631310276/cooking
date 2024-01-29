@@ -67,4 +67,6 @@ MonoBehaviour:
   soundArrowWrong: {fileID: 0}
   soundThrow: {fileID: 8300000, guid: ec55da9feba7f0842bc63e17a3e2bad2, type: 3}
   soundWalk: {fileID: 8300000, guid: e5ebc5c0aab94e848a4bfa888bbd0465, type: 3}
+  soundWin: {fileID: 8300000, guid: 11991abd9b37af54487e964996cd571f, type: 3}
+  soundLose: {fileID: 8300000, guid: 71efd8a6d3ee7c64b9431ae9304750b0, type: 3}
   soundPlayerEffect: {fileID: 0}

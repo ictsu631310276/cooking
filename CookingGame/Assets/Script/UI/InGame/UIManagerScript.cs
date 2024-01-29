@@ -22,6 +22,7 @@ public class UIManagerScript : MonoBehaviour
     [SerializeField] private GameObject imageEndgameF;
     [SerializeField] private GameObject nextDatButtom;
 
+    private SoundScript sound;
     private void Start()
     {
         dayInGame = 1;
@@ -31,6 +32,8 @@ public class UIManagerScript : MonoBehaviour
         imageEndgameS.SetActive(false);
         imageEndgameF.SetActive(false);
         nextDatButtom.SetActive(false);
+
+        sound = this.GetComponent<SoundScript>();
     }
     private void Update()
     {
@@ -41,12 +44,14 @@ public class UIManagerScript : MonoBehaviour
 
         if (ScoreManeger.score >= score.scorePass)
         {
+            sound.PlaySoundWin();
             imageEndgameS.SetActive(true);
             imageEndgameF.SetActive(false);
             nextDatButtom.SetActive(true);
         }
         else if (ScoreManeger.score < score.scorePass)
         {
+            sound.PlaySoundLose();
             imageEndgameF.SetActive(true);
             imageEndgameS.SetActive(false);
             nextDatButtom.SetActive(false);

@@ -179,9 +179,13 @@ public class BedScript : MonoBehaviour
                 Destroy(handPoint.GetChild(0).gameObject, 0);
             }
                 UIManagerScript.treated++;
-            if (TextScript.textStart == 3 || TextScript.textStart == 8 || TextScript.textStart == 9)
+            if (TextScript.textStart == 8 || TextScript.textStart == 9)
             {
                 TextScript.textStart++;
+            }
+            else if (TextScript.textStart == 2)
+            {
+                TextScript.textStart = 4;
             }
             //}//รักษาหาย
         }//เรื่องรักษา

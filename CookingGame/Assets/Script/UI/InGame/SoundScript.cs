@@ -12,6 +12,8 @@ public class SoundScript : MonoBehaviour
 
     public AudioClip musicBG;
     public AudioClip buttonSound;
+    [SerializeField] private AudioClip soundWin;
+    [SerializeField] private AudioClip soundLose;
 
     [SerializeField] private GameObject settingUI;
     public void PlaySoundButton()
@@ -37,8 +39,30 @@ public class SoundScript : MonoBehaviour
     {
         settingUI.SetActive(false);
     }
+    private void PlaySound(AudioClip i)
+    {
+        if (i != null)
+        {
+            soundEffect.clip = i;
+            soundEffect.Play();
+        }
+    }
+    public void PlaySoundWin()
+    {
+        PlaySound(soundWin);
+    }
+    public void PlaySoundLose()
+    {
+        PlaySound(soundLose);
+    }
     private void Start()
     {
+        if (PlayerPrefs.GetFloat("valueSoundBG") == 0)
+        {
+            soundBGBar.value = 50;
+            soundEffectBar.value = 50;
+            UpdateSettingSound();
+        }
         if (soundBGBar != null)
         {
             soundBG.clip = musicBG;
