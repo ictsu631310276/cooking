@@ -40,7 +40,7 @@ public class TextScript : MonoBehaviour
             yield return new WaitForSeconds(ageText);
         }
         allObj.SetActive(false);
-        if (textStart == 2 || textStart == 5 || textStart == 15 || textStart == 18)
+        if (textStart == 2 || textStart == 5 || textStart == 15 || textStart == 16 || textStart == 18)
         {
             textStart++;
         }

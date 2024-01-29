@@ -166,7 +166,7 @@ public class ToolPlayerScript : MonoBehaviour
             {
                 if (!patientID[0].dead)
                 {
-                    if (TextScript.textStart == 16)
+                    if (TextScript.textStart == 15 || TextScript.textStart == 16)
                     {
                         TextScript.textStart++;
                     }

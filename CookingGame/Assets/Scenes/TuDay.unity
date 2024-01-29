@@ -3912,7 +3912,7 @@ MonoBehaviour:
   soundBGBar: {fileID: 731837552}
   soundEffectBar: {fileID: 217060980}
   musicBG: {fileID: 8300000, guid: d3c19a2bd79fcc24ba94d38778eaa91b, type: 3}
-  buttonSound: {fileID: 8300000, guid: 5f63a53d40d09894ca1324cefd3b56b9, type: 3}
+  buttonSound: {fileID: 8300000, guid: aa5ed25d1512d9940a733c191a85c4d4, type: 3}
   settingUI: {fileID: 1505477422}
 --- !u!114 &460418930
 MonoBehaviour:
@@ -8799,8 +8799,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerImage: {fileID: 1770062397}
   textBox: {fileID: 1880853905}
-  speedText: 0.0025
-  ageText: 0.3
+  speedText: 0.025
+  ageText: 3
   allObj: {fileID: 511785300}
   allText:
   - text: "\u0E2B\u0E31\u0E27\u0E44\u0E0A\u0E40\u0E17\u0E49\u0E32\u0E19\u0E31\u0E49\u0E19...\u0E19\u0E31\u0E49\u0E19
@@ -14630,7 +14630,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 9db2f1434ee0f724997bd5cca8dc2415, type: 3}
   - {fileID: 21300000, guid: 08fa8fe6e376ad343bf0930e36e3aa93, type: 3}
   speedHind: 400
-  timeToShowTutorial: 4
+  timeToShowTutorial: 5
 --- !u!4 &2090858829
 Transform:
   m_ObjectHideFlags: 0
