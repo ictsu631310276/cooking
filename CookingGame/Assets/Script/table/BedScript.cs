@@ -35,10 +35,10 @@ public class BedScript : MonoBehaviour
                 }
             }
         }
-        if (other.tag == "Player" && NPCData != null)
-        {
-            PlayMinigame();
-        }
+        //if (other.tag == "Player" && NPCData != null)
+        //{
+        //    PlayMinigame();
+        //}
     }
     private void OnTriggerExit(Collider other)
     {
@@ -48,7 +48,11 @@ public class BedScript : MonoBehaviour
         }
         if (other.tag == "Patient")
         {
-            RemovePiatent();
+            GameObject demo = other.gameObject;
+            if (NPCData.id == demo.GetComponents<PatientDataScript>()[0].id)
+            {
+                RemovePiatent();
+            }
         }
     }
     private void AddPatient(GameObject other)
@@ -86,7 +90,7 @@ public class BedScript : MonoBehaviour
     {
         onMinigame = true;
         minigameObj.SetActive(true);
-        if (NPCData != null && !haveMinigame)
+        if (NPCData != null && !haveMinigame )
         {
             haveMinigame = true;
             for (int i = 0; i < potionData.sicknessData[potionData.FindNumOfSick(NPCData.sicknessID)].patternPress.Length; i++)

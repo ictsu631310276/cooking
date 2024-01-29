@@ -15732,6 +15732,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: a3262dd8dcf896146a3cd7940ca24027, type: 2}
     - target: {fileID: 2630101487871994352, guid: 3414f1f4766e7b24682f6110c6603754, type: 3}
+      propertyPath: potionData
+      value: 
+      objectReference: {fileID: 1527419108}
+    - target: {fileID: 2630101487871994352, guid: 3414f1f4766e7b24682f6110c6603754, type: 3}
       propertyPath: maxNumOfNPC
       value: 2
       objectReference: {fileID: 0}
@@ -15994,6 +15998,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: {fileID: 2117312827}
+  time: {fileID: 735341696}
   treatedTextInGame: {fileID: 160626926}
   deadTextInGame: {fileID: 1423237432}
   treatedText: {fileID: 1335536985}
@@ -16001,7 +16006,6 @@ MonoBehaviour:
   imageEndgameS: {fileID: 615282330}
   imageEndgameF: {fileID: 2118921739}
   nextDatButtom: {fileID: 539068622}
-  time: {fileID: 735341696}
 --- !u!224 &2117312825
 RectTransform:
   m_ObjectHideFlags: 0

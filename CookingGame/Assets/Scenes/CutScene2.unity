@@ -158,8 +158,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.6, y: -0.00000095367}
-  m_SizeDelta: {x: 324.0319, y: 56.9877}
+  m_AnchoredPosition: {x: -0.000002861, y: -0.00000023842}
+  m_SizeDelta: {x: 295.1823, y: 53.0085}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &63440170
 MonoBehaviour:
@@ -208,10 +208,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 36.6
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -362,8 +362,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 766, y: -440}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 307, y: -187.82}
+  m_SizeDelta: {x: 120.0719, y: 20.256}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &252570746
 MonoBehaviour:
@@ -507,8 +507,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -703, y: -440}
-  m_SizeDelta: {x: 366.1153, y: 100}
+  m_AnchoredPosition: {x: -242.92075, y: -187.82}
+  m_SizeDelta: {x: 299.3104, y: 43.888}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &383660888
 MonoBehaviour:
@@ -818,7 +818,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -910,8 +910,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 459.5, y: -440}
-  m_SizeDelta: {x: 366.1153, y: 100}
+  m_AnchoredPosition: {x: 86.78732, y: -187}
+  m_SizeDelta: {x: 282.8277, y: 42.2448}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &784645727
 MonoBehaviour:
@@ -1015,6 +1015,8 @@ MonoBehaviour:
   soundEffectBar: {fileID: 0}
   musicBG: {fileID: 8300000, guid: 80e866ba3dd6bcf4d9f1d2c411ea9ee5, type: 3}
   buttonSound: {fileID: 8300000, guid: da176cc124d50c646b8b8ed2b23f1c3a, type: 3}
+  soundWin: {fileID: 0}
+  soundLose: {fileID: 0}
   settingUI: {fileID: 0}
 --- !u!1 &1241076435
 GameObject:
@@ -1051,8 +1053,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.6, y: -0.00000095367}
-  m_SizeDelta: {x: 324.0319, y: 56.9877}
+  m_AnchoredPosition: {x: -2.6088, y: 0.0000453}
+  m_SizeDelta: {x: 273.82, y: 42.2449}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1241076437
 MonoBehaviour:
@@ -1102,10 +1104,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 29.15
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0

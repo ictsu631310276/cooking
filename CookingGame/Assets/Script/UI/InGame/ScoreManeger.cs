@@ -31,31 +31,34 @@ public class ScoreManeger : MonoBehaviour
 
     private void Update()
     {
-        if (scoreSlider != null)
+        if (timeS != null)
         {
-            scoreSlider.value = score;
-        }
-        timeDown += Time.deltaTime;
-        if (timeDown >= timeDownScore)
-        {
-            timeDown = 0;
-            score -= scoreDown;
-        }
+            if (scoreSlider != null)
+            {
+                scoreSlider.value = score;
+            }
+            timeDown += Time.deltaTime;
+            if (timeDown >= timeDownScore)
+            {
+                timeDown = 0;
+                score -= scoreDown;
+            }
 
-        scoreText.text = "Score : " + score;
+            scoreText.text = "Score : " + score;
 
-        if (score >= scorePass)
-        {
-            gameoverText.text = "Succeed";
-        }
-        else if (score < scorePass)
-        {
-            gameoverText.text = "Fail";
-        }
+            if (score >= scorePass)
+            {
+                gameoverText.text = "Succeed";
+            }
+            else if (score < scorePass)
+            {
+                gameoverText.text = "Fail";
+            }
 
-        if (score >= scorePass * 2)
-        {
-            timeS.time = timeS.timeMax;
+            if (score >= scorePass * 2)
+            {
+                timeS.time = timeS.timeMax;
+            }
         }
     }
 }

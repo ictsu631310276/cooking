@@ -59,8 +59,8 @@ public class SoundScript : MonoBehaviour
     {
         if (PlayerPrefs.GetFloat("valueSoundBG") == 0)
         {
-            soundBGBar.value = 50;
-            soundEffectBar.value = 50;
+            soundBGBar.value = 25;
+            soundEffectBar.value = 25;
             UpdateSettingSound();
         }
         if (soundBGBar != null)

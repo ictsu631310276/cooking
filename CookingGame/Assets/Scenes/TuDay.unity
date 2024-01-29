@@ -3913,6 +3913,8 @@ MonoBehaviour:
   soundEffectBar: {fileID: 217060980}
   musicBG: {fileID: 8300000, guid: d3c19a2bd79fcc24ba94d38778eaa91b, type: 3}
   buttonSound: {fileID: 8300000, guid: aa5ed25d1512d9940a733c191a85c4d4, type: 3}
+  soundWin: {fileID: 0}
+  soundLose: {fileID: 0}
   settingUI: {fileID: 1505477422}
 --- !u!114 &460418930
 MonoBehaviour:
@@ -3947,6 +3949,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: {fileID: 460418930}
+  time: {fileID: 0}
   treatedTextInGame: {fileID: 1417334826}
   deadTextInGame: {fileID: 214761124}
   treatedText: {fileID: 27278308}
@@ -8897,7 +8900,7 @@ MonoBehaviour:
   - text: "\u0E01\u0E47\u0E1A\u0E2D\u0E01\u0E27\u0E48\u0E32\u0E2D\u0E22\u0E48\u0E32\u0E1E\u0E39\u0E14\u0E44\u0E07!"
     playImage: {fileID: 21300000, guid: d716dadc51283f248979ec8d114c9a16, type: 3}
   - text: "\u0E40\u0E23\u0E32\u0E44\u0E21\u0E48\u0E21\u0E35\u0E40\u0E27\u0E25\u0E32\u0E41\u0E25\u0E49\u0E27\u0E17\u0E48\u0E32\u0E19
-      \u0E40\u0E23\u0E32\u0E04\u0E27\u0E19\u0E23\u0E35\u0E1A\u0E44\u0E1B\u0E43\u0E2B\u0E49\u0E44\u0E01\u0E25\u0E08\u0E32\u0E01\u0E17\u0E35\u0E48\u0E19\u0E35\u0E48"
+      \u0E40\u0E23\u0E32\u0E04\u0E27\u0E23\u0E23\u0E35\u0E1A\u0E44\u0E1B\u0E43\u0E2B\u0E49\u0E44\u0E01\u0E25\u0E08\u0E32\u0E01\u0E17\u0E35\u0E48\u0E19\u0E35\u0E48"
     playImage: {fileID: 21300000, guid: a2c0aa45e7b50d546b2a5a4d6f499a56, type: 3}
   - text: "\u0E2B\u0E21\u0E32\u0E22\u0E16\u0E36\u0E07\u0E2D\u0E30\u0E44\u0E23??"
     playImage: {fileID: 21300000, guid: c632f330d60d04643a02be58489a7713, type: 3}

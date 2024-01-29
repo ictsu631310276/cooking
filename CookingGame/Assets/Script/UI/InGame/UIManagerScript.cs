@@ -42,19 +42,22 @@ public class UIManagerScript : MonoBehaviour
         treatedText.text = "treated : " + treated;
         deadText.text = "dead : " + dead;
 
-        if (ScoreManeger.score >= score.scorePass && time.endDay)
+        if (time != null)
         {
-            sound.PlaySoundWin();
-            imageEndgameS.SetActive(true);
-            imageEndgameF.SetActive(false);
-            nextDatButtom.SetActive(true);
-        }
-        else if (ScoreManeger.score < score.scorePass && time.endDay)
-        {
-            sound.PlaySoundLose();
-            imageEndgameF.SetActive(true);
-            imageEndgameS.SetActive(false);
-            nextDatButtom.SetActive(false);
+            if (ScoreManeger.score >= score.scorePass && time.endDay)
+            {
+                sound.PlaySoundWin();
+                imageEndgameS.SetActive(true);
+                imageEndgameF.SetActive(false);
+                nextDatButtom.SetActive(true);
+            }
+            else if (ScoreManeger.score < score.scorePass && time.endDay)
+            {
+                sound.PlaySoundLose();
+                imageEndgameF.SetActive(true);
+                imageEndgameS.SetActive(false);
+                nextDatButtom.SetActive(false);
+            }
         }
     }
 }
