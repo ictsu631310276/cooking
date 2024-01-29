@@ -35,10 +35,6 @@ public class BedScript : MonoBehaviour
                 }
             }
         }
-        //if (other.tag == "Player" && NPCData != null)
-        //{
-        //    PlayMinigame();
-        //}
     }
     private void OnTriggerExit(Collider other)
     {
@@ -187,7 +183,7 @@ public class BedScript : MonoBehaviour
             {
                 TextScript.textStart++;
             }
-            else if (TextScript.textStart == 2)
+            else if (TextScript.textStart == 2 || TextScript.textStart == 3)
             {
                 TextScript.textStart = 4;
             }
