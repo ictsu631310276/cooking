@@ -11343,20 +11343,20 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5154283208279506760, guid: 38435adab317cb24a8bbdcadfd3b55c5, type: 3}
       propertyPath: sicknessData.Array.size
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -5154283208279506760, guid: 38435adab317cb24a8bbdcadfd3b55c5, type: 3}
       propertyPath: sicknessData.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: ee53aba7ad9524f4d8f68348502de184, type: 2}
+      objectReference: {fileID: 11400000, guid: f702f840a3d5e204c83624c0873f052f, type: 2}
     - target: {fileID: -5154283208279506760, guid: 38435adab317cb24a8bbdcadfd3b55c5, type: 3}
       propertyPath: sicknessData.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: f702f840a3d5e204c83624c0873f052f, type: 2}
+      objectReference: {fileID: 11400000, guid: 856b6dc62665514488ce5cc5e6ff27f7, type: 2}
     - target: {fileID: -5154283208279506760, guid: 38435adab317cb24a8bbdcadfd3b55c5, type: 3}
       propertyPath: sicknessData.Array.data[3]
       value: 
-      objectReference: {fileID: 11400000, guid: f702f840a3d5e204c83624c0873f052f, type: 2}
+      objectReference: {fileID: 11400000, guid: 856b6dc62665514488ce5cc5e6ff27f7, type: 2}
     - target: {fileID: -5154283208279506760, guid: 38435adab317cb24a8bbdcadfd3b55c5, type: 3}
       propertyPath: sicknessData.Array.data[4]
       value: 
