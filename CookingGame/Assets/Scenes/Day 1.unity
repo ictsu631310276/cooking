@@ -15973,6 +15973,7 @@ MonoBehaviour:
   imageEndgameS: {fileID: 615282330}
   imageEndgameF: {fileID: 2118921739}
   nextDatButtom: {fileID: 539068622}
+  time: {fileID: 735341696}
 --- !u!224 &2117312825
 RectTransform:
   m_ObjectHideFlags: 0

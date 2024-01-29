@@ -1992,7 +1992,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &255954908
 AudioSource:
@@ -3303,7 +3303,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &403206054
 MonoBehaviour:
@@ -3365,7 +3365,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &409963015
 AudioSource:
@@ -7245,7 +7245,7 @@ RectTransform:
   - {fileID: 1683412524}
   - {fileID: 1478654000}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -8005,7 +8005,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.7590909, b: 0, a: 0.7372549}
+  m_Color: {r: 0.5188679, g: 0.3947466, b: 0, a: 0.7372549}
   m_Intensity: 0.48
   m_Range: 10
   m_SpotAngle: 30
@@ -11343,10 +11343,30 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5154283208279506760, guid: 38435adab317cb24a8bbdcadfd3b55c5, type: 3}
       propertyPath: sicknessData.Array.size
-      value: 3
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: -5154283208279506760, guid: 38435adab317cb24a8bbdcadfd3b55c5, type: 3}
+      propertyPath: sicknessData.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: ee53aba7ad9524f4d8f68348502de184, type: 2}
+    - target: {fileID: -5154283208279506760, guid: 38435adab317cb24a8bbdcadfd3b55c5, type: 3}
       propertyPath: sicknessData.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: f702f840a3d5e204c83624c0873f052f, type: 2}
+    - target: {fileID: -5154283208279506760, guid: 38435adab317cb24a8bbdcadfd3b55c5, type: 3}
+      propertyPath: sicknessData.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: f702f840a3d5e204c83624c0873f052f, type: 2}
+    - target: {fileID: -5154283208279506760, guid: 38435adab317cb24a8bbdcadfd3b55c5, type: 3}
+      propertyPath: sicknessData.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 856b6dc62665514488ce5cc5e6ff27f7, type: 2}
+    - target: {fileID: -5154283208279506760, guid: 38435adab317cb24a8bbdcadfd3b55c5, type: 3}
+      propertyPath: sicknessData.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 856b6dc62665514488ce5cc5e6ff27f7, type: 2}
+    - target: {fileID: -5154283208279506760, guid: 38435adab317cb24a8bbdcadfd3b55c5, type: 3}
+      propertyPath: sicknessData.Array.data[6]
       value: 
       objectReference: {fileID: 11400000, guid: 856b6dc62665514488ce5cc5e6ff27f7, type: 2}
     - target: {fileID: 2520598715831065209, guid: 38435adab317cb24a8bbdcadfd3b55c5, type: 3}
@@ -11442,7 +11462,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.94589347, b: 0.7877358, a: 0.7372549}
+  m_Color: {r: 1, g: 0.66356647, b: 0.6367924, a: 0.7372549}
   m_Intensity: 0.8
   m_Range: 10
   m_SpotAngle: 30
@@ -11506,7 +11526,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 105.800995, y: -266.904, z: 92.046}
 --- !u!1001 &1544612355
 PrefabInstance:
@@ -13270,7 +13290,7 @@ Transform:
   - {fileID: 1636789550}
   - {fileID: 165737719}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1800198651
 GameObject:
@@ -15605,7 +15625,7 @@ Transform:
   - {fileID: 851843980}
   - {fileID: 1956417941}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2072023145
 MonoBehaviour:
@@ -15733,7 +15753,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8482266052376219650, guid: 3414f1f4766e7b24682f6110c6603754, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8482266052376219650, guid: 3414f1f4766e7b24682f6110c6603754, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15806,7 +15826,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2115504935
 GameObject:
@@ -15981,6 +16001,7 @@ MonoBehaviour:
   imageEndgameS: {fileID: 615282330}
   imageEndgameF: {fileID: 2118921739}
   nextDatButtom: {fileID: 539068622}
+  time: {fileID: 735341696}
 --- !u!224 &2117312825
 RectTransform:
   m_ObjectHideFlags: 0

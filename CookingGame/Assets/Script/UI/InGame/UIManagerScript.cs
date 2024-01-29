@@ -6,8 +6,8 @@ using TMPro;
 
 public class UIManagerScript : MonoBehaviour
 {
-    public ScoreManeger score;
-
+    [SerializeField] private ScoreManeger score;
+    [SerializeField] private TimeUI time;
     public static int numOfPlayer;
     public static int dayInGame = 1;
     public static int treated;
@@ -42,14 +42,14 @@ public class UIManagerScript : MonoBehaviour
         treatedText.text = "treated : " + treated;
         deadText.text = "dead : " + dead;
 
-        if (ScoreManeger.score >= score.scorePass)
+        if (ScoreManeger.score >= score.scorePass && time.endDay)
         {
             sound.PlaySoundWin();
             imageEndgameS.SetActive(true);
             imageEndgameF.SetActive(false);
             nextDatButtom.SetActive(true);
         }
-        else if (ScoreManeger.score < score.scorePass)
+        else if (ScoreManeger.score < score.scorePass && time.endDay)
         {
             sound.PlaySoundLose();
             imageEndgameF.SetActive(true);
