@@ -275,6 +275,7 @@ MonoBehaviour:
   launchPoint: {fileID: 2065235633536409014}
   height: 10
   distance: 10
+  potionData: {fileID: 0}
 --- !u!114 &2056429782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,6 +294,7 @@ MonoBehaviour:
   handPoint: {fileID: 2572889224831709386}
   itemID: 0
   havePatient: 0
+  potionData: {fileID: 0}
 --- !u!114 &5264205218900150042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -397,19 +399,7 @@ MonoBehaviour:
     m_ActionId: 95f92137-04bc-4480-89ff-abbba3627400
     m_ActionName: Player/walk[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2056429782}
-        m_TargetAssemblyTypeName: ToolPlayerScript, Assembly-CSharp
-        m_MethodName: ChangeTarget
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 9d24e631-cf38-41a6-88f7-ed15bd7049d9
     m_ActionName: Player/E[/Keyboard/e]
   - m_PersistentCalls:

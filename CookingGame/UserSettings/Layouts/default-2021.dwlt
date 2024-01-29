@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 1037
   m_ShowMode: 4
-  m_Title: Console
+  m_Title: Hierarchy
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 1
-  controlID: 19
+  controlID: 123
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 20
+  controlID: 124
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 132
+  controlID: 92
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -271,8 +271,8 @@ MonoBehaviour:
     y: 0
     width: 326
     height: 987
-  m_MinSize: {x: 277, y: 71}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -534,7 +534,7 @@ MonoBehaviour:
   m_Position:
     m_Target: {x: 935.2438, y: 512.2588, z: -21.652359}
     speed: 2
-    m_Value: {x: 935.2438, y: 512.2588, z: -21.652359}
+    m_Value: {x: 7.099618, y: -0.8451834, z: -3.3690765}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -583,15 +583,15 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: 0, y: 0, z: 0, w: 1}
     speed: 2
-    m_Value: {x: 0, y: 0, z: 0, w: 1}
+    m_Value: {x: -0.14273567, y: -0.67358446, z: 0.12936614, w: -0.71356493}
   m_Size:
     m_Target: 664.86957
     speed: 2
-    m_Value: 664.86957
+    m_Value: 9.241292
   m_Ortho:
     m_Target: 1
     speed: 2
-    m_Value: 1
+    m_Value: 0
   m_CameraSettings:
     m_Speed: 1.2437999
     m_SpeedNormalized: 0.61999995
@@ -605,7 +605,7 @@ MonoBehaviour:
     m_FarClip: 10000
     m_DynamicClip: 1
     m_OcclusionCulling: 0
-  m_LastSceneViewRotation: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
+  m_LastSceneViewRotation: {x: -0.14290044, y: -0.674362, z: 0.12951547, w: -0.7143886}
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 
@@ -645,7 +645,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 36a4ffff7aa4ffff82a4ffff8aa4ffffb0aeffffa2b9ffff94c4ffff9ac4ffff64c9ffffa8c9ffffd0cbffffd8cbfffffed5fffff0e0ffffeaebfffff4ebffffe6faffff2eaa0000
+      m_ExpandedIDs: 0448ffff4848ffff704affff784affffaa54ffff9c5fffff8e6affff986affffb6eeffffe6faffff40810000d4830000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1649,7 +1649,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 482
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
@@ -1752,21 +1752,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Script/NPC
+    - Assets/Script/Player/InputSystem/key
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Script/NPC
+  - Assets/Script/Player/InputSystem/key
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\User\Documents\GitHub\cooking\CookingGame
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: d07f0000
-    m_LastClickedID: 32720
+    m_SelectedIDs: 20800000
+    m_LastClickedID: 32800
     m_ExpandedIDs: 000000008a7f00008c7f00008e7f0000907f0000927f0000947f0000967f0000987f00009a7f00009c7f00009e7f0000a07f0000a27f000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1822,7 +1822,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: 787a0000a621000074630000426900006a5d00004e5f00008e5e00006a6500005a6500004e61000062650000604bfeffca5e0000ac790000ae790000665e00006c5e00005c6000005e6000006060000062600000c4730000ec730000be730000d8720000ea7300008a6600003c600000c474000074690000d06d0000f66e00008262000066610000ca610000b46200007c680000ee670000786f00006a6b0000466d00003a7b00008e640000526d00004656010044560100009700003656010042560100ec680000f2750000728d000060720000d2720000028d0000668b0000988700002c6c0000967c00004c8300001a6d0000da700000be770000b26c000042780000f4830000be860000bc860000c286000078a70000926c0000627200006472000066720000687200009c6c00007a9e0000749e0000769e000000000000d86a0000da6a0000dc6a0000e66b0000046c0000f06b0000fe6b0000006c0000086c0000026c0000066c0000f46b0000ea6b0000f86b00009c6d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
