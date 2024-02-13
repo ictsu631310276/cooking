@@ -43,6 +43,7 @@ public class ButtomInMenu : MonoBehaviour
     }
     private void Start()
     {
+        Display.displays[0].Activate(0, 0, 0);
         Time.timeScale = 1;
         if (playUI != null)
         {

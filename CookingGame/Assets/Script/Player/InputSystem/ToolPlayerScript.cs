@@ -10,7 +10,7 @@ public class ToolPlayerScript : MonoBehaviour
     public List<ItemBoxScript> itemBox = new List<ItemBoxScript>();
     [SerializeField] private Transform handPoint;
     [HideInInspector] public int itemID;
-    public bool havePatient;
+    [HideInInspector] public bool havePatient;
     private GameObject modelItem;
     public PotionDataScript potionData;
     private void OnTriggerEnter(Collider other)

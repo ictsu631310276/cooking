@@ -144,35 +144,7 @@ public class BedScript : MonoBehaviour
         }
         if (minigame.difficulty == 0 && NPCData != null)
         {
-            //if (NPCData.sicknessID != 1 && NPCData.sicknessLevel != -1)
-            //{
-            //    itemId = 0;
-            //    Destroy(handPoint.GetChild(0).gameObject, 0);
-            //    minigame.difficulty = 1;
-            //    NPCData.declineH = potionData.sicknessData[0].declineLife;
-            //    NPCData.tiemDeclineH = potionData.sicknessData[0].timeToDeclineLife;
-            //    NPCData.allModelSickness = potionData.sicknessData[0].modleSickness;
-            //    if (NPCData.sicknessID == 2)
-            //    {
-            //        NPCData.sicknessID = 1;
-            //        minigame.ClearRhythm();
-            //        minigame.difficulty = 1;
-            //        haveMinigame = false;
-            //        PlayMinigame();
-            //        CloseMinigame();
-            //    }
-            //    else
-            //    {
-            //        NPCData.sicknessID = 1;
-            //        NPCData.handPoint = null;
-            //        NPCData.onBed = false;
-            //        NPCData.onHand = false;
-            //        RemovePiatent();
-            //    }
-            //}//รักษาโรคปกติ
-            //else
-            //{
-                Goodbye();   
+            Goodbye();   
             if (itemId != 0)
             {
                 itemId = 0;
@@ -187,7 +159,6 @@ public class BedScript : MonoBehaviour
             {
                 TextScript.textStart = 4;
             }
-            //}//รักษาหาย
         }//เรื่องรักษา
         if (minigame.deHeat != 0 && NPCData != null)
         {

@@ -20,7 +20,8 @@ public class TrolleySpawnScript : MonoBehaviour
         float random1 = Random.Range(-2f, 2f);
         float random2 = Random.Range(-2f, 2f);
         float random3 = Random.Range(-2f, 2f);
-        Vector3 ranTransform = new Vector3(spawnPoint.transform.position.x + random1, spawnPoint.transform.position.y + random2, spawnPoint.transform.position.z + random3);
+        Vector3 ranTransform = new Vector3(spawnPoint.transform.position.x + random1,
+            spawnPoint.transform.position.y + random2, spawnPoint.transform.position.z + random3);
 
         PatientDataScript npcSpawn = Instantiate(npcData[typeBun], ranTransform, Quaternion.identity);
         npcSpawn.id = iDNPC;
