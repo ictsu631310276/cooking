@@ -35,6 +35,10 @@ public class buttomInGame : MonoBehaviour
     {
         UIManagerScript.dayInGame++;
         SceneManager.LoadScene(UIManagerScript.dayInGame);
+        if (PlayerPrefs.GetInt("Day") <= UIManagerScript.dayInGame)
+        {
+            PlayerPrefs.SetInt("Day", UIManagerScript.dayInGame);
+        }
     }
     public void ExitButtom()
     {

@@ -5,11 +5,13 @@ using UnityEngine.UI;
 
 public class SoundScript : MonoBehaviour
 {
+    [Header("OutSound")]
     public AudioSource soundBG;
     public AudioSource soundEffect;
+    [Header("SliderSound")]
     public Slider soundBGBar;
     public Slider soundEffectBar;
-
+    [Header("Sound")]
     public AudioClip musicBG;
     public AudioClip buttonSound;
     [SerializeField] private AudioClip soundWin;

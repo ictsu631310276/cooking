@@ -87,6 +87,10 @@ public class TextScript : MonoBehaviour
         else if (textStart == 19)
         {
             SceneManager.LoadScene("CutScene2");
+            if (PlayerPrefs.GetInt("Day") <= 1)
+            {
+                PlayerPrefs.SetInt("Day", 1);
+            }
         }
     }
 }

@@ -52,14 +52,14 @@ public class miniGame : MonoBehaviour
             listDelay.Add(_Arrow);
         }
     }
-    private void CheckArrowNew(int i)
+    private void CheckArrowNew(int i,int j)// i : arrow ,j : score
     {
         timeDelayInput = 0;
         if (intArrow[0] == i)
         {
             particle[0].Play();
             dataPotion.sound.PlaySoundArrow(true);
-            ScoreManeger.score += 5;
+            ScoreManeger.score += 5 * j;
             deHeat = healCorrectly;
             buttonPressed++;
 
@@ -163,17 +163,25 @@ public class miniGame : MonoBehaviour
             if (timeDelayInput < dataPotion.timeDelayInput - errorProtectionDistance && arrowAdd != 5)
             {
                 particle[1].Play();
-                CheckArrowNew(4);
+                CheckArrowNew(4 , 1);
             }
             else if (timeDelayInput >= dataPotion.timeDelayInput - errorProtectionDistance && 
                 timeDelayInput <= dataPotion.timeDelayInput + errorProtectionDistance && arrowAdd != 5)
             {
-                CheckArrowNew(arrowAdd);
+                if (timeDelayInput >= dataPotion.timeDelayInput - (errorProtectionDistance / 2) &&
+                timeDelayInput <= dataPotion.timeDelayInput + (errorProtectionDistance / 2))
+                {
+                    CheckArrowNew(arrowAdd, 2);
+                }
+                else
+                {
+                    CheckArrowNew(arrowAdd , 1);
+                }
             }
             else if (timeDelayInput > dataPotion.timeDelayInput + errorProtectionDistance)
             {
                 particle[1].Play();
-                CheckArrowNew(4);
+                CheckArrowNew(4 , 1);
             }
         }
         else if (intArrow.Count == 0 && haveRhythm && difficulty >= 0)

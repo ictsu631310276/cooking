@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class SoundPlayerScript : MonoBehaviour
 {
+    [Header("Sound")]
     [SerializeField] private AudioClip soundPick;
     [SerializeField] private AudioClip soundArrowCorrect;
     [SerializeField] private AudioClip soundArrowWrong;

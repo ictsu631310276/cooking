@@ -5,13 +5,15 @@ using UnityEngine.UI;
 
 public class SpawnNPCTo : MonoBehaviour
 {
+    [Header("NPC_Data")]
     [SerializeField] private PatientDataScript npcData;
     private int idNPC;
+    [Header("Sickness_Data")]
     [SerializeField] private CreateSicknessScript[] sicknessData;
     [SerializeField] private GameObject obj;//โรคเปล่า
     [SerializeField] private GameObject bedObj;
     [SerializeField] private GameObject binObj;
-
+    [Header("Tutorial")]
     [SerializeField] private RawImage tutorialImage;
     private RectTransform rectTransformImage;
     [SerializeField] private Sprite[] tutorial;

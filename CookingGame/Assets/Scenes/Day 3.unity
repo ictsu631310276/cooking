@@ -12181,6 +12181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: {fileID: 2117312827}
+  time: {fileID: 0}
   treatedTextInGame: {fileID: 1824925870}
   deadTextInGame: {fileID: 856360462}
   treatedText: {fileID: 1335536985}
@@ -12261,6 +12262,8 @@ MonoBehaviour:
   soundEffectBar: {fileID: 0}
   musicBG: {fileID: 0}
   buttonSound: {fileID: 8300000, guid: 616e37d792357454f8a3570fe7a0e86e, type: 3}
+  soundWin: {fileID: 0}
+  soundLose: {fileID: 0}
   settingUI: {fileID: 0}
 --- !u!1 &2118921739
 GameObject:
